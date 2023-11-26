@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          MPT 下岗？智能合约区块链的优化 - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="阅读本文可以更加深刻的理解区块链链上存储的机制，以及优化手段。" />
+<meta name="keywords" content="智能合約" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/61428/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="MPT 下岗？智能合约区块链的优化" />
+<meta property="og:description" content="阅读本文可以更加深刻的理解区块链链上存储的机制，以及优化手段。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/61428/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-10-19T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-10-19T00:00:00+00:00" />
+
+<meta itemprop="name" content="MPT 下岗？智能合约区块链的优化">
+<meta itemprop="description" content="阅读本文可以更加深刻的理解区块链链上存储的机制，以及优化手段。"><meta itemprop="datePublished" content="2023-10-19T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-10-19T00:00:00+00:00" />
+<meta itemprop="wordCount" content="6124">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="MPT 下岗？智能合约区块链的优化"/>
+<meta name="twitter:description" content="阅读本文可以更加深刻的理解区块链链上存储的机制，以及优化手段。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">MPT 下岗？智能合约区块链的优化</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-10-19">
+      2023-10-19
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 6124 字 -
+        预计阅读 13 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/"> 区块链 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>作者：KJ， LXDAO</p>
+<p><strong>背景和动机</strong></p>
+<p>在开始讲对 MPT 的改进之前，我们先谈一谈进行这项研究的背景。</p>
+<p>本人在读博并且做公链设计。这条公链除了核心的共识升级：有用的工作量证明以外，另一个重要的任务是实现兼容 ETH 的智能合约系统。我们目前已经实现了一个基于 Python 字节码的虚拟机，并整合到一条区块链的合约系统中，并且非常意外的做到了以太坊 RPC 兼容。我们使用 Python 构建了一个符合 ERC20 标准的智能合约进行测试，很自然的我们要在合约执行的下层，实现能承载千万级别用户的 KV 数据机构（类似于 Solidity 中的 Mapping，用来存储每个账号下的代币数量，这样的账号可能有上亿个）。</p>
+<p>接下来，公链设计的工作内容很自然的触达到了 MPT、Trie 等概念。我们参考了以太坊的设计，三棵树，Trie，MPT 等。在此，我要感谢北大肖老师的区块链视频，（16-ETH-状态树_哔哩哔哩_bilibili 第 16 讲），让我们快速的理解了这一部分知识。</p>
+<p><strong>视频链接</strong> <strong>：</strong> <a href="https://www.bilibili.com/video/BV1Vt411X7JF?t=11.0">https://www.bilibili.com/video/BV1Vt411X7JF?t=11.0</a></p>
+<h2 id="heading">**发现瓶颈<br>
+**</h2>
+<p>幸运的是，在我们准备动手实现智能合约调用 MPT 之前，我们突发奇想的在 AWS 的服务器上运行了一个简单的 MPT 树 Benchmark 程序。当尝试用 Trie 和 MPT 插入一亿 KV 的数据量后，我们非常惊讶的得到了结果：MPT 树的性能居然是这样的低。</p>
+<p>运行以下代码，我们观察到：向 Rocksdb 插入一千万 KV 键值对，Trie 需要几分钟，MPT 需要几小时。当我们把测试数据数量级增加到 1 亿，MPT 插入程序需要运行数天。这意味着，区块链使用 MPT 数据结构运行智能合约的时候，速度也会受到较大限制。</p>
+<p>实验证明，使用 MPT 数据结构带来的开销，既会拖慢智能合约的执行速度，也会降低区块链节点的同步速度（即使在带宽非常充足的时候，从其他节点下载数据并且重建节点，也必须花费数天时间）。然而，由于以太坊的数据结构设计很难被修改，即使我们用“更快”的编程语言重写或者优化，如果不做底层数据结构上的更新，区块链将很难突破性能的限制。</p>
+<p>test_mpt_write.py</p>
+<pre><code>import mpt
+</code></pre>
+<p>test_mpt_write.py</p>
+<pre><code>import rocksdb
+</code></pre>
+<p>链接：https://gist.github.com/kernel1983/f746c1470376e422a8efe3ee6782901d</p>
+<p>还记得我在刚学写代码的时候，老师们告诉我们一个基本原理，程序 = 算法 + 数据结构。如果我们限定数据结构，那么即使在算法上拼命优化（这往往需要数年的学术努力，很多情况下几乎无法再提高），也很难突破当前数据结构的性能限制。那么非常学术的改进方案，寻找性能更好的 MPT 代替算法，研究可能会花费数年时间。作为在这个方向努力的前辈，Verkle Tree 使用多项式的方式优化区块链数据结构，我们则会尝试一些更加独特和简单的思路。</p>
+<p>我们采用第一性原理思考方式，能不能不用 MPT ？如果我们可以绕开 MPT 直接在 Trie 之上实现智能合约，就不再有 MPT 带来的开销 （马一龙的第一性原理，一个不存在的东西是不会有性能开销的）。</p>
+<p>作为代价，我们新设计的方案可能无法与现有 MPT 直接兼容，但是由于不修改以太坊 RPC 接口，所以可以重用很多现有以太坊基础设施：比如 Etherjs 和 MetaMask。绕开 MPT 属于内部数据结构优化，这是对区块链性能的自由探索。</p>
+<p><strong>前置知识</strong></p>
+<h3 id="rocksdb-和-trie"><strong>Rocksdb 和 Trie</strong></h3>
+<p>Trie 字典树，是一种大学课本中提及高级的树数据结构，在肖老师的视频中 MPT 就是基于 Trie 字典树构建的。我们可以认为 Trie 的实现环境是在内存当中。</p>
+<p>但是我们工程上，是无法直接使用 Trie 直接实现产品，因为我们还需要让数据在硬盘上持久化，这一步骤又有很多工程上的优化，所以我们一般基于 Rocksdb 来实现 MPT 树。</p>
+<p>Rocksdb 是 FB 基于 leveldb 的开源 Fork，底层使用了 LSMT（参考论文 The log-structured merge-tree）。从抽象的角度，我们可以把 Rocksdb 认为是一个优化过的，可以持久化的字典树。</p>
+<p>Rocksdb 的基本使用非常简单，主要用到的是 Get put 和按前缀 Iterate 查询三种基本操作。</p>
+<h3 id="状态机"><strong>状态机</strong></h3>
+<p>状态机是经常被人们用来建模区块链的工具，它非常简单：给一个原有状态加上一个输入, 得到一个新状态。</p>
+<p>以太坊的全局状态可以理解成状态机的状态，比如在区块 1 的时候, 所有智能合约的 KV 值就是一个全局状态，一个区块中所有的交易，被 EVM 执行，可以理解成状态机的输入，比如一个 Mint 合约调用，使得一个用户的 Balance 和合约的 Total 变量在区块 2 变为 1000。</p>
+<p>一个容易被人们忽视的状态机概念，叫状态转换函数，它定义了输入的规则，当输入不合理的时候，会拒绝输入信息。比如，我们尝试转账给别人一个负数金额的时候，这样的交易就不会被执行 (当然，有 Bug 的智能合约可以接受这样的交易，在 ETH 中，状态转换函数可以通过图灵完备的语言自定义)。</p>
+<h2 id="mpt-介绍"><strong>MPT 介绍</strong></h2>
+<p>有可能你已经听说过以太坊三棵树，分别叫交易树，状态树，和回执树。他们都是 MPT 树，全称是 Merkle Patricia Tries 。其中，状态树可能是最适合使用 MPT 数据结构的用例。具体可以参考肖老师的视频讲解。</p>
+<p>MPT 树基于 Trie 数据结构之上，能够像默克尔树一样把所有状态数据，计算成一个根哈希，放到以太坊的区块头。以太坊区块头里有三棵 MPT 树的根哈希，我们通常叫做三棵树。</p>
+<p>区块头中是否可以不放置全局状态的树根呢？可以的，比特币区块中放置的就是交易，并把交易的默克尔根放进了区块头（使用了默克尔树，但没有使用 MPT）。但是比特币没有以太那样的智能合约，也没有全局状态的概念。以太坊在最初设计带智能合约的区块链的时候，抛弃了比特币的 1 M 区块设计和 UTXO，选择 MPT 数据结构和账户模型，以及用 Gas 来解决停机问题，满足了智能合约运行中对于全局状态的需求。</p>
+<p>那么，以太坊中使用 MPT 的目标是什么呢?</p>
+<p>1.通过区块头中的默克尔根，查找区块链对应的状态。</p>
+<p>2.节省重复数据占用的空间。</p>
+<p>3.可以通过根哈希验证状态是否正确。</p>
+<p>其中第 1 点是刚需，执行 EVM 的同时需要读取各种状态，如果使用类似比特币 UTXO 的设计模式，需要回溯很多区块才能得到某个用户的账户余额状态。使用 MPT 则很好的满足需求。</p>
+<p>第 2 点，MPT 节省空间，区块链状态可以看成是一个巨大的字典。每个区块，仅仅有一小部分 Key 被更新，大部分 Key 还是保持原有值。使用 MPT 树可以仅仅更新需要更新的键值，无需在每个区块将未改动的状态复制一遍。</p>
+<p>第 3 点，MPT 的优势是，使用根哈希访问到的状态键值，已经完成了全局状态的验证。这也是在写入 MPT 树时候，比较耗时的主要原因。如果不使用 MPT，节点依然可以在同步区块期间，验证数据的一致性。</p>
+<p>不使用 MPT 完成第 1 和第 2 点，我们就可以绕开 MPT 的开销。所以我们要基于 Trie（可以理解为 Rocksdb）设计一个方案，存储区块链的状态数据。</p>
+<h2 id="设计"><strong>设计</strong></h2>
+<p>我们主要设计一个基于 Trie 的方案来存储链上状态，根据第一性原理，不存在 MPT 数据结构，就没有运行 MPT 所需要的系统开销。只要基于 Trie 的智能合约系统可以被实现并正确运行，就意味着优化已经完成。实践中我们可以把 Rocksdb 看成是一个 Trie，更简单的理解，就是一个高性能的 KV 数据库。</p>
+<p>使用 [globalstate 为前缀_合约地址_变量名_区块高度_区块哈希] 作为 KV 数据库的键值，比如以下格式。其中 0x1 是合约地址，Total 是变量名，1 是区块高度，ABC1234 是区块哈希值（后面会省略）</p>
+<p>globalstate_0x1_total_1_abc1234</p>
+<p>在以太坊 Solidity 中，变量可以定义为 Memory、Storage 和 Calldata，我们主要关注 Storage 类型，因为它会被存储在全局状态中。除了简单变量外，我们还考虑 Mapping，因为区块链上用户的数量级是全球级别的，所以会出现超大的 KV mapping。除此以外，Array 等数据类型，我们会当成简单数据结构处理，直接 Json 后存入 Rocksdb。我们在编码的时候，应当很自然的估算 KV 数据结构中的 Value 数据数量级，以选择适当的存储方式。</p>
+<h3 id="合约存储状态变量"><strong>合约存储状态变量</strong></h3>
+<p>如果不使用 MPT，我们如何实现 MPT 的第一点和第二点设计目标呢？</p>
+<p>假设我们在 ERC20 合约中有一个变量 Total，这个变量只有在 Token 数量总量增加（Mint）或者减少（Burn）的时候才会改变，但是用户 A 向用户 B 转账（Transfer）的时候 Total 的值保持不变。</p>
+<p>为了简单，假设合约地址是 0x1，在区块高度为 1 的时候，合约的 Owner 进行了一次 Mint 2000，在高度为 2－8 区块上，用户进行了多次转账，现在区块高度是 9。</p>
+<p>此时，我们只需要向数据库查询以 [globalstate_0x1_total_] 前缀的 Key。虽然我们的当前最新区块是 9，但是由于 Total 变量在 2-8 区块都没有发生变化，所以以上查询的第一个结果将是 [globalstate_0x1_total_1] 的值，所以我们找到了 Total 变量的最新值，在区块 1 的时候发生过改变的 Total 变量。</p>
+<p>此时，新区块又产生，假设用户在第 9 区块和第 11 区块又做了两次 Mint。这里我们发现 Rocksdb 的一个特性，如果我们有以下 Key</p>
+<p>globalstate_0x1_total_1  : 2000</p>
+<p>globalstate_0x1_total_9  : 4000</p>
+<p>globalstate_0x1_total_11 : 6000</p>
+<p>那么搜索的第一个结果总是区块 1，而不是最新区块 11。因为我们暂时没有从 Rocksdb 文档中找到改变搜索结果顺序的参数，所以我们用了一个小技巧，使用一个较大的数字比如 100 去减区块高度（实际会大得多），并且补零，所以最新区块会排在搜索结果最前面。</p>
+<p>globalstate_0x1_total_089 : 6000</p>
+<p>globalstate_0x1_total_091 : 4000</p>
+<p>globalstate_0x1_total_099 : 2000</p>
+<p><strong>存储 Mapping 类型</strong></p>
+<p>前面我们提到了，Mapping 数据结构的 Key 量级有可能是海量的，所以我们不可能将 Mapping 中上万个 Key 的字典 Json 成一个字符串，否则添加删除 Key，或者修改 Value 的代价会是非常可怕的。</p>
+<p>假设用户的地址是 0x2，我们稍稍扩展一下之前的存储 Key 格式：</p>
+<p>[globalstate_0x1_[balance_0x2]_2] : 2000</p>
+<p>这里之前的 [变量名]，扩展成了[变量名 + Mapping 字典的 Key]</p>
+<p>以上数据代表用户 0x2 在区块高度 2 的 Balance 余额是 2000，如果没有更新的数据覆盖当前的余额，那么用户在区块 2 的数据就代表着最新状态。</p>
+<p>globalstate_0x1_balance_0x2_098 : 2000</p>
+<p>globalstate_0x1_total_0x1_099 : 2000</p>
+<h3 id="验证区块"><strong>验证区块</strong></h3>
+<p>和默克尔树根一样，MPT 树根也代表着对全局状态的一种验证。只要我们可以保证区块数据一致性，是否一定要用 MPT 并且把 Root 写进区块头，是可以在设计上取舍的。</p>
+<p>我们在区块设计上做了一些改进，让区块头包含了两个 Body，一个是交易数据块，另外一个是状态更新数据块。</p>
+<p>交易数据块包含所有交易的哈希，矿工或者节点可以某个区块高度的全局状态开始，按照交易数据块中的给出的顺序执行完所有交易，得到下一个区块的全局状态。如果交易量很大，执行又不太可能并行（因为会打乱交易顺序），所以如果要求全世界的节点都执行一遍所有交易，是比较费时间的。</p>
+<p>为此，我们设计了状态更新数据块，其中包括了运行完所有交易以后，被更新过的全局状态键值。如果是一个落后很多区块的节点，那么在选择运行虚拟机执行所有交易以外，它也可以根据状态更新 Body 的内容，直接向数据库插入键值，以节约运算量，缩短同步时间。</p>
+<p>当然，执行所有交易更新的键值，和状态更新区块包含的 Diff，必须完全一致，否则这个新区块是不合法的。</p>
+<p>假设全世界有 10000 个节点，当我们掷色子设定百分之一的概率去执行交易，大约 100 个节点会执行交块交易，其他节点则信任接状态更新数据块的内容，那么这个区块链系统中很多节点将能节省大量重复运算。</p>
+<p><strong>实现</strong></p>
+<p>在完成了之前的设计之后，我们马上着手实现这一想法。</p>
+<p>首先，我们将 Python VM 整合进了区块链系统。这是一个由 Python 实现的 Python 虚拟机，目前它兼容 PY 3.10 的字节码。我们希望智能合约可以使用 Python 的部分语法，比如我们只需要函数，并不希望开发者使用 Class，所以我们目前并没有完全支持所有的 PY 字节码。</p>
+<p>关于编译器，Solidity 需要开发专用的编译器，将源代码转换成 EVM 字节码。使用 Python 可以借助这个有三十年历史的优秀基础设施语言，轻松的将 Python 源码转换成 PY 字节码，用户几乎感觉不到编译时间。</p>
+<p>我们的 VM 代码仓库如下，欢迎大家给我们提意见，修复潜在安全问题：</p>
+<p><img src="https://img.bibiqing.com/news/2023/1019/12_ancersq24k.png" alt="MPT 下岗？智能合约区块链的优化"></p>
+<p><strong>链接：</strong> <a href="https://github.com/EcoPoW/python">https://github.com/EcoPoW/python</a>_stf_vm</p>
+<p>第二步，我们开发了一个 Python 版本的 ERC20，代码一直在更新。不同于 Solidity，我们并没有使用关键字来标识变量的存储方式，所有的局部变量都在内存中，我们使用 _get 和 _put 全局函数来读取和写入状态。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1019/12_rzy5qeybf3.png" alt="MPT 下岗？智能合约区块链的优化"></p>
+<p><strong>链接：</strong> <a href="https://github.com/EcoPoW/BitPoW/blob/master/contract">https://github.com/EcoPoW/BitPoW/blob/master/contract</a>_erc20.py</p>
+<p>感谢 Python 3 提供的 Annotation 功能，我们可以从 RPC 中把本来调用 EVM 的交易数据，转换成 Python 可以接受的类型，比如 Uint256、Uint8 直接转换成 Python int。函数输出的值也可以自动转换成 RPC 接受的 ABI 类型。</p>
+<p>第三步，我们实现 _get 和 _put 函数，采用本文设计的方案来在区块链运行过程中，存储 Python VM 执行中读取和写入的区块链状态数据。状态数据的读取和写入都会先经过内存，只有当交易成功执行，所有对状态的修改才会被汇总成状态更新数据块，连同交易数据块和经过共识算法区块头一起广播到整个区块链网络当中。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1019/12_rf7fv275t0.png" alt="MPT 下岗？智能合约区块链的优化"></p>
+<p><strong>链接：</strong> <a href="https://github.com/EcoPoW/BitPoW/blob/master/state.py">https://github.com/EcoPoW/BitPoW/blob/master/state.py</a></p>
+<h2 id="落地和改进"><strong>落地和改进</strong></h2>
+<p>对于从提出问题，到设计，以及编码实现，我们大约花了两个月时间。</p>
+<p>通过整个夏天的设计 + 实际的编码，新的智能合约系统，仅仅使用字典树 Trie 而不依赖 MPT 数据结构，已经可以落地运行（大家可以通过 Github clone 来尝试本地运行测试节点）。绕过基于 MPT 的智能合约存储，意味着在带宽充分的条件下，一亿 KV 大小的节点的同步时间，可以从好几天，降低到几分钟。智能合约的执行效率也将变快，CPU 所消耗的计算量，会更多的用在执行字节码，而不是构建默克尔树所需要的哈希运算。我们很幸运，在工程实现智能合约的时候，没有直接沿用“工业标准”的设计，而是先尝试优化和减法，得到了一个“数据结构”正确的智能合约区块链。因为不同于 Web2 产品，我们比喻成一边开汽车一边换轮胎，Web3 区块链更像是火箭发射。一个运行中的区块链，是很难进行大结构改进的，所以我们只能改进“下一个”系统，在上线前做好充分准备。</p>
+<p>目前，我们设计的 BitPoW 区块链的 Testnet2 号测试网已经部署，大家都可以通过 RPC 使用 MetaMask 连接到这条区块链上进行测试，尝试基于 Python VM 的 ERC20 转账。同时，我们还有很多工作尚未完成，我们仍然需要依靠社区来推动这一新型区块链基础设施。</p>
+<p>我们欢迎大家来了解和实际上手测试这些新概念驱动的技术实现，包括对于移除 MPT 后的性能测试，对于新智能合约和新链的安全测试。</p>
+<h2 id="总结"><strong>总结</strong></h2>
+<p>至此，我们绕开了 MPT 设计了直接基于 Trie 的智能合约存储方案。目前，我们在基于 Python vm 的区块链上实现了这一改进，作为可行性证明。从发现问题到提出方案，到从代码实现，我们大约花了三个月时间，但是这次研究的更重要之处在于，我们在此之前和许多普通人一样，从课堂学习到 MPT 知识后，并未进一步思考去改进它。解决方案并不复杂，但是需要实践和行动。</p>
+<p>解决方案并不复杂，但是需要实践和行动。在实践中积极思考，才能找到灵感，进一步的创新。</p>
+<p>非常感谢 LXDAO 对本次研究的支持，也希望在社区中能认识更多对区块链底层感兴趣的朋友们。这个行业还非常早期，基础设施远未成熟。我们希望推动区块链底层知识的普及，让更多人可以一起参与到技术革新的最前沿。</p>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/61498/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">Messari研报：Solana2023年第三季度发展状况</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/61466/">
+                <span class="next-text nav-default">OpenAI 为何放弃大模型 Arrakis？或许是一种战略重心转移</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#heading">**发现瓶颈<br>
+**</a>
+      <ul>
+        <li><a href="#rocksdb-和-trie"><strong>Rocksdb 和 Trie</strong></a></li>
+        <li><a href="#状态机"><strong>状态机</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#mpt-介绍"><strong>MPT 介绍</strong></a></li>
+    <li><a href="#设计"><strong>设计</strong></a>
+      <ul>
+        <li><a href="#合约存储状态变量"><strong>合约存储状态变量</strong></a></li>
+        <li><a href="#验证区块"><strong>验证区块</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#落地和改进"><strong>落地和改进</strong></a></li>
+    <li><a href="#总结"><strong>总结</strong></a></li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

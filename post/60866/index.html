@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          从货币机制角度分析：PoS没有未来 - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="本文从货币机制来看PoS模式的经济模型。很多地方会举ETH为例，但是讨论的背景是所有PoS产品。" />
+<meta name="keywords" content="POS" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/60866/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="从货币机制角度分析：PoS没有未来" />
+<meta property="og:description" content="本文从货币机制来看PoS模式的经济模型。很多地方会举ETH为例，但是讨论的背景是所有PoS产品。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/60866/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-10-11T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-10-11T00:00:00+00:00" />
+
+<meta itemprop="name" content="从货币机制角度分析：PoS没有未来">
+<meta itemprop="description" content="本文从货币机制来看PoS模式的经济模型。很多地方会举ETH为例，但是讨论的背景是所有PoS产品。"><meta itemprop="datePublished" content="2023-10-11T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-10-11T00:00:00+00:00" />
+<meta itemprop="wordCount" content="3928">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="从货币机制角度分析：PoS没有未来"/>
+<meta name="twitter:description" content="本文从货币机制来看PoS模式的经济模型。很多地方会举ETH为例，但是讨论的背景是所有PoS产品。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">从货币机制角度分析：PoS没有未来</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-10-11">
+      2023-10-11
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 3928 字 -
+        预计阅读 8 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E8%A7%82%E7%82%B9/"> 观点 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>作者：Crypto_Jaygo，Twitter：@trtwarrior</p>
+<p>最早在2012年，Proof of Stake（PoS）权益证明就被提出。随着在ETH 2022年从PoW模式切换到PoS，PoS模式迎来了发展的一个巅峰。PoS机制的基本逻辑是持币用户质押所持有的代币，成为区块链的验证者。 然后验证者将验证网络上的交易，将证明发送到区块链。 如果正确的话，验证者将获得区块链的奖励。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1011/4_oum29ir61n.png" alt="从货币机制角度分析：PoS没有未来"></p>
+<p>目前实际操作则要简单的多，以ETH为例，大部分用户直接将ETH存入Lido这样的第三方协议完成质押，后续单纯获得staking的收益，这几乎完全等效于持有股票获取股利。</p>
+<p><strong>这看上去是一个完美的方案：更低的能源消耗，更少的发行量，快乐的持币人以及近似PoW的安全性。安全性不在本文的讨论范围之内，但是已经有大量的论文讨论，感兴趣的朋友可以自行查阅，事实上PoS的安全性远差于PoW。</strong></p>
+<p>本文只讨论，从货币机制来看PoS模式的经济模型。很多地方会举ETH为例，但是讨论的背景是所有PoS产品。</p>
+<p><strong>历史上没有一个成功的货币是通过PoS一样线性的发行机制来运作的。</strong></p>
+<p>贝壳是无法通过囤积来增值的，只能通过遥远的海边开采；黄金白银贵重金属也是一样，要获取新的黄金必须通过繁重的开采提炼和加工。黄金的利率历史上也是非常低的，低到巴菲特都不愿意持有，因为它几乎没有利息。比特币作为数字黄金，需要通过矿工的竞争性的开采来获得，没有其他捷径。<strong>主流货币在近代以前，完全是靠第三方机制来获得。</strong></p>
+<p>进入近代以后，各国大多发行了主权货币，但是主权货币的后盾是各国货币当局的信用背书。主权货币是可以持有国债来实现本币的数量增长，但是应当意识到，这背后是政府背书，以及暴力机关来强行要求本国居民使用其法定货币。<strong>如果每个人都可以自由选择使用哪种货币，那么99%的主权货币可能都要消失。</strong> 区块链货币不具备暴力机关的加持，主权货币并不是很好的参照对象，更不要提区块链货币本身就鄙视主权货币。</p>
+<p><strong>在PoS世界里，法定货币一般就是其项目代币，承担了其生态中的基础货币功能。</strong></p>
+<p>比如支付。与黄金和BTC不一样，在PoS系统里，<strong>当前的持币人不断获得质押收益，新增的币几乎毫不费力的获得；</strong> 而局外人要入场则要付出真金白银或者努力工作，处于极其不利的地位。这两者完全不公平。可能有人要在这里反驳我，比特币、比特币不也是这样吗？我的答案是：还真不是。以黄金为例，假设系统只有两个人：低保户张三资产为0，首富李四拥有100%的现有资产。在黄金的例子里，新增资产对他们两个人是公平的，要获得一个新的金币，张三要付出的努力和李四是完全一致的。因此，黄金提供了一个公平的竞技场。当然，李四可以选择出售自己的现有黄金，但是假以时日，他的黄金会越来越少，最终实现资产的流转和社会阶层的调整。<strong>黄金如此，比特币也是如此。为了获取每一个额外的金币和比特币，大家都是在同一起跑线上。</strong></p>
+<p><strong>本质上，货币的价值存储功能和收益功能，这两者无法兼具。</strong> 巴菲特告诉我们，要实现资本的保值增值，去买股票。但股票不是货币，不作为价值存储，而是作为价值发现的功能来存在。<strong>硬要把这两者糅合在一起，只会产生缝合怪和庞氏骗局，而不是有长久活力的生命体。</strong> 如果看货币属性，比特币的利率和黄金一样低，因为这个市场上充斥着借出方，而借入者寥寥。除了少部分做空者和特定场景，几乎很少有人会借入黄金和比特币。说到股票，朋友们可能马上会想到关于证券的Harvey Test，ETH一直以来都有可能被当作证券监管的风险。<strong>以实质重于形式的角度看，PoS代币本质就是股票，被监管的风险将会长期存在并且如影随形。</strong></p>
+<p>“<strong>关于更低的能源消耗，这是一个逻辑悖论。</strong></p>
+<p>人类历史上最成功的货币 — 黄金，挖掘开采所消耗的能量极其巨大，但是这也是黄金的价值独到之处：所有种族，宗教信仰，几乎都把黄金作为一种高价值产品。<strong>这背后的核心因素是：能源本身就是定义稀缺性最好的标尺，也是全人类都可以接受的统一价值衡量尺度。</strong> 取消了90%的能源消耗，也同等比例的消耗了产品的长期价值说服力。类比一下，持有美元，本身是看好美元背后的人类智力的结晶，大量的科研投入和资本支出；持有人民币，也是因为背后富士康生产线上的员工夜以继日的组装生产iphone换取外汇。持有这些货币，是因为他们背后站着的能量。<strong>你能找到一个主流主权货币，背后是低能量密度的么？</strong></p>
+<p><strong>一个预言：对于去中心化，PoS的代币的最高优目标是币价的稳定，去中心化、抗审查和低费率不再是pos项目的核心诉求，因此并不具有优先级而变得遥遥无期。</strong></p>
+<p>去中心化是一个吃力不讨好的工作，即不能带来效率的提升，也可能会让背后的投资人恼怒，所以项目方不仅不会介意，甚至会刻意贬低其重要性。而降低交易费率和成本也变得没有那么重要，因为需要燃烧足够多的代币，才能确保整个项目的经济模型不至于崩溃。“</p>
+<p><strong>一旦有了利益的介入，那么曾经的不可能三角“去中心化，安全和可扩展性”就变得不那么重要。</strong></p>
+<p><strong>更重要的，也许相对隐秘的三角是：投资人利益，币价稳定和控制权。</strong> 对于项目代币的价值来说，稳定是压倒一切的。因为具有投票权的人本身也是持币的大户，稳定的币价已经可以产生足够高的收益水平，而为了保障项目的控制权不被旁落，原有的币还得继续持有。观察ETH的主力机构，能看到明显的持币倾向和收益诉求。</p>
+<p><strong>但是这里的核心问题是，如何维持这一机制。不用把钱给矿工了，省下了不少成本。</strong> 但是不断增发的体系，需要不断的智慧和资源的投入，燃烧代币的核心就是有人来不断投入和创新，这些投入起到了稳定币价的作用。但是有人愿意来投入智慧和资源的前提，又是本身代币价格的稳定，毕竟大家都不傻，不愿意在一个衰退中的生态当中投入自己有限的精力。所以这两者互为前提。新的投入带来新的热点，新的热点吸引大量的用户和交易，并带来了生态环境的繁荣；反之，则是螺旋向下。</p>
+<p>“<strong>区块链的早期开发者，投资人，无论是BTC还是ETH，都已经实现了财富的跃升。</strong></p>
+<p>但是心态上，这两者的持币人还是有些许不一样的。持有BTC的痛苦感很高，得像Michael Saylor这样的信徒，或者就得不断承受内心的煎熬“早知道6万的时候就卖了！”，只是BTC卖一个就少一个，卖完就没有了。持有ETH就舒服的多，dividend股利不断到手，每天都有持仓收益，那就吃股利就行了。<strong>你觉得两者的激励机制下，哪个会更有动力继续贡献？</strong></p>
+<p>PoS项目的另外一个特点是预挖矿，比如ETH目前大概60%的代币是预挖的。预挖矿一部分给了投资人，一部分给了团队，另外一部分是给了基金会。<strong>基金会的工作之一是不断抛售代币给市场，这需要市场有源源不断的资金涌入来接盘。</strong> 一旦这样的接盘资金不足，那么进入下跌的死亡螺旋就是无法避免的窘境。</p>
+<p>一旦放弃了去中心化，我们又回到了中心化的老路上来。虽然我们都拥有ETH上的钱包私钥，但是我们的NFT和以前腾讯QQ上的付费头像之间又有多少本质区别？QQ是一个完全中心化的区块链协议，这样理解可不可以？我们以PoS中的王者ETH来看，超过60%的验证节点是建立在云服务器上，而其中绝大部分又是Amazon。我们担心马化腾篡改我们的数据，夺走我们的QQ头像，但是一样无法信任贝索斯会保障我们区块链资产的安全。“</p>
+<p><strong>一家之言：PoS没有未来。</strong></p>
+<p>PoS的代表之作ETH，目前的现状是，并没有另外一条智能合约公链可以达到他一样的高度。ETH的强，不如说就是其他竞争者和挑战者之间的弱。一旦有新的公链可以在目前的去中心化领域崭露头角，那么ETH曾经的堡垒就面临分崩离析的可能。</p>
+<p>MakerDAO出走Solana，这可以是开了一个离开ETH网络的先例。考虑到MakerDAO作为以太坊生态中重要的地位，它的离开的示范效应是巨大的。这直接导致了Vitalik的愤怒，抛售了他所持有的MKR，后续在discord当中更是直言MakerDAO误入歧途。是不是误入歧途，我不知道，但是我知道的是，ETH很受伤。PoS鼓励小圈子主义，但是需要不断有新资源进入来维持这个系统的正常运转。现在竟然有人要退出，那么这个基本盘就更难维持了。如果我是v神，我估计气的要骂粗口了，也就是v神性格好才只是点到为止。</p>
+<p>大多数项目的衰落，不是一天之内完成的，而是一个缓慢而又长期的过程。这会给很多人机会，也会让很多深层次的问题变得不那么尖锐，进入一个温水煮青蛙的状态。但是人们会逐渐醒来，意识到问题，进而采取措施。</p>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/60862/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">初探全同态加密之四：Bootstrapping的原理与实现</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/60903/">
+                <span class="next-text nav-default">从技术角度研究背靠Telegram的公链TON是如何崛起的</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          EIP-4337的最后一块拼图：全链账户抽象 - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="本文以Biconomy、Safe Core和Particle Network等项目为例，探讨如何在EIP-4337框架下进一步推动账号抽象领域的发展。" />
+<meta name="keywords" content="賬戶抽象" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/61875/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="EIP-4337的最后一块拼图：全链账户抽象" />
+<meta property="og:description" content="本文以Biconomy、Safe Core和Particle Network等项目为例，探讨如何在EIP-4337框架下进一步推动账号抽象领域的发展。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/61875/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-11-17T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-11-17T00:00:00+00:00" />
+
+<meta itemprop="name" content="EIP-4337的最后一块拼图：全链账户抽象">
+<meta itemprop="description" content="本文以Biconomy、Safe Core和Particle Network等项目为例，探讨如何在EIP-4337框架下进一步推动账号抽象领域的发展。"><meta itemprop="datePublished" content="2023-11-17T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-11-17T00:00:00+00:00" />
+<meta itemprop="wordCount" content="7850">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="EIP-4337的最后一块拼图：全链账户抽象"/>
+<meta name="twitter:description" content="本文以Biconomy、Safe Core和Particle Network等项目为例，探讨如何在EIP-4337框架下进一步推动账号抽象领域的发展。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">EIP-4337的最后一块拼图：全链账户抽象</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-11-17">
+      2023-11-17
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 7850 字 -
+        预计阅读 16 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E5%85%B6%E5%AE%83%E6%96%87%E7%AB%A0/"> 其它文章 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>_作者：_Peter Pan, Co-founder and CTO of Particle Network  &amp;  Faust，极客Web3</p>
+<p>自2022年至今，账户抽象一直都是被广泛热议的话题，以EIP-4337为核心的账号抽象领域的框架似乎已成为业内普遍共识。而意图概念的火热促使人们加强了对此类低门槛用户交互组件的重视。</p>
+<p>但EIP-4337依然存在Smart Account账号碎片化、跨链间账户抽象用户体验高度割裂的痛点。<strong>本文以Biconomy、Safe Core和Particle Network等项目为例，探讨如何在EIP-4337框架下进一步推动账号抽象领域的发展。</strong></p>
+<h1 id="从交易流程抽象的角度理解账户抽象概念"><strong>从交易流程抽象的角度理解”账户抽象“概念</strong></h1>
+<p>关于账户抽象，Vitalik曾多次指出，它是降低以太坊用户门槛、实现mass adoption的必要条件，其核心愿景是让用户可以 自定义验签方式 + 享受gas代付、无任何资产就能在链上发起交易（俗称无gas交易）。只有实现了这些前提，才能提高Web3应用的新用户转化率。</p>
+<p><strong>以往的非账户抽象提案或智能合约钱包，虽然可以实现类似的体验，但还远不够灵活和高效</strong> ，比如Gnosis Safe还是需要EOA地址去触发交易，而且付出的Gas成本极高。</p>
+<p>而账户抽象打算从智能合约账户的结构底层进行优化，为下一代智能化账号体系铺平道路。</p>
+<p>但是我们从实际的账户抽象提案来看，会发现他们的关注点不在账号模型本身。比如EIP-86、EIP-4337和EIP-6900等账户抽象相关提案，关注的是一笔交易从发起到被节点接收、验签、gas支付等整套处理流程的抽象/模块化，并不是真正关注账号结构的抽象。所以，把现在的各类提案称为“交易抽象”似乎要更贴切一些。</p>
+<p><strong>如果我们从“交易处理流程的抽象”的角度去理解那些广为人知的账户抽象提案，就可以更轻松的理解到其要点：这种交易抽象，其实就是想把Web2级别的用户进入和使用产品的体验带入到以太坊体系内，</strong> 比如黑名单/白名单、一段时间内发起交易无需身份验证、无Gas交易、法币支付手续费等。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1025/10_0lpvrg5gpk.png" alt="EIP-4337的最后一块拼图：全链账户抽象"></p>
+<p>（图片来源：Zengo）</p>
+<p>但有人会问：这些东西在过去的智能合约钱包身上不就可以实现了吗？EIP-4337这类账户抽象方案的价值又在哪里？</p>
+<p><strong>EIP-4337的本质：账户抽象在以太坊生态落地的局部最优解</strong></p>
+<p>如上问题提到，<strong>过去的智能钱包虽然可以实现上面谈到的功能，但实现手法普遍比较粗糙，而且往往依赖于高度中心化的第三方设施。</strong> 比如过去的Gas代付方案，要引入第三方的Relayer节点（EIP-2771）。<strong>而且，不同的智能钱包之间缺乏统一的标准，不利于配套的组件开发与铺陈。</strong></p>
+<p>而各类账户抽象相关EIP的核心诉求，是通过一套标准化的专为智能合约钱包设计的框架，解决这些存在于不同钱包项目身上的缺陷，推进以太坊生态内的账户结构从基础的功能结构转变为上限更高的智能结构。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1025/10_n1y7qqlhf7.png" alt="EIP-4337的最后一块拼图：全链账户抽象"></p>
+<p>（图片来源：Springer Link）</p>
+<p>这就好比，在ERC-20或ERC-721出现前，很多Token的实现方式、具备的功能、对外提供的函数/接口都不一致，而“不一致”就不利于配套的第三方设施开发，也不利于代码审计（难以想象没有ERC-20协议的话，Defi应用该怎么发展到如今的繁荣程度）。</p>
+<p><strong>标准化的协议/功能实现标准，是模块化叙事的先决条件，而模块化开发方式则几乎是每个领域想要蓬勃发展的先决条件</strong> （分工是提高效率的第一原则）。</p>
+<p>最终，EIP-4337脱颖而出。</p>
+<p><strong>EIP-4337是局部最优解，但其框架内有多个角度亟待优化</strong></p>
+<p><strong>EIP-4337定义了一整套的接口标准，明确了遵循4337协议的智能钱包至少要有哪些模块，每个模块应当实现哪些函数/接口，</strong> 比如Bundler、EntryPoint、Paymaster这些组件应该对外提供哪些可调用的函数。</p>
+<p>将这些条条框框明确了之后，<strong>不同组件之间的交互关系更为清晰，方便把模块化的设计思路引入到账户抽象与智能钱包的设计中，钱包模块的开发者们也大大受益。</strong></p>
+<p><strong>当然，单纯从用户角度看，模块化的智能钱包开发范式带来的价值还不明确，因为短期内人们感受不到账户抽象钱包本身有多大变化。</strong> 但从中长期来看，EIP-4337等协议的价值就类似于ERC-20和ERC-721，它为账户抽象钱包的长期发展奠定了基础，是有划时代意义的里程碑。</p>
+<p><strong>但EIP-4337还有许多问题没有解决：</strong> 比如：</p>
+<p>1. 账户抽象的功能还不够插件化，不同的开发者很容易重复造轮子；</p>
+<p>2. 账户模块兼容度差，整个账号体系呈现生态呈现碎片化的状态倾向；</p>
+<p>3. 不同链之间的账户抽象生态高度割裂，难以给终端用户和开发者提供统一且高质量的体验实现较好的UX。</p>
+<p>而下文中，我们将探讨这些问题的解决方案。</p>
+<p><strong>优化方向一：账户抽象的功能插件化将成为基础配置</strong></p>
+<p><strong>可以说，现在与账户抽象相关的核心讨论点之一，就是如何更好的实现账号抽象钱包的模块化，将每个模块的划分粒度切的更细。</strong></p>
+<p>比如Biconomy就基于EIP-4337（未来会引入粒度更细的EIP-6900），提出了账户抽象功能插件化的叙事，以进一步推动账户抽象生态的模块化发展。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1025/10_3zzfn2swci.png" alt="EIP-4337的最后一块拼图：全链账户抽象"></p>
+<p>（图片来源：Biconomy）</p>
+<p>所谓的账户抽象功能插件化，其实就是通过一套协议，对外明确智能合约钱包涉及的关键模块都有哪些，这些模块应当实现哪些接口/函数，这些接口的名称和调用方式是怎样的。然后，第三方开发者会按照自己的想法，开发出细节各异的组件，但这些组件都会符合协议中提出的要求。</p>
+<p>Biconomy的V2版本以EIP-4337为协议骨架，制定了更详细的标准，增设了一批4337中没有提及的接口。在声明Bundler、Smart Contract Wallet、Paymaster这些模块应该具备哪些功能的同时，<strong>Biconomy允许第三方开发者以不同的代码细节，实现特征相同、版本不同的模块</strong> ，只要遵循Biconomy事先声明的协议细则即可（兼容EIP-4337）。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1025/10_4nztioddly.png" alt="EIP-4337的最后一块拼图：全链账户抽象"></p>
+<p>（Biconomy提出的接口标准，指明第三方模块开发者应在模块内实现哪些函数供外部调用）</p>
+<p>同时，<strong>Biconomy还提出了“Module商店”的口号，在身体力行推出账户抽象模块SDK的同时，鼓励广大开发者提交自己设计的账户抽象模块，展开“Module as a service”，</strong> 让所有遵循EIP-4337协议的钱包项目都可以直接采用这些由外人写出来的账户抽象模块。用户通过前端页面创建智能账户时，对于采用哪些模块也有了更多样化的选择。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1025/10_owcd7y6sea.png" alt="EIP-4337的最后一块拼图：全链账户抽象"></p>
+<p>模块化在便于分工的同时，也方便了用户快捷的切换或添加、删除智能钱包中的某些功能（说白了就是把粒度切分的更细）。</p>
+<p><strong>Biconomy指出，智能合约钱包的模块化程度越高，其更新或升级时所需要作出的改动越少</strong> （不需要更新用户已有的Smart Contract Wallet合约或采用DelegateCall，只需要更新某些外部模块），方便不同的用户或开发者替换掉某些组件。</p>
+<p>而在Biconomy未来的新版账户抽象方案中，还将参考比EIP-4337更利于模块化的EIP-6900提案。</p>
+<p><strong>优化方向二：更细粒度的模块切分，解决账号碎片化问题</strong></p>
+<p>关于EIP-6900提案，<strong>Safe（前Gnosis Safe）其实在今年8月推出了一个与之相关联的Safe Core Protocol白皮书，其中借鉴最多的就是EIP-6900。</strong></p>
+<p><img src="https://img.youtocoin.com/news/2023/1025/0_f2vs84vitr.png" alt="EIP-4337的最后一块拼图：全链账户抽象"></p>
+<p>（EIP-6900原理图）</p>
+<p><strong>EIP-6900指出，目前模块化账户抽象的一个问题在于账号的“碎片化”，或者说孤岛问题。</strong> 比如不同的账户抽象模块供应商，或者不同的DAPP应用程序虽然会兼容EIP-4337，但EIP-4337对不同模块的抽象程度不够高，划分粒度比较粗糙，给Smart Account模块开发者留下了“过高”的自由度（<strong>smart account就是存放用户信息，记录自定义的交易验证、gas支付逻辑 的最核心的部分</strong> ）。</p>
+<p>这样一来，不同的钱包项目方倾向于设计出具有独特属性的smart account模块。<strong>长此以往，其他的账户抽象模块供应商就必须优先考虑与谁提供的Smart Account模块兼容，慢慢会产生固定的上下游供应链，这必然会导致账户抽象模块生态的碎片化和彼此割裂。</strong> （这就好比在计算机行业早期，操作系统开发商要先考虑兼容哪家电脑硬件厂商提供的设备）</p>
+<p>要解决生态的碎片化问题，提高不同供应商开发的账户抽象模块的兼容度，最佳的办法就是把智能合约钱包账户进一步抽象化，把模块切分粒度变得更细。</p>
+<p>在借鉴了EIP-6900的思路后，Safe Core协议白皮书对Smart Account（用户的智能钱包账户）做出了更细致的优化。<strong>Safe Core协议把每个智能钱包账户可调用的Module拆分为Plugin插件、Hooks、签名验证器、函数处理器等多种类别。</strong></p>
+<p><strong>而智能账户模块尽可能轻量化，账户合约只存储最基本的数据和函数，能挪到外面去的函数就统统甩给“函数处理器”或“Plugin”这些细分模块去实现。</strong> 这正应了所谓的奥卡姆剃刀原则——“若无必要，勿增实体”。</p>
+<p>如果smart account本身足够轻量化，不涉及太繁琐的细节，不同厂商开发的smart account在内部构造上就会更接近，兼容度也会更高。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1025/10_lsyl92apos.png" alt="EIP-4337的最后一块拼图：全链账户抽象"></p>
+<p>Safe Core协议里还引入了注册表，类似于iPhone的应用商店，包含了所有被批准的可用模块。用户可以选择激活哪些模块，且每次激活新模块时，都要经由Manger合约去处理。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1025/10_kv4bdmh145.png" alt="EIP-4337的最后一块拼图：全链账户抽象"></p>
+<p>一般情况下，UserOperation会先触发某个插件Plugin，然后Manger合约会检查该插件的状态是否正常（注册表里有记录），若正常则会放行该插件的请求。如果有必要的话，Plugin插件会调用某些Hook提供的功能，或者不调用。之后会对UserOperation涉及的smart account的状态进行更改。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1025/10_0sr1kpqvp7.png" alt="EIP-4337的最后一块拼图：全链账户抽象"></p>
+<p>通过上述细粒度的模块切分方式与调度流程，Safe Core Protocol尝试推行一套开源的账户抽象模块互操作协议，其核心思路是把Smart Account轻量化，尽可能像EOA账户一样简单，以便于提高不同厂商提高的Smart Account模块的兼容度。</p>
+<p><strong>优化方向三：全链账户抽象，在不同链上实现统一账户</strong></p>
+<p>但即便有了前述解决方案，目前还有一个大问题没有解决：不同的链和不同Layer2都在推进细节各异的账户抽象实现方案，而且很多采用了与EIP-4337有冲突的形式，比如zkSync Era、Starknet、Flow等。这给用户带来了钱包UX上的割裂，比如用户在Starknet上的智能钱包地址与Arbitrum上的智能钱包地址压根无法统一。</p>
+<p>而且，在多链环境下，用户在不同链上有独立部署的Smart Account，对应的用户数据往往分散存储在这些合约中。如果用户数据如密钥等需要更新，则需要在多链重复发起交易，很难保证 Smart Account 的一致性。</p>
+<p>Vitalik本人此前曾提出过一套全链统一且易于管理的智能账户方案，<strong>该方案把以太坊或某个安全性极高的ZKRollup作为源链，部署Keystore合约，存储用户的全局密钥，</strong> 然后用户在L2上的全部智能合约账户，共享Keystore合约中存放的全局密钥。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1025/10_klz437e23p.png" alt="EIP-4337的最后一块拼图：全链账户抽象"></p>
+<p>（图片来源：https://vitalik.ca/general/2023/06/20/deeperdive.html）</p>
+<p><strong>但这个方案成本极高，</strong> 就是每当源链上的Keystore合约记录的全局密钥发生变更时，L2/目标链上的每个账户都需要通过跨链交互的方式来同步新的密钥。而以太坊到L2之间的跨链交互开销太高，用户根本承担不起。而且需要注意的是，智能合约账户不同于EOA账户，后者因其独特的地址生成方式，天生就是多链统一的（EVM链之间统一），<strong>但智能合约账户则完全不同，</strong> 很难让用户在不同的链上获得地址相同的智能合约账户。</p>
+<p>对此，Particle Network提出了自己的一种方法。虽然大体思路和Vitalik的想法一致，也是把智能账户的Storage和Code分离，<strong>但Particle Network打算以一个独立的链—Particle Network Chain作为智能账户的全链Storage数据库，</strong> 通过第三方的跨链消息传递方案（LayerZero、CCIP、Axelar、Connext 等）将某个用户对账户Storage的变更同步到其他链上的Account本地。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1025/10_joeefhleod.png" alt="EIP-4337的最后一块拼图：全链账户抽象"></p>
+<p>(Particle Network的多链账户抽象结构）</p>
+<p>具体而言，<strong>Particle Network的全链账户抽象系统要让用户在不同的EVM链上有一个统一的智能合约账户地址，</strong> 这要在不同链上都部署一套Deployer Contract；</p>
+<p>用户必须在Particle Network Chain上触发新账户的生成，之后Particle Chain会触发所有链上的Deployer Contract，保证在不同链上为用户生成的智能合约账户地址是统一的，或者用户可以在对其他链无感知的情况下，通过Particle chain上的合约完成多链交互过程，并且可以用 Unified Gas Token 作为统一的手续费支付方式。</p>
+<p>全链账户抽象也让Cross-Chain的User Operation成为可能，通过源链的User Operation和支付对应的Gas，来触发目标链的Transaction，比如可以实现使用Polygon的USDC购买Base上的NFT。</p>
+<p>但Particle Network的方案需要 Deployer Contract 和跨链消息传递组件高度协同，来实现多链Account和源链Storage的同步，这其实就对其采用的预言机或者跨链消息桥有较高要求（这个问题似乎在所有和全链互操作有关的方案身上都会存在）。</p>
+<p>不过用户的跨链账号同步可以灵活配置不同Message Bridge的组合，而不仅仅依赖某一个Bridge，比如可以配置为2/3的策略，依赖 LayerZero、Axelar、Connext任意两个的确认才在目标链上确认 Storage 的变更，可以近似解决这种单点依赖问题。</p>
+<p><strong>横跨EVM和非EVM的全链无缝互操作是以太坊生态内的全链账户抽象的更进一步</strong></p>
+<p>尽管有横跨EVM链的密钥管理和统一账户，但全链账户抽象依然有优化空间：不兼容EVM的链，比如Aptos和Solana、Sui等，无法保证用户生成的智能合约账户地址，与EVM链上的一致；同时非EVM链如果没有用等价的方案实现EIP-4337协议，就难以沿用前文中Vitalik和Particle Network提出的全链账户抽象的构想。</p>
+<p>此外，兼容EIP-4337的钱包项目本身也存在进步的空间。大多数智能钱包使用的Bundler节点，都是官方独立运行的，彼此甚至都不互通，很多智能钱包项目实际自成一条链，这就会带来很多风险（抗审查性、可用性）。构建一个统一的横跨绝大多数链的单一前端界面，但这会非常困难。有一个解决思路是引入以意图为中心的设计，在全链账户抽象之上增设一层，<strong>把以太坊的EIP-4337生态或其他链的原生账户抽象设施（例如zkSync），统统视作Solver/Reactor类型下的具体实例，而如何选择合适的Solver是更上层的任务。</strong></p>
+<p>仅以Particle Network为例，它提出了一套简洁的抽象化的Intent-Centric实现方案，而不同的账户抽象项目只是Intent方案中，被包含进Solver范畴内的一类实例。</p>
+<p>首先，用户前端会负责将自然语言化的请求或者任意的用户交互，转变为具体的程式化描述，其中包含<strong>输入约束</strong> 和<strong>输出约束</strong> （说白了就是能让符合用户要求的输入条件和输出结果区间），随后Solver网络中的某个或某些Solver，会将包含具体输入输出约束的Transaction，转发给部署在链上的Solver合约（Solver不只有节点设施，还会有链上合约部分）。Solver合约会将Intent指令传送给Reactor合约（管理用户在链上的账户），交由后者去调用其他模块完成最终交互。</p>
+<p>用户的请求最先被Solver网络所获知，这样用户不需要过多的感知底层链或者不同账户抽象方案的构造，这一部分交由Solver去构造具体的解决方案即可。</p>
+<p>当然这些构想目前还只是一个理论框架，而后面的实现细节还有待Particle Network官方的铺陈。</p>
+<p><strong>目前比较明确的是，未来必定会衍生出一个充满竞争的Solver市场，</strong> 而用户可以发起竞拍，让多个Solver出不同的解决方案，通过本地模拟交易的形式，可以评选出最优的解决方案，并给予对应的Solver以激励。至于激励的形式，就要看Solver网络的协议设计者的考量（Particle Network 打算以PNT代币作为其Solver拍卖市场的激励代币）。</p>
+<p><strong>目前的Intent实质将下层的复杂细节屏蔽，抽象出了更高的一层，</strong> 这样的一种带有TCP/IP协议性质的分层式设计，对于全链无缝互操作下的用户体验和开发者体验都是必要条件。</p>
+<p> <strong>迎接账号抽象的大规模采用</strong></p>
+<p>当我们把以太坊生态内的4337框架从各个角度优化之后，同时也推进了横跨以太坊和非以太坊生态全链无缝互操作，为了支持账号抽象的大规模采用，我们觉得依然需要一个横跨供给侧和需求侧的产品。能够降低终端用户使用各类Web3产品服务的同时，<strong>聚焦服务开发者，降低开发者门槛。</strong></p>
+<p>这里面扮演这个角色的最佳产品之一是Particle Network的模块化的账户抽象钱包即服务（<strong>Modular Smart Wallet-as-as-Service</strong> ) 产品：</p>
+<p><img src="https://img.bibiqing.com/news/2023/1025/10_matwnbt4q9.png" alt="EIP-4337的最后一块拼图：全链账户抽象"></p>
+<p>（Particle Network’s Smart Wallet-as-a-Service Architecture）</p>
+<ul>
+<li>
+<p>该服务提供一套易于使用的API，使开发者能够轻松地在其应用程序中集成模块化的账户抽象功能；</p>
+</li>
+<li>
+<p>开发者可以使用该服务创建和管理全链账户，进行跨链交互，并使用统一的手续费支付方式；</p>
+</li>
+<li>
+<p>这样的服务将为开发者提供更灵活和便捷的方式来构建多链应用程序，并促进账号抽象的广泛采用。</p>
+</li>
+</ul>
+<p>除了以上开发者友好的特性以外，最重要的特点是Particle Network的模块化账户抽象钱包即服务（<strong>Modular Smart Wallet-as-as-Service</strong> ) 产品构建了一个基于签名计算，面向开发者的账户抽象领域的开放生态，除了提供自研的账户抽象产品模块以外，整合了各类型的账户抽象产品与服务，能够快速推进整个账户抽象领域各个开发者的产品和服务的采纳度。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1025/10_qara7y08wr.png" alt="EIP-4337的最后一块拼图：全链账户抽象"></p>
+<p>（Modular Design of Particle Network’s Smart Wallet-as-a-Service）</p>
+<p>让技术服务于需求，在解决了ERC-4337框架的各个角度的限制之后，<strong>开发者体验</strong> 的提升将促使更多拥有优秀<strong>用户体验</strong> 的产品产生，加速 Web3 行业从加密朋克友好的金融行业转变为大众友好的消费级行业。</p>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/63431/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">dYdX TVL近7日增长超10%，现为4.18亿美元</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/63392/">
+                <span class="next-text nav-default">ENS创始人抨击Unstoppable Domains没有创新，并抢占了ENS的专利</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

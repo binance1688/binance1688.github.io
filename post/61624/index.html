@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          让大模型看图比打字管用！NeurIPS 2023新研究提出多模态查询方法，准确率提升7.8% - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="大模型“识图”能力都这么强了，为啥还老找错东西？" />
+
+  <meta name="keywords" content="区块大全, 区块链, 区块链资讯, 区块链快讯, 区块链新闻, 比特币行情" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/61624/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="让大模型看图比打字管用！NeurIPS 2023新研究提出多模态查询方法，准确率提升7.8%" />
+<meta property="og:description" content="大模型“识图”能力都这么强了，为啥还老找错东西？" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/61624/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-10-22T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-10-22T00:00:00+00:00" />
+
+<meta itemprop="name" content="让大模型看图比打字管用！NeurIPS 2023新研究提出多模态查询方法，准确率提升7.8%">
+<meta itemprop="description" content="大模型“识图”能力都这么强了，为啥还老找错东西？"><meta itemprop="datePublished" content="2023-10-22T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-10-22T00:00:00+00:00" />
+<meta itemprop="wordCount" content="3343">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="让大模型看图比打字管用！NeurIPS 2023新研究提出多模态查询方法，准确率提升7.8%"/>
+<meta name="twitter:description" content="大模型“识图”能力都这么强了，为啥还老找错东西？"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">让大模型看图比打字管用！NeurIPS 2023新研究提出多模态查询方法，准确率提升7.8%</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-10-22">
+      2023-10-22
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 3343 字 -
+        预计阅读 7 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E5%85%B6%E5%AE%83%E6%96%87%E7%AB%A0/"> 其它文章 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>原文来源：<a href="https://mp.weixin.qq.com/s/oEOQLQOKDyJH0Y63J8a9dA">量子位</a></p>
+<p><img src="https://img.bibiqing.com/news/2023/1022/4_ltryalsm2h.png" alt="让大模型看图比打字管用！NeurIPS 2023新研究提出多模态查询方法，准确率提升7.8%"></p>
+<p>图片来源：由<a href="https://wujieai.cc/ai">无界AI</a>生成</p>
+<p>大模型“识图”能力都这么强了，为啥还老找错东西？</p>
+<p>例如，把长得不太像的蝙蝠和拍子搞混，又或是认不出一些数据集中的稀有鱼类……</p>
+<p><img src="https://img.bibiqing.com/news/2023/1022/1h35dby5pdmqt6z" alt="让大模型看图比打字管用！NeurIPS 2023新研究提出多模态查询方法，准确率提升7.8%"></p>
+<p>这是因为，我们让大模型“找东西”时，往往输入的是<strong>文本</strong> 。</p>
+<p>如果描述有歧义或太偏门，像是“bat”（蝙蝠还是拍子？）或“魔鳉”（Cyprinodon diabolis），AI就会大为困惑。</p>
+<p>这就导致用大模型做<strong>目标检测</strong> 、尤其是开放世界（未知场景）目标检测任务时，效果往往没有想象中那么好。</p>
+<p>现在，一篇被NeurIPS 2023收录的论文，终于解决了这个问题。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1022/n95tt4sw8y4qncb" alt="让大模型看图比打字管用！NeurIPS 2023新研究提出多模态查询方法，准确率提升7.8%"></p>
+<p>论文提出了一种基于多模态查询的目标检测方法<strong>MQ-Det</strong> ，只需要给输入加上一个图片示例，就能让大模型找东西的准确率大幅提升。</p>
+<p>在基准检测数据集LVIS上，无需下游任务模型微调，MQ-Det平均提升主流检测大模型GLIP精度约<strong>7.8%</strong> ，在13个基准小样本下游任务上，平均提高了<strong>6.3%</strong> 精度。</p>
+<p>这究竟是怎么做到的？一起来看看。</p>
+<p>以下内容转载自论文作者、知乎博主@沁园夏：</p>
+<h2 id="目录"><strong>目录</strong></h2>
+<ul>
+<li>MQ-Det：多模态查询的开放世界目标检测大模型</li>
+<li>1.1 从文本查询到多模态查询</li>
+<li>1.2 MQ-Det 即插即用的多模态查询模型架构</li>
+<li>1.3 MQ-Det高效训练策略</li>
+<li>1.4 实验结果：Finetuning-free评估</li>
+<li>1.5 实验结果：Few-shot评估</li>
+<li>1.6 多模态查询目标检测的前景</li>
+</ul>
+<h2 id="mq-det多模态查询的开放世界目标检测大模型"><strong>MQ-Det：多模态查询的开放世界目标检测大模型</strong></h2>
+<p><strong>论文名称：</strong> Multi-modal Queried Object Detection in the Wild</p>
+<p><strong>论文链接：</strong> <a href="https://arxiv.org/abs/2305.18980">https://arxiv.org/abs/2305.18980</a></p>
+<p><strong>代码地址：</strong> <a href="https://github.com/YifanXu74/MQ-Det">https://github.com/YifanXu74/MQ-Det</a></p>
+<p><img src="https://img.bibiqing.com/news/2023/1022/0orm7kdws9i9shf" alt="让大模型看图比打字管用！NeurIPS 2023新研究提出多模态查询方法，准确率提升7.8%"></p>
+<h3 id="11-从文本查询到多模态查询"><strong>1.1 从文本查询到多模态查询</strong></h3>
+<p><strong>一图胜千言</strong> ：随着图文预训练的兴起，借助文本的开放语义，目标检测逐渐步入了开放世界感知的阶段。为此，许多检测大模型都遵循了文本查询的模式，即利用类别文本描述在目标图像中查询潜在目标。然而，这种方式往往会面临“广而不精”的问题。</p>
+<p>例如，（1）图1中的细粒度物体（鱼种）检测，往往很难用有限的文本来描述各种细粒度的鱼种，（2）类别歧义（“bat”既可指蝙蝠又可指拍子）。</p>
+<p>然而，以上的问题均可通过图像示例来解决，相比文本，图像能够提供目标物体<strong>更丰富的特征线索</strong> ，但同时文本又具备<strong>强大的泛化性</strong> 。</p>
+<p>由此，如何能够有机地结合两种查询方式，成为了一个很自然的想法。</p>
+<p><strong>获取多模态查询能力的难点</strong> ：如何得到这样一个具备多模态查询的模型，存在三个挑战：（1）直接用有限的图像示例进行微调很容易造成灾难性遗忘；（2）从头训练一个检测大模型会具备较好的泛化性但是消耗巨大，例如，单卡训练GLIP 需要利用3000万数据量训练480 天。</p>
+<p><strong>多模态查询目标检测：</strong> 基于以上考虑，作者提出了一种简单有效的模型设计和训练策略——MQ-Det。</p>
+<p>MQ-Det在已有冻结的文本查询检测大模型基础上插入少量门控感知模块（GCP）来接收视觉示例的输入，同时设计了视觉条件掩码语言预测训练策略高效地得到高性能多模态查询的检测器。</p>
+<h3 id="12-mq-det即插即用的多模态查询模型架构"><strong>1.2 MQ-Det即插即用的多模态查询模型架构</strong></h3>
+<p>**</p>
+<p><img src="https://img.bibiqing.com/news/2023/1022/aqw5mm1cnwv38au" alt="让大模型看图比打字管用！NeurIPS 2023新研究提出多模态查询方法，准确率提升7.8%"></p>
+<p>**</p>
+<h6 id="-图1-mq-det方法架构图"><strong>△</strong> 图1 MQ-Det方法架构图</h6>
+<p><strong>门控感知模块</strong></p>
+<p>如图1所示，作者在已有冻结的文本查询检测大模型的文本编码器端逐层插入了门控感知模块（GCP），GCP的工作模式可以用下面公式简洁地表示：</p>
+<p><img src="https://img.bibiqing.com/news/2023/1022/orsy10ue9plcovd" alt="让大模型看图比打字管用！NeurIPS 2023新研究提出多模态查询方法，准确率提升7.8%"></p>
+<p>对于第i个类别，输入视觉示例Vi，其首先和目标图像I进行交叉注意力（X-MHA）得到</p>
+<p><img src="https://img.bibiqing.com/news/2023/1022/sncpvstu8jb8twv" alt="让大模型看图比打字管用！NeurIPS 2023新研究提出多模态查询方法，准确率提升7.8%"></p>
+<p>以增广其表示能力，而后每个类别文本ti会和对应类别的视觉示例</p>
+<p><img src="https://img.bibiqing.com/news/2023/1022/sncpvstu8jb8twv" alt="让大模型看图比打字管用！NeurIPS 2023新研究提出多模态查询方法，准确率提升7.8%"></p>
+<p>进行交叉注意力得到</p>
+<p><img src="https://img.bibiqing.com/news/2023/1022/v846enq0h9djcnc" alt="让大模型看图比打字管用！NeurIPS 2023新研究提出多模态查询方法，准确率提升7.8%"></p>
+<p>，之后通过一个门控模块gate将原始文本ti和视觉增广后文本</p>
+<p><img src="https://img.bibiqing.com/news/2023/1022/v846enq0h9djcnc" alt="让大模型看图比打字管用！NeurIPS 2023新研究提出多模态查询方法，准确率提升7.8%"></p>
+<p>融合，得到当前层的输出</p>
+<p><img src="https://img.bibiqing.com/news/2023/1022/v6scsjo5tyi62iq" alt="让大模型看图比打字管用！NeurIPS 2023新研究提出多模态查询方法，准确率提升7.8%"></p>
+<p>。这样的简单设计遵循了三点原则：（1）类别可扩展性；（2）语义补全性；（3）抗遗忘性，具体讨论可见原文。</p>
+<h3 id="13-mq-det高效训练策略"><strong>1.3 MQ-Det高效训练策略</strong></h3>
+<p><strong>基于冻结语言查询检测器的调制训练</strong></p>
+<p>由于目前文本查询的预训练检测大模型本身就具备较好的泛化性，论文作者认为，只需要在原先文本特征基础上用视觉细节进行轻微地调整即可。</p>
+<p>在文章中也有具体的实验论证发现，打开原始预训练模型参数后进行微调很容易带来灾难性遗忘的问题，反而失去了开放世界检测的能力。</p>
+<p>由此，MQ-Det在冻结文本查询的预训练检测器基础上，仅调制训练插入的GCP模块，就可以高效地将视觉信息插入到现有文本查询的检测器中。</p>
+<p>在论文中，作者分别将MQ-Det的结构设计和训练技术应用于目前的SOTA模型GLIP和GroundingDINO ，来验证方法的通用性。</p>
+<p><strong>以视觉为条件的掩码语言预测训练策略</strong></p>
+<p>作者还提出了一种视觉为条件的掩码语言预测训练策略，来解决冻结预训练模型带来的学习惰性的问题。</p>
+<p>所谓学习惰性，即指检测器在训练过程中倾向于保持原始文本查询的特征，从而忽视新加入的视觉查询特征。</p>
+<p>为此，MQ-Det在训练时随机地用[MASK] token来替代文本token，迫使模型向视觉查询特征侧学习，即：</p>
+<p><img src="https://img.bibiqing.com/news/2023/1022/sd4ivbuai3l6muz" alt="让大模型看图比打字管用！NeurIPS 2023新研究提出多模态查询方法，准确率提升7.8%"></p>
+<p>这个策略虽然简单，但是却十分有效，从实验结果来看这个策略带来了显著的性能提升。</p>
+<h3 id="14-实验结果finetuning-free评估"><strong>1.4 实验结果：Finetuning-free评估</strong></h3>
+<p><strong>Finetuning-free</strong> ：相比传统零样本（zero-shot）评估仅利用类别文本进行测试，MQ-Det提出了一种更贴近实际的评估策略：<em>finetuning-free</em>。其定义为：在不进行任何下游微调的条件下，用户可以利用类别文本、图像示例、或者两者结合来进行目标检测。</p>
+<p>在finetuning-free的设定下，MQ-Det对每个类别选用了5个视觉示例，同时结合类别文本进行目标检测，而现有的其他模型不支持视觉查询，只能用纯文本描述进行目标检测。下表展示了在LVIS MiniVal和LVIS v1.0上的检测结果。可以发现，多模态查询的引入大幅度提升了开放世界目标检测能力。</p>
+<p>**</p>
+<p><img src="https://img.bibiqing.com/news/2023/1022/5qbozo40m5lmclj" alt="让大模型看图比打字管用！NeurIPS 2023新研究提出多模态查询方法，准确率提升7.8%"></p>
+<p>**</p>
+<h6 id="-表1-各个检测模型在lvis基准数据集下的finetuning-free表现"><strong>△</strong> 表1 各个检测模型在LVIS基准数据集下的finetuning-free表现</h6>
+<p>从表1可以看到，MQ-GLIP-L在GLIP-L基础上提升了超过7%AP，效果十分显著！</p>
+<h3 id="15-实验结果few-shot评估"><strong>1.5 实验结果：Few-shot评估</strong></h3>
+<p>**</p>
+<p><img src="https://img.bibiqing.com/news/2023/1022/odqja3boy428ndl" alt="让大模型看图比打字管用！NeurIPS 2023新研究提出多模态查询方法，准确率提升7.8%"></p>
+<p>**</p>
+<h6 id="-表2-各个模型在35个检测任务odinw-35以及其13个子集odinw-13中的表现"><strong>△</strong> 表2 各个模型在35个检测任务ODinW-35以及其13个子集ODinW-13中的表现</h6>
+<p>作者还进一步在下游35个检测任务ODinW-35中进行了全面的实验。由表2可以看到，MQ-Det除了强大的finetuning-free表现，还具备良好的小样本检测能力，进一步印证了多模态查询的潜力。图2也展示了MQ-Det对于GLIP的显著提升。</p>
+<p>**</p>
+<p><img src="https://img.bibiqing.com/news/2023/1022/4js8pplqd34cc4l" alt="让大模型看图比打字管用！NeurIPS 2023新研究提出多模态查询方法，准确率提升7.8%"></p>
+<p>**</p>
+<h6 id="-图2-数据利用效率对比横轴训练样本数量纵轴odinw-13上的平均ap"><strong>△</strong> 图2 数据利用效率对比；横轴：训练样本数量，纵轴：OdinW-13上的平均AP</h6>
+<h3 id="16-多模态查询目标检测的前景"><strong>1.6 多模态查询目标检测的前景</strong></h3>
+<p>目标检测作为一个以实际应用为基础的研究领域，非常注重算法的落地。</p>
+<p>尽管以往的纯文本查询目标检测模型展现出了良好的泛化性，但是在实际的开放世界检测中文本很难涵盖细粒度的信息，而图像中丰富的信息粒度完美地补全了这一环。</p>
+<p>至此我们能够发现，文本泛而不精，图像精而不泛，如果能够有效地结合两者，即多模态查询，将会推动开放世界目标检测进一步向前迈进。</p>
+<p>MQ-Det在多模态查询上迈出了第一步尝试，其显著的性能提升也昭示着多模态查询目标检测的巨大潜力。</p>
+<p>同时，文本描述和视觉示例的引入为用户提供了更多的选择，使得目标检测更加灵活和用户友好。</p>
+<p>原文链接：<br>
+<a href="https://zhuanlan.zhihu.com/p/660791012">https://zhuanlan.zhihu.com/p/660791012</a></p>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/61617/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">盘点基于Polygon CDK构建的13个项目</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/61625/">
+                <span class="next-text nav-default">闪电网络有资金风险？一文解读其原理和处理方法</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#目录"><strong>目录</strong></a></li>
+    <li><a href="#mq-det多模态查询的开放世界目标检测大模型"><strong>MQ-Det：多模态查询的开放世界目标检测大模型</strong></a>
+      <ul>
+        <li><a href="#11-从文本查询到多模态查询"><strong>1.1 从文本查询到多模态查询</strong></a></li>
+        <li><a href="#12-mq-det即插即用的多模态查询模型架构"><strong>1.2 MQ-Det即插即用的多模态查询模型架构</strong></a></li>
+        <li><a href="#13-mq-det高效训练策略"><strong>1.3 MQ-Det高效训练策略</strong></a></li>
+        <li><a href="#14-实验结果finetuning-free评估"><strong>1.4 实验结果：Finetuning-free评估</strong></a></li>
+        <li><a href="#15-实验结果few-shot评估"><strong>1.5 实验结果：Few-shot评估</strong></a></li>
+        <li><a href="#16-多模态查询目标检测的前景"><strong>1.6 多模态查询目标检测的前景</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

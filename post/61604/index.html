@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          如何使用 NFTScan 的 TON API 实现 NFT 应用开发? - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="NFTScan NFT API 一站式提供多链且海量 NFT 数据！" />
+<meta name="keywords" content="NFT, 技術" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/61604/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="如何使用 NFTScan 的 TON API 实现 NFT 应用开发?" />
+<meta property="og:description" content="NFTScan NFT API 一站式提供多链且海量 NFT 数据！" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/61604/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-10-21T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-10-21T00:00:00+00:00" />
+
+<meta itemprop="name" content="如何使用 NFTScan 的 TON API 实现 NFT 应用开发?">
+<meta itemprop="description" content="NFTScan NFT API 一站式提供多链且海量 NFT 数据！"><meta itemprop="datePublished" content="2023-10-21T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-10-21T00:00:00+00:00" />
+<meta itemprop="wordCount" content="3895">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="如何使用 NFTScan 的 TON API 实现 NFT 应用开发?"/>
+<meta name="twitter:description" content="NFTScan NFT API 一站式提供多链且海量 NFT 数据！"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">如何使用 NFTScan 的 TON API 实现 NFT 应用开发?</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-10-21">
+      2023-10-21
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 3895 字 -
+        预计阅读 8 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E5%85%B6%E5%AE%83%E6%96%87%E7%AB%A0/"> 其它文章 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>作者：NFT_Research</p>
+<p>上周 NFTScan 开发者平台已上线了 TON 网络的 NFT API 服务，TON（The Open Network）是由 Telegram 团队打造的一条 Layer 1 高性能公链，采用自己的 TVM 虚拟机，与 EVM 不兼容。通过先进的技术架构实现每秒百万级 TPS 的高速处理，并支持智能合约和 DApp 开发。TON 采用了分片机制提升扩展性，同时通过数据分片等方式保证网络安全，旨在建立一个高速、安全、可扩展的去中心化网络，为构建 Web 3.0 生态打下坚实基础。 </p>
+<p>目前 TON 网络上已累计发行 NFT 资产 1,204,487 枚，NFT Collection 10,123 个，产生交易记录 2,888,936 条，有过交互的钱包地址 762,453 个，总交易额 15,083,265 TON。目前除了兼容 EVM 的 15 条链， NFTScan 还支持了另外 4 条是非 EVM 区块链：Bitcoin、Aptos、Solana。</p>
+<p>TON NFTScan :</p>
+<p><img src="https://img.bibiqing.com/news/2023/1021/1_rijt7wbg4i.png" alt="cd877647ed9d94de3a90fd8c1ac232bc.png"></p>
+<p><strong>怎样访问 NFTScan NFT API以及创建 NFTScan 开发者账号</strong></p>
+<p>在开始使用 NFTScan API 之前，首先需要访问开发者网站并创建一个账户。前往 NFTScan 官方网站点击 NFTScan API “Sign Up”按钮进行注册。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1021/1_9003fvf5zt.png" alt="e716243785661283940c7332ac4dd370.png"></p>
+<p>登录后在 Dashboard（面板）上找到自己独有的 API KAY，将其复制。访问 API 文档，将自己的 API KEY 输进 API 文档的相应位置。根据文档的指引，就可以开始使用 API 服务了。在 API 文档中，开发者可以找到多种可供选择的接口模式，根据需求来选择最合适的接口。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1021/1_7993tfkusa.png" alt="2a36dbcb7aa6c9b008a345724ab09686.png"></p>
+<p>在 Dashboard 中，开发人员还可以查看自己 API 使用情况的统计数据，帮助记录历史使用数据。不仅如此，NFTScan 还为每位注册开发者提供 1M CU 的 API 调用服务，用于请求所有的 NFT API 接口，并且 CU 永不过期，用完为止！</p>
+<p><strong>查看 TON API 文档</strong></p>
+<p>在成功注册开发者账号获取 API Key 后，您需要查看 NFTScan API 文档。API 文档包含了所有可以使用的 API 端点和参数，以及如何构建请求和处理响应的详细信息。请认真阅读 API 文档，并确保理解如何使用 API 来获取您需要的数据。NFTScan API 服务致力于帮助开发者改善获取 NFT 数据分析体验。</p>
+<p>NFTScan 目前拥有全网最大最全的 NFT Collection 库，已支持 Ethereum、Solana、BNBChain、Bitcoin、TON、Polygon、zkSync、Aptos、Linea、Base、Avalanche、Arbitrum、Optimism、Scroll、Fantom、Moonbeam、PlatON、Cronos、Gnosis 19 条区块链的 NFT 全量数据，所涵盖的 NFT 数据全、种类丰富，提供一整套的接口来获得 ERC721 和 ERC1155 资产以及交易、项目、市场统计等信息，现在支持 60 多个针对 EVM 兼容链的公共接口，以及针对 Solana、Aptos、Bitcoin、TON 的一批相同模型的接口，很大程度上满足了开发者索引多种类型的 NFT 数据的需求。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1021/1_bw65s2viyc.png" alt="6e5ffe734d8eba168262ad2ad915bee0.png"></p>
+<p>TON API 主要包括了以下五个类型接口：</p>
+<p>Retrieve Asset/Retrieve Transaction/Retrieve Collection/Statistics/Refresh Metadata，包括里面一些 API 核心的字段的整体介绍和说明，方便开发者知道怎么去获取数据利用这些信息服务于自己正在构建的 Dapp 服务。</p>
+<p>Retrieve Asset 系列：</p>
+<ol>
+<li>
+<p>Get NFTs by account：/ton/account/own/{account_address}</p>
+</li>
+<li>
+<p>Get all NFTs by account：/ton/account/own/all/{account_address}</p>
+</li>
+<li>
+<p>Get minted NFTs by account：/sol/account/mint/{account_address}</p>
+</li>
+<li>
+<p>Get NFTs by contract：/ton/assets/collection/{contract}</p>
+</li>
+<li>
+<p>Get single NFT：/ton/assets/{token_address}</p>
+</li>
+<li>
+<p>Get multiple NFTs：/ton/assets/batch</p>
+</li>
+</ol>
+<p>这个类型的 API 为开发者提供了简单高效的方式去获取各种 NFT 数据，包括根据用户账户或合约地址获取相关 NFT 列表，获取单个或多个 NFT 的详细信息等。开发者可以通过这类接口直接获取链上 NFT 的基础信息、元数据等，无需自己提取和处理链上原始数据。这类接口减轻了链上数据复杂度，大大降低获取 NFT 细节数据的难度，是开发基于 TON NFT 的 DApp、数据分析等应用的重要基础。</p>
+<p>Retrieve Transaction 系列：</p>
+<ol>
+<li>
+<p>Get transactions by account：/ton/transactions/account/{account_address}</p>
+</li>
+<li>
+<p>Get transactions by contract：/ton/transactions/collection/{contract}</p>
+</li>
+<li>
+<p>Get transactions by NFT：/ton/transactions/{token_address}</p>
+</li>
+</ol>
+<p>这类型的接口可以方便获取 TON NFT 在链上发生的各种交易信息，包括根据账户、集合、资产地址等获取该 NFT 的历史交易记录，返回每笔交易的关键数据。这类接口提供链上原始的区块事件数据，开发者无需处理链上提取，就可以通过简单的接口调用获得需要的 TON NFT 交易数据。获得这些数据后，开发者可以基于此实现数据分析、交易系统等应用。</p>
+<p>Retrieve Collection 系列：</p>
+<ol>
+<li>
+<p>Get an NFT collection：/ton/collections/{collection}</p>
+</li>
+<li>
+<p>Search NFT collections：/ton/collections/filters</p>
+</li>
+</ol>
+<p>通过指定集合地址或过滤条件搜索 NFT Collection，返回匹配条件的集合列表。开发者可以利用这些接口获得任意项目的概况及列表，并基于此开发应用程序，例如数据分析平台可以统计每个集合的情况，可以展示热门 NFT Collection 的信息。</p>
+<p>Statistics 系列：</p>
+<ol>
+<li>
+<p>Trade Ranking：/ton/statistics/ranking/trade</p>
+</li>
+<li>
+<p>Collection Statistics：/ton/statistics/collection/{collection}</p>
+</li>
+</ol>
+<p>Trade Ranking 接口可以获取 TON 链上 NFT 交易排行榜，Collection Statistics 接口可以通过指定项目地址，获取该集合的关键统计数据等。这些统计类接口可以大幅简化开发者获取 NFT 数据来进行统计分析的工作，构建 NFT 交易分析平台，或者为 NFT 应用提供关键的统计参数。</p>
+<p>1. Refresh Metadata：/ton/refresh/metadata</p>
+<p>这个接口用来提交刷新指定 NFT 资产的元数据后台任务。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1021/1_7ksw795zs8.png" alt="b0b628904b41fbfe8064c2c77d6305b5.png"></p>
+<p><strong>查询相关 API</strong>  </p>
+<p>1/ Get NFTs by contract：/ton/assets/contract/{contract_address}</p>
+<p>通过 NFTScan TON API 的该接口，开发者可以通过检索一个 NFT 合约地址，并返回整个 Contract 的一组 NFT 信息列表，NFT 按代币地址升序排列。</p>
+<p>这里我们输入合约地址：EQCA14o1-VWhS2efqoh_9M1b_A9DtKTuoqfmkn83AbJzwnPi</p>
+<p><img src="https://img.bibiqing.com/news/2023/1021/1_hhlyzeh5jg.png" alt="85dfefc32e76f8ed53d44b3ec34819e4.png"></p>
+<p>点击 Try it 将返回该合约地址下的所有 NFT 资产的详细信息返回数据等等，数据默认分页返回，可通过 limit 和 cursor 参数控制每页数量和页码，返回数据包括每个 NFT 的 token address、token id、metadata、owner 地址等数据。返回数据默认分页返回，可通过 limit 和 cursor 参数控制每页数量和页码，灵活获取不同粒度的 NFT 数据。获得返回的数据后，开发者可以构建应用展示 NFT 详情,或者提取数据进行后续分析处理。</p>
+<p>可以看到该合约地址下共有 102185 个 Items，数据显示如下：</p>
+<p><img src="https://img.bibiqing.com/news/2023/1021/1_q0p1oesosz.png" alt="4183486021b727d46cdc79a5a73f7660.png"></p>
+<p>2/ Get transactions by account：/ton/transactions/account/{account_address}</p>
+<p>通过调用该接口并输入账户地址，查询参数可选择指定 NFT 合约地址进行查询，开发者可以轻松获得该钱包地址作为 sender 或 receiver 参与的所有历史 NFT 转账交易数据，包括每笔交易的区块高度、时间戳、Token ID、交易价格、交易类型等信息。这里我们查询的地址为：</p>
+<p>EQBwPvcqbRCICLo3cWOiFPO1QdmNZBcYAfpvwEaxjr9hKP-R</p>
+<p><img src="https://img.bibiqing.com/news/2023/1021/1_vsld4jas72.png" alt="f195bc86beac8b841220180085351ad7.png"></p>
+<p>3/ Trade Ranking: /ton/statistics/ranking/trade</p>
+<p>该接口可以帮助开发者快速获取 TON 生态中 NFT 项目的 Ranking 排名数据。该接口会返回按照筛选条件如交易额从高到低排列的一组数据。通过该排名列表，开发者可以清晰地看到交易最活跃的 NFT 项目，判断不同项目的流动性情况，确定潜力项目或需要更多研究的项目。</p>
+<p>我们可以查看查询参数 time：15m/30m/1h/6h/12h/1d/7d/30d；排序字段：volume/sales/floor_price/average_price 等进行条件筛选的 NFT 交易排名数据统计，可参考 TON NFTScan Trading</p>
+<p><img src="https://img.bibiqing.com/news/2023/1021/1_6odfj1o6ls.png" alt="e0a1eaabedea4aa484bab65556bd63fc.png"></p>
+<p><strong>构建相关 API 请求</strong></p>
+<p>开发者在 NFTScan 的 API 文档中找到所需的 TON API 接口和参数后，可以使用选择的编程语言(如 Python、Java、JavaScript 等)编写 API 请求代码。下面是一些通用的步骤，以及一个示例来说明如何使用 Python 编写 TON API 请求代码:</p>
+<p>1、首先，导入所选编程语言中的 HTTP 请求库。在 Python 中，通常会使用 requests 库</p>
+<p>2、定义 NFTScan API 的基本 URL 和所需的参数。在 API 文档中找到合适的接口和参数</p>
+<p>3、将参数添加到基本 URL 和端点中，构建完整的 API 请求 URL</p>
+<p>4、使用所选编程语言的 HTTP 库发起请求，通常是一个 GET 请求</p>
+<p>5、检查 HTTP 响应的状态码，通常状态码为 200 表示请求成功</p>
+<p><img src="https://img.bibiqing.com/news/2023/1021/1_zjtypmhqon.png" alt="fa04c1eb90eb45842797db0d2d0f2285.png"></p>
+<p>这些通用步骤可以用于与 NFTScan API 或其他类似的 API 进行交互，根据 API 文档中提供的信息来构建和发起请求，以及处理返回的数据。</p>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/61576/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">每周编辑精选 Weekly Editor&#39;s Picks（1014-1020）</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/61591/">
+                <span class="next-text nav-default">瑞士卢加诺市推出比特币锚定稳定币“LUGA”</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

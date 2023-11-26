@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          解读“最小可行发行量”：在ETH安全与通胀间寻求平衡 - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="以太坊诞生之初就存在的一个重要设计原则是“最小可行发行”，即协议发行的ETH数量不应超过安全严格所需的数量。" />
+
+  <meta name="keywords" content="区块大全, 区块链, 区块链资讯, 区块链快讯, 区块链新闻, 比特币行情" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/60704/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="解读“最小可行发行量”：在ETH安全与通胀间寻求平衡" />
+<meta property="og:description" content="以太坊诞生之初就存在的一个重要设计原则是“最小可行发行”，即协议发行的ETH数量不应超过安全严格所需的数量。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/60704/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-10-09T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-10-09T00:00:00+00:00" />
+
+<meta itemprop="name" content="解读“最小可行发行量”：在ETH安全与通胀间寻求平衡">
+<meta itemprop="description" content="以太坊诞生之初就存在的一个重要设计原则是“最小可行发行”，即协议发行的ETH数量不应超过安全严格所需的数量。"><meta itemprop="datePublished" content="2023-10-09T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-10-09T00:00:00+00:00" />
+<meta itemprop="wordCount" content="8674">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="解读“最小可行发行量”：在ETH安全与通胀间寻求平衡"/>
+<meta name="twitter:description" content="以太坊诞生之初就存在的一个重要设计原则是“最小可行发行”，即协议发行的ETH数量不应超过安全严格所需的数量。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">解读“最小可行发行量”：在ETH安全与通胀间寻求平衡</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-10-09">
+      2023-10-09
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 8674 字 -
+        预计阅读 18 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E5%85%B6%E5%AE%83%E6%96%87%E7%AB%A0/"> 其它文章 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>原文来源：Anders Elowsson，以太坊研究者</p>
+<p>原文编译：深潮 TechFlow</p>
+<h2 id="介绍">介绍</h2>
+<p>我认为实现「最小可行发行量」（MVI, Minimum Viable Issuance）非常重要，这是对普通以太坊用户的一项重要承诺。质押应该能够保障以太坊的安全，而不是成为通货膨胀税，同时降低效用和流动性，而产生寡头风险。</p>
+<p>以太坊正在不断发展，未来可能会驱动全球金融系统。我们必须假设「普通用户」对以太坊内部运作的了解，将会和普通人对当前金融系统的了解差不多。</p>
+<p>当然，我们无法假设普通用户会被某种意识形态驱动，正如以太坊初始创建的动力一样。我们的工作就是确保正确的激励机制到位，这样以太坊就可以不受阻碍地发展。</p>
+<p>以太坊诞生之初就存在的一个重要设计原则是「最小可行发行」（MVI），即协议发行的 ETH 数量不应超过安全严格所需的数量。无论是在工作量证明（PoW）还是权益证明（PoS）下，该原理都是合理的。</p>
+<p>在 PoW 下，MVI 的作用是为了防止矿工向普通用户收取过多的通货膨胀税。因此，区块奖励从 5 个 ETH 降低到 3 个 ETH，最后降低到 2 个 ETH。</p>
+<p>在 PoS 下，MVI 原则也应该被坚持，不向普通用户收取过多的通货膨胀税。普通用户不应该需要操心质押的细节，以避免他们的储蓄被侵蚀，或是支持可能存在审查的验证节点集等等。</p>
+<p>因此，MVI 实际上就是能够将抵押率（所有 ETH 中用于质押的比例）维持在足够高的水平，但不要更高。在本文文中，我将试着阐明超过「最小可行量」的发行为什么会降低以太坊的效用。</p>
+<h2 id="mvi-对用户赋能的好处">MVI 对用户赋能的好处</h2>
+<p>对个人来说，参与质押有各种机会成本。它需要资源、专注和技术知识，或者需要信任第三方，同时也降低流动性。流动性质押代币（LST）不如原生代币可靠，也不如原生代币适合作为货币或抵押品。</p>
+<p>因此，个人希望能够通过质押获得回报。定义他们的最低预期收益率为他们愿意质押的最低收益率（使用他们的最佳质押方式）。那么以太坊的（反向）供给曲线就源自未来以太持有者的最低预期收益率。</p>
+<p>持有者的预留收益率可以被描述为「无差异点」，在这个点上，他们从质押中获得的效用等同于不质押。这意味着降低发行量实际上可以提高每个人的效用，即使是质押者，只要以太坊仍然可靠安全。</p>
+<p>考虑供应收益率弹性为 2 的假设供应曲线（蓝色）。在这个例子中，我把它设定为当抵押数量 D 达到 2500 万个 ETH 时，收益率达到 2% ，即当抵押 2500 万个 ETH 时，边际质押者的最低预期收益率为 2% 。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1009/23_1lbm8w05mn.png" alt="解读“最小可行发行量”：在ETH安全与通胀间寻求平衡"></p>
+<p>现实中的供给曲线是一个相当复杂的现象，我们还没有达到可以锚定其位置的平衡点，但是我们将从这个简单而相当现实的场景开始。我们也将忽略复利的复杂性。</p>
+<p>燃烧率 b 设定为 0.008 。这是自合并以来，以年化比例表示的被燃烧的 ETH 数量占总供给的比例。但这不是关键点，因为我们关注的是中期平衡点（圆圈）之间供求量的转变，而不是 ETH 总供给的漂移。</p>
+<p>已实现提取价值（REV）（每年略高于 30 万个 ETH）已添加到协议发行量中，以形成黑色需求曲线（当前政策）和绿色需求曲线（通过将基础奖励因子 F 从 64 降低到 32 ，减半发行量）。</p>
+<p>减半发行量降低了收益率 y（红色箭头）。这减少了发行收益率 yi=y-yv（其中 yv 是来自 REV 的收益率），从而降低了发行量 i=yid 和流通供应量通货膨胀率 s=i-b（橙色箭头）。</p>
+<p>在一年内，某人可以获得的流通 ETH 持股比例变化 P，取决于 s 和每个持有者的收益率 y，根据公式：P= 1+y/1+s-1 </p>
+<p>当前发行政策给出 P 1 ，减半发行量给出 P 2 ，则它们的比例关系是：P= 1+P 2/1+P 1-1 </p>
+<p>定义相关的效用变化量为 u=P，但在计算 P 2 时，对于停止质押的人，使用他们各自的最低预期收益率。在低于那个收益率时，他们本来就不会质押，所以随着收益进一步下降，他们不会遭受额外的效用损失。</p>
+<p>根据这一定义，每个人在新平衡点下都会获得更高的效用。质押者虽然看到收益下降，但供给量通货膨胀率的下降更大，这使他们能够获得更大比例的 ETH。</p>
+<p>当然，非质押者明显会更好，因为对他们来说，唯一的变化就是向质押者发行的 ETH 减少了。停止质押的人是唯一在新平衡点下获得流通 ETH 比例降低的参与方。</p>
+<p>尽管存在摩擦，但由于效用的提高，他们的境况仍然隐含地变得更好。例如，在旧平衡点上的边际质押者本来就完全不在乎质押，所以可以停止质押并获得完整的供给量通货缩减带来的效用改善。</p>
+<p>当停止质押的人发现自己处于两者之间，仍然从通胀下降中获益，但在收益上遭受了一些损失，直到他们对质押和去质押变得漠不关心。我们已经说明，从效用的角度来看，发行政策不是零和游戏。</p>
+<p>此外，任何一组获得的效用提升也会普遍惠及所有代币持有者。</p>
+<p>只要拥有底层 ETH，每个人都可以从 MVI 中获益。这不包括 CEX 和其他从质押费用中获利的质押服务提供商（SSP）。他们不会从供应通胀的减少中受益，并希望保持高收益率以保持高减产。</p>
+<p>但高于 MVI 的发行迫使不愿意的质押者在质押时承受效用下降，或在不质押时承受经济后果下降。在现实的供应曲线下，即使是愿意的质押者，情况也会变得更糟。请注意，该示例甚至没有考虑税收影响。</p>
+<p>收益率为 5% 的 PoS 加密货币，每个人都进行质押，且质押收益率的平均税收为 20% ，每年将其市值的 1% 用于税收。这高于下一次减半后比特币将消散给矿工的金额。</p>
+<p>争论不一定取决于用户对税收水平的看法或如何解释质押收益。我们仍然可以得出这样的结论：通过执行 MVI，以太坊在民族国家之间税收政策的差异方面保持更加中立。</p>
+<p>可以说，权益证明需要较低的奖励才能达到与工作量证明相同水平的安全性，充分利用这一点来最大化用户效用非常重要。例如，收益率为 2% 、质押 2500 万的总奖励为 Y= 0.022500 = 50 万 ETH。</p>
+<p>维持这种稳固安全的「回报率」大约是 r=Y/S= 0.4% ，这个数字低得惊人。我们充分利用这一点，最大限度地为用户提供效用。与当前发行政策的潜在平衡由黑色圆圈表示。</p>
+<p>收益率约为 3% ，质押 5000 万 ETH，即 Y= 150 万 ETH/ 年。每年 100 万 ETH（按当前代币价格计算超过 10 亿美元）的奖励差异可以通过不稀释代币持有者的方式奖励给以太坊用户。</p>
+<p>对于 MVI，平均提取 15% 的质押费将为 CEX 和 SSP 每年提供约 2.5 亿美元的超额利润。有些将转嫁给公司股东，有些可能会用于游说，以将收益率永远保持在 MVI 之上。</p>
+<h2 id="从宏观角度来看mvi-的好处">从宏观角度来看，MVI 的好处</h2>
+<p>我经常认为以太渗透到生态系统是可取的。就 L2 而言，桥接以太将 L1 和 L2 绑定在一起，并为 L2 上的用户提供外部资金，从而提高他们的财务安全。</p>
+<p>如果你创建的系统中，用户必须依靠某种固执己见的 ETH 衍生品作为资金来避免通货膨胀税，那么整个生态系统就更容易被破坏。</p>
+<p>例如，考虑以下情况：无法质押的用户将其 ETH 提供给为他们运行验证器的组织（SSP）。这些组织可以发行 LST 作为抵押品，并在以太坊上使用。</p>
+<p>如果该协议不在 MVI 下运行，但以较高的存款比率运行，则一个或几个 LST 可能会取代以太坊生态系统中的货币，将其嵌入到每个层和应用程序中。这会产生什么影响？</p>
+<p>首先，货币功能带来的正网络外部性可能使 LST 保持主导地位，而其 SSP 提供的服务比竞争对手更差（例如，收取更高的费用或仅提供较差的风险调整奖励））。</p>
+<p>其次，也是最重要的一点，LST 持有者以及任何需要 LST 保值的应用程序或用户将与 LST 以及最终的 LST 发行组织（SSP）形成共同的命运。</p>
+<p>这需要以太坊摧毁自身的很大一部分。受影响的用户可能更愿意将错误或不当行为重新解释为完全不同的事情。一旦你成为以太坊的货币，你在某种程度上就成为了社交层。我们不再只关心 LST 下质押 ETH 的比例，而是 LST 下 ETH 总量的比例。腐败机构相应地也位于共识机制之上一层。</p>
+<p>从 The DAO 中可以明显看出，如果受结果影响的总流通供应量的比例变得足够大，那么「社会层」可能会动摇其对潜在预期共识过程的承诺。</p>
+<p>如果社区无法再有效地干预例如 51% 活跃度攻击的事件，那么以 Buterin 讨论的预警系统形式进行的风险缓解可能不会有效。</p>
+<p>在这种情况下，共识机制通过衍生品变得如此庞大和相互关联，以至于它的最终仲裁者——社会共识机制——超载了。</p>
+<p>现在考虑在 MVI 下的不同情况。首先，每个 LST 将面临来自非质押 ETH 的更艰难竞争。因此，垄断货币功能然后收取高昂费用或提供更高风险产品的能力都会减弱。</p>
+<p>其次，社交层将继续与以太坊和 ETH 原生绑定，而不是与外部组织及其发行的 ETH 衍生品绑定。通过 MVI 将抵押率保持在足够低的水平，因此改变了参与者的风险计算。</p>
+<p>在 MVI 下，当抵押率足够低以防止道德风险发展时，将质押委托给主导 LST 的委托人——代理问题（PAP）可以被更准确定价。没有 LST 会在以太坊社交层的眼中成长到「大而不倒」的地步。</p>
+<p>这种定价将反映这样一个事实：代表委托人行事的代理人（或任何能够介入该关系的一方）控制的质押份额越大，它获得为自己牟利而劣化共识的机会就越好。</p>
+<p>委托质押者必须始终考虑它拥有什么安全保证（例如，质押代理或介入方自己的价值风险），知道如果最坏情况发生，它可能会损失一切。</p>
+<p>取消以太坊货币的直接主导地位，并假设在 MVI 下存款比率已增长至效用最大化的规模，更大的 SSP 很可能会发现非垄断策略更有利可图（即费用增加）。</p>
+<p>这只是与现在有关的评论。但重要的是，它反映了这样一个事实：对于我们能够消除的每个「卡特尔阶层」，安全且价值一致的 SSP 的价值主张相对而言有所增加。</p>
+<p>迈向 MVI 的一个重要步骤是 MEV 燃烧，它还可能具有消除比货币功能更重要的「卡特尔阶层」的潜力。MEV 燃烧有助于降低独立质押者的奖励方差，如果降低发行收益率，这种方差会增加。</p>
+<p>它还为瞄准 MVI 带来了更高的精确度，因为它消除了一个可能以无法预先预测的方式随时间变化的收益来源。</p>
+<p>值得注意的是，未来可能会采用各种方法来处理委托质押的某些方面的委托人 - 代理问题（即一次性签名）。但是建立信任、垄断激励和审查能力的基本问题可能难以逃避。</p>
+<p>MVI 的另一个好处是它改善了（独立）质押的条件，这与抵押规模、验证者数量和验证者规模之间的直接关系有关。如果抵押规模发生变化，验证者规模或验证者数量（网络负载）也会发生变化。</p>
+<p>这种效应会扩散到整个协议设计空间，并会影响任何可能被替代以获得更高或更低的网络负载的目标，例如与变量验证者余额相关的参数。</p>
+<p>这是当前共识机制的一个基本属性。如果发行政策导致中期平衡点处的 d= 0.6 而不是 d= 0.2 ，则为了保持相同的网络负载，独立质押将需要三倍的 ETH，其他条件不变。</p>
+<p>回到本质上，我认为 MVI 的最重要好处在于其为普通用户提供效用的能力。以太坊处于一个独特的位置，能够使原生加密货币成为全球货币，我认为这是一个值得追求的机会。</p>
+<p>当国家通过增加货币基数来实施价格通货膨胀时，它们会控制普通人的时间间选择，并认为这种控制在数字化和全球化的世界仍然可行。</p>
+<p>以太坊不应该控制普通人，也不应该强迫他们节省流动性的能源。我们应该让他们最大限度地便捷使用以太坊货币并从中获得效用。以太坊中的「无风险利率」就是简单持有（和交易）ETH。</p>
+<h2 id="解决-mvi-的潜在问题">解决 MVI 的潜在问题</h2>
+<p>在阐述了 MVI 的潜在好处之后，第二部分将解决一些建议的缺点。这些包括降低的经济安全性和这样的观念：如果我们降低收益，委托质押将取代所有独立质押。</p>
+<p>当谈到第一点时，这确实是正确的，因为更高的存款比率确实会迫使攻击者花费更多的资源，例如，恢复最终性。这并不是一件可以掉以轻心的事情。</p>
+<p>我们的目标不是「最小发行量」。我们必须始终确保它是「可行的」。Buterin 就以太坊 51% 攻击应该多么昂贵提供了一些直观的解释。</p>
+<p>我们也可以认为在合并时确保以太坊安全的近 1400 万个 ETH，是生态系统认为在当前共识机制下（就抵抗女帐攻击而言，而不仅仅是超级委员会问责制）足够安全的抵押规模的「偏好」。</p>
+<p>与此同时，拥有可观的边际确实不错，当前的抵押率（d 0.2）相对于合并时的抵押率（d 0.1）在抵抗假帐角度也可能带来有意义的提升。</p>
+<p>奖励曲线的斜率不能太陡峭，这就是为什么我们可能希望与偏好点保持一定距离操作，并最终可以从质押供给和需求的概率分析中确定 d。</p>
+<p>一些人可能会认为，委托质押以某种方式使攻击资源分配变得容易，这只是「表面上的」安全。但是通过使所有质押面临惩罚和消除道德风险（通过 MVI），委托人在委托质押时必须非常小心，如前所述。</p>
+<p>在这种设置下，市场决定了对质押运营商适当的资本化比率，并对质押的风险进行定价。相反，以太坊负责惩罚不当行为并维持 ETH 的价值相对于它所确保的价值。</p>
+<p>通过确保 ETH 代币渗透到实体经济中，并且所有共识参与者都有实际利害关系，我们为攻击设定了一个更难通过金融工程规避的价格。</p>
+<p>我提到这一点是因为确实有一些有趣的替代方案被讨论，其中以太坊介入委托过程，委托人没有任何风险。那么对于共识恶化做出贡献的委托人来说，风险就会低得多。</p>
+<p>或者至少看起来是这样。当以太坊分叉和 / 或必须通过社会干预来拯救时，如果最坏的情况发生，无风险委托人可能会对社交层如何评估他们的委托和他们被认为造成的损害感到惊讶。</p>
+<p>这里我再次回到了 Buterin 的请求，不要过载共识。我的观点和本文的一个主题是，当卷入共识过程的 ETH 比例非常高时，每个人都会被卷入，可能无法实现「中立」的结果。</p>
+<p>对第一个问题的结论是，MVI 下的 d 必须保持足够大以确保安全，委托的确在一定程度上降低了安全性，但只要他们的质押有风险，各方将设法评估风险并明智地委托。</p>
+<p>保留独立质押者确实是一个复杂的难题。规模经济很难设计消除，我们也没有足够关注质押中的流动性。但是，当前论点中存在一些细微差异，更有利于 MVI，我希望能够提出来。</p>
+<p>以太坊的独立家庭质押者在质押时会产生一定的成本。他们预先支付了很大一部分费用，包括知识获取。它们还会产生宽带、故障排除时间和中断风险等可变成本。</p>
+<p>以太坊的许多 SSP 在设计其服务时也发生了重大成本，并承担独立质押者不必担心的其他类型的运营成本。然而，他们依靠规模经济来降低运营验证者的平均成本。</p>
+<p>我们必须假设 SSP 寻求最大化利润，并可以考虑在不同平衡下他们的费用可能是什么。d= 0.2 和 d= 0.6 之间的规模经济有何不同？假设 SSP 在 d= 0.6 时平均成本要低得多似乎是合理的。</p>
+<p>还记得在 d= 0.2 ，单独的质押者可能能够运行比原来小三倍的验证器 d= 0.6 。就我们可以吸引的单独质押者的比例而言，最小验证者数量为 32 ETH 和 96 ETH（或 11 ETH - 32 ETH）之间可能存在差异。</p>
+<p>因此，不仅较高的 d 会迫使独立质押者在相同网络负载下拥有更多 ETH，他们还必须与能够收取更低费用的 SSP 竞争。虽然费用将根据市场策略设定，但平均成本最终应该很重要。</p>
+<p>如果我们降低收益，SSP 希望需要提高费用以适当弥补和摊销成本。委托质押者的成本是可变的，包括 PAP 和费用。他们可以轻松地摆脱增加的费用。</p>
+<p>降低收益会导致独立质押者离开（早于委托质押者）的论点是应该认真对待的。但是由于当前的家庭质押者已经发生了固定成本，他们当前的个人收益供给弹性可能不高。</p>
+<p>然而，如果我们将收益降低到使家庭独立质押变得不可行的程度（包括对新入局者），他们短期内较低的弹性将无济于事。如果我们想保持独立质押，存在一个我们不能低于的质押总收益下限。</p>
+<p>假设独立家庭质押的总成本（以 ETH 计价）为 C，并考虑质押时对资金的年风险 R 等其他因素。然后，收益必须高于 y&gt;C/32+R，即使再质押带来流动性，也需要合理的边际。</p>
+<p>在这里，我还希望讨论 DeFi 收益的影响。所有质押者都会获得内生于质押的收益 y。这种「内生收益」来自发行、MEV 和优先费。一些人还可能获得共识机制之外的「外生收益」yc。</p>
+<p>无法简单对 LST 持有者求和 y+yc 并得出结论：无论 y 如何下降，LST 持有者相对于独立质押者总是获利。可以预期的是，ETH 代币相对于 LST（不考虑其内生收益时）会带来更高的效用。</p>
+<p>委托质押者必须权衡 y（1-f），其中 f 是百分比费用，相对于包括 PAP 和 LST 相对于原生 ETH 的固有劣势在内的风险 / 成本，并且只有当 y（1-f）（而不是 y+yc）超过这些成本时，才决定进行质押。</p>
+<p>当 y= 0 时，代理不会委托质押。他们可以通过原生 ETH 获得更好的流动性或更高的 yc，并且通过将质押委托给运营亏损的 SSP 会面临严重的不利选择。独立质押者可能也不会质押。</p>
+<p>对于无论如何想要持有 ETH 的人来说，决定可能不取决于 yc 是 1% 还是 5% 。在 5% 时，可以预期 ETH 会提供 + 5% 。当然，那 5% 带有风险，也不是免费货币（我们的收益也不应该是，因此是 MVI）。</p>
+<p>随着 y 的上升，潜在的独立质押者和委托质押者将逐渐发现质押的主张值得，从最有雄心 / 冒险的人开始。在这里我们正在形成供给时间表，其中每个代理根据其特定情况做出决定。</p>
+<p>潜在独立质押者和委托质押者之间的最低预期收益率分布如何尚不清楚。在 d= 0.2 的中期平衡点，独立质押者的比例可能低于 d= 0.6 ，但另一种选择也很可能。</p>
+<p>更高的 d 可能允许 SSP 更加多样化，但货币职能的卡特尔阶层对此施加压力。拥有足够 ETH 进行独立质押的个人比例也有限，这为独立质押者总数设定了一个软性上限。</p>
+<p>这确实是值得进一步研究的话题。关键是质押的机会成本必须始终被充分考虑进来，规模经济和垄断会以相当复杂的方式影响基础均衡分析。</p>
+<p>最后，再质押具有使独立质押者更具竞争力的潜力。它使他们能够在愿望时「重新抵押」他们的质押（但是，如果他们想提供经济安全，他们自己也可能会遇到委托人 - 代理问题）。</p>
+<p>再质押的一个好处是，如果主动验证服务（AVS）可以量化去中心化，它也可以为去中心化赋予经济剩余价值。这是以太坊作为一个开放协议无法做到的。</p>
+<p>之前的论点也适用于规程外 EigenLayer 功能上的再质押。在非常低的收益率下，用户最好直接使用非质押 ETH（免费质押）。对许多使用案例来说，AVS 更倾向于选择一个不会轻易蒸发的代币似乎是合理的。</p>
+<p>还要注意，如果 PEPC 扩展其范围超出「区块生产使用案例」，产生的收益可能会变得更具内生性，这取决于提供的剩余效用。</p>
+<h2 id="展望未来">展望未来</h2>
+<p>关于 MVI 的优点和缺点的讨论到此结束。虽然单独质押存在一些令人担忧的问题，但 MVI 是一项从根本上来说合理的设计政策，它使以太坊真正有机会为用户提供有史以来最好的数字货币。</p>
+<p>每个论点都有其细微差异，一些讨论无法在推文中简明扼要地表达出来。但是我认为综合考虑所有因素，应该有可能接受 MVI 在 PoS 下也是一个有利的设计原则。</p>
+<p>我们必须始终首先关注「普通用户」，这需要基于微观基础进行研究，并在以太坊（希望地）成为他们新的金融系统时评估我们如何为普通人最大化效用。</p>
+<p>那么问题是我们如何实现 MVI，这是我一直在深入研究的问题。Dietrichs 在最近的开发者电话会上提到传达当前发行政策研究的重要性，我的过程从这条推文开始。</p>
+<p>改变发行政策是一个敏感的问题。我们渴望的是一个发行政策，它能够最大化效用，且不需要进一步的开发者干预，这样它就可以永远按比例分配出最大化效用的 MVI。</p>
+<p>但是，当前的奖励曲线不允许该协议影响抵押率（安全性），而是抵押规模。从中期来看，结果与这两者密切相关，但从长期平衡来看，可能会出现明显的分歧，随着流通供给的漂移。</p>
+<p>这是我 2021 年在 Ethresearch 的文章和在 Devconnect 的演讲主题： 定义流通供给 S 如何向平衡（i=b）漂移，以便我们可以改进奖励曲线并在权益证明下实现最小可行发行量。</p>
+<p>由于根据当前奖励曲线，发行量 i 可以表示为 i=cFd/S，它会随着流通供给的变化而变化（抵押率 d 提供了一定的调节空间）。图示展示了以太坊的发行率对角线和自合并以来的平均 b。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1009/wom58bw0atg9cs2" alt="解读“最小可行发行量”：在ETH安全与通胀间寻求平衡"></p>
+<p> 燃烧率 b 不会取决于流通供给——对区块空间的需求不会因为货币计价单位的改变而改变。如果 i&gt;b，S 会上升并把 i 拉下来直到它等于 b。如果 i&lt;b，S 会下降并拉起 i 直到它等于 b。</p>
+<p>2021 年，质押者还没有 REV，所以我直接使用了最低预期收益率 y-，得出以太坊的安全性为 d=b/y。</p>
+<p>在今天，我们只需将「REV 率」v 添加到等式中，得到 d=（b+v）/y。这一点，也就是我们在长期内无法控制抵押率和安全性，除非我们准备不时改变 F。</p>
+<p>我们可以削减 F 作为暂时的解决方案，以避免支付过多的安全费用（这将在下一条推文中讨论）。但是，以太坊最终会在较低的流通供给下返回同样的长期平衡抵押率（其他条件不变）。</p>
+<p>这就是为什么我们最终希望将奖励曲线改为与 d 相关而不是与 D 相关。然后简单地将 D 替换为 S 0 d（其中 S 0 是当前流通供给）看起来很诱人。这使我们向自治发行政策迈进了一步，但仍然不能保证实现它。</p>
+<p>假设有 MEV 燃烧，那么该协议就可以完全适应收入变化，但仍然无法适应预期收益率即供应曲线的永久转变。这可以通过允许整个奖励曲线（需求曲线）缓慢漂移来处理。</p>
+<p>最终目标是一个动态平衡，在没有外部影响的情况下，流通供给可以以恒定速率变化。它是通货膨胀还是通货紧缩取决于供给曲线以及区块空间价值如何反映在 ETH 市值中。</p>
+<p>因此，我们实现了 Polynya 所称的「恒定」安全性，我认为这恰如其分地描述了我们的最终目标，最终从开发者手中夺取发行控制权，在 MVI 下使以太坊达到自治。</p>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/60678/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">监管不确定性导致稳定币连续18个月下跌</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/60696/">
+                <span class="next-text nav-default">解读非托管流动性协议Hover： 差异化、层次化的全新借贷体系</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#介绍">介绍</a></li>
+    <li><a href="#mvi-对用户赋能的好处">MVI 对用户赋能的好处</a></li>
+    <li><a href="#从宏观角度来看mvi-的好处">从宏观角度来看，MVI 的好处</a></li>
+    <li><a href="#解决-mvi-的潜在问题">解决 MVI 的潜在问题</a></li>
+    <li><a href="#展望未来">展望未来</a></li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

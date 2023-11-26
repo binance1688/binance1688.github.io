@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          关于数据可用性的十问十答：以Celestia为例 - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="为什么Celestia不鼓励存储历史数据？如果没有奖励，谁可能存储历史数据？" />
+
+  <meta name="keywords" content="区块大全, 区块链, 区块链资讯, 区块链快讯, 区块链新闻, 比特币行情" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/62551/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="关于数据可用性的十问十答：以Celestia为例" />
+<meta property="og:description" content="为什么Celestia不鼓励存储历史数据？如果没有奖励，谁可能存储历史数据？" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/62551/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-11-05T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-11-05T00:00:00+00:00" />
+
+<meta itemprop="name" content="关于数据可用性的十问十答：以Celestia为例">
+<meta itemprop="description" content="为什么Celestia不鼓励存储历史数据？如果没有奖励，谁可能存储历史数据？"><meta itemprop="datePublished" content="2023-11-05T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-11-05T00:00:00+00:00" />
+<meta itemprop="wordCount" content="3590">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="关于数据可用性的十问十答：以Celestia为例"/>
+<meta name="twitter:description" content="为什么Celestia不鼓励存储历史数据？如果没有奖励，谁可能存储历史数据？"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">关于数据可用性的十问十答：以Celestia为例</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-11-05">
+      2023-11-05
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 3590 字 -
+        预计阅读 8 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E5%85%B6%E5%AE%83%E6%96%87%E7%AB%A0/"> 其它文章 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p><img src="https://img.bibiqing.com/news/2023/1105/26_uwssdolyfl.jpg" alt="关于数据可用性的十问十答：以Celestia为例"></p>
+<h2 id="什么是-da-数据可用性">什么是 DA 数据可用性？</h2>
+<p>数据可用性解决的问题是：这些数据已经发布了吗？具体来说，当节点接收到一个新的即将添加到链上的区块时，它会验证数据的可用性。节点会尝试下载新区块的所有交易数据以确认其可用性。如果节点能够下载所有交易数据，那么它就成功地验证了数据可用性，证明了区块数据确实已经发布到网络上。</p>
+<p>如你所见，模块化区块链，例如 Celestia (可通过此链接了解更多信息：<a href="https://docs.celestia.org/learn/how-celestia-works/data-availability-faq">https://docs.celestia.org/learn/how-celestia-works/data-availability-faq</a>) 利用其他原语让节点更高效地验证数据可用性。数据可用性对于任何区块链的安全至关重要，因为它确保任何人都可以检查交易账本并进行验证。当区块链规模扩大时，数据可用性尤其成问题。随着区块变大，普通用户下载所有数据变得不切实际，因此用户无法再验证链的真实性。</p>
+<h2 id="数据可用性的问题是什么">数据可用性的问题是什么？</h2>
+<p>这个问题发生在新区块的交易数据不能被网络上的节点下载和验证时。一个可能的情况是，区块的生产者故意不公布交易数据，这被称为数据隐匿攻击。如果交易数据没有被发布，那么网络上的节点就不能确认并接受新区块，导致区块链更新到最新状态的过程中断。</p>
+<p>由于节点不能验证新区块的数据，这可能导致区块链运行停止，或者更糟糕的是，攻击者可能利用这个漏洞盗取资金。后果的严重程度将取决于区块链的类型（L1 或 L2）以及数据可用性是保持在链上还是链下。在 Layer 2 的扩展方案中，比如 rollups 和 validiums，数据可用性问题尤为常见。这些技术尝试通过在链上扩展处理能力来提高区块链的性能，但这也可能引发新的数据可用性挑战。</p>
+<h2 id="在-celestia-中节点怎么验证数据可用性">在 Celestia 中节点怎么验证数据可用性？</h2>
+<p>在大多数区块链中，节点通过下载一个区块的所有交易数据来验证数据的可用性。如果节点能够下载所有数据，那么它们就验证了数据的可用性。在 Celestia 中，轻节点（light nodes）可以使用一种新的机制来验证数据可用性，而无需下载一个区块的所有数据。这种验证数据可用性的新方法称为数据可用性抽样。</p>
+<h2 id="数据可用性抽样是什么">数据可用性抽样是什么？</h2>
+<p>数据可用性抽样是一种使轻节点无需下载区块的全部数据即可验证数据可用性的机制。数据可用性抽样（DAS）的工作原理是让轻节点进行多轮随机抽样，以获取区块数据的小部分。随着轻节点完成更多轮的数据抽样，它对数据可用性的信心就会增加。一旦轻节点成功达到预定的信心水平（例如 99% ），它将认为区块数据是可用的。</p>
+<p>想要一个更简单的解释吗？查看这个讨论帖子，了解数据可用性抽样就像掷硬币一样。<a href="https://twitter.com/nickwh8te/status/1559977957195751424">https://twitter.com/nickwh8te/status/1559977957195751424</a></p>
+<h2 id="celestia-在数据可用性抽样方面的一些安全假设是什么">Celestia 在数据可用性抽样方面的一些安全假设是什么？</h2>
+<p>Celestia 区块链网络中数据可用性抽样（Data Availability Sampling，简称 DAS）的两个安全假设：</p>
+<ol>
+<li>
+<p><strong>轻节点数量假设</strong> ： Celestia 假定网络中存在足够数量的轻节点，这些轻节点会对新生成的区块进行数据可用性抽样。这是基于对数据进行随机样本检查的机制，即轻节点不需要下载整个区块的数据，而是下载一部分数据来验证整个区块的数据是否可用。这个假设保证了如果区块数据确实发布到了网络上，那么完整节点能够通过聚合轻节点抽样的数据部分来重构出完整的区块。这种假设下，对于更大的区块，相应地需要更多的轻节点来确保数据可用性。</p>
+</li>
+<li>
+<p><strong>连接到诚实完整节点</strong> ： 第二个假设是每个轻节点至少能够连接到一个诚实的完整节点。这样做是为了保证轻节点能够接收到错误擦除编码块的欺诈证明（fraud proofs）。欺诈证明是一种安全机制，用于验证区块数据是否被正确处理。如果轻节点在日食攻击期间（这是一个网络攻击类型，攻击者尝试将目标节点隔离，让它只能连接到恶意节点）不能连接到至少一个诚实的完整节点，它将无法验证区块是否被不当构建，因而网络的安全性和可靠性会受到威胁。</p>
+</li>
+</ol>
+<h2 id="为什么区块重构对安全性是必要的">为什么区块重构对安全性是必要的？</h2>
+<p>在区块链中，&ldquo;重构区块&quot;意味着如果我们没有一次性获得整个区块的数据，我们也能通过手中已有的数据碎片来复原出完整的区块内容。这就好比我们手里有一张撕碎了的纸，如果每一片撕碎的部分都有一些重叠，我们就有可能把整张纸拼回原样。</p>
+<p>在 Celestia 这样的系统中，通过数据擦除编码（erasure coding），即使我们没有拿到完整的区块数据，只要有足够的数据片段，也可以把整个区块的数据复原出来。数据擦除编码会创建一些额外的数据冗余，这样即便部分数据丢失，剩下的信息也足够我们重构出完整的区块。</p>
+<p>为什么这样做对安全性很重要呢？因为这确保了即使在不完美的情况下 —— 比如说有恶意节点试图隐藏数据或者网络不稳定导致数据无法完整传输 —— 我们仍能验证交易的完整性和正确性。如果有人试图篡改或隐藏交易数据，只要我们能重构出区块，就可以发现并证明这种篡改，保障整个区块链的透明度和可信赖性。</p>
+<h2 id="什么是数据存储关于数据存储的问题是什么">什么是数据存储？关于数据存储的问题是什么？</h2>
+<p>数据存储涉及到存储和访问过去交易数据的能力。</p>
+<p>数据存储和检索需要用于多个目的，例如：</p>
+<ul>
+<li>
+<p>阅读之前交易的信息</p>
+</li>
+<li>
+<p>同步节点</p>
+</li>
+<li>
+<p>索引和提供交易数据服务</p>
+</li>
+<li>
+<p>检索 NFT 信息</p>
+</li>
+</ul>
+<p>数据存储的问题在于是否可以存储过去的交易数据，并在以后成功地检索。如果无法检索历史交易数据，可能会导致一些问题，比如用户无法访问他们过去交易的信息，或者节点无法从创始区块同步数据。幸运的是，关于存储和访问过去数据的假设要求不高。只需要能够访问区块链历史记录的单一副本，用户就可以获得历史交易数据。换句话说，数据存储安全是一个 1 对 N 诚实假设。</p>
+<h2 id="数据可用性和数据存储有什么区别httpsdocscelestiaorglearnhow-celestia-worksdata-availability-faqwhat-is-the-difference-between-data-availability-and-data-storagehttpsdocscelestiaorglearnhow-celestia-worksdata-availability-faqwhere-does-blockchain-state-fit-into-this区块链状态如何融入这个问题">数据可用性和数据存储有什么区别？<a href="https://docs.celestia.org/learn/how-celestia-works/data-availability-faq#what-is-the-difference-between-data-availability-and-data-storage"></a><a href="https://docs.celestia.org/learn/how-celestia-works/data-availability-faq#where-does-blockchain-state-fit-into-this"></a>区块链状态如何融入这个问题？</h2>
+<p>数据可用性是关于验证新区块的交易数据是否公开可用的问题。相比之下，数据存储涉及到存储和访问旧区块的过去交易数据。</p>
+<p>到目前为止，我们讨论的都是交易数据，但区块链状态是一个相关的话题。状态与交易数据不同。具体来说，状态就像是网络的当前快照，包括了账户余额、智能合约余额和验证者集合信息等。由状态大小引起的问题在性质上与数据可用性和可检索性问题不同。</p>
+<h2 id="为什么-celestia-不鼓励存储历史数据如果没有奖励谁可能存储历史数据">为什么 Celestia 不鼓励存储历史数据？如果没有奖励，谁可能存储历史数据？</h2>
+<p>大多数区块链不鼓励数据存储，因为保证历史数据永久可检索不应该是区块链的责任。此外，数据存储问题只需要一个当事人来存储和提供数据给用户，这不是一个强烈的问题。因此，Celestia 的目标是提供一种安全且可扩展的方法来验证数据的可用性。一旦数据被验证为可用，存储和检索历史数据的任务就留给了需要数据的其他实体。幸运的是，即使 Celestia 本身不直接提供激励措施（例如，通过支付代币或其他奖励）来鼓励数据的存储和检索，还是有其他因素促使某些组织或个人出于他们自己的利益存储历史数据，并将其提供给需要它的用户。</p>
+<p>可能会存储历史数据的参与者有多种类型。其中一些包括：</p>
+<ul>
+<li>
+<p>提供对过去交易数据访问的区块浏览器。</p>
+</li>
+<li>
+<p>为过去的数据提供 API 查询的索引器。</p>
+</li>
+<li>
+<p>需要历史数据来进行某些处理的应用程序或者 Rollup。</p>
+</li>
+<li>
+<p>希望保证能够访问其交易历史的用户。</p>
+</li>
+</ul>
+<h2 id="区块链可以做些什么来提供更强的数据可检索性保证">区块链可以做些什么来提供更强的数据可检索性保证？</h2>
+<ul>
+<li>
+<p>根据节点存储的交易数据量和它们服务的数据请求来奖励节点（一些数据存储区块链，如 Filecoin，就是这种情况）。</p>
+</li>
+<li>
+<p>将交易数据发布到激励存储和提供历史数据请求服务的数据存储区块链上。</p>
+</li>
+</ul>
+<p>参考链接：<a href="https://docs.celestia.org/learn/how-celestia-works/data-availability-faq">https://docs.celestia.org/learn/how-celestia-works/data-availability-faq</a></p>
+<p>阅读更多：</p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzU2MDQwNjI1Mw==mid=2247485233idx=1sn=98ce839ab1c70273e1859ee82204d4c9chksm=fc09ccb3cb7e45a556df5bb08a776467a79abc5735538c433d79ceca84a4ac1338e35fbc4c76#rd">从单链到模块化：Avail 如何改变区块链应用开发</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzU2MDQwNjI1Mw==mid=2247485247idx=1sn=0db52043070df0454511c7447c37cfe1chksm=fc09ccbdcb7e45abb45a19aa06a63ff615a5e61e237a52cc80dc7f88a97ceb322d7c0553a010#rd">新手小白如何在 30 秒内安装运行 Celestia 轻节点？</a></p>
+<p><a href="http://mp.weixin.qq.com/s?__biz=MzU2MDQwNjI1Mw==mid=2247485202idx=1sn=d818a7f958bac61af7c8b25e709bc629chksm=fc09cc90cb7e4586d3b512c6e12f9acacaec30caf7b8d9d6803f4de3a94d3c2501a7e96f2ae7#rd">速看！关于模块化区块链的 7 个误解及真相！</a></p>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/62553/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">分析师：图表显示BTC将出现抛物线上涨</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/62572/">
+                <span class="next-text nav-default">解锁比特币生态：必读指南</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#什么是-da-数据可用性">什么是 DA 数据可用性？</a></li>
+    <li><a href="#数据可用性的问题是什么">数据可用性的问题是什么？</a></li>
+    <li><a href="#在-celestia-中节点怎么验证数据可用性">在 Celestia 中节点怎么验证数据可用性？</a></li>
+    <li><a href="#数据可用性抽样是什么">数据可用性抽样是什么？</a></li>
+    <li><a href="#celestia-在数据可用性抽样方面的一些安全假设是什么">Celestia 在数据可用性抽样方面的一些安全假设是什么？</a></li>
+    <li><a href="#为什么区块重构对安全性是必要的">为什么区块重构对安全性是必要的？</a></li>
+    <li><a href="#什么是数据存储关于数据存储的问题是什么">什么是数据存储？关于数据存储的问题是什么？</a></li>
+    <li><a href="#数据可用性和数据存储有什么区别httpsdocscelestiaorglearnhow-celestia-worksdata-availability-faqwhat-is-the-difference-between-data-availability-and-data-storagehttpsdocscelestiaorglearnhow-celestia-worksdata-availability-faqwhere-does-blockchain-state-fit-into-this区块链状态如何融入这个问题">数据可用性和数据存储有什么区别？<a href="https://docs.celestia.org/learn/how-celestia-works/data-availability-faq#what-is-the-difference-between-data-availability-and-data-storage"></a><a href="https://docs.celestia.org/learn/how-celestia-works/data-availability-faq#where-does-blockchain-state-fit-into-this"></a>区块链状态如何融入这个问题？</a></li>
+    <li><a href="#为什么-celestia-不鼓励存储历史数据如果没有奖励谁可能存储历史数据">为什么 Celestia 不鼓励存储历史数据？如果没有奖励，谁可能存储历史数据？</a></li>
+    <li><a href="#区块链可以做些什么来提供更强的数据可检索性保证">区块链可以做些什么来提供更强的数据可检索性保证？</a></li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

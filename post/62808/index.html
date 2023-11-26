@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          反转使用者在 MEV 生态系中的地位 - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="本篇将介绍能让协议或用户在 MEV 生态系中获得更多控制权的几个设计。" />
+<meta name="keywords" content="MEV" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/62808/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="反转使用者在 MEV 生态系中的地位" />
+<meta property="og:description" content="本篇将介绍能让协议或用户在 MEV 生态系中获得更多控制权的几个设计。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/62808/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-11-08T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-11-08T00:00:00+00:00" />
+
+<meta itemprop="name" content="反转使用者在 MEV 生态系中的地位">
+<meta itemprop="description" content="本篇将介绍能让协议或用户在 MEV 生态系中获得更多控制权的几个设计。"><meta itemprop="datePublished" content="2023-11-08T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-11-08T00:00:00+00:00" />
+<meta itemprop="wordCount" content="9915">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="反转使用者在 MEV 生态系中的地位"/>
+<meta name="twitter:description" content="本篇将介绍能让协议或用户在 MEV 生态系中获得更多控制权的几个设计。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">反转使用者在 MEV 生态系中的地位</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-11-08">
+      2023-11-08
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 9915 字 -
+        预计阅读 20 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E5%85%B6%E5%AE%83%E6%96%87%E7%AB%A0/"> 其它文章 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>作者：Nic @ imToken Labs</p>
+<p>本篇将介绍能让协议或用户在 MEV 生态系中获得更多控制权的几个设计，包含 McAMM、MevWeth/MevWallet、Wallet-Boost、MEV Blocker 及 MEV-Share。</p>
+<p><strong>阅读提示</strong></p>
+<ul>
+<li>
+<p>在阅读本文前，需要对 MEV 有基本的认识，知道 MEV 生态系中不同的角色。</p>
+</li>
+<li>
+<p>了解 mev-boost 及一个 Bundle 从产生到被放入区块的流程。</p>
+</li>
+<li>
+<p>还需要知道 AMM 的运作及流动性提供者（Liquidity Provider, LP）的角色。</p>
+</li>
+<li>
+<p>点击阅读：<strong>MEV (三）：PBS 补丁</strong></p>
+</li>
+</ul>
+<p><strong>MEV awareness</strong></p>
+<p>MEV 经过多年的发展后已经变成一个既定的事实，大家从一开始的拒绝接受，到现在几乎所有 Validator 都已接上 MEV Boost，以及有像是 Flashbot Protect 的防护管道，使用者也更谨慎地检查所设置的 AMM 滑点，以及 RFQ/Limit Order/Batch Auction 等不被 MEV 影响的交易方式也有稳定的交易量。</p>
+<p><em>延展阅读：</em></p>
+<ul>
+<li>
+<p>_了解 RFQ 交易方式, 请查阅：_<em><a href="https://dune.com/p0s/tokenlon-dex-stats">https://dune.com/p0s/tokenlon-dex-stats</a></em></p>
+</li>
+<li>
+<p>_了解 Limit Order 交易方式, 请查阅：_<em><a href="https://dune.com/k06a/1inch-Limit-Order-Protocol">https://dune.com/k06a/1inch-Limit-Order-Protocol</a></em></p>
+</li>
+<li>
+<p>_了解 Batch Auction 交易方式，请查阅：_<em><a href="https://dune.com/cowprotocol/cowswap-high-level-metrics-dashboard">https://dune.com/cowprotocol/cowswap-high-level-metrics-dashboard</a></em></p>
+</li>
+</ul>
+<p><img src="https://img.bibiqing.com/news/2023/1108/3_qns2u1551r.png" alt="反转使用者在 MEV 生态系中的地位"></p>
+<p>△ 图源/</p>
+<p><em><a href="https://pseudotheos.mirror.xyz/i7sv9SFb1e64W2ax">https://pseudotheos.mirror.xyz/i7sv9SFb1e64W2ax</a>_kYwp68O0M2NdACtOu9Hj12SPP8</em></p>
+<p><strong>MEV inclusive</strong></p>
+<p>但 MEV 的发展不会仅止于知道哪些行为会导致 MEV 而已，而是在察觉 MEV 机会的存在后，反过来将 MEV 变为一个工具，或是针对 MEV 机会进行反制或甚至贩卖赚取 MEV 机会的权利。接下来将依序介绍：</p>
+<ol>
+<li>
+<p>透过贩卖 MEV 套利机会来增加流动性提供者（LP）收益的 McAMM 设计。</p>
+</li>
+<li>
+<p>利用 MEV 来绕过公开的手续费市场，转而透过台面下的 MEV 手续费市场送交易的 MevWeth/MevWallet 设计。</p>
+</li>
+</ol>
+<p><strong>MEV captured AMM (McAMM)</strong></p>
+<p>AMM 的流动性提供者（LP）提供流动性，在用户来交易时收取手续费，而套利者（Arbitrageur）则是赚取用户交易导致的价差，但这个价差是否应该是 LP 可以获得的收益来源？</p>
+<p><em>阅读提示：AMM LP 的效益分析可以参考 Tim Roughgarden 的 Loss-Versus-Rebalancing（LVR） 介绍，请复制下方链接到浏览器观看：https://www.youtube.com/watch?v=q5vyJJb-Uyw</em></p>
+<p>我们无法禁止套利者来套利，甚至需要藉由套利者来把价格套回当前的市场价格，但我们可以反过来贩卖这个套利机会。假设一个套利者发现一个套利机会的利润为 1 ETH 且同时有多个彼此竞争的套利者存在，则套利者的竞标价会接近 1 ETH，而这接近 1 ETH 的得标费用就可以成为 LP 新的收益来源。</p>
+<p>LP 的收益更多就能吸引更多人来提供流动性，流动性好就能吸引更多用户来交易，也就能创造更多套利机会，形成一个正向循环。</p>
+<p>McAMM 贩卖的是每个区块中到该 McAMM 执行「第一笔」交易的权利。McAMM 没办法针对每一笔交易都贩卖交易权利，因为它没办法分辨哪些交易是套利者交易，哪些是正常的用户交易，如果每一笔都贩卖则会导致使用者要来使用该 McAMM 还要先付钱给 McAMM，如此肯定没有人会想来使用。</p>
+<p>所以 McAMM 只能保留「第一笔」交易的交易权利给买下这个交易权利的套利者，让他来套上一个区块的用户交易所产生的价差。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1108/3_htimeshqsl.png" alt="反转使用者在 MEV 生态系中的地位"></p>
+<p>△ 得标的套利者会得到 McAMM 第一笔交易的执行权利</p>
+<p><img src="https://img.bibiqing.com/news/2023/1108/3_fcfqykz63h.png" alt="反转使用者在 MEV 生态系中的地位"></p>
+<p>△ 如果得标者没有来交易，其他用户的交易都会 revert</p>
+<p>想套利的人透过竞标获得执行第一笔交易的权利，McAMM 合约也要确保第一笔交易的发起人必须是得标者，不能单纯假设得标者的交易一定会被排序在最前面。</p>
+<p>McAMM 合约内会规定每个区块中第一笔来该 McAMM 执行的交易必须是得标者发起的交易，只要他没发送交易其他人的 McAMM 交易就不能执行（会直接 revert）。</p>
+<p>负责打包交易的 Builder 会有动机把得标者的交易排序在其他 McAMM 交易之前，因为这样其他 McAMM 交易才能执行成功，Builder 才有更多的手续费收入。</p>
+<p><strong>McAMM 的缺点及风险</strong></p>
+<p>虽然上面提到 Builder 会有动机排序得标者的交易在其他 McAMM 交易之前，但这会需要 Builder 去整合 McAMM，特别为 McAMM 设计交易排序的方式。否则对一个没有整合 McAMM 的 Builder 来说，几乎全部的 McAMM 交易都是会失败的交易（因为没特别排序过），这些交易也就不会被收入进区块里。也就是说越少 Builder 整合 McAMM，McAMM 的交易就越难被收入区块里，导致使用体验很差。</p>
+<p>其次，「确保第一笔交易必须是得标者的交易」这个规定也有相对应的缺点，只要得标者忘了送交易或故意不送出交易，都会导致 (1) 其他用户的交易没办法成功执行，或 (2) 能够藉此发动针对 TWAP Oracle 的攻击。这会需要例如引入多个得标者的方式来避免单点故障或中心化作恶的问题。</p>
+<p><em>阅读提示：TWAP（Time-Weighted Average Price） 取的是多个连续区块的交易价格的平均，因此如果能让越多区块没有 AMM 交易发生，就有越高机率能操纵 TWAP 所计算出的价格，TWAP 的攻击及分析可以参考如下链接内容：</em></p>
+<ol>
+<li>
+<p><em><a href="https://twitter.com/Mudit">https://twitter.com/Mudit</a>__Gupta/status/1455627465678749696</em></p>
+</li>
+<li>
+<p><em><a href="https://chainsecurity.com/oracle-manipulation-after-merge">https://chainsecurity.com/oracle-manipulation-after-merge</a></em></p>
+</li>
+<li>
+<p><em><a href="https://www.youtube.com/watch?v=Mu8ytTyStOU">https://www.youtube.com/watch?v=Mu8ytTyStOU</a></em></p>
+</li>
+<li>
+<p><em><a href="https://www.euler.finance/blog/oracle-attack-simulator">https://www.euler.finance/blog/oracle-attack-simulator</a></em></p>
+</li>
+</ol>
+<p>另外也因为引入额外的竞标机制及确保得标者权利的规定及检查，McAMM 的 gas 成本也会比 AMM 的还高，这会影响用户选择来 McAMM 交易的意愿（相比于使用一般的 AMM），而部署在便宜的 L2 上能让这部分劣势缩小 。</p>
+<p>最后 McAMM 设计者还需考虑的有：该怎么分配竞标费用？如果竞标费平均分享给 McAMM 的每个交易对、交易池，则羊毛党可以藉由低成本创造一堆免洗交易对、交易池的方式来薅羊毛。McAMM 合约本身无法辨别哪些交易对是免洗、哪些不是免洗，所以还是需要某个角色来「主观地」决定竞标费的分配，这个角色可以是项目方本身，也可以是一个 DAO：DAO 成员在链下分析识别出羊毛党后投票决定竞标费的分配。</p>
+<p>以上是以 McAMM 为例，介绍协议如何能从被动转为主动，将 MEV 转化为自身的收益。接下来会介绍 MevWeth 及 MevWallet，用户或协议可以透过 MevWeth 及 MevWallet 将 MEV 反过来变成一个有利的工具。</p>
+<p><strong>MevWeth/MevWallet</strong></p>
+<p>假设一个用户送一笔交易到 Uniswap 用 WBTC 换 USDT，他除了要付 ETH 当交易手续费，他实际上还可能因为滑价而被 MEV Searcher 进行三明治夹击，导致他换到一个最差的价格。这等于是使用者付了两次手续费：第一次是付 ETH 给 Builder，第二次则是被 Searcher 赚走滑价，而且使用者是被强迫收取第二次手续费。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1108/3_yvftuc93kd.png" alt="反转使用者在 MEV 生态系中的地位"></p>
+<p>△ Alice 除了付出交易手续费，还被转走价差（20600–20550=50），等于又被收一次手续费</p>
+<p><em>阅读提示：一笔 AMM 交易产生的 MEV 可以透过两种方式被榨取，第一种是 Backrun 赚价差：假设用户的交易卖 WBTC，Searcher 可以接在用户交易后面去买低于市场价格的 WBTC，赚走价差；第二种是三明治夹击赚滑价及价差：Searcher 抢先使用者去卖 WBTC（导致使用者用最差价格买到 WBTC），再接在使用者之后去买 WBTC。三明治夹击会比 Backrun 还赚，以下例子都会先预设 MEV Searcher 是进行三明治夹击。</em></p>
+<p>MEV 生态链中有自己的交易池（以下称 MEV 交易池），由 MEV Builder/Relay 所维护的交易池。送到 MEV 交易池的交易有几个特性和送到公开交易池的交易不太一样：</p>
+<ul>
+<li>
+<p>MEV 交易池有自己的手续费市场，独立于公开交易池的手续费市场之外，只要用户交易提供的经济激励够多，就能比公开交易池的其他交易还快被收入进区块。这个经济激励未必是给 Builder 的手续费，用户交易所产生的 MEV 也是一种经济激励。</p>
+</li>
+<li>
+<p>送到 MEV 交易池的交易只有两种结果：成功执行或完全不执行，不会出现交易失败（revert）但还是要付手续费给 Builder 的情况。</p>
+</li>
+</ul>
+<p>上述提到的交易特性其实是非常理想的交易特性，而 MevWeth 及 MevWallet 便是透过善加利用 MEV Pool 的特性来提升用户体验和协议效率的设计。</p>
+<p><strong>MevWallet</strong></p>
+<p>前面例子提到，使用者其实是被强迫收取第二次手续费的，而 MevWallet 让使用者能拿回控制权。</p>
+<p>MevWallet 是一个合约钱包，但用户不是自己送交易到 MevWallet 去执行，而是对交易内容签名并让 Searcher 带着交易及签名上链到使用者的 MevWallet 去执行，因此这笔交易手续费是由 Searcher 支付给 Builder 的。而 Searcher 获得的就是用户的交易提供的经济激励，例如用户交易产生的 MEV。</p>
+<p><em>阅读提示：了解 MevWallet，可复制下方链接到浏览器查阅：https://github.com/blunt-instruments/MevWallet</em></p>
+<p><img src="https://img.bibiqing.com/news/2023/1108/3_nee5lzs0n2.png" alt="反转使用者在 MEV 生态系中的地位"></p>
+<p>△ 透过 MevWallet，Alice 以 MEV 作为手续费（$50），由 Searcher 支付 Builder 手续费（$40）</p>
+<p>另外使用者还可以透过向 Searcher 收取 MEV 回扣（rebate），下面的 MevWeth 段落会介绍如何收取回扣。不过记得要确保使用者产生的 MEV 扣掉向 Searcher 收取的回扣，剩下的经济激励足够让 Searcher 帮他执行这笔交易，否则没有 Searcher 会赔钱来做这件事。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1108/3_smd5t4a6ju.png" alt="反转使用者在 MEV 生态系中的地位"></p>
+<p>△ Alice 以 MEV 作为手续费（$50），但要求 MEV Searcher 除了帮她送交易，还要给她回扣（$20），让她交易成本降为 $30。</p>
+<p><em>阅读提示：可以看到收取回扣后， Searcher 的收益维持 $10 不变，但 Builder 的收益从 $40 变为 $20，这表示 Builder 收入这笔交易的诱因减少了，导致交易可能要比较久才会被收入。但这没办法避免，天下没有白吃的午餐，如果用户希望交易越快被收入，就要提供越多经济激励（给 Searcher 或 Builder）。</em></p>
+<p><strong>MevWeth</strong></p>
+<p>MevWeth 是 Weth（Wrapped Eth）的延伸，因此和 Weth 一样：1 MevWeth 一定可以换到 1 ETH。MevWeth 加入了几个 MEV 相关的函式：addMev 、getMev 等等，让用户或协议可以透过 MevWeth 收取 MEV 回扣或主动提供 MEV 作为经济激励。</p>
+<ul>
+<li>主动提供 MEV：透过 addMev 提供 MevWeth</li>
+</ul>
+<p><img src="https://img.bibiqing.com/news/2023/1108/3_kwyoshj7hw.png" alt="反转使用者在 MEV 生态系中的地位"></p>
+<p>△ 最后一行的 mev 变量纪录的是任何人都可以任意拿走的 MevWeth 数量。</p>
+<ul>
+<li>任何人都可以透过 getMev 将其他人提供的 MevWeth 拿走</li>
+</ul>
+<p><img src="https://img.bibiqing.com/news/2023/1108/3_5zr50ewmrg.png" alt="反转使用者在 MEV 生态系中的地位"></p>
+<p>因为透过 addMev 提供的是任何人都可以马上拿走的 MevWeth，所以使用情境一定是你明确知道为什么要提供 MEV 作为经济激励。</p>
+<p><strong>使用情境</strong></p>
+<p>1. 使用者透过 MevWallet 收取回扣</p>
+<p>MevWallet 使用 MevWeth 来强制收回扣的方式就是去呼叫 MevWeth 的 getMev，并确认有收到 MevWeth，否则就 revert 交易。</p>
+<p>Builder 不会将 revert 的交易打包进区块，所以用户可以确信如果交易执行成功，用户一定会收到回扣。这笔交易执行步骤大概是：Searcher 在赚走使用者的 MEV 后要去 addMev，然后使用者的 MevWallet 再去呼叫 getMev 拿走 MevWeth 作为回扣。</p>
+<p>MevWallet 透过继承 Mevitize 这个合约就可以直接使用里面的 subsidize modifier 来完成收取回扣（或是也可以反过来补贴 Searcher）：</p>
+<p><img src="https://img.bibiqing.com/news/2023/1108/3_a9rsms6yp1.png" alt="反转使用者在 MEV 生态系中的地位"></p>
+<p>前面的部分是在计算 gas 消耗，并乘上 gasprice 算出手续费，最后面几行才是决定要收取回扣或补贴：</p>
+<p><img src="https://img.bibiqing.com/news/2023/1108/3_hpze8i3rrm.png" alt="反转使用者在 MEV 生态系中的地位"></p>
+<p>要使用 subsidize 的函式继承 subsidize modifier 并透过传入的 tip 参数来决定要收取回扣或补贴：</p>
+<p><img src="https://img.bibiqing.com/news/2023/1108/3_aa3p78k1lj.png" alt="反转使用者在 MEV 生态系中的地位"></p>
+<p>2. 协议透过 MevWeth 雇用 Searcher 执行任务</p>
+<p>协议可以透过主动提供 MEV 来让 Searcher 帮它执行指定的函式，例如某个协议需要定时（每一千个区块）做一些维护更新，它就会在负责维护更新的函式（maintain）里透过 addMev 提供 MEV，让 Searcher 来替协议定时执行该函式。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1108/3_3q1g6hlz92.png" alt="反转使用者在 MEV 生态系中的地位"></p>
+<p>△ 与其自己去抢在每一千个区块执行一次 maintain，协议交给专业的 Searcher 来替它执行，并支付 Z 数量的 MevWeth 给 MEV Searcher。</p>
+<p><strong>Fee Escalator</strong></p>
+<p>Flashbot 的研究员也提出过和收取回扣类似的作法 — Fee Escalator，只是 Fee Escalator 是实作在 Ethereum 底层而非应用层，且 Fee Escalator 的回扣是可以随着时间变动的。</p>
+<p>Fee Escalator 会新增一个新的 Ethereum 交易型态，这种交易允许将手续费指定为负的，但手续费会随着时间过去逐渐变为正的（负 -&gt; 零 -&gt; 正）。</p>
+<p>如果交易在手续费为负的时候被收进区块，则打包区块的 Builder 必须要付手续费给该使用者，也就是回扣的意思；如果交易没有被收入，表示交易提供的 MEV 扣掉回扣还不足以让 Searcher 或 Builder 把它收进区块，只能等待回扣金额慢慢减少，看会不会有 Searcher 或 Builder 想要收入。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1108/3_ls88c4422e.png" alt="反转使用者在 MEV 生态系中的地位"></p>
+<p>△ Alice 为她的交易设定手续费为 -100，也就是 100 的回扣，但她的交易可套取的利益只有 50。</p>
+<p>这个机制如同对交易的收入进行荷兰式拍卖，Searcher 或 Builder 是竞标者。对 Searcher 或 Builder 来说，随着一笔交易的手续费回扣慢慢减少，其提供的经济激励就越来越多，当一个 Searcher 或 Builder 觉得一笔交易的经济激励达到他的门坎，他就会收入那笔交易。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1108/3_66lkkcqwzz.png" alt="反转使用者在 MEV 生态系中的地位"></p>
+<p>△ 等到手续费变为 -30 时，Searcher 收入 Alice 的交易进 Bundle 并向 Builder 出价 40 收入自己的 Bundle，Builder 收入 Bundle，从 Searcher 那获得 40，再给 Alice 30 的回扣。</p>
+<p>上面介绍的是透过「去中心化」的方式让使用者获得控制权，且使用者可以选择要向 Searcher 收取回扣或是补贴 Searcher 以加速交易被收入。接下来要介绍的是以「中心化」的方式来达成同样一件事，会有一个中间人角色负责协调使用者及 Searcher，看哪个 Searcher 可以拿到用户交易，获得套利机会。</p>
+<p>接下来将介绍的 Wallet-Boost、MEV Blocker 及 MEV Share 都是透过一个公开竞标的方式决定谁可以拿到用户交易。这其实就像是目前 MEV Boost 中 Validator 与 Builder 之间的互动：在 MEV Boost 中 Builder 向 Validator 竞标「生产区块」的权利，而在 Wallet-Boost、MEV Blocker 及 MEV Share 中，Searcher 向用户竞标「把用户交易收入自己 Bundle」的权利，而在 Wallet-Boost、MEV Blocker 及 MEV Share 中，Searcher 向用户竞标「把用户交易收入自己 Bundle」的权利。</p>
+<p>_阅读提示：_<em>了解 Fee Escalator 相关信息，请复制下方链接到浏览器查阅：https://docs.google.com/presentation/d/1RzmbsdgIfPCioZh2_OT7mdtXkCSjlX3hyc9GFh9-vXo/edit#slide=id.p</em></p>
+<p><strong>Wallet-Boost</strong></p>
+<p>Wallet-Boost 由 BlockNative 所开发，透过一个 Wallet-Boost 角色替用户的交易举行拍卖，Searcher 竞标有利可图的交易，竞标费会成为使用者的回扣。</p>
+<p>假设使用者要到 AMM 去 swap，在使用者确认好要兑换多少钱以及滑价是多少之后，钱包会向 Wallet-Boost 送出用户的交易内容，开始竞标。</p>
+<ol>
+<li>
+<p>Wallet-Boost 会公布用户的交易内容给有兴趣的 Searcher，这个交易内容不包含用户签名，所以 Searcher 没办法直接把交易收入到自己的 Bundle 之中。</p>
+</li>
+<li>
+<p>Searcher 确定可以从这笔交易获取多少 MEV 后就向 Wallet-Boost 出价竞标。</p>
+</li>
+<li>
+<p>Wallet-Boost 从中挑选出最高竞标价后通知钱包，接着用户对交易签名并交给 Wallet-Boost，同时 Searcher 也将自己的套利交易及支付竞标费给用户的交易交给 Wallet-Boost。</p>
+</li>
+<li>
+<p>Wallet-Boost 将这几笔交易打包成 Bundle 并模拟，模拟确认完结果后就将 Bundle 送给白名单里的 Builder。</p>
+</li>
+</ol>
+<p><img src="https://img.bibiqing.com/news/2023/1108/3_t1yme3etpr.png" alt="反转使用者在 MEV 生态系中的地位"></p>
+<p>△ Wallet-Boost 交互的范例图标，source：https://github.com/blocknative/discourse/discussions/1</p>
+<p><em>阅读提示：Wallet-Boost 不会只由 BlockNative 自己营运，钱包商也都可以自己跑 Wallet-Boost。了解更多请查阅：https://github.com/blocknative/discourse/discussions/1</em></p>
+<p><strong>信任需求</strong></p>
+<p>在 Wallet-Boost 中，Searcher 是和 Wallet-Boost 互动，且是由 Wallet-Boost 来制作 Bundle 而不是 Searcher，所以 Searcher 需要信任 Wallet-Boost。不过比起 Searcher，运营 Wallet-Boost 的人（例如钱包本身）通常累积了更多的名声和信用，所以其作恶的成本高上许多，再加上回扣是给使用者不是给 Wallet-Boost 或钱包商，所以作恶并不会有直接的获利。</p>
+<p>而 Wallet-Boost 和目前的 Searcher 一样都要信任 Builder 不会偷走 Bundle 内容。</p>
+<p><strong>使用者体验</strong></p>
+<p>对使用者来说，使用体验不会有太大差别：产生交易内容、签名并发送交易。不过钱包可以选择在收到 Wallet-Boost 回传的最高竞标费后呈现给使用者，让使用者知道自己能获得多少回扣，但这会受 Wallet-Boost 效能及实时的竞标状况影响。钱包商得要思考该怎么设计，避免因为等待 Wallet-Boost 回传信息而导致用户等太久。</p>
+<p>另外是特殊状况的处理，例如 Searcher 在得标后消失或是交易没有顺利在下一个区块被收入（可能因为 Builder 没有赢得竞标） 。</p>
+<p>如果担心 Searcher 得标后消失，可以要求 Searcher 在竞标时就要附上他签名好的交易，虽然会导致 Searcher 对 Wallet-Boost 所需的信任增加，但和原本所需的信任并没有相差太多。如果交易没有顺利在下一个区块被收入，则钱包可以选择继续让 Builder 尝试，或是重新进行一次竞标，或是直接将用户交易送出（即跳过 Wallet-Boost）。</p>
+<p><strong>可能的问题和风险</strong></p>
+<p>目前 Wallet-Boost 并没有规定 Searcher 该用哪种方式套取 MEV，所以 Searcher 可能用对使用者无害的 Backrun 方式，也可能用对使用者有害的三明治夹击的方式。</p>
+<p>不过 Wallet-Boost 毕竟是一个中心化角色，它可以选择过滤掉对用户有害的 Searcher 交易或直接宣布不接受这样的交易，而 Searcher 也会为了钱配合这样的要求。</p>
+<p><em>阅读提示：在 MevWallet/MevWeth 或 Fee Escalator 中，使用者反而没办法要求 Searcher 要用哪种方式套取他的 MEV，因为使用者已经把签名好的交易广播出去，手上已经没有筹码。</em></p>
+<p><strong>MEV Blocker</strong></p>
+<p>MEV Blocker 是由多个团队联合开发的防 MEV 服务。它和 Wallet-Boost 一样会有中心化角色为用户交易举行竞标，竞标费会是使用者的回扣来源，不过 MEV Blocker 会将其中 10% 竞标费给予 Validator。</p>
+<p>另外 MEV Blocker 明确规定 Searcher 不能抢跑或三明治夹击用户的交易，违反者应该会被加入黑名单。MEV Blocker 目前没有说明背后是怎样的机制进行竞标、协调 Searcher、组出 Bundle 及分配回扣，和 Wallet-Boost 相比是属于比较黑箱的运作。</p>
+<p>使用体验上，MEV Blocker 和 Flashbot Protect 一样，都是对外开放一个 RPC 接口，任何想避免被抢跑、夹击且同时又能获得回扣的用户，都直接把交易送到这个 RPC 接口，送出后就是等待结果：要不交易被收入，要不交易因为超时而被丢掉。</p>
+<p>MEV Blocker 一样也提供两种不同模式：Fast Execution 及 Revert Protection。Fast Execution 模式专注于越快收入交易越好，即便交易 Revert 也会收入进区块；Revert Protection 模式则专注于确保交易不会 Revert 才收入进区块，因此可能会需要比较久的时间才会被收进区块。</p>
+<ul>
+<li>
+<p>Fast Execution RPC：<em><a href="https://rpc.mevblocker.io">https://rpc.mevblocker.io</a></em></p>
+</li>
+<li>
+<p>Revert Protection RPC：<em><a href="https://rpc.mevblocker.io/noreverts">https://rpc.mevblocker.io/noreverts</a></em></p>
+</li>
+</ul>
+<p>MEV Blocker 就像是有回扣版本的 Flashbot Protect，但目前 MEV Blocker 不像 Flashbot Protect 一样有提供 API 让用户查询交易状况，用户可能必须自己决定什么时候要重送交易。</p>
+<p><strong>MEV-Share</strong></p>
+<p>MEV-Share 由 Flashbot 团队所开发，将 MEV Boost 的架构移植到 Searcher 和使用者之间：Searcher 向用户竞标「收入用户交易到自己 Bundle」的权利。</p>
+<p>MEV-Share 和 Wallet-Boost 很像，主要的差别在于 MEV-Share 引入了隐私的概念：用户不再提供完整的交易内容给 Searcher，而是可以选择性地揭露部分的交易内容，Searcher 再基于揭露的信息去制作 Bundle。这也是 Flashbot 向 Programmable Privacy 这个愿景往前迈进的第一步。</p>
+<p>在 MEV-Share 中负责协调及举行竞标的是一个叫 Matchmaker 的角色。MEV-Share 的运作大致如下：</p>
+<ol>
+<li>
+<p>用户将交易交给 Matchmaker 并同时指定可以揭露的内容（称为使用者的 Privacy Preferences），Matchmaker 将可以揭露的内容分享给 Searcher 们。</p>
+</li>
+<li>
+<p>如果从揭露的信息找到套利机会，则 Searcher 会制作部分留空的 Bundle 以及一些关于 Bundle 要放什么样的交易的提示（称为 Searcher 的 Hint）并传给 Matchmaker。</p>
+</li>
+<li>
+<p>Matchmaker 参考 Searcher 给的提示将符合条件的用户交易一一插入 Bundle 的留空字段并模拟，看哪些能成功套取出 MEV。</p>
+</li>
+<li>
+<p>拼出完整 Bundle 后，Matchmaker 会为 Bundle 指定有效条件（Validity Condition）然后传给白名单中的 Builder，Builder 要遵守 Bundle 的有效条件。有效条件例如使用者必须收到多少数量的回扣。</p>
+</li>
+</ol>
+<p>_阅读提示：不同于 Wallet-Boost，在 MEV-Share 中回扣是由 Searcher 支付给 Builder，Builder 再支付给使用者。_<em>有关 MEV-Share 的更多信息，请查阅：https://collective.flashbots.net/t/mev-share-programmably-private-orderflow-to-share-mev-with-users/1264</em></p>
+<p><img src="https://img.bibiqing.com/news/2023/1108/3_29fv250mw9.png" alt="反转使用者在 MEV 生态系中的地位"></p>
+<p>Matchmaker 负责搓合用户的交易及 Searcher 的 Bundle，同时保护用户交易的隐私。图源 / <a href="https://collective.flashbots.net/t/mev-share-programmably-private-orderflow-to-share-mev-with-users/1264">https://collective.flashbots.net/t/mev-share-programmably-private-orderflow-to-share-mev-with-users/1264</a></p>
+<p><strong>使用者的 Privacy Preference 与 Searcher 的 Hint</strong></p>
+<p>用户可以指定要揭露哪些资料给 Searcher，例如呼叫的合约地址、到 AMM 兑换的资产类型，或是 Oracle 数据更新的内容（例如新的价格）：</p>
+<p><img src="https://img.bibiqing.com/news/2023/1108/3_wszkbd0uq8.png" alt="反转使用者在 MEV 生态系中的地位"></p>
+<p>Searcher 从揭露的资料来判断是否有 MEV 套利机会并制作相对应的 Bundle。Searcher 有两种方式来在信息有限的前提下安插用户的交易进 Bundle（称作 Private Transaction Insertion）：(1) 直接安插指定的交易或 (2) 让 Matchmaker 代他安插。</p>
+<p>(1) 直接安插指定的交易如果 Searcher 从揭露的信息就已经可以做出完整的 Bundle，则他可以在 Bundle 的交易序列里直接指定用户交易的 hash 值。例如以下 Searcher Backrun 用户交易 tx_hash_AAA 的例子：</p>
+<p><img src="https://img.bibiqing.com/news/2023/1108/3_k3dmm4eph5.png" alt="反转使用者在 MEV 生态系中的地位"></p>
+<p>(2) 让 Matchmaker 代他安插如果 Searcher 没办法从揭露的信息做出任何结论，则他可以在 Bundle 的交易序列里留空，并请 Matchmaker 替他模拟插入不同的用户交易，看是否有机会成功套取出 MEV。例如以下 Searcher 以 _ 代表插入用户交易的位置：</p>
+<p><img src="https://img.bibiqing.com/news/2023/1108/3_q4q59tiacz.png" alt="反转使用者在 MEV 生态系中的地位"></p>
+<p>如果 Matchmaker 直接毫无头绪地一笔一笔插入用户交易去仿真，这么做不但没有效率，甚至找到的交易可能也不是 Searcher 所期望的。所以 Searcher 可以透过 Hint 来给 Matchmaker 提示，提升 Matchmaker 模拟的效率，例如以下例子中 Searcher 在 hints 里指定他要 Backrun 的是「有和 0x7a25 或 0xef1c这两个 Uniswap 地址互动」且「emit 了 0x4100 这个 event（Sync event）」的交易：</p>
+<p><img src="https://img.bibiqing.com/news/2023/1108/3_9249j9zbew.png" alt="反转使用者在 MEV 生态系中的地位"></p>
+<p><em>阅读提示：Validity Condition 是由 Builder 来履行，所以假设 Matchmaker 在 Validity Condition 指定要回扣的话，会是由 Builder 来支付，而这笔资产的来源会是 Searcher 在 Bundle 中付给 Builder 的（在 Wallet-Boost 中回扣是 Searcher 直接支付给使用者）。而 MEV Boost 目前也是 Searcher 在 Bundle 中付资产给 Builder，所以接入 MEV Share 的话 Searcher 不需要额外调整给付资产的对象。</em></p>
+<p><strong>信任需求</strong></p>
+<ul>
+<li>
+<p>用户需要相信 Matchmaker 只会揭露指定的数据给 Searcher，且会替使用者指定有利的 Validity Condition</p>
+</li>
+<li>
+<p>Searcher 需要相信 Matchmaker 的搓合能力且不会偷走他的 Bundle</p>
+</li>
+<li>
+<p>使用者和 Matchmaker 需要相信 Builder 会遵守 Bundle 的 Validity Condition</p>
+</li>
+<li>
+<p>Searcher 和 Matchmaker 需要相信 Builder 不会偷走 Bundle 内容</p>
+</li>
+</ul>
+<p><strong>使用者隐私与 Searcher 获利优化之间的 trade-off</strong></p>
+<p>相对于能看到完整的交易内容，基于片段内容（例如用户互动的合约地址，或是资产类型）来制作 Bundle 会让 Searcher 的工作困难不少。如果 Searcher 的获利因此下滑，就比较难给出好的竞标价，连带影响回扣数量及交易被收进区块的效率。但至少使用者可以自己选择揭露内容的多寡（Programmable Privacy），而非只能完全揭露自己的交易内容。</p>
+<p><strong>可能的问题和风险</strong></p>
+<p>因为是由 Searcher 来组 Bundle，所以 Searcher 有可能会组出进行抢跑或三明治夹击的 Bundle，这会需要 Matchmaker 开发出一套分析的工具来检测 Searcher 是否用对使用者有害的方式套取 MEV。</p>
+<p>负责搓合的 Matchmaker 需要进行大量的模拟，因此 Searcher 可以透过发送大量模拟请求来对 Matchmaker 进行 DoS 攻击。可能的防御方案例如沿用目前 MEV Boost 里 Builder 针对 Searcher 建立的名声机制，或是要求 Searcher 抵押押金。</p>
+<p><strong>2023.04 MEV-Share goes live</strong></p>
+<p>MEV-Share 已经上线且送往 Flashbot Protect 的交易现在都将透过 MEV-Share 来撮合。</p>
+<p>想了解更多 Searcher 如何接入及使用 MEV-Share 可以参考这一篇 Flashbot 写的 high level 介绍，复制下方链接到浏览器查阅：<em><a href="https://writings.flashbots.net/searching-on-mev-share">https://writings.flashbots.net/searching-on-mev-share</a></em></p>
+<p>另外 Flashbot 官方也写了一个范例是单纯靠链上的信息来判断是否有 AMM Pool 的套利机会，复制下方链接到浏览器查阅：<em><a href="https://twitter.com/bertcmiller/status/1653507151988490240">https://twitter.com/bertcmiller/status/1653507151988490240</a></em></p>
+<p>以上是几种让用户从自己的交易中拿回 MEV 控制权、取回属于自己的利益（MEV）的设计：从去中心化的 MevWallet/MevWeth 到中心化的 Wallet-Boost/MEV Blocker，再到提供隐私为出发点的 MEV Share。</p>
+<p>去中心化的 MevWallet/MevWeth 架构更为简单，没有额外的角色和竞标机制，完全交由公开的 MEV 市场运作。中心化的 Wallet-Boost/MEV Blocker/MEV Share 架构较为复杂，但也因为有一个中心化的角色，所以可以透过它来规范 Searcher，避免使用者被抢跑或三明治夹击。</p>
+<p>MEV Share 则进一步打开交易隐私的大门，透过 Programmable Privacy 让用户可以在「交易隐私」及「回扣与交易收入效率」之间进行权衡，而非只有完全公开自己交易内容这个选择。</p>
+<p><strong>总结与重点</strong></p>
+<ul>
+<li>
+<p>作为 MEV 的源头，使用者一直都和自己产生的 MEV 无缘，甚至被抢跑、被夹击，聪明一点的使用者则寻求 Flashbot Protect 的保护。经过多年的苦难，使用者总算能拿回控制权，除了瓜分自己产生的 MEV，还能要求 Searcher 不能抢跑和夹击自己的交易，可谓苦尽甘来。</p>
+</li>
+<li>
+<p>使用者拿回控制权的方式就在于把最有利的筹码 —— 自己的交易 —— 拿在手上，并透过拍卖自己交易的方式从中分享自己交易所产生的 MEV。</p>
+</li>
+<li>
+<p>MevWallet/MevWeth 及 Fee Escalator 属于去中心化的方式来拍卖用户交易，架构简单，不需引入额外的角色及互动，而且用户或协议也可以利用 MevWeth 来补贴、聘雇 Searcher 替自己完成交易和任务。</p>
+</li>
+<li>
+<p>Wallet-Boost/MEV Blocker/MEV Share 属于中心化的方式来进行拍卖，有个需要被信任的中间人来负责拍卖与协调的工作，但优点是中间人可以要求 Searcher 不能以有害使用者的方式来套取 MEV。</p>
+</li>
+<li>
+<p>MEV Share 则进一步引入 Programmable Privacy 的设计，为用户交易提供隐私，但同时使用者也必须要注意隐私与效率之间存在的 trade-off。</p>
+</li>
+<li>
+<p>协议一样也能从自己产生的 MEV 中分一杯羹，McAMM 透过拍卖每个区块第一笔来 McAMM 交易的权利，和套利者分享自己的交易池所产生的 MEV。</p>
+</li>
+</ul>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/62768/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">对话智谱 AI CEO 张鹏：AI Agent 是重要新风向，大模型竞争已步入混战后期</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/62751/">
+                <span class="next-text nav-default">高盛跌倒，苹果吃饱？从Apple Card的“非对称合作”说起</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

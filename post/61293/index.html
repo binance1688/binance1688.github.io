@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          谷歌视觉语言模型PaLI-3问世，参数仅5B，更小、更快、更强 - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="在多模态（视觉语言）大模型领域，拼参数赢性能的同时，追求参数更小、速度更快、性能更强是另一条研究路径。" />
+
+  <meta name="keywords" content="区块大全, 区块链, 区块链资讯, 区块链快讯, 区块链新闻, 比特币行情" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/61293/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="谷歌视觉语言模型PaLI-3问世，参数仅5B，更小、更快、更强" />
+<meta property="og:description" content="在多模态（视觉语言）大模型领域，拼参数赢性能的同时，追求参数更小、速度更快、性能更强是另一条研究路径。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/61293/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-10-17T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-10-17T00:00:00+00:00" />
+
+<meta itemprop="name" content="谷歌视觉语言模型PaLI-3问世，参数仅5B，更小、更快、更强">
+<meta itemprop="description" content="在多模态（视觉语言）大模型领域，拼参数赢性能的同时，追求参数更小、速度更快、性能更强是另一条研究路径。"><meta itemprop="datePublished" content="2023-10-17T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-10-17T00:00:00+00:00" />
+<meta itemprop="wordCount" content="3699">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="谷歌视觉语言模型PaLI-3问世，参数仅5B，更小、更快、更强"/>
+<meta name="twitter:description" content="在多模态（视觉语言）大模型领域，拼参数赢性能的同时，追求参数更小、速度更快、性能更强是另一条研究路径。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">谷歌视觉语言模型PaLI-3问世，参数仅5B，更小、更快、更强</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-10-17">
+      2023-10-17
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 3699 字 -
+        预计阅读 8 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E5%85%B6%E5%AE%83%E6%96%87%E7%AB%A0/"> 其它文章 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<blockquote>
+<p>在多模态（视觉语言）大模型领域，拼参数赢性能的同时，追求参数更小、速度更快、性能更强是另一条研究路径。</p>
+</blockquote>
+<p><img src="https://img.bibiqing.com/news/2023/1017/3_f09ptbnaah.png" alt="谷歌视觉语言模型PaLI-3问世，参数仅5B，更小、更快、更强"></p>
+<p>图片来源：由<a href="https://www.wujieai.cc/">无界 AI</a>生成</p>
+<p>在大模型时代，视觉语言模型（VLM）的参数已经扩展到了数百甚至数千亿，使得性能持续增加。与此同时，更小规模的模型仍然很重要，它们更易于训练和服务，更加环境友好，并为模型设计提供更快的研究周期。</p>
+<p>在该领域，谷歌研究院在去年推出了一个名为 <a href="http://mp.weixin.qq.com/s?__biz=MzA3MzI4MjgzMw==&amp;mid=2650858134&amp;idx=5&amp;sn=b6f483125994635a5c525991a697c8d3&amp;chksm=84e526e8b392affef39f0b5d9f0ae1cafcf1f2b7f6b9bb66d543b7db7660f691cbcd0fa467c3&amp;scene=21#wechat_redirect">PaLI</a>（Pathways Language and Image）的模型。作为一个多模态大模型，PaLI 的关键结构之一是复用大型单模态基干进行语言和视觉建模，在语言方面复用 13B 参数的 mT5-XXL，在视觉方面复用 2B 参数的 ViT-G 和 4B 参数的 ViT-e。当时 PaLI 实现了优于多数新旧模型的性能。</p>
+<p>此后谷歌继续专注于更小规模的建模，并于近日提出 PaLI-3，这是 PaLI 系列的第三代模型。通过一个仅有 5B 参数的预训练基线模型，他们优化了训练方法，并在多个 VLM 基准上实现了有竞争力以及新的 SOTA 结果。</p>
+<p>该方法主要由三部分组成，分别是在 web 规模的图像文本数据上对图像编码器的对比预训练、用于 PaLI 多模态训练的改进后的混合数据集，以及更高分辨率的训练。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1017/w4z19gcsuyg3vqa" alt="谷歌视觉语言模型PaLI-3问世，参数仅5B，更小、更快、更强"></p>
+<p><em>作者来自谷歌研究院、谷歌DeepMind和谷歌云。</em></p>
+<p>论文地址：https://arxiv.org/pdf/2310.09199.pdf</p>
+<p>下图为 5B PaLI-3 模型概览，其中通过对比预训练的 2B SigLIP 视觉模型，图像被单独地编码成了视觉 token。接着与 query 一起，这些视觉 token 被传递给了 3B 编码器 - 解码器结构的 UL2 Transformer，它生成了预期答案。在这样的设置下，与之前 PaLI 模型中单个分类预训练的模型，对比预训练的模型提供了明显更有用的 token。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1017/6lbbp248nsfzeas" alt="谷歌视觉语言模型PaLI-3问世，参数仅5B，更小、更快、更强"></p>
+<p>效果怎么样呢？PaLI-3 在需要视觉定位文本理解和目标定位的任务上实现了新的 SOTA，包括 RefCOCO 数据集上的 8 个视觉定位文本理解任务和参考表达分割任务。PaLI-3 也在一系列分类视觉任务上有出色的表现。</p>
+<p>此外研究者还专门做了消融实验以与分类预训练的 ViT 基线模型比较，并进一步确认了预训练视觉编码器在有噪声 web 规模的图像文本数据上的可行性，从而成为在分类数据上进行训练的优先替代方案。</p>
+<p>除了 5B PaLI-3 模型之外，研究者还利用最近提出的 SigLIP 方法，构建了一个参数扩展到 2B 的 SOTA 多语言对比视觉模型。</p>
+<h2 id="模型介绍"><strong>模型介绍</strong></h2>
+<p><strong>架构</strong></p>
+<p>在更高的层面，PaLI-3 的架构遵循了 Chen et al. (2023b;a)：ViT 模型将图像编码为 token，并与问题、提示和指令等文本输入一起被传递到编码器 - 解码器结构的 transformer，从而生成文本输出。</p>
+<p>先看视觉组件。研究者使用 SigLIP 训练方法，从对比预训练的 ViT-G/14 模型（参数约为 2B）初始化出 PaLI-3 的视觉基干。简而言之，他们训练了图像嵌入 ViT-G/14 模型和文本嵌入 transformer 模型来分别嵌入图像和文本，这样一来，使用图像和文本嵌入点积的 sigmoid 交叉熵的二元分类器，能够准确地分类各自的图像和文本是否相互对应。</p>
+<p>这类似于 CLIP 和 ALIGN，但更加高效、可扩展和稳健。同时这种方法是为了预训练 ViT 图像嵌入组件，因此当将 ViT 插入到 PaLI 时，文本嵌入 transformer 会被丢弃。</p>
+<p>再来看完整的 PaLI 模型。ViT 图像编码器的输出在池化之前形成了视觉 token，并线性地映射和添加到嵌入的输入文本 token。接着这些 token 被传递到了预训练的 3B UL2 编码器 - 解码器模型，从而生成文本输出。该模型的文本输入通常包含有描述任务类型的提示，并为该任务编码必要的文本输入。</p>
+<p><strong>训练</strong></p>
+<p>训练过程包含多个阶段。</p>
+<p>阶段 0：单峰预训练。图像编码器按照 SigLIP 训练协议，图像编码器的训练分辨率为 224×224 ；文本编码器 - 解码器是一个 3B UL2 模型，按照 Tay 等人描述的混合降噪程序进行训练。 </p>
+<p>阶段 1：多模态训练。将图像编码器与文本编码器 - 解码器相结合，然后，将这个组合得到的 PaLI 模型在多模态任务和数据上进行训练，此时，图像编码器保持冻结，分辨率还是 224×224。通过对文本质量进行启发式过滤，并使用 SplitCap 训练目标，再次从 WebLI 数据集派生出主要的混合组件。</p>
+<p>阶段 2：提升分辨率。高分辨率输入是一种被广泛接受的提高性能的方法，这既是因为可以感知图像中的更多细节，也是因为通过增加序列长度来提高模型能力。本文通过解冻图像编码器来提高 PaLI-3 的分辨率，将检查点保持在 812×812 和 1064×1064 分辨率。</p>
+<p>任务迁移。最后，对于每个单独的任务（基准），本文使用冻结的 ViT 图像编码器在任务的训练数据上微调 PaLI-3 模型；对于大多数任务，本文微调 812×812 分辨率检查点，但对于两个文档理解任务，本文将分辨率提高到 1064×1064。</p>
+<h2 id="实验及结果"><strong>实验及结果</strong></h2>
+<p>实验首先比较了在 PaLI 框架下不同 ViT 模型的结果对比，研究者考虑了两种 ViT 模型：Classif 和 SigLIP。</p>
+<p>结果如表 1 所示，表明虽然 SigLIP 模型的少样本线性分类有些落后，但通过使用 PaLI-3，SigLIP 模型在更简单的任务上（例如字幕和问答）提供了适度的增益，并且在更复杂的场景即文本和空间理解任务上取得了巨大增益。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1017/4sgnnhbiu1a6s9n" alt="谷歌视觉语言模型PaLI-3问世，参数仅5B，更小、更快、更强"></p>
+<p>此外，研究者还在 TextCaps、TextVQA、STVQA、OCRVQA、InfographicVQA、DocVQA、ChartQA、Scree2Words、 WidgetCap 数据集上评估了 PaLI-3。结果如表 2 所示，在使用外部 OCR 系统的情况下，PaLI-3 仅比 SOTA 方法低 0.7 分。然而，在没有这种外部系统的情况下，PaLI-3 比所有 SOTA 方法的组合高出 4.4 分。对于 TextCaps、TextVQA、InfographicVQA 和 DocVQA，PaLI-3 的优势超多 8 分甚至更多。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1017/7r2welzk7da066u" alt="谷歌视觉语言模型PaLI-3问世，参数仅5B，更小、更快、更强"></p>
+<p><strong>参考表达分割</strong></p>
+<p>研究者扩展了 PaLI-3，使其能够通过类语言输出来预测分割掩码。为此，他们利用了 Ning et al. (2023) 的向量量化变分自编码器（VQ-VAE）。VQ-VAE 经过训练可以学习 128 个掩码 token，其编码器可以将 64 × 64 像素的分割掩码标记为 16 个掩码 token，解码器可以转换回来。</p>
+<p>研究者训练 PaLI-3 来预测单个分割掩码，首先输出 4 个坐标作为文本，并表示为边界框。接着是 16 个掩码 token，表示边界框内的掩码。</p>
+<p>表 1 表明对于此类定位任务，对比预训练比分类预训练更有效。下表 3 显示，完整的 PaLI-3 模型在参考表达分割方面略微优于现有技术。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1017/h9pmh7wed630irk" alt="谷歌视觉语言模型PaLI-3问世，参数仅5B，更小、更快、更强"></p>
+<p><strong>图像理解</strong></p>
+<p>接下来研究者在一般视觉语言理解任务上评估了 PaLI-3。与之前的工作一样，他们没有使用外部 OCR 模块，因为这些基准测试很少涉及图像中的文本。</p>
+<p>结果表明，与最近的 SOTA 模型相比，PaLI-3 的尺寸要小得多，但它在这些基准测试中表现出了非常强大的性能。对于 COCO，PaLI-3 优于除 BEiT-3 以及 17B 和 55B PaLI 之外的所有模型。在 VQAv2 和 TallyQA 上，PaLI-3 超过了除 PaLI-X 之外的所有先前模型。对于 OKVQA 任务，PaLI-3 仅落后于 PaLM-E (562B) 和 PaLI-X (55B)，但仍然优于 32-shot Flamingo (80B) 模型。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1017/8b4djda2fnbq7hu" alt="谷歌视觉语言模型PaLI-3问世，参数仅5B，更小、更快、更强"></p>
+<p><strong>视频字幕和问答</strong></p>
+<p>该研究在 4 个视频字幕基准上对 PaLI-3 模型进行了微调和评估：MSR-VTT、VATEX、ActivityNet Captions 和 Spoken Moments in Time。此外，该研究在 3 个视频问答基准上进行了同样的操作：NExT-QA、MSR-VTT-QA 和 ActivityNet-QA。</p>
+<p>尽管没有使用视频数据进行预训练，PaLI-3 仍以较小的模型尺寸实现了出色的视频 QA 结果：在 MSR-VTT-QA 和 ActivityNet-QA 上实现了最先进的性能，并在 NextQA 上取得了具有竞争力的结果。在图像和视频 QA 上的持续改进凸显了采用对比 ViT 的好处。</p>
+<p>此外，PaLI-3 还取得了非常好的视频字幕结果，平均仅比 SOTA 结果低 3 个 CIDEr 点。考虑到模型尺寸，PaLI-3 在性能和实用性方面似乎都是一个绝佳的选择。</p>
+<p><strong>直接图像编码器评估</strong></p>
+<p>研究者还评估了 ViT-G 模型，ViT-G 可以理解为不是完整的 PaLI-3，结果如表 6 所示。</p>
+<p>首先，该研究使用标准的 ImageNet 基准测试及其两个最流行的变体来测试图像分类功能。结果表明，SigLIP 在 top-1 和 v2 准确率方面略有落后，但在 ReaL 方面结果相当。</p>
+<p>其次，该研究报告了不同模型在 Crossmodal-3600 基准上的结果。结果表明 SigLIP ViT-G 模型明显优于较大的 ViT-e 模型。</p>
+<p>最后，该研究还报告了线性 probing 结果，结果表明 SigLIP 不及其他模型。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1017/nmwrk6s1kt09cli" alt="谷歌视觉语言模型PaLI-3问世，参数仅5B，更小、更快、更强"></p>
+<p>表 7 和表 8 评估了模型的公平性、偏差和其他潜在问题。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1017/ezaj1whabnjmy28" alt="谷歌视觉语言模型PaLI-3问世，参数仅5B，更小、更快、更强"></p>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/61287/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">愤怒退出：DAO中的反抗与自由</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/61309/">
+                <span class="next-text nav-default">韩国金融监督院：将对虚拟资产的不公平披露采取行动</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#模型介绍"><strong>模型介绍</strong></a></li>
+    <li><a href="#实验及结果"><strong>实验及结果</strong></a></li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

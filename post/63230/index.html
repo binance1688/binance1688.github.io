@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          EVM有效验证的退出游戏：Plasma 的回归 - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="Plasma 可以为链带来重大的安全升级，否则链将成为验证链。" />
+<meta name="keywords" content="EVM, Plasma" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/63230/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="EVM有效验证的退出游戏：Plasma 的回归" />
+<meta property="og:description" content="Plasma 可以为链带来重大的安全升级，否则链将成为验证链。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/63230/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-11-15T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-11-15T00:00:00+00:00" />
+
+<meta itemprop="name" content="EVM有效验证的退出游戏：Plasma 的回归">
+<meta itemprop="description" content="Plasma 可以为链带来重大的安全升级，否则链将成为验证链。"><meta itemprop="datePublished" content="2023-11-15T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-11-15T00:00:00+00:00" />
+<meta itemprop="wordCount" content="5016">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="EVM有效验证的退出游戏：Plasma 的回归"/>
+<meta name="twitter:description" content="Plasma 可以为链带来重大的安全升级，否则链将成为验证链。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">EVM有效验证的退出游戏：Plasma 的回归</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-11-15">
+      2023-11-15
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 5016 字 -
+        预计阅读 11 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E5%85%B6%E5%AE%83%E6%96%87%E7%AB%A0/"> 其它文章 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>作者：Vitalik；编译：松雪，金色财经</p>
+<p>特别感谢 Karl Floersch、Georgios Konstantopoulos 和 Martin Koppelmann 的反馈、审查和讨论。</p>
+<p>Plasma是一类区块链扩展解决方案，允许除了存款、提款和默克尔根之外的所有数据和计算都保留在链下。这为实现非常大的可扩展性提供了可能，而这种可扩展性不受链上数据可用性的限制。Plasma最初是在2017年创建的，在2018年经历了许多迭代，其中最值得注意的是Minimal Viable Plasma、Plasma Cash、Plasma Cashflow和Plasma Prime。不幸的是，由于（i）庞大的客户端数据存储成本和（ii）Plasma的基本限制，使其难以推广到支付以外的领域，Plasma在很大程度上已经被Rollup技术所取代。</p>
+<p>有效性证明（也称为ZK-SNARKs）的出现使我们有理由重新思考这个决定。使Plasma在支付方面可行的最大挑战，即客户端数据存储，可以通过有效性证明进行高效地解决。此外，有效性证明提供了各种工具，使我们能够创建一个类似于运行以太坊虚拟机（EVM）的Plasma链。尽管 Plasma 的安全性保证不能涵盖所有用户，因为将 Plasma 式退出游戏扩展到许多复杂应用程序的根本原因仍然存在不可能性。然而，在实践中，仍然可以保护非常大比例的资产。</p>
+<p>这篇文章描述了如何将 Plasma 的思想扩展以实现这样的目标。</p>
+<h2 id="一概述plasma-的工作原理">一、概述：Plasma 的工作原理</h2>
+<p>Plasma Cash 的最简单版本是 Plasma Cash。Plasma Cash 的工作方式是将每个单独的代币视为一个独立的非同质代币（NFT），并为每个代币跟踪一个单独的历史。Plasma 链有一个运营者，负责创建并定期发布区块。每个区块中的交易以稀疏的 Merkle 树存储：如果一笔交易转移了代币 k 的所有权，则它出现在树的位置 k。当 Plasma 链的运营者创建一个新的区块时，他们将 Merkle 树的根哈希发布到链上，并直接将对应于用户所拥有的代币的 Merkle 分支发送给每个用户。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1115/17_khhb4w6stf.png" alt="LR05QLlz7hPsKR6UjSBkYEULKPHmYrwIq9cRoURQ.jpeg" title="7136514"></p>
+<p>假设这是 Plasma Cash 链中的最后三个交易树。然后，假设所有先前的树都是有效的，我们可以知道 Eve 当前拥有代币 1，David 拥有代币 4，George 拥有代币 6。</p>
+<p><strong>任何 Plasma 系统中的主要风险是运营者的不当行为。</strong> 这可以通过两种方式发生：</p>
+<ol>
+<li>
+<p><strong>发布无效块</strong> （例如，运营者包括一笔交易，即使在那时 Fred 并不拥有代币 1，也将其发送给 Hermione）。</p>
+</li>
+<li>
+<p><strong>发布不可用的块</strong> （例如，运营者没有向 Bob 发送他某个块的 Merkle 分支，阻止他向他人证明他的代币仍然有效且未使用）。</p>
+</li>
+</ol>
+<p>如果运营者以与用户资产相关的方式产生不当行为，用户有责任立即退出（具体而言，必须在 7 天内退出）。当用户（“退出者”）退出时，他们提供一个 Merkle 分支，证明了将该代币从先前所有者转移到他们名下的交易。这启动了一个为期 7 天的挑战期，在此期间，其他人可以通过提供以下三者之一的 Merkle 证明来对该退出进行挑战：</p>
+<ol>
+<li>
+<p><strong>非最新所有者：</strong> 由退出者签署的将退出者的代币转移到其他人名下的后续交易；</p>
+</li>
+<li>
+<p><strong>双花：</strong> 将代币从先前所有者转移到其他人名下的交易，该交易在将代币转移到退出者名下的交易之前已经被包含；</p>
+</li>
+<li>
+<p><strong>无效历史：</strong> 在退出前（在过去的 7 天内）转移代币的交易，没有相应的支出。退出者可以通过提供相应的支出来进行回应；如果他们没有这样做，退出将失败。</p>
+</li>
+</ol>
+<p><img src="https://img.bibiqing.com/news/2023/1115/17_978bnsdwi0.png" alt="lQAGielcGhqSeEWS0ZeFMgONc7c2NMeM8mfpjpNy.jpeg" title="7136515"></p>
+<p>根据这些规则，拥有代币 k 的任何人需要查看过去一周所有历史树中位置 k 的所有 Merkle 分支，以确保他们实际上拥有代币 k 并可以退出。他们需要存储包含资产转移的所有分支，以便能够回应挑战并安全地退出带有他们代币的状态。</p>
+<h3 id="推广到可互换代币">推广到可互换代币</h3>
+<p>上面的设计适用于NFT。然而，比NFT更常见的是可互换代币，如ETH和USDC。将Plasma Cash应用于可互换代币的一种方法是简单地将每个代币的小面额（例如0.01 ETH）视为单独的NFT。然而，如果这样做，退出的Gas成本将会很高。</p>
+<p>一种解决方案是通过将许多相邻的代币视为单个单元来进行优化，可以一次性转移或退出。有两种方法可以做到这一点：</p>
+<p>几乎原封不动地使用Plasma Cash，但使用复杂的算法，如果许多相邻的对象相同，则可以非常快速地计算出非常大数量对象的Merkle树。这实际上并不那么难实现；你可以在这里找到一个Python实现。</p>
+<p>使用Plasma Cashflow，它简单地将许多相邻的代币表示为一个单一的对象。</p>
+<p>然而，这两种方法都会遇到碎片化的问题：如果你从数百人那里分别收到0.001 ETH（每人购买一杯咖啡），那么在Merkle树中将有许多地方都有0.001 ETH，因此实际退出这个ETH仍然需要提交许多单独的退出请求，这使得Gas费用变得不划算。已经开发了碎片整理协议，但实现起来比较棘手。</p>
+<p>或者，我们可以重新设计系统，以考虑更传统的“未花费交易输出”（UTXO）模型。当你退出一枚代币时，你需要提供这些代币的过去一周的历史记录，任何人都可以通过证明这些历史代币已经退出来挑战您的退出。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1115/17_wzf65rsh35.png" alt="d4mZUloeYCaf1Ip768wistmR6pdafR4UufRPU9vf.jpeg" title="7136517"></p>
+<p>对底部右侧的0.2 ETH UTXO的提取可以通过显示其历史记录中任何UTXO的提取来取消，如图中绿色所示。特别注意，中间左侧和底部左侧的UTXO是前代，但顶部左侧的UTXO不是。这种方法类似于 2013 年左右彩色硬币协议中基于顺序的着色想法。</p>
+<p>有许多技术可以做到这一点。在所有情况下，目标是在历史的不同时间点跟踪什么是“同一枚代币”的概念，以防止“同一枚代币”被提取两次。</p>
+<h3 id="推广到-evm-的挑战">推广到 EVM 的挑战</h3>
+<p>不幸的是，将Plasma从支付推广到EVM要困难得多。一个关键挑战是EVM中的许多状态对象没有明确的“所有者”。 Plasma的安全性取决于每个对象都有一个所有者，该所有者有责任观察并确保链的数据可用，并在发生任何问题时退出该对象。然而，许多以太坊应用程序并不是这样工作的。例如，Uniswap流动性池没有单一所有者。</p>
+<p>另一个挑战是EVM不会尝试限制依赖关系。在块N中的账户A中持有的ETH可能来自块N-1中的任何地方。为了退出一致的状态，EVM Plasma链需要有一个退出游戏，在极端情况下，希望使用块N的信息退出的人可能需要支付费用，在链上发布整个块N状态：Gas费用可能高达数百万美元。基于UTXO的Plasma方案没有这个问题：每个用户都可以从他们拥有数据的最新块退出他们的资产。</p>
+<p>第三个挑战是EVM中无限制的依赖关系使得更难以使各方的激励与证明有效性保持一致。任何状态的有效性取决于其他所有事物，因此证明任何一件事都需要证明所有事物。在这种情况下解决故障通常无法使激励相容，因为存在数据可用性问题。一个特别让人讨厌的问题是，我们失去了在基于UTXO的系统中存在的一个保证，即对象的状态在没有所有者同意的情况下不能更改。这个保证非常有用，因为它意味着所有者始终知道他们资产的最新可证明状态，并简化了退出游戏。如果没有这个保证，创建退出游戏将变得更加困难。</p>
+<h2 id="二有效性证明如何缓解其中许多问题">二、有效性证明如何缓解其中许多问题</h2>
+<p>有效性证明能够在改进Plasma链设计方面发挥的最基本的作用就是在链上证明每个Plasma区块的有效性。这极大地简化了设计空间：这意味着我们唯一需要担心的是来自运营商的不可用区块，而不是无效区块。以Plasma Cash为例，它消除了对历史挑战的担忧。这将用户需要下载的状态从每周每个区块一个分支减少到每个资产一个分支。</p>
+<p>此外，在最新状态进行的提取（在运营商诚实的普通情况下，所有提取都将来自最新状态）不受最新拥有者挑战的影响，因此在经过有效性证明的Plasma链上，这种提取将不受任何挑战的影响。这意味着在正常情况下，提取可以是即时的！</p>
+<h3 id="扩展到-evm并行-utxo-图">扩展到 EVM：并行 UTXO 图</h3>
+<p>在 EVM 案例中，有效性证明还让我们可以做一些聪明的事情：它们可以用来实现 ETH 和 ERC20 代币的并行 UTXO 图，并通过 SNARK 证明 UTXO 图和 EVM 状态之间的等价性。 一旦你有了这个，你就可以在 UTXO 图上实现一个“常规”的 Plasma 系统。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1115/17_w29ji4jr3a.png" alt="AvNvcUByuJzy4HCVjvQzE4VSWNLPsJUFciiKi8EP.jpeg" title="7136519"></p>
+<p>这使我们能够回避EVM的许多复杂性。例如，在基于账户的系统中，有人可以在没有您同意的情况下编辑您的账户（通过向其发送代币从而增加其余额）的事实并不重要，因为Plasma构建不是基于EVM状态本身的，而是基于与EVM并行存在的UTXO状态，您收到的任何代币都将是独立的对象。</p>
+<h3 id="扩展到evm总状态退出">扩展到EVM：总状态退出</h3>
+<p>有一些更简单的方案被提出，用于创建“plasma EVM”，例如 Plasma Free 和此前2019年的这篇文章。在这些方案中，任何人都可以在L1上发送消息，强制运营商要么包含一个交易，要么使状态的特定分支可用。如果运营商未能执行此操作，链将开始回滚区块。只要有人发布了整个状态的完整副本，或者至少发布了用户标记为可能丢失的所有数据，链就会停止回滚。提取可能需要发布赏金，该赏金将支付该用户在发布如此大量数据的Gas份额。</p>
+<p>这类方案的弱点在于，在正常情况下它们不允许即时提款，因为始终存在链需要回滚最新状态的可能性。</p>
+<h2 id="三evm-plasma-方案的局限性">三、EVM plasma 方案的局限性</h2>
+<p>此类方案功能强大，但无法为所有用户提供全面的安全保证。 它们最明显崩溃的情况是特定国家对象没有明确的经济“所有者”的情况。</p>
+<p>让我们考虑 CDP（债务抵押头寸）的情况，这是一种智能合约，用户拥有被锁定的代币，只有在用户偿还债务后才能释放。 假设用户有 1 ETH（截至撰写本文时约为 2000 美元）锁定在 CDP 中，债务为 1000 DAI。 现在，Plasma 链停止发布区块，用户拒绝退出。 用户永远无法退出。 现在，用户有一个免费的选择：如果 ETH 的价格跌破 1000 美元，他们就会走开并忘记 CDP，如果 ETH 的价格保持在 1000 美元以上，他们最终会认领它。 平均而言，此类恶意用户可以通过这样做来赚钱。</p>
+<p>另一个例子是隐私系统，例如。 Tornado现金或隐私池。 考虑一个有五个存款人的隐私系统：</p>
+<p><img src="https://img.bibiqing.com/news/2023/1115/17_vgj0n92acw.png" alt="3VcADwKcrCgskXEK6EUp0dvCpYlkJBLLeAh9S4rf.jpeg" title="7136535"></p>
+<p>隐私系统中的 ZK-SNARK 隐藏了进入系统的代币所有者和出来的代币所有者之间的联系。</p>
+<p>假设只有橙色退出，此时 Plasma 链运营商停止发布数据。 还假设我们使用具有先进先出规则的 UTXO 图方法，因此每个代币都会与其正下方的代币匹配。 然后，橙色可以提取预混合和后混合的代币，系统会将其视为两个单独的代币。 如果蓝色试图收回他们预先混合的代币，橙色的最新状态将取代它； 与此同时，蓝色将没有信息来撤回混合后的代币。</p>
+<p>如果您允许其他四个存款人提取隐私合约本身（这将取代存款），然后在 L1 上取出代币，则可以解决此问题。 然而，实际实现这样的机制需要隐私系统开发人员付出额外的努力。</p>
+<p>还有其他方法可以解决隐私问题，例如。 Intmax 方法，该方法涉及将几个字节以链式汇总方式与在各个用户之间传递信息的类似 Plasma 的运算符一起放置。</p>
+<p>Uniswap LP 头寸也有类似的问题：如果您在 Uniswap 头寸中用 USDC 换取 ETH，您可以尝试提取交易前的 USDC 和交易后的 ETH。 如果您与 Plasma 链运营商勾结，流动性提供者和其他用户将无法访问交易后状态，因此他们将无法提取交易后的 USDC。 需要特殊的逻辑来防止此类情况的发生。</p>
+<h2 id="四结论">四、结论</h2>
+<p>2023 年，Plasma 是一个被低估的设计空间。 Rollup仍然是黄金标准，并且具有无法比拟的安全属性。 从开发人员体验的角度来看尤其如此：没有什么可以比得上应用程序开发人员的简单性，甚至不必考虑应用程序中的所有权图和激励流。</p>
+<p>然而，Plasma 让我们完全回避了数据可用性问题，大大降低了交易费用。 Plasma 可以为链带来重大的安全升级，否则链将成为验证链。 ZK-EVM 今年终于实现，这为重新探索这个设计空间提供了绝佳的机会，并提出更有效的结构来简化开发者体验并保护用户资金。</p>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/63244/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">DYDX暴涨背后的逻辑：代币定位升级，解锁新收益可能</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/63242/">
+                <span class="next-text nav-default">HashKey Exchange公布上币费用政策：预计在5至30万美元之间</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#一概述plasma-的工作原理">一、概述：Plasma 的工作原理</a>
+      <ul>
+        <li><a href="#推广到可互换代币">推广到可互换代币</a></li>
+        <li><a href="#推广到-evm-的挑战">推广到 EVM 的挑战</a></li>
+      </ul>
+    </li>
+    <li><a href="#二有效性证明如何缓解其中许多问题">二、有效性证明如何缓解其中许多问题</a>
+      <ul>
+        <li><a href="#扩展到-evm并行-utxo-图">扩展到 EVM：并行 UTXO 图</a></li>
+        <li><a href="#扩展到evm总状态退出">扩展到EVM：总状态退出</a></li>
+      </ul>
+    </li>
+    <li><a href="#三evm-plasma-方案的局限性">三、EVM plasma 方案的局限性</a></li>
+    <li><a href="#四结论">四、结论</a></li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

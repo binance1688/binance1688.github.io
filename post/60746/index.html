@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          比特币二层网络可行性探讨（上）：Ordinals vs Taro - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="自 Bitcoin 诞生的 15 年间，并没有被用来实现像 Ethereum 上的各种让人眼花缭乱的 DeFi 协议、NFT，通常被用于点对点转账和价值存储。" />
+<meta name="keywords" content="Ordinals, Taro, Layer 2, Taproot升級" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/60746/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="比特币二层网络可行性探讨（上）：Ordinals vs Taro" />
+<meta property="og:description" content="自 Bitcoin 诞生的 15 年间，并没有被用来实现像 Ethereum 上的各种让人眼花缭乱的 DeFi 协议、NFT，通常被用于点对点转账和价值存储。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/60746/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-10-10T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-10-10T00:00:00+00:00" />
+
+<meta itemprop="name" content="比特币二层网络可行性探讨（上）：Ordinals vs Taro">
+<meta itemprop="description" content="自 Bitcoin 诞生的 15 年间，并没有被用来实现像 Ethereum 上的各种让人眼花缭乱的 DeFi 协议、NFT，通常被用于点对点转账和价值存储。"><meta itemprop="datePublished" content="2023-10-10T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-10-10T00:00:00+00:00" />
+<meta itemprop="wordCount" content="4847">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="比特币二层网络可行性探讨（上）：Ordinals vs Taro"/>
+<meta name="twitter:description" content="自 Bitcoin 诞生的 15 年间，并没有被用来实现像 Ethereum 上的各种让人眼花缭乱的 DeFi 协议、NFT，通常被用于点对点转账和价值存储。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">比特币二层网络可行性探讨（上）：Ordinals vs Taro</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-10-10">
+      2023-10-10
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 4847 字 -
+        预计阅读 10 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E6%AF%94%E7%89%B9%E5%B8%81/"> 比特币 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>作者：3P Labs</p>
+<h3 id="一引言">一、引言</h3>
+<p>Bitcoin 作为最早、最安全的区块链，所使用的 UTxO 账户模型导致它很难支持像 Ethereum 的智能合约功能，只能支持一些有限的基于脚本语言的功能。所以自 Bitcoin 诞生的 15 年间，它没有被用来实现像 Ethereum 上的各种让人眼花缭乱的 DeFi 协议、NFT，通常被用于点对点转账和价值存储。</p>
+<p>2022 年 12 月 14 日被正式启动的 Ordinals 协议改变了这一切，它将使用者所需要存放到链上的元数据放入交易输入中，并基于序数理论[^1]实现了一套程序来追踪并记录这些“铭文 (Inscriptions)”。这样的“铭刻”所实现的是记录了静态的元数据，而不是如 Ethereum 智能合约一样的可动态执行的链上程序。这也使得“铭文”天然地成为了 Bitcoin 上的 NFT。而基于序数理论，人们也能够构建交易来实现这些铭文之间的转移、交易。</p>
+<p>此后，在 2023 年 3 月 6 日，基于 Ordinals 的 BRC-20 协议被提出，它被用于实现 Bitcoin 上的同质化代币，对应了 Ethereum 上的 ERC-20 协议。而这样基于 Ordinals 的协议很简单，以 Json 的格式将代币的铸造、转移的过程写到铭文上，最为形象的比喻就是一张张写上转账记录的纸，而记账的事情交给第三方机构去做。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1010/4_zpbz0w0tgv.png" alt="比特币二层网络可行性探讨（上）：Ordinals vs Taro"></p>
+<p><img src="https://img.bibiqing.com/news/2023/1010/4_oe8ni75lbk.png" alt="比特币二层网络可行性探讨（上）：Ordinals vs Taro"></p>
+<p>这样的 BRC-20 协议颇有暴力美学的美感，也是一种在各种因素下的妥协。在此前 Bitcoin 也曾出现过像彩色币的同质化代币，这不能证伪 BRC-20 是失败的应用，但似乎也能说明它或许不是一种长久的协议。至此，进入本文的主题，基于闪电网络的主根资产（Taproot Assets）。</p>
+<h3 id="二闪电网络">二、闪电网络</h3>
+<p>闪电网络是建立在 Bitcoin 上的 Layer 2 解决方案，其目的是在 Bitcoin 的支付场景下帮助用户节省成本、提高效率。而闪电网络所依赖的思想也很简单，即构建资金池，这样的资金池也被称为交易双方的微支付通道。更具体一点，涉及到两个核心概念：</p>
+<p>· Revocable Sequence Maturity Contract（RSMC）：序列到期可撤销合影</p>
+<p>· Hashed Timelock Contract（HTLC）：哈希时间锁定合约</p>
+<p>RSMC 假定了交易双方之间存在一个微支付通道，双方先存放一部分资金到这个通道中，初始情况下双方的分配方案就是预先存放的金额。在每一次发生交易时，双方都需要对交易后产生的分配结果进行确认，同时把原有的分配方案作废。这个过程涉及到的概念较多，而且比较巧妙，具体可参阅 [<a href="https://medium.com/huobi-research/a-dive-into-lightning-network-part-one-90036e3019b2">A Dive into Lightning Network (Part One)</a>][^14]，而它在闪电网络中的作用是构建双方之间的支付通道。</p>
+<p>HTLC 是一种带事件的哈希锁定，它要求某一方在一定时间内提交某个哈希值 $h=H(m)$ 的原像 $m$ 以取得使用某一笔 UTxO 使用权。它在闪电网络中被用于构建支付路由，具体的实现过程见 [<a href="https://medium.com/softblocks/lightning-network-in-depth-part-2-htlc-and-payment-routing-db46aea445a8">Lightning network in depth, part 2: HTLC and payment routing</a>][^15]。</p>
+<p>闪电网络整合了这两种机制，使得交易可以在闪电网络中的任意两个节点间能够在链下完成。</p>
+<h3 id="三taproot-升级">三、Taproot 升级</h3>
+<p>Taproot 是三个比特币改进提案（Bitcoin Improvement Proposal, BIP）BIP-0340 （Schnorr 签名）、BIP-0341 （Taproot）和 BIP-0342 （TapScript）的汇编，它也是 Taro 资产能够实现的基础。在这里，对 Taro 资产的实现中所涉及到的 MAST 进行说明：</p>
+<p>MAST</p>
+<p>BIP-0341 中引入了默克尔抽象语法树（Merklized Abstract Syntax Tree, MAST）[^7][^8][^9]，其目的是隐藏 UTxO 的支出条件，并且减少信息的大小。这是 Taproot 升级的一部分，Taproot 升级将原有的 P2SH（Pay-to-Script-Hash） 和 P2PKH（Pay-to-Public-Key-Hash）结合在一起，使得一笔数输出可以直接通过私钥使用，也可以提供花费输出的脚本和默克尔证明来使用。</p>
+<p>MAST 结合了抽象语义树和默克尔树，默克尔树作为一种在区块链中常见的数据结构，在这里不再进行赘述。而抽象语法树（AST）是一种把程序分割为独立的小块以描述程序的方法，这样会让程序变得容易分析和优化，具体可查阅<a href="https://en.wikipedia.org/wiki/Abstract_syntax_tree">[Abstract syntax tree]</a>。MAST 结合了 AST 的将程序划分为多个小块的思想，再把程序每个小块进行哈希，利用默克尔哈希树的思想把这些哈希结果构建为默克尔树。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1010/4_6aqukf4s2o.png" alt="比特币二层网络可行性探讨（上）：Ordinals vs Taro"></p>
+<p>考虑这样一个脚本[^9]:Alice 希望可以随时花费她的比特币，但是如果她连续三个月没有花费，那么她的兄弟姐妹 Bob 和 Charlie 就可以花费这笔 UTxO，其脚本实现如下</p>
+<p>OP_IF</p>
+<p>OP_CheckSig</p>
+<p>OP_ELSE</p>
+<p>&ldquo;3 months&rdquo; OP_CSV OP_DROP</p>
+<p>2 2 OP_CHECKMULTISIG</p>
+<p>OP_ENDIF</p>
+<p>在 P2SH 下，这样的脚本是需要在花费时完全暴露在交易中的，Alice 在花费这笔 UTxO 的同时需要提供该脚本，以及包含在其中的 Bob 和 Charlie 的公钥。</p>
+<p>而在有了 MAST 后，对该脚本的两个条件进行划分，得到一个简单的 MAST</p>
+<p><img src="https://img.bibiqing.com/news/2023/1010/4_zu3sakeksd.png" alt="比特币二层网络可行性探讨（上）：Ordinals vs Taro"></p>
+<p>此时，Alice 在花费的时候只需要选择提供她的公钥验证脚本和 Hash2 作为默克尔证明即可，而不需要暴露 Hash 2 下的具体脚本，这部分信息不会上链。而这样也进一步降低了类似交易的开销，这是很自然的，提供完整的脚本总是比提供脚本的哈希值的数据量少。而这样的结构也给智能合约的实现提供了可能，这样的方式正如 EVM 中的字节码一样，在运行前可以根据输入数据的前 4 个字节来选取将要调用的函数。不同地方在于，这样的脚本调用需要用户提供具体的脚本，以及默克尔证明来证明脚本是合法的。</p>
+<h3 id="四主根资产">四、主根资产</h3>
+<p>主根资产（Taproot Assets，后续简称为 Taro）[^2][^3][^5]是一种还在提议阶段的协议，它可以实现在 Bitcoin 上发行资产，这样的资产可以通过链上的交易通过比特币网络转移（对 NFT 的交易、转移已经被 Ordinals 实现）。特别地，同质化的 Taro 资产可以在存入闪电通道后在闪电网络上以更低的手续费、更为隐私地转移，类似的还有尝试在闪电网络上运行智能合约的 RGB 协议[^4]。</p>
+<p>Taro 可以在 Bitcoin 主网或二层的闪电网络上流通。先考虑在 Bitcoin 网络的情况，Taro 是附加在交易上的哈希化元数据形式，使用哈希化的目的在于降低交易的占用空间以节省手续费。而这样的哈希化元数据形式则是 Taro 的核心，这样的一条哈希值甚至可以代表实际上的几百万次交易，它的原理会在后续进行介绍。</p>
+<p>其次是 Taro 在闪电网络上的情况，使用闪电网络可以让同质化的 Taro 资产实现更快的交易速度，这类似于使用闪电网络可以更快、成本更低地转移比特币。在 Taro 的提议中，闪电网络自身不需要改变，为了实现一笔某种 Taro 资产的交易，只需要整条支付路径的第一条通道和最后一条通道可以识别 Taro 资产即可，而中途的路由通道则是正常的闪电网络转账方法，它们转账等价的比特币，这也导致 Taro 资产通常会在网络的边缘和其他资产交换。</p>
+<p>Taro 协议</p>
+<p>既然了解了 Taro 所能带来的好处，那么接下来需要介绍的是，它是什么？以及如何实现？正如需要了解 BRC-20 就是一堆写好转账记录需要第三方机构来记账的纸片，ERC-20 是智能合约所记录和维护的一串余额信息一样。Taro 又是如何实现资产的发行、转移的？</p>
+<p>资产树</p>
+<p>资产树是 Taro 中的一种两级默克尔树结构，它被用来代表 Taro 资产。第一级是由 Taro 信息作为叶子节点而构成的默克尔树，而第二级则是通过 MS-SMT 构成的表示每个账户所具有的该资产的树，MS-SMT 的思想较为简单，它在默克尔哈希树基于哈希来构成树形结构的同时，每个节点还存放了左右两个子节点的和来实现（进行哈希运算本身也算一种求和），这样的资产树和 MS-SMT 树被用来构建 Taro 的 UTxO。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1010/4_afj73vj2qs.png" alt="比特币二层网络可行性探讨（上）：Ordinals vs Taro"></p>
+<p>资产叶（Aseet Leaft）是资产树中的最底层结构，它表现为资产树示意图中的淡蓝色节点，它以 assetScriptKey （assetScriptKey 可以类比 P2SH 交易中对交易脚本的哈希值）作为键。每个资产叶表示 Taro 资产的一个 UTxO，资产叶中包含的可选项可参见 [<a href="https://medium.com/nayuta-en/understanding-taproot-assets-protocol-e2dfe3fc1e07">Understanding Taproot Assets Protocol</a>]。</p>
+<p>MS-SMT</p>
+<p>默克尔总和稀疏树（Merkle Sum Sparse Merkle Tree）[^11]是在 [bip-tap-ms-smt] 中定义的数据结构，它是稀疏默克尔树的增强版本，目前是 bips 中一个仍未被接收的提案。由于键（key）是 256 bits 长的，所以这样的 MS-SMT 有 $2^{256}$ 个叶子节点，其中的大部分是空的，所以它是稀疏的默克尔树。</p>
+<p>每个叶子包含了一个数量，每个分支向上提交叶子中的总量，这样可以在不知道每个子树的内容的情况下知道分支中包含的总和。而和一般的默克尔树一样，包含任何叶子的被修剪过的树可以提供成员存在证明（这是密码累加器中的一个概念，它是一种“证明”用于证实一个元素在一个集合中）。而 MS-SMT 也支持成员不存在证明（它通过显式地指示不存在的键的叶子为 None 来实现），即证明这样的键在树中为 None 来证实它不存在，这样的结构可以高效地验证树上存储的数值和分布是否存在改变。</p>
+<p>下图是一个默克尔总和树以及它发送改变后的结构，而默克尔总和稀疏树则是结合了稀疏树的特点，将空元素节点修建掉，只存放有意义的信息，空节点使用 None 表示。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1010/4_6i8sakmvuq.png" alt="比特币二层网络可行性探讨（上）：Ordinals vs Taro"></p>
+<p>Taro 资产发行</p>
+<p>Taro 资产的发行需要一个标识符，正如 ERC-20 代币的智能合约会拥有一个地址一样，Taro 协议定义了标识符的生成方式：ID = SHA256(genesisPoint||assetTag||assetMeta) ，它将铸造资产所使用的交易输出信息、资产标签（例如资产名称的哈希值）以及资产的元数据（图片、链接或文档）进行哈希，从而得到一个标识符。</p>
+<p>Taro 资产的转移脚本可以有类似比特币交易的输入输出，而创建资产的交易不需要包含任何的 Taro 资产的输入，由此可见，Taro 资产沿用了比特币的 UTxO 模型，资产的发行就是发布一笔 Taro 资产的交易，它没有输入，只有输出。</p>
+<p>Taro 的输入和输出是基于资产树来实现的，正如前文所述，资产树的第一级代表了该笔 UTxO* （后面会继续沿用这种写法，* 表明这样的结构是在 Taro 资产中而非 Bitcoin 中）中存放的 Taro 资产有哪些，而 Taro 资产 ID 所对应的 MS-SMT 中所存放的是该笔 UTxO* 输出的 Trao 资产的信息。</p>
+<p>构建一笔 Taro 资产的发行交易如下图所示，以一笔 Bitcoin 的 UTxO 作为输入，输出一笔正常的 Bitcoin UTxO 以及附加的 Taro 资产 A 的 UTxO*。这样的 UTxO* 在 Bitcoin 上表现为一个默克尔根的形式，而它在链下表现为资产树的形式，资产树中记录了 Taro 资产 A 的 assetId 以及资产 A 对应的 MS-SMT 中的记录。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1010/4_vw42pz1bpu.png" alt="比特币二层网络可行性探讨（上）：Ordinals vs Taro"></p>
+<p>Taro 资产转移</p>
+<p>如果能理解上一小节中资产的创建，那么就可以更快地理解资产的转移过程。资产的转移和 Bitcoin 中的一笔交易是类似的，选择一系列的可用 UTxO 作为输入，然后再输出一系列的 UTxO。在 Taro 资产中则是选择一系列可用的 UTxO* 作为输入，并输出一系列的 UTxO*。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1010/4_u1gnwr7ipa.png" alt="比特币二层网络可行性探讨（上）：Ordinals vs Taro"></p>
+<p>在这笔交易中，A 将自己的 Trao 资产 X 全部转移给 B，并且不进行拆分。在 B 接收到该交易时，需要验证资产是否满足支付条件且没有产生多余的输出来确认收到资产。</p>
+<p>所需要验证的条件包括但不限于：</p>
+<p>· 为 B 所创建的资产树是否包含满足付款条件的新 UTxO？</p>
+<p>· 输入 UTxO 是否已经从已经更新了的 A 的资产树中删除？</p>
+<p>· 如果交易中还有其他的输出，那么它们是否包含另外的资产树？</p>
+<p>这些信息可以由 MS-SMT 的成员 / 非成员证明以及 Trproot 输出的前像以及证明来进行验证。对资产的合并、拆分不再进行赘述，它们的过程和资产转移的过程类似，但是在输出的 UTxO* 中包含了拆分证明或合并证明。</p>
+<h4 id="taro-universe">Taro Universe</h4>
+<p>Universe 是一种为资产的持有人提供有关资产信息以及证明的服务 [^6]，其作用类似于比特币区块浏览器[^13]，但是它会展示与 Taro 资产客户端一起存储在链下的 Taproot 资产的交易数据。Universe 可以由资产的发行人自己运营，也可以由发行人任命某个运营商，可以想象的是由社区运营的 Universe 汇总来资产持有者提交的信息。</p>
+<h3 id="五结束语">五、结束语</h3>
+<p>上篇到此为止，我们简单地介绍了 Taro 资产实现所基于的技术，以及它本身的实现原理。在下篇中，我们将会介绍 Ordinals 及 Taro 资产发展现状 。</p>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/60739/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">报告：韩国加密货币总交易量的70%集中在中心化交易所</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/60811/">
+                <span class="next-text nav-default">比特币接近减半事件 分析师猜测价格趋势</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#一引言">一、引言</a></li>
+        <li><a href="#二闪电网络">二、闪电网络</a></li>
+        <li><a href="#三taproot-升级">三、Taproot 升级</a></li>
+        <li><a href="#四主根资产">四、主根资产</a></li>
+        <li><a href="#五结束语">五、结束语</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

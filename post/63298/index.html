@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          一文看懂BRC20、Atomicals、RUNE、Taproot Assets等协议的独特之处 - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="BRC20, Atomicals, RUNE, PIPE & Taproot Assets 各种相关协议各自有什么不同之处呢？" />
+<meta name="keywords" content="BRC-20, Rune, Taproot Assets" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/63298/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="一文看懂BRC20、Atomicals、RUNE、Taproot Assets等协议的独特之处" />
+<meta property="og:description" content="BRC20, Atomicals, RUNE, PIPE &amp; Taproot Assets 各种相关协议各自有什么不同之处呢？" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/63298/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-11-16T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-11-16T00:00:00+00:00" />
+
+<meta itemprop="name" content="一文看懂BRC20、Atomicals、RUNE、Taproot Assets等协议的独特之处">
+<meta itemprop="description" content="BRC20, Atomicals, RUNE, PIPE &amp; Taproot Assets 各种相关协议各自有什么不同之处呢？"><meta itemprop="datePublished" content="2023-11-16T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-11-16T00:00:00+00:00" />
+<meta itemprop="wordCount" content="3563">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="一文看懂BRC20、Atomicals、RUNE、Taproot Assets等协议的独特之处"/>
+<meta name="twitter:description" content="BRC20, Atomicals, RUNE, PIPE &amp; Taproot Assets 各种相关协议各自有什么不同之处呢？"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">一文看懂BRC20、Atomicals、RUNE、Taproot Assets等协议的独特之处</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-11-16">
+      2023-11-16
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 3563 字 -
+        预计阅读 8 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E5%85%B6%E5%AE%83%E6%96%87%E7%AB%A0/"> 其它文章 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>作者：dt X Haotian；来源：DODO Research</p>
+<p>随着比特币现货 ETF 带动的市场行情，其中涨幅最显著的肯定属一大票 BTC 生态相关的协议，上周币安更是上线了 BTC Ordinals BRC20 协议中最具有社区共识的 $ORDI 代币，沉寂了大半年的 BRC20 板块以及其他构筑在 BTC 之上的衍生协议顿时 FOMO 情绪点满，BRC20, Atomicals, RUNE, PIPE &amp; Taproot Assets 各种相关协议充斥着笔者的推特版面，那么这些协议各自有什么不同之处呢？</p>
+<p><strong>本周的 CryptoSnap，让 DODO Research X Haotian (@tmel0211) 用最浅显易懂的方式介绍这些协议的独特之处。</strong></p>
+<h2 id="ordinals-brc20"><strong>Ordinals BRC20</strong></h2>
+<p>Ordinals 是由开发者 Casey Rodarmor 发起的一个项目，在比特币 SegWit 升级后透过分离见证数据允许单一区块内容纳更多的资讯，接着在 Taproot 升级后通过引入新的脚本支持方式，提高了比特币脚本的灵活性和功能性，在这两个重大更新的基础下 Ordinals 在今年年初横空出世，Ordinals 实际上是将数据（如图像、文本、音频等）刻铭（inscribe）在比特币的聪（Satoshis）上，更具体地说，是在特定的 UTXO（未花费交易输出）上，当这个 UTXO 被花费时，与之关联的刻铭数据也会被传递从而达到资产转移的概念。</p>
+<p>BRC20 则是在今年三月由匿名开发者 Domo 构思的，其概念为制定一套特定格式的 json 数据包，透过 Ordinals 将其铭刻在 BTC 链上，并透过链下索引平台的方式读账、管账，其部署者可以决定代币总量名称等参数并且遵循先到先得原则单一名称仅允许注册一次，而 $ORDI 则是 Domo 部署的第一个 BRC20 代币。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1116/28_c6ghfz2siy.png" alt="一文看懂BRC20、Atomicals、RUNE、Taproot Assets等协议的独特之处"></p>
+<p>BRC20 代币部署格式标准 Source: <a href="https://domo-2.gitbook.io/brc-20-experiment/">https://domo-2.gitbook.io/brc-20-experiment/</a></p>
+<p>在币安上线 $ORDI 代币时曾经误将其代币官网介绍与 Ordinals 协议连结，受到了 Ordinals 创办人 Casey 的严正澄清，ORDI 仅是 Ordinals 协议 BRC20 标准下的其中一个代币与 Ordinals 官方并没有关联，甚至在 Casey 的推特中曾多次批评 BRC20 标准创造了太多的垃圾交易。</p>
+<p>除此之外 BRC20 代币也因为其大部分功能皆通过链下的索引来作为确认，其转账不在 BTC 主链上执行，太过于中心化以及技术上多此一举并无贡献等等因素而被许多人批评。</p>
+<p><strong>Atomicals</strong></p>
+<hr>
+<p>Atomicals 针对 Ordinals 与 BRC20 做了更多优化，不同于 Ordinals 起出设计时专为 NFT 而生，Atomicals 则是更多的着重在同值化代币上，针对 BRC20 过于依赖中心化链下索引的缺点，Atomicals 利用并扩展了比特币的 UTXO 模型，每个聪的 UTXO 代表一个特定的 Atomical 代币或数字对象，允许在比特币上以去中心化的方式创建和管理复杂的数字对象和代币系统（ARC20）。</p>
+<h3 id="它的特点包括"><strong>它的特点包括：</strong></h3>
+<ul>
+<li>
+<p>使用比特币的最小单位聪（Satoshis）上作为基本“ATOM”来代表代币。</p>
+</li>
+<li>
+<p>允许在比特币上创建、传输和更新数字对象。</p>
+</li>
+<li>
+<p>提供了一种去中心化且符合比特币文化的代币化方法。</p>
+</li>
+<li>
+<p>通过工作量证明（POW）增加铸造过程的公平性和去中心化。</p>
+</li>
+<li>
+<p>旨在扩展比特币的功能，支持更广泛的应用，例如社交媒体、游戏和身份验证。</p>
+</li>
+</ul>
+<p><strong>RUNE ＆ PIPE</strong></p>
+<hr>
+<p>RUNE 协议是 Ordinals 创办人 Casey Rodarmor 认为目前在比特币网络上发行的同值化代币方案（BRC20, Taproot Assets 等）皆有各自不同的缺陷而兴起一个创造基于 UTXO 的同值化代币协议的想法。</p>
+<h3 id="主要特点和设计理念的总结"><strong>主要特点和设计理念的总结：</strong></h3>
+<ul>
+<li>
+<p><strong>基</strong> <strong>于 UTXO：</strong> Runes 余额由 UTXO 所持有，每个 UTXO 可以包含任意数量的任何数量的 Runes。</p>
+</li>
+<li>
+<p><strong>交易和协议信息：</strong> 包含特定脚本的输出被视为协议信息的一部分。这些脚本指定了 Runes 的转移和分配方式。</p>
+</li>
+<li>
+<p><strong>灵活性：</strong> Runes 的转移通过解释交易中的数据推送来定义，允许灵活地分配 Runes 到不同的输出。</p>
+</li>
+<li>
+<p><strong>发行：</strong> 如果协议消息中有第二个数据推送，它将被视为发行事务，允许创造新的 Runes。</p>
+</li>
+<li>
+<p><strong>简单性和去中心化：</strong> Runes 协议尽可能简单，不依赖于链下数据，没有原生代币，并且适合比特币的 UTXO 模型。</p>
+</li>
+<li>
+<p><strong>符号分配：</strong> Runes 可以有与之相关的符号，但协议不试图避免符号抢注，以保持简单性</p>
+</li>
+</ul>
+<p>Rune 目前仅有设计概念的流出，并没有实际上线的应用，而 PIPE 则是比特币生态圈子中着名的开发者 BennyTheDev 实现 Casey 文章中提到的技术架构而做出的协议，PIPE Protocol 是 BennyTheDev 创造的 TRAC 生态中重要的一环，TRAC 生态除了有 PIPE Protocol 外还包含 BRC20 代币 $TRAC, Ordinals NFT .Blitmap 以及 BennyTheDev 针对 BRC20 做出的 OrdFi 生态协议 TAP Protocol 允许 Brc20 能够实现 代币交换（Swap）等 Defi 世界能做到的功能。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1116/28_1gdaut0y4h.png" alt="一文看懂BRC20、Atomicals、RUNE、Taproot Assets等协议的独特之处"></p>
+<p><strong>Taproot Assets</strong>  </p>
+<hr>
+<p>Taproot Assets 是由大名鼎鼎的闪电网路实验室推出的协议，目标是在比特币网络上创建和交易各种数字资产，并与闪电网络（Lightning Network）整合，闪电网路作为开发多年的比特币衍生协议早已得到比特币社区多年的认可，此次 Taproot Assets 的更新，将闪电网路从原先的仅允许点对点交易「支付通道」的方式拓展到点对多从而实现资产的分发流通，Taproot Assets 在 比特币主网的 UTXO 输出脚本中写入了 Token 的信息作为注册，而转帐交易等功能皆在闪电通道中实现，与 BRC20、ARC20 最大的不同点在于 Taproot Assets 发行方式并不是自由铸造而是需要一个拥有者预先铸造接着进行分发，这种方式的优点是能够吸引 USDT 等稳定币前来部署，而缺点则是代币分配方式不若 BRC20 或 ARC20 公平自由。</p>
+<p>获得多笔融资的闪电网路实验室再加上拥有推特创办人 Jack Dorsey 的公开支持，让闪电网路的 Taproot Assets 在正规性上比起上述的草根项目更加坚强，这样的背景和支持为 Taproot Assets 的前景受到社区许多人看好。</p>
+<p><strong>笔者观点</strong></p>
+<hr>
+<h3 id="_dt-19971122-_">_<strong>DT @19971122：</strong> _</h3>
+<p>在除了比特币生态之外，炒作风潮也席卷了基于以太坊虚拟机（EVM）的公链，以 ethscriptions 为首。有评论形象地比喻，如果 BRC20 代表有车之人仍步行上班，ETHS 则是有车之人选择背着车步行上班。技术层面上，许多人认为在有了以太坊智能合约之后，回到比特币链上进行实验似乎多此一举。然而，对于一些极客而言，在比特币原链上进行各种新颖实验是一种浪漫。对于炒作者来说，这些实验提供了新的机会，因为它们是以较低成本获得的筹码，且伴随着新颖的叙事，成为了理想的炒作对象。即便被视为愚蠢的共识，也仍是共识。当炒作的价值在许多人心中成为默认的公允价值时，其价值就不再局限于被视为无价值之物。</p>
+<p>就笔者而言，加密货币领域本质上是一个叙事驱动价值的空间。大多数参与者都是为了赚钱而留在这个圈子。因此，我并不反对炒作。每一轮牛市都伴随着新的炒作，这是正常现象。三年前的牛市也曾充斥着对 NFT 的批评，但这并未阻碍许多人通过 NFT 发家致富。<strong>理解并适度参与炒作，跟随所谓的叙事，可以防止你落后于时代。清晰地理解这一点对于在这个领域中赚钱并继续前进至关重要。</strong></p>
+<h3 id="_haotian-tmel0211-_">_<strong>Haotian @tmel0211：</strong> _</h3>
+<p>关于 Bitcoin 生态的这一波叙事热潮，单看 Ordinals、BRC20、Taproot Assets，甚至 BitVM 都有其可圈可点之处。<strong>我的观点是，认清每个叙事的底层演变逻辑和潜在风险，看 “清楚” 再做选择。</strong></p>
+<p>以 Ordinals 为例，作为 indexer 的微创新赋予了 Bitcoin 生态数据 “可编程” 特性，且数据去中心化存在于比特币网络，又符合矿工利益，这是个很不错的叙事。但 Ordinals 第三方索引账本以及各大中心化 CEX 构建的索引账本，目前流动性低时问题还未显现，当流动性大到一定程度账本之间的延迟摩擦以及索引平台之间的 “共识挑战” 反倒会成为最大问题。不去评估现状财富效应，从未来技术逻辑看 Ordinals 叙事存在许多需要攻克的问题。</p>
+<p>以太坊之所以出现多种 Layer2 方案，但以太坊作为仲裁层的核心命脉 DA 并没有丢，如果完全舍开以太坊的验证和计算能力，只作为一种数据公告板，那自然很难发挥以太坊仲裁层的绝对安全价值。这正是为何，诸多 Layer2 方案，Rollup 最终脱颖而出的原因。因为主网的仲裁能力还存在。</p>
+<p>再来看 Ordinals，如果 Bitcoin 网络无法提供绝对的安全性，链下的索引和记账共识，在很长一段时间内都难以进入 “稳定” 状态，能动摇 Ordinals 共识的也许正是 Ordinals 本身。毕竟，Bitcoin 网络缺乏仲裁和解释权能力。</p>
+<p><strong>事实上，大家相信比特币扩容方向的潜力，看重的也是比特币网络的绝对安全共识，如果比特币无法把它的安全性作用到其他方案上，怎能对该方案赋予过高预期呢？</strong></p>
+<p>当然，如果畅想的是星辰大海，以上技术逻辑才值得去思考，如果无关技术前景，只是希望获取点财富效应，不再我的评价范畴内，把话语权交给市场。</p>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/63296/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">虚拟货币被盗了应该怎么办？</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/63316/">
+                <span class="next-text nav-default">一文了解Backpack：FTX前员工集体再就业，「撸毛党」闻风而动</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#ordinals-brc20"><strong>Ordinals BRC20</strong></a>
+      <ul>
+        <li><a href="#它的特点包括"><strong>它的特点包括：</strong></a></li>
+        <li><a href="#主要特点和设计理念的总结"><strong>主要特点和设计理念的总结：</strong></a></li>
+        <li><a href="#_dt-19971122-_">_<strong>DT @19971122：</strong> _</a></li>
+        <li><a href="#_haotian-tmel0211-_">_<strong>Haotian @tmel0211：</strong> _</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

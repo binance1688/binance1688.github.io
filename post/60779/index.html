@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          比特币新提案BitVM解读：无需分叉即可让比特币图灵完备 - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="BitVM将以一种可执行的方式，即时地将任意的图灵完备计算引入比特币" />
+<meta name="keywords" content="BTC" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/60779/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="比特币新提案BitVM解读：无需分叉即可让比特币图灵完备" />
+<meta property="og:description" content="BitVM将以一种可执行的方式，即时地将任意的图灵完备计算引入比特币" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/60779/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-10-10T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-10-10T00:00:00+00:00" />
+
+<meta itemprop="name" content="比特币新提案BitVM解读：无需分叉即可让比特币图灵完备">
+<meta itemprop="description" content="BitVM将以一种可执行的方式，即时地将任意的图灵完备计算引入比特币"><meta itemprop="datePublished" content="2023-10-10T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-10-10T00:00:00+00:00" />
+<meta itemprop="wordCount" content="3545">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="比特币新提案BitVM解读：无需分叉即可让比特币图灵完备"/>
+<meta name="twitter:description" content="BitVM将以一种可执行的方式，即时地将任意的图灵完备计算引入比特币"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">比特币新提案BitVM解读：无需分叉即可让比特币图灵完备</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-10-10">
+      2023-10-10
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 3545 字 -
+        预计阅读 8 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E6%AF%94%E7%89%B9%E5%B8%81/"> 比特币 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>作者：Shinpbo，Bitcoin Magazine； 翻译：金色财经cryptonaitive</p>
+<p>害怕巫师（注：有能力使用魔法的人类）。不是那些巫师，这些是真正的巫师。</p>
+<p>ZeroSync是一个通过使用零知识证明来扩展比特币的协会。近日ZeroSync开发者Robin Linus发布新的比特币提案BitVM，BitVM为未来比特币应用程序开发打开了非常有趣的大门。BitVM可以启用几乎任意的计算，并利用该计算来强制执行比特币链上的操作。</p>
+<p>BitVM不需要对比特币进行任何共识更改。诀窍在于将所有这些逻辑移至链下，并且如果对方声称不诚实的结果，能够在链上挑战计算的一些步骤。简而言之，BitVM将以一种可执行的方式，即时地将任意的图灵完备计算引入比特币。</p>
+<h2 id="逻辑门基础知识">逻辑门基础知识</h2>
+<p>为了真正理解该提案背后的机制，我们需要了解一些有关计算的物理和逻辑基础知识。</p>
+<p>每个人都知道，计算机内部只是传递各个1和0来执行所有操作，但这是如何工作的呢？这意味着什么？计算机中的每个芯片核心都由数百万或数十亿个逻辑门组成。</p>
+<p>这些小设备接收一个或两个信息位（1或0）作为输入，并对它们执行简单的逻辑操作，以产生1或0的输出，然后将其馈送到下一个逻辑门中。</p>
+<p>有许多不同类型的逻辑门，有些只是接收一个位并输出相同的数字（ buffer gate，缓冲门）。其他的接收一个位，并输出与接收到的相反的值（NOT门）。有些接收两个位，并且当两个输入位都是1时输出1，其他任何组合输出0（AND门）。最后，至少在下面的示例列表中，有一个门接收两个位，并在两个输入都是1时输出0，并在所有其他位组合上输出1（NAND门）。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1010/10_p3tr1ba29n.png" alt="y16Nk6jg6RSUlcM7vJ0YJ2hF0Tb0QIUZDNDJsM5j.png" title="7113256"></p>
+<p>NAND门真值表</p>
+<p>NAND门的有趣之处在于你可以仅使用NAND门构建任何其他类型的逻辑门。它肯定不像只制作其他门的特殊版本那样高效，但它能完成任务。因此，鉴于你可以用NAND门构建任何逻辑门，你可以用NAND门构建任意计算的电路。</p>
+<h2 id="在比特币上构建nand门">在比特币上构建NAND门</h2>
+<p>现在，如何使用现有的比特币脚本构建一个NAND门呢？用哈希锁和另外两个你可能不熟悉的操作码：OP_BOOLAND和OP_NOT。</p>
+<p>首先，让我们看看哈希锁。创建一个分支脚本（branching script），可以通过两种方式之一花费，揭示哈希锁A的preimage，或者揭示哈希锁B的preimage。路径A会在堆栈上放置数字1，而路径B会放置数字0。</p>
+<p>这使你能够通过提供哈希锁的preimage来“解锁”一个位，以用作我们正在构建的NAND门的输入。你只能使用其中之一完成脚本，而不能同时使用两者，我们很快会讨论其中的原因。这个简单的原语只是为了允许用户一次承诺使用一个位于NAND门脚本中。</p>
+<p>现在回想一下NAND门是什么，它接收两位并输出一个。如果输入位都是1，则输出必须为零。如果输入位是任何其他组合，则输出为1。你可以使用上面的两路径哈希锁技巧承诺两个输入，以及输出，只需要一种验证输出是否正确的方法。这就是OP_BOOLAND和OP_NOT发挥作用的地方。</p>
+<p>在选择要分配为输入的值和要验证的输出值之后，你可以利用一个巧妙的技巧。OP_BOOLAND与NAND执行的操作正好相反，如果两个输入都是1，则输出为1。其他所有情况输出0。OP_NOT获取输入的任何值并将其反转，1变为0，反之亦然。这使你可以在脚本堆栈上对两个输入值执行NAND操作。然后，使用OP_EQUALVERIFY验证与哈希锁技巧中承诺的输出相匹配的NAND操作的实际输出。如果脚本在堆栈上创建的实际NAND操作输出与用户声称它将产生的输出不匹配，则脚本将无法通过评估。</p>
+<p>现在，你已经在比特币脚本中实现了一个NAND门，以一种实际上强制执行虚拟NAND门的方式。</p>
+<h2 id="引入任意计算">引入任意计算</h2>
+<p>那么，既然现在可以在比特币脚本中创建一个单独的NAND门，那么可以做什么呢？你可以创建一个完整的tapleaf树，覆盖任意计算的每一步，就像实际的逻辑门为制造计算机处理器一样。</p>
+<p>为了完成复杂的计算，人们将逻辑门连续放在一起，这样一旦将初始输入送入第一个门，每个门的输出就直接作为另一个门的输入。通过在门之间适当地绑定哈希锁，我们在这里完成了同样的事情。即，如果一个门脚本在值C1或C2的输出之间有一个选择，系列中的下一个门将在匹配的输入中使用相同的哈希锁值。这样，有人欺骗关于上一个门的结果的唯一方法是揭示另一个C哈希锁。我们可以将其用于惩罚机制。</p>
+<p>两个用户选择他们想要参与的任何计算，并将其分解为仅使用NAND门逐个进行计算的电路。然后，他们采用并对电路中的每个单独门进行编码，每个电路步骤都有适当的哈希锁选择，并将其编码到可以锁定单个UTXO的tapleaf树中。有一个版本的树是供试图证明他们正确执行程序的用户使用的，另一个版本是供验证程序是否正确执行的人使用的。现在，他们要做的是预先签署一系列用于在链上执行的挑战和响应游戏的交易。理想情况下，整个计算在链下运行并得到验证，用户通过共同花费资金将其结算到基于计算结果的适当人员。然而，如果证明者停止合作，验证者可以在链上对其提出挑战。</p>
+<p>第一步是将资金加载到方案中。一个脚本路径将允许证明者在时间锁定后单方面主张资金。下一个脚本路径将允许验证者在可以展示当前门的任何输入或输出的可能值的两个preimage的情况下立即索赔资金。下一个脚本路径将允许验证者强制证明者在链上执行任何特定的门合约（即在链下停止合作后的门）。该路径要求验证者发布另一个只有他们拥有的哈希锁preimage，作为对证明者每个门挑战的锁。这保证了证明者只能执行该特定的门。验证者对该路径的预签名交易将其花费到一个脚本中，该脚本具有以下脚本路径：验证者在时间锁定后取走硬币，或证明者执行门并将硬币花费回到类似于第一个的脚本，证明者在时间锁定后可以索赔资金，验证者可以立即索赔资金，如果向任何单个哈希锁对显示两个preimage，或者验证者可以再次挑战证明者。</p>
+<p>这个方案只需进行几轮就可以保证合约正确结算。要么验证者用完预签名交易以继续挑战证明者，因为证明者一直在展示每个门的正确执行，证明者会主张这笔资金；或者，证明者不回应挑战，因为这会使他们受到惩罚，而验证者会在时间锁定后索赔资金；或者证明者在链上错误执行了一个门，验证者立即索赔资金。理想情况下，一切都在链下发生，并且通过合作解决，但是如果合作失败，那么在链上进行几轮后，除了正确结算合约之外，没有其他结果。</p>
+<h2 id="未来之路">未来之路</h2>
+<p>毫无疑问，这样的提案将在未来的几周内讨论。</p>
+<p>需要处理和生成的数据量是巨大的。我们正在讨论叶子编号达数十亿的tapleaf树，并且至少有几跳的预签名交易以确保准确的结算。</p>
+<p>链下数据管理成本绝对是巨大的。</p>
+<p>另一个重要的限制是，这个方案只能与两个参与方一起使用，一个扮演证明正确执行的角色，另一个扮演验证正确执行的角色。</p>
+<p>虽然未来的研究有可能找到将其推广到更多参与方的方法，但至少我看不到完成这一点的明确途径。而且，即使解决了这个特定的问题，我也看不到摆脱这是一种互动协议的方式，该协议要求在合作情况下所有参与方始终参与。</p>
+<p>尽管如此，这确实是一个非常有趣的演示，展示了如何使用复杂的程序来强制对比特币进行有条件的控制。在单个叶脚本中可以打包多少逻辑，或者使用不同的操作码可以使整个方案更加高效，这方面肯定还有优化的空间。通过对基本操作和博弈理论平衡的简单拆解，可以使用比特币强制执行任意计算。</p>
+<p>真的巫师来了。</p>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/60811/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">比特币接近减半事件 分析师猜测价格趋势</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/60798/">
+                <span class="next-text nav-default">币安的英国合作伙伴受到FCA的金融促销限制</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#逻辑门基础知识">逻辑门基础知识</a></li>
+    <li><a href="#在比特币上构建nand门">在比特币上构建NAND门</a></li>
+    <li><a href="#引入任意计算">引入任意计算</a></li>
+    <li><a href="#未来之路">未来之路</a></li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

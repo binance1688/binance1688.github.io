@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          浅析新L1公链 XION：Web3 实现大规模采用的催化剂？ - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="创建强大、实用的基础设施，实现创新用户只是 Web3 当前面临难题的一小部分。" />
+<meta name="keywords" content="公鏈, Layer1" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/63978/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="浅析新L1公链 XION：Web3 实现大规模采用的催化剂？" />
+<meta property="og:description" content="创建强大、实用的基础设施，实现创新用户只是 Web3 当前面临难题的一小部分。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/63978/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-11-25T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-11-25T00:00:00+00:00" />
+
+<meta itemprop="name" content="浅析新L1公链 XION：Web3 实现大规模采用的催化剂？">
+<meta itemprop="description" content="创建强大、实用的基础设施，实现创新用户只是 Web3 当前面临难题的一小部分。"><meta itemprop="datePublished" content="2023-11-25T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-11-25T00:00:00+00:00" />
+<meta itemprop="wordCount" content="3259">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="浅析新L1公链 XION：Web3 实现大规模采用的催化剂？"/>
+<meta name="twitter:description" content="创建强大、实用的基础设施，实现创新用户只是 Web3 当前面临难题的一小部分。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">浅析新L1公链 XION：Web3 实现大规模采用的催化剂？</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-11-25">
+      2023-11-25
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 3259 字 -
+        预计阅读 7 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E5%85%B6%E5%AE%83%E6%96%87%E7%AB%A0/"> 其它文章 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>“如果每个人都在寻求去中心化所有权的好处，那么为什么 Web3 行业仍在努力寻找大规模采用的道路？”</p>
+<p>多年来，人们一直在讨论 Web3 的潜力，但在用户采用方面，我们似乎只触及了皮毛。目前，主流世界对 Web3 的采用存在两个挑战 — — 功能方面的障碍和文化方面的障碍。新 L1 公链 XION 的诞生就是为了解决这两个问题。让我们通过本文全面了解 XION 的愿景以及它如何帮助 Web3 实现大规模采用。</p>
+<h3 id="xion专门抽象加密复杂性的-l1-网络"><strong>XION：专门抽象加密复杂性的 L1 网络</strong></h3>
+<p>说到 XION，就不得不提到其开发商 Burnt。</p>
+<p>Burnt 在 Web3 的旅程，是从烧毁 Banksy 的画作开始的。2021 年 3 月，推特账号 BurntBanksy 直播烧毁了 Banksy 的画作《Morons (White)》，并将其发行为 NFT，旨在将实物画作的价值转移至 NFT。而这一行为的目的是激励更多的艺术家探索 NFT。此后一年中，Burnt 专注于为创作者创建无代码产品 Burnt Finance 和早期 NFT 标准。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1124/15_csq8i7a5ts.png" alt="浅析新L1公链 XION：Web3 实现大规模采用的催化剂？"></p>
+<p>在此过程中，Burnt 亲眼目睹了 NFT 陷入瓶颈，由于复杂性 Web3 行业无法大规模采用。“将真正的用户拒之门外，同时让我们在小众中感到优越”，这绝对不会是 Web3 的终点。</p>
+<p>因此，Burnt 基于 Cosmos 构建了抽象加密复杂性的 L1 区块链 XION，以克服由于加密技术而产生的采用可扩展性限制。XION 实现了无摩擦的用户体验，同时保留了 Web3 的核心特征 — — 去中心化、透明度、可验证的所有权等等。</p>
+<p>XION 的目的是通过解决优化 Web3 在功能和文化方面的障碍，帮助 Web3 被大规模采用。通过关注用户体验、可访问性和可扩展性，XION 旨在创建一个为开发人员和用户提供支持的生态系统，从而释放区块链技术的全部潜力。</p>
+<p>此外，Cosmos 的区块链间通信（IBC）协议允许 XION、生态系统和应用程序快速集成其他应用链及其相关应用程序。例如，如果一个产品需要私有用户状态，XION 可以连接到 Secret 网络。如果一个产品需要 DeFi，XION 可以连接到Injective 链和 Osmosis 链。对于法定资产和非 Cosmos 生态资产，Cosmos 又有 Axelar 链和 Noble 链等。Cosmos 的“链互联”使 XION 能够立即为用户提供更多功能，并为 XION 上的开发者创造新用例铺平道路。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1124/15_btff3jv16o.png" alt="浅析新L1公链 XION：Web3 实现大规模采用的催化剂？"></p>
+<p>而关于 XION 在基础设施和功能方面带来了哪些创新，也许我们回到本文的主题上，从“Web3 大规模采用面临哪些障碍”这个问题中找到答案。</p>
+<h3 id="web3-障碍一-复杂且对新手不友好的功能"><strong>Web3 障碍一：</strong> <strong>复杂且对新手不友好的功能</strong></h3>
+<p>对于首次使用 Web3 应用程序的新用户来说，可能需要执行多达 15 个复杂的步骤并花费数天时间才能成功完成交互。从搞清楚要下载哪个钱包程序到拥有必要的资金来提交交易，用户流失率高达 95% 也就不足为奇了。随着新 L1 区块链的激增，新用户会更加难以承受。这些问题成为了诈骗者滋生的温床，他们窃取新用户的资产，更是加深了主流世界对 Web3 行业的不良看法。</p>
+<p>虽然用户教育可以帮助首次使用 Web3 应用程序的过程更加平易近人，但显然，它本身并不是一个解决方案。就像 Web2 一样，Web3 不应该要求新用户必须了解加密知识后才能从中受益。</p>
+<h3 id="xion-如何解决上述问题"><strong>XION 如何解决上述问题？</strong></h3>
+<p>XION 可以说是一个从头构建的 L1，在用户使用体验上进行了全面优化。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1124/15_3aaatqbrab.png" alt="浅析新L1公链 XION：Web3 实现大规模采用的催化剂？"></p>
+<h4 id="入场流程不必是-cex--onchain"><strong>入场流程不必是 CEX → onchain</strong> </h4>
+<p>当前新用户在链上购买商品通常需要 15 个以上的步骤。首先是设置一个链上钱包，紧接着注册中心化交易所（CEX），验证身份，然后将资金从 CEX 转账至链上钱包，在 DEX 中交换为正确的代币等等，然后才能进行购买。</p>
+<p>然而在 XION 上，用户可以使用信用卡/借记卡直接购买链上商品，而且授权率高达 95% 以上，可立即覆盖约 60 亿信用卡/借记卡持有者。这不仅消除了用户使用上的复杂流程，而且还提供了真正类似于 Web2 电子商务网站的购买体验。</p>
+<h4 id="无-gas-费"><strong>无 Gas 费</strong></h4>
+<p>新用户采用的另一个主要障碍是 Gas 费用，因为这迫使他们必须拥有某条链的原生代币才能进行交易。</p>
+<p>XION 通过无 Gas 交易完全消除了这一障碍，允许新用户立即开始与链上应用程序进行交互。</p>
+<h4 id="抽象钱包的复杂性"><strong>抽象钱包的复杂性</strong></h4>
+<p>众所周知，传统加密钱包的复杂性使得用户采用率下降了 95% 以上。它们要求用户下载浏览器插件、进行复杂的设置，在每笔交易时弹出窗口、要求用户安全地存储助记词，这样的用户体验会阻止大部分非技术/专业用户。</p>
+<p>为了解决这个问题，XION 完全抽象了整个链上的加密钱包，无需下载插件，新用户只需使用电子邮件创建 MPC 钱包，便可无缝地与应用程序交互。而加密原生用户也可以使用他们选择的任何钱包与 XION 交互。XION 可以满足所有受众的需求。</p>
+<h4 id="支持手机"><strong>支持手机</strong></h4>
+<p>在许多方面，支持手机端更好的操作也是 Web3 真正大规模采用的途径之一。</p>
+<p>然而，当前许多加密钱包在 PC 端和手机端之间不能自由切换，转换设备仍需要重新导入助记词，并且钱包应用内浏览器 UI/UX 性能非常低下。</p>
+<p>XION 通过上述“抽象钱包的复杂性”确保了支持手机端。此外，它还允许将登录与资产分离，为用户与新应用程序交互创建一个安全的途径，而不会让他们的资产面临风险。本质上，它允许用户随时随地、安全地访问 XION 生态系统。</p>
+<h4 id="用-usdc--定价"><strong>用</strong>  <strong>USDC</strong>  <strong>定价</strong></h4>
+<p>众所周知，Web3 行业内有数千种价格高度波动的加密货币，对于新用户来说，了解资产/产品的定价可能会非常令人困惑。</p>
+<p>在 USDC 发行商 Circle 的支持下，XION 将成为第一个使用 USDC 作为主要交易货币的区块链。所有基于 XION 构建的产品都将以 USDC 形式定价，让新用户能够以熟悉的法定货币定价形式无缝使用。</p>
+<h3 id="web3-障碍二-不是原住民难以理解术语"><strong>Web3 障碍二：</strong> <strong>不是“原住民”，难以理解术语？</strong></h3>
+<p>除了功能方面的障碍以外，Web3 大规模采用还面临着文化障碍。</p>
+<p>试想你第一次接触 Crypto，是否就像是进入了一个新的宇宙？这里充满了不熟悉的术语、令人困惑的生态系统/应用程序/代币、复杂的用户体验。此外，主流世界对加密货币的看法因不良行为者的不当行为、备受瞩目的诈骗新闻陷入困境。</p>
+<h3 id="xion-如何解决上述问题-1"><strong>XION 如何解决上述问题？</strong></h3>
+<p>XION 从刚开始设计时就以抽象加密技术的复杂性作为核心。</p>
+<h4 id="抽象术语"><strong>抽象术语</strong></h4>
+<p>想要让新用户更易使用 Web3，要么将复杂的术语替换为最基本、更容易理解的词语，要么就将它们完全抽象。</p>
+<p>XION 致力于简化和删除技术术语和行业特定术语，这对于增强用户体验和实现更广泛的采用至关重要。</p>
+<h4 id="提高可信度"><strong>提高可信度</strong></h4>
+<p>鉴于主流世界对加密货币普遍持怀疑态度，建立信任是吸引广泛受众的最重要因素之一。这也是 XION 与 Web2、Web3 领域的诸多知名公司进行战略合作的原因。例如，Animoca 和 Circle Ventures 等 Web3 知名公司/投资者投资了 XION，与 Web2 巨头 Checkout.com、Stytch 和 Stripe 等公司合作。</p>
+<h4 id="省去了新用户的教育"><strong>省去了新用户的教育</strong></h4>
+<p>XION 独特的基础设施为用户消除了所有复杂性，不仅在消除功能方面的障碍上发挥着关键作用，而且在消除文化方面的障碍上也发挥着重要作用。例如，不论是无 Gas 费、抽象钱包复杂性，还是使用银行卡直接购买链上商品，都可以大大降低交互的复杂性，省去了传统上用户与应用程序交互所需的教育。</p>
+<h3 id="结语"><strong>结语</strong></h3>
+<p>创建强大、实用的基础设施，实现创新用户只是 Web3 当前面临难题的一小部分。为了真正迎来大规模采用，我们还必须构建用户交互的体验层，确保它像 Web2 平台一样的直观和受欢迎。</p>
+<p>XION 有望成为 Web3 大规模采用的催化剂，它的使命不仅仅是单纯的技术进步，它还为一场“ Web3 文化革命”奠定基础。</p>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/64018/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">浅析FHE全同态加密技术：拓展Crypto隐私交易想象空间</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/63984/">
+                <span class="next-text nav-default">全方位数据对比：谁是L2赛道的明日之星？</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#xion专门抽象加密复杂性的-l1-网络"><strong>XION：专门抽象加密复杂性的 L1 网络</strong></a></li>
+        <li><a href="#web3-障碍一-复杂且对新手不友好的功能"><strong>Web3 障碍一：</strong> <strong>复杂且对新手不友好的功能</strong></a></li>
+        <li><a href="#xion-如何解决上述问题"><strong>XION 如何解决上述问题？</strong></a></li>
+        <li><a href="#web3-障碍二-不是原住民难以理解术语"><strong>Web3 障碍二：</strong> <strong>不是“原住民”，难以理解术语？</strong></a></li>
+        <li><a href="#xion-如何解决上述问题-1"><strong>XION 如何解决上述问题？</strong></a></li>
+        <li><a href="#结语"><strong>结语</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

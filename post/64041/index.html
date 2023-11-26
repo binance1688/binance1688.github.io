@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          GPT 成熟之路官方笔记 | OpenAI 开发者日 - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="ChatGPT产品打造的细节，现在OpenAI自己交了个底。" />
+
+  <meta name="keywords" content="区块大全, 区块链, 区块链资讯, 区块链快讯, 区块链新闻, 比特币行情" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/64041/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="GPT 成熟之路官方笔记 | OpenAI 开发者日" />
+<meta property="og:description" content="ChatGPT产品打造的细节，现在OpenAI自己交了个底。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/64041/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-11-26T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-11-26T00:00:00+00:00" />
+
+<meta itemprop="name" content="GPT 成熟之路官方笔记 | OpenAI 开发者日">
+<meta itemprop="description" content="ChatGPT产品打造的细节，现在OpenAI自己交了个底。"><meta itemprop="datePublished" content="2023-11-26T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-11-26T00:00:00+00:00" />
+<meta itemprop="wordCount" content="3601">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="GPT 成熟之路官方笔记 | OpenAI 开发者日"/>
+<meta name="twitter:description" content="ChatGPT产品打造的细节，现在OpenAI自己交了个底。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">GPT 成熟之路官方笔记 | OpenAI 开发者日</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-11-26">
+      2023-11-26
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 3601 字 -
+        预计阅读 8 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E5%85%B6%E5%AE%83%E6%96%87%E7%AB%A0/"> 其它文章 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>文章来源：<a href="https://mp.weixin.qq.com/s/FQbX2RPwhUzga3TTrO8g8g">量子位</a></p>
+<p><img src="https://img.bibiqing.com/news/2023/1126/2_8iv5suny9t.png" alt="GPT 成熟之路官方笔记 | OpenAI 开发者日"></p>
+<p><em>图片来源：由<a href="https://www.wujieai.cc/">无界 AI</a> 生成</em></p>
+<p>ChatGPT产品打造的细节，现在OpenAI自己交了个底。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1126/if3pyn9ksfpd4f2" alt="GPT 成熟之路官方笔记 | OpenAI 开发者日"></p>
+<p>并且这波干货分享真是信息量满满，包括但不限于：</p>
+<ul>
+<li>ChatGPT背后的产品和研发团队如何协作</li>
+<li>大模型应用如何从原型走向成熟</li>
+<li>OpenAI如何优化大模型性能<br>
+……</li>
+</ul>
+<p><img src="https://img.bibiqing.com/news/2023/1126/wcdsnhj3nosl3c3" alt="GPT 成熟之路官方笔记 | OpenAI 开发者日"></p>
+<p>以上信息，依然来自今年的新晋“科技春晚”——<strong>OpenAI开发者日</strong> 。</p>
+<p>除了奥特曼惊艳全球的开幕演讲，当天还有更多分组讨论，视频也陆续被官方上传到了油管。</p>
+<p>而这也算得上是<a href="http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&amp;mid=2247704997&amp;idx=3&amp;sn=7fc3210edd0e6755c9c995982a11eb24&amp;chksm=e8df16d7dfa89fc16242e1406a188afc9fecb0af4f02d98af35c296eda8a8a51f3a7ac3024b5&amp;scene=21#wechat_redirect">OpenAI惊天抓马</a>之前，其团队“内幕”的一次展示。</p>
+<p>值得借鉴学习之处，我们已经整理好笔记，一起来看~</p>
+<h2 id="产品与研究团队合作前所未有"><strong>产品与研究团队合作“前所未有”</strong></h2>
+<p>把时间拉回到2022年10月，OpenAI的研究团队和产品团队开始围绕一个idea进行讨论：为他们的基础大模型，制作一个对话界面。</p>
+<p>彼时还处在ChatGPT的<strong>早期阶段</strong> ，但<strong>研究团队和产品团队的紧密协作已然开始</strong> ，它们<strong>之间相互的影响程度更是独树一帜</strong> 。</p>
+<p>或许这种团队合作模式，可以成为其他公司参考借鉴的样本。</p>
+<p>用OpenAI模型行为产品负责人Joanne Jang的话说：</p>
+<blockquote>
+<p>在OpenAI，研究团队和产品团队之间的相互影响， <strong>在业内已经达到了前所未有的程度</strong> 。</p>
+</blockquote>
+<p>ChatGPT本身，就是最明显的例子。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1126/231k1p564dc6uug" alt="GPT 成熟之路官方笔记 | OpenAI 开发者日"></p>
+<p>OpenAI Post-Training团队负责人Barret Zoph和Joanne共同分享了两支团队在ChatGPT开发和完善过程中的一些协作细节。</p>
+<p>Barret团队的主要职责，是在模型能力<strong>被加入到ChatGPT和API之前</strong> ，对其进行调整。具体来说，ChatGPT后期增加的联网、分析文件等功能，都是由Post-Training团队负责的。</p>
+<p>Barret重点提到的是，正是产品团队的种种设计，让研究团队能够及时get到什么样的模型响应，对于现实世界中的用户和开发人员是真正有用的。</p>
+<p>比如ChatGPT的点赞点踩按钮，就给研究本身带来了很多价值：</p>
+<blockquote>
+<p>我们可以根据这样的反馈调整正在做的事情，了解哪些工作做得好，哪些做得不好，这样一来，我们就能让模型响应越来越适合用户。<br>
+在研究中，我们通常用离线评估指标和基准去衡量模型的进展，但有时候这并非人们真正使用模型的方式。产品团队的帮助，使得我们能够确保自己正走在构建通用、强大系统的方向上。</p>
+</blockquote>
+<p><img src="https://img.bibiqing.com/news/2023/1126/e4ud35g5sos9y0q" alt="GPT 成熟之路官方笔记 | OpenAI 开发者日"></p>
+<p>而站在产品团队的角度，Joanne同样认为，OpenAI产品经理扮演的角色有独特之处：</p>
+<p>首先，在OpenAI做产品的<strong>目标不是收入、参与度、增长等传统产品指标，而是打造造福全人类的通用人工智能</strong> 。</p>
+<p>其次，OpenAI的产品经理往往是<strong>从技术而非用户问题的角度出发</strong> ，去设计产品功能的。</p>
+<p>最后，OpenAI研究团队和产品团队相互影响的程度非常之高，在业内可以说达到了前所未有的程度。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1126/ov6jay4lrjllzeb" alt="GPT 成熟之路官方笔记 | OpenAI 开发者日"></p>
+<p>还是以ChatGPT诞生的过程为例。从GPT-3，到InstructGPT，再到ChatGPT，研究团队发现，直接在多轮对话上训练模型，能让教导模型新的行为这件事变得更加有效。</p>
+<p>而具体教导（设计）模型行为的工作，就是靠产品团队来参与完成的：比如说，当用户告诉ChatGPT“你现在是一只猫”，ChatGPT应该表现出怎样的默认行为？</p>
+<p>产品团队对此进行了大量的实验，以找出适合大多数用户的默认模式。</p>
+<p>（p.s. 不过Joanne也提到，对于用户而言，最好的模型是个性化的模型，这也是他们对未来大模型发展方向的预判之一。）</p>
+<h2 id="非线性策略优化大模型性能"><strong>非线性策略优化大模型性能</strong></h2>
+<p>讲完协同“内幕”，再来看技术细节。</p>
+<p>在开发者日上，OpenAI的技术人员分享了GPT-4中使用的大模型优化技术。</p>
+<p>划重点就是，<strong>采用非线性策略，具体包括两个维度和四个象限</strong> 。</p>
+<p>OpenAI提出了一个多层次的非线性优化框架，涉及到了<strong>提示工程、搜索增强生成（RAG）和微调这三种技术</strong> 。</p>
+<p>传统的模型优化方式往往以线性方式运用这三项技术，在OpenAI看来这种模式无法解决“真正需要解决的问题”。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1126/j3bb5s2jumisse4" alt="GPT 成熟之路官方笔记 | OpenAI 开发者日"></p>
+<p>OpenAI认为，大模型表现优化<strong>分为两个维度</strong> ，一个是其本身的表现，一个是上下文。</p>
+<p>根据这两个维度需求程度的不同，就形成了四个象限。</p>
+<p>具体来说，这两个优化方向的起点都是提示工程，但接下来要用RAG还是微调（或两者兼用）则需要根据实际情况来选择。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1126/aat9ij81bsnsaiy" alt="GPT 成熟之路官方笔记 | OpenAI 开发者日"></p>
+<p>通过详细比较这三项技术各自的优势，OpenAI的两名技术人员分别做了具体解释。</p>
+<p>首先是<strong>提示工程</strong> ，它被看作大模型优化的起始点，通过设计提示词来增强模型性能，可以测试和快速迭代。</p>
+<p>具体的策略包括，将提示词设计得更清晰、将复杂任务拆解，以及提供示例文本或调用外部工具等。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1126/yj7dsc2llw1hiua" alt="GPT 成熟之路官方笔记 | OpenAI 开发者日"></p>
+<p>但对于让模型学习新信息，或者复刻一种复杂的方法（如学习新的编程语言），则超出了提示工程的能力范畴。</p>
+<p>此外，任务的细化也会带来token的增加，所以提示工程对于减少token消耗来说也是不利的。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1126/l6golh7pqsef64y" alt="GPT 成熟之路官方笔记 | OpenAI 开发者日"></p>
+<p>RAG和微调解决的问题则存在一些相似之处，二者的主要区别在于，<strong>RAG更适用于让模型从给定信息中获取答案（短期记忆），而微调的重点是模型的长期记忆</strong> 。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1126/cvzum7vlh295my6" alt="GPT 成熟之路官方笔记 | OpenAI 开发者日"></p>
+<p>RAG的核心优势是利用知识库为模型提供上下文信息，从而减少模型幻觉。</p>
+<p>但是这种知识信息通常局限于十分具体的领域，但对于宽泛的领域（如“法律”“医学”等）作用并不明显。</p>
+<p>同时，提供大量上下文信息会带来比提示工程更多的token消耗，对节约token同样不利。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1126/cz1udk62hrkt8pb" alt="GPT 成熟之路官方笔记 | OpenAI 开发者日"></p>
+<p>此外，过度应用RAG也有可能带来反效果，比如有用户要求GPT只利用文档中的信息，然后发现模型出现了“幻觉”。</p>
+<p>但事后分析发现，这并非是模型的幻觉现象，而是用户提供的信息本身就存在错误。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1126/n0qnqp493jeuwi9" alt="GPT 成熟之路官方笔记 | OpenAI 开发者日"></p>
+<p>而微调则是通过在小数据集上训练模型，来提高性能和效率，或者修改输出结构。</p>
+<p>相比RAG，微调更侧重于强调模型已有的知识，并提供复杂的任务指导，对于学习新知识或迭代到新用例则不是好的选择。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1126/fsn9vs57gfaj7ys" alt="GPT 成熟之路官方笔记 | OpenAI 开发者日"></p>
+<p>总结下来就是，基于这些策略的特点和使用领域，根据实际需求有的放矢地选择优化策略。</p>
+<p>这也是OpenAI调教GPT-4的法宝，具体到应用层面，OpenAI也为一众创业者献上了一份大礼。</p>
+<h2 id="为创业者送上大礼包"><strong>为创业者送上“大礼包”</strong></h2>
+<p>OpenAI工程负责人和Applied团队成员分享了如何将基于OpenAI模型搭建的应用<strong>从原型走向完整产品</strong> 。</p>
+<p>如果你也有兴趣基于OpenAI的API搞一些应用创新，以下是官方分享的一些工程实践经验：</p>
+<p>第一，打造<strong>以人为本的用户体验</strong> ，即减少模型不确定性，增强模型的安全性和可控性。</p>
+<p>第二，提供<strong>一致性体验</strong> 。比如利用知识库等工具来减少模型的不一致性。工程师们提到，OpenAI通过控制seed来控制结果的可重现性，并且提供了当前系统的“指纹”来代表整个系统的状态。</p>
+<p>第三，重视<strong>性能评估</strong> 。并且OpenAI发现，用大模型来代替人工进行性能评估效果显著。</p>
+<p>第四，管理<strong>延迟和成本</strong> 。主要策略有两种：首先是加入语义缓存，来减少真实API的访问；其次是使用更便宜的模型，比如不直接使用GPT-4，而是用GPT-4的输出来微调GPT-3.5 Turbo。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1126/tzsjyvqufhmtytz" alt="GPT 成熟之路官方笔记 | OpenAI 开发者日"></p>
+<p>而具体到产品更新，新版API也值得关注，OpenAI的广告词是可以“在开发的应用中直接构建世界级的助手”。</p>
+<p>新版API支持调用代码解释器和外部知识，OpenAI的API工程主管Michelle进行了现场演示。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1126/3sor1ai6bc2n2v0" alt="GPT 成熟之路官方笔记 | OpenAI 开发者日"></p>
+<p>此外，在函数（第三方API）调用方面也进行了改进，新增了JSON输出模式，并允许同时调用多个函数。</p>
+<h2 id="one-more-thing"><strong>One More Thing</strong></h2>
+<p>顺便提一嘴，开发者大会的开幕式上，OpenAI现场给每个人发放了500美元的账户余额，让线下观众纷纷投来羡慕的目光。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1126/w4r2z0sgftdjns9" alt="GPT 成熟之路官方笔记 | OpenAI 开发者日"></p>
+<p>不过实际上他们只赚了50，因为还要花450美元买门票。</p>
+<p>按照最新的定价，50美元可以通过API处理500万输入token或166.6万输出token。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1126/sj12mh9s4lmhgrg" alt="GPT 成熟之路官方笔记 | OpenAI 开发者日"></p>
+<p>那么，今日份的干货笔记就分享到这里了，想了解更多详细内容，可以到官方回放中一睹为快。</p>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/64035/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">Gala Games：链游焕发第二春，GALA如何脱颖而出？</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/64036/">
+                <span class="next-text nav-default">Hugging Face最受欢迎15大AI机构出炉！清华第五，OpenAI第十，冠军竟是它？</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#产品与研究团队合作前所未有"><strong>产品与研究团队合作“前所未有”</strong></a></li>
+    <li><a href="#非线性策略优化大模型性能"><strong>非线性策略优化大模型性能</strong></a></li>
+    <li><a href="#为创业者送上大礼包"><strong>为创业者送上“大礼包”</strong></a></li>
+    <li><a href="#one-more-thing"><strong>One More Thing</strong></a></li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

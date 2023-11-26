@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          一个关于Curve和Uniswap的数学巧合以及它仅仅是个巧合 - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="本文将从起点梳理 Curve V1 和 Uniswap V3 的构造思考过程，两者在构造过程中数学意义上的擦肩而过，以及是如何地又分道扬镳通向不同的终点。" />
+<meta name="keywords" content="Uniswap, curve" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/62438/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="一个关于Curve和Uniswap的数学巧合以及它仅仅是个巧合" />
+<meta property="og:description" content="本文将从起点梳理 Curve V1 和 Uniswap V3 的构造思考过程，两者在构造过程中数学意义上的擦肩而过，以及是如何地又分道扬镳通向不同的终点。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/62438/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-11-23T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-11-23T00:00:00+00:00" />
+
+<meta itemprop="name" content="一个关于Curve和Uniswap的数学巧合以及它仅仅是个巧合">
+<meta itemprop="description" content="本文将从起点梳理 Curve V1 和 Uniswap V3 的构造思考过程，两者在构造过程中数学意义上的擦肩而过，以及是如何地又分道扬镳通向不同的终点。"><meta itemprop="datePublished" content="2023-11-23T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-11-23T00:00:00+00:00" />
+<meta itemprop="wordCount" content="4350">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="一个关于Curve和Uniswap的数学巧合以及它仅仅是个巧合"/>
+<meta name="twitter:description" content="本文将从起点梳理 Curve V1 和 Uniswap V3 的构造思考过程，两者在构造过程中数学意义上的擦肩而过，以及是如何地又分道扬镳通向不同的终点。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">一个关于Curve和Uniswap的数学巧合以及它仅仅是个巧合</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-11-23">
+      2023-11-23
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 4350 字 -
+        预计阅读 9 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E5%85%B6%E5%AE%83%E6%96%87%E7%AB%A0/"> 其它文章 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>文章：@Buidler DAO 作者：@observerdq</p>
+<h2 id="intro"><strong>Intro</strong></h2>
+<p>本文是「相看两不厌：Uniswap 和 Curve 的比较研究」系列文章的第一篇，是作者读了 Dan Robinson「Uniswap v3: The Universal AMM」1  一文后延伸出的思考。</p>
+<h2 id="目录">目录</h2>
+<p>1. Curve V1 公式构建的思维路径</p>
+<p>2. Uniswap V3 公式构建的思维路径</p>
+<p>3. 奇妙的擦肩而过 - 两种思维路径的交点</p>
+<p>4. 分道扬镳 - 两种思维路径的不同终点</p>
+<p>    4.1 Curve V1：进一步的动态渐变揉合</p>
+<p>    4.2 Uni V3：放弃大一统单一公式，自由组合分段函数</p>
+<p>5. 结语</p>
+<p><img src="https://img.bibiqing.com/news/2023/1102/25_dshs7nyn15.png" alt="一个关于Curve和Uniswap的数学巧合以及它仅仅是个巧合"></p>
+<p>一图总览</p>
+<p>有一个很妙的发现。</p>
+<p>2019年 Curve V1 在构造 AMM 公式时，推演过程中有一个中间形态的公式，而这个公式和一年多后 Uniswap V3 的基础公式恰恰有着相同的结构（前者是后者的一种特殊形态)。</p>
+<p>完全不同的思考路径，出现了数学上的交点，妙哉。</p>
+<p>本文将从起点梳理 Curve V1 和 Uniswap V3 的构造思考过程，两者在构造过程中数学意义上的擦肩而过，以及是如何地又分道扬镳通向不同的终点。</p>
+<h2 id="1-curve-v1-公式构建的思维路径"><strong>1. Curve V1 公式构建的思维路径</strong></h2>
+<p>2018年底 Uniswap 的 xy = k 横空出世，是为一次范式革命。但在稳定币交易对的场景下，缺陷显著。Michael 抓住了此切入点，于19年底推出了全新 AMM Curve V1 。</p>
+<p>新 AMM 公式构造过程的基础之一仍然是 xy = k。后续将统一按照 Curve V1 白皮书的参数代号，写为如下公式。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1102/25_s9d1hynl8w.png" alt="一个关于Curve和Uniswap的数学巧合以及它仅仅是个巧合"></p>
+<p>稳定币交易对的价格多数时候只在 1:1 附近很小的区间浮动，只在 1:1 单一价格点提供流动性的公式便是 x+y = D，这是构造过程的另一基础。</p>
+<p>Michael 希望将两个基础公式揉合起来，又或者说在 xy = (D/2)² 的基础之上，引入一些 x+y =D 的特性。</p>
+<p>于是把两个基础公式「杂交」加到了一起，得到了一个揉合公式。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1102/25_8lo9z9onn2.png" alt="一个关于Curve和Uniswap的数学巧合以及它仅仅是个巧合"></p>
+<p>其中 x+y=D 的部分，配上了一个 A 参数，且额外在等号两侧都乘上了 D。乘以 D 的原因，是为了让 A 参数去维度化（不论池子内是两代币、三代币亦或更多，同样的 A 值有同样的效力），这里不展开，也并非本次讨论的重点。</p>
+<p>重点在 A 参数。先说明一下，Curve V1 白皮书在揉合公式内使用的是希腊字母 Chi（长得很像 x ），而并非 A。为了书写方便和阅读体验，我改用了 A ，并不会影响论述。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1102/25_3hk5132pnp.png" alt="一个关于Curve和Uniswap的数学巧合以及它仅仅是个巧合"></p>
+<p>A 参数的作用，或许可以用<strong>黑灰白的色条</strong> 来类比理解，90%灰就很像黑了，而10%灰就更接近白。A 参数决定了最终的公式产物更像 x+y=D，还是更像 xy=(D/2)²。</p>
+<p>从极限 A 的数值，可以更好理解这个揉合的过程。A = 0，揉合公式就变成了 xy=(D/2)²。A = 无穷大，揉合公式就变成了 x+y=D。于是 A 在其中，就是一种中间态，A 越大，就越像 x+y=D。这种揉合，通过图形可以更加直观地感受，有兴趣可在 <strong>desmos²</strong>  中玩耍 A。</p>
+<p>关于 Curve V1，讲到这里先停住，请大致记住这个揉合公式。然后我们接下去看一下 Uniswap V3 的情况。</p>
+<h2 id="2-uniswap-v3-公式构建的思维路径"><strong>2. Uniswap V3 公式构建的思维路径</strong></h2>
+<p>Uni V1/V2 的 xy = k 称霸江湖后，因「流动性均匀地分布在0至无穷大完整的价格域上」所带来的不足之处日渐显露，Curve V1 的推出更是直接精准地切走了稳定币交易对这一重要的市场。</p>
+<p>在设计 V3 时，Uniswap 团队首先想构造出只在有限连续价格区间内提供流动性的公式，他们构造的起点仍然是 xy=k 。</p>
+<p>想象一下，如果想实现一个效果，在 [Pa, Pb] 价格区间内（比如 [0.99, 1.01] 或是 [1500, 1700]），这个公式对交易的支持就和 Uni V1/V2 的 xy = k 一模一样，但当价格超出 [Pa, Pb]，就不再提供流动性了。</p>
+<p>这种效果对应的公式如下：</p>
+<p><img src="https://img.bibiqing.com/news/2023/1102/25_y8wl7dfqp0.png" alt="一个关于Curve和Uniswap的数学巧合以及它仅仅是个巧合"></p>
+<p>若用图来呈现，会十分清晰，就是把 xy=k 向左下方平移了一些位置。具体要移多少，由Pa、Pb决定。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1102/25_ie5656ahpj.png" alt="一个关于Curve和Uniswap的数学巧合以及它仅仅是个巧合"></p>
+<p>这个公式实现的效果是，所有流动性都集中在 [Pa, Pb] 内，LP 存入一定数量的 X_token 和 Y_token，在 [Pa, Pb] 价格区间内提供了一些流动性。单就这个局部的流动性效果，若要让 Uni V2 的 LP 来达成，则需要 LP 去存入更多的 X_token 和 Y_token；多的程度取决于 Pa、Pb，可能需要多很多。</p>
+<p>这个平移公式是 Uni V3 进一步构造的基础公式，Uni V3 暂讲到这。</p>
+<h2 id="3奇妙的擦肩而过---两种思维路径的交点"><strong>3. 奇妙的擦肩而过 - 两种思维路径的交点</strong></h2>
+<p>将第1节中 Curve V1 的揉合公式做一些变换：</p>
+<p><img src="https://img.bibiqing.com/news/2023/1102/25_91ihsi1b8e.png" alt="一个关于Curve和Uniswap的数学巧合以及它仅仅是个巧合"></p>
+<p>再和第2节中 Uni V3 的平移公式放在一起观察，会发现两者很像：</p>
+<p><img src="https://img.youtocoin.com/news/2023/1102/0_dv8d7vrt5y.png" alt="一个关于Curve和Uniswap的数学巧合以及它仅仅是个巧合"></p>
+<p>若再对 Uni V3 平移公式内的 Pa 和 Pb 做一些限定，令 Pb=1/Pa，也就是限定价格区间为类似 [0.5, 2] 或 [0.01, 100] 这样的区间，满足在 1:1 价格点两侧倍数意义上的对称。</p>
+<p>做了这个限定之后，可以说两个公式就是完全一样了：</p>
+<p><img src="https://img.bibiqing.com/news/2023/1102/25_chyrrf9az6.png" alt="一个关于Curve和Uniswap的数学巧合以及它仅仅是个巧合"></p>
+<p>两个公式里有着不同的参数表达，可以很轻松地推导出两组参数的关系。我们不妨以 Curve V1 揉合公式的参数 A 和 D 为 基础，计算出 L 和 Pa，如下所示：</p>
+<p><img src="https://img.bibiqing.com/news/2023/1102/25_yn9am74kqq.png" alt="一个关于Curve和Uniswap的数学巧合以及它仅仅是个巧合"></p>
+<p>这些参数的意义和两个协议各自构造的思维路径有关，我们结合两组参数的关系，再简要地回顾一下两种构造过程。</p>
+<p>简化起见，假设一个稳定币交易对的池子，初始价格是 1:1。Curve V1 揉合公式中的 D 代表了初始 LP 投入了两种稳定币各 D/2 的数量。A 则代表了这个揉合公式趋近 x+y=D 的程度。</p>
+<p>来到 Uni 这一侧，我们再虚拟出一个 Uni V2 的稳定币交易对池子，满足以下公式：</p>
+<p><img src="https://img.bibiqing.com/news/2023/1102/25_s3jt4qtnn8.png" alt="一个关于Curve和Uniswap的数学巧合以及它仅仅是个巧合"></p>
+<p>也就是初始价 1:1 的 话，初始 LP 需投入两种稳定币各 D(2A+1)/2 这么多的数量。</p>
+<p>这时有一个 Uni V3 池子，希望实现的效果是，只在以下价格区间内提供流动性：</p>
+<p><img src="https://img.bibiqing.com/news/2023/1102/25_qh3ihngz0z.png" alt="一个关于Curve和Uniswap的数学巧合以及它仅仅是个巧合"></p>
+<p>且在这个区间内的流动性效果就如同刚刚虚拟出的 Uni V2 池子那般。满足这个效果的 Uni V3 池子所对应的公式恰恰就和前述的 Curve V1 揉合公式一模一样了。</p>
+<p><strong>简要概括的话，Curve V1 通过揉合所实现的效果，恰恰就相当于先虚拟出一个代币储备量大很多（多了 2A 倍）的 Uni V2 池子，然后在 [(2A/(2A+1))², ((2A+1)/2A)²] 价格区间实现了和这个 Uni V2 池子完全相同的流动性效果。</strong></p>
+<h2 id="4分道扬镳---两种思维路径的不同终点"><strong>4.分道扬镳 - 两种思维路径的不同终点</strong></h2>
+<p>Curve V1 揉合公式就是 Uni V3 平移公式的一个特殊形态。事实上，若在 Curve V1 揉合公式内再引入一个参数，x+y 的部分调整为 x+py，两者就完全等价了，这里不多展开。</p>
+<p>Curve V1 在揉合公式的基础上，Uni V3 在平移公式的基础上，顺着各自原本的思维路径，继续前行，分道扬镳。</p>
+<h3 id="41-curve-v1进一步的动态渐变揉合"><strong>4.1 Curve V1：进一步的动态渐变揉合</strong></h3>
+<p>Curve V1 揉合公式存在一个缺陷，只在有限价格区间内提供流动性，Michael 需要的是一个全价格区间都有流动性的公式。（至于为什么有这个需求？或许全价格区间都有流动性是很自然的、更加完整健全的状态，比如在对外提供 Oracle 的意义上。）</p>
+<p>我们可以这么来理解他进一步构造的思路：让这个揉合的程度动态化。之前的揉合公式里的 A 是一个常数，代表了统一的揉合程度。现在进一步地，当 x 偏离 D/2 越多（即 x 越小或越大时），或者说价格偏离 1:1 越多，让揉合的程度更加偏向 xy = (D/2)²，x 或价格偏离到极限状态时，就变成了单纯的 xy=(D/2)²，这样就实现了全价格区间都有流动性。</p>
+<p>Michael 把 A 变成了 Axy/(D/2)²</p>
+<p><img src="https://img.bibiqing.com/news/2023/1102/25_ojcawgqj94.png" alt="一个关于Curve和Uniswap的数学巧合以及它仅仅是个巧合"></p>
+<p>这就可以实现上面所讲的动态渐变效果。构造方式当然不仅限于这一种，我有种感觉 Michael 在这一步构造过程里，并没有对不同的动态渐变实现方式的差异做很深入的对比研究，或许只要能方便地实现全价格流动性就点到为止了。</p>
+<p>终于，我们得到了 Curve V1 的最终形态公式如下：</p>
+<p><img src="https://img.bibiqing.com/news/2023/1102/25_wnlsq5y49v.png" alt="一个关于Curve和Uniswap的数学巧合以及它仅仅是个巧合"></p>
+<h3 id="42-uni-v3放弃大一统单一公式自由组合分段函数"><strong>4.2</strong>  <strong>Uni V3：放弃大一统单一公式，自由组合分段函数</strong></h3>
+<p>Uni V3 平移公式最核心的内涵在于 [Pa, Pb] 这个价格区间。以这个平移公式作为基础，很自然地，Uni V3 走向了一个方向；不同价格区间的流动性可以不同（如果不同价格区间的流动性相同，那就又回到 Uni V2 了）。</p>
+<p>在这个大方向上，仍然有不同的设计分叉。一条分叉路，可以由协议定死一个不同价格区间的流动性分配规则，LP 们仍然是同质的，其实 Curve V1 可以看作是这一种类型（价格区间极限小）。</p>
+<p>另一条分叉路，所有的决定权全部让渡给 LP 们，LP 们各自独立的决策共同决定了最终流动性在不同价格区间的分配方式。</p>
+<p><strong>Uni V3 选择了后者，这个选择极为关键，这让整个市场博弈的元素极大地丰富了起来，价格判断、波动率判断、运气成分等等都卷入了进来，使得流动性市场离充分竞争市场更近了一步。</strong></p>
+<p>从数学角度看 Uni V3 的进一步构造，乍一看，像是一种非常规的分段函数。不同的价格区间，对应着不同的 L 值，相应地就是不同的公式，比如以下一个极简的示例：</p>
+<p><img src="https://img.bibiqing.com/news/2023/1102/25_ymysidlbut.png" alt="一个关于Curve和Uniswap的数学巧合以及它仅仅是个巧合"></p>
+<p>事实上，以上可以转化为标准的分段函数，即以 x 来定义子域，子函数为 y 和 x 的一个公式，本文不展开。</p>
+<h2 id="5-结语"><strong>5. 结语</strong></h2>
+<p>Curve V1 于2019年底推出，彼时其主要目的就是更好地支持稳定币交易对、填补该市场空白。或许正是这决定了 Michael 的思维路径，重点是以 1:1 价格点对称的结构，并且流动性相对聚拢在 1:1 价格点附近。当 Michael 将 x+y=D 和 xy = (D/2)² 杂交推导出了揉合公式时，在我看来最核心、最具开创性的工作已经完成，因为这个揉合公式已经满足了上述的对称、聚拢的特征。而将揉合公式进一步改造成支持全价格区间流动性的公式，对 Michael 而言，或许只是略施小计，收尾工作而已。</p>
+<p>Uni V3 更晚才推出，2021年3月白皮书发布。Uni 团队已经看到了 Curve V1 的足够长时间的运行情况。一群极聪明的人，回击 Curve 的方法自然要升维。<strong>Uni 团队直接打破了一个大前提，LP 们不再「大锅饭」，可以不再统一地按照每个池子的单一固定公式去提供流动性。</strong></p>
+<p>Uni V3 在 Uni V1/V2 xy=k 的基础上，构造出了只在特定价格区间提供流动性的一个基础公式（即上文所说的平移公式）。Uni V3 要打破 LP「大锅饭」的大前提，于是赋予了 LP 们以自由，自由地决定在什么样的价格区间（或是数个区间）提供流动性。LP 们每个个体独立自由地决策，汇总到每个池子层面，也会形成一个公式（分段函数），只是这个公式的形状是动态变化的，绝非之前的 AMM 的那种固定形状模式（部分 AMM 可通过治理调整形状，如 Curve V1 调整 A 参数）。</p>
+<p>这种设计，不仅仅解决 Uni V2 在稳定币交易对场景下的资金效率低的问题（回击 Curve V1 ），更是在所有的交易对场景，引入了更加充分的竞争，提升了市场整体的资金效率水平。</p>
+<p>从历史背景、根本出发点的差异梳理了一遍之后，再来看我最初所感叹的 Curve V1 揉合公式和 Uni V3 平移公式的相似性，又似乎不过是个不值一提的简单数学巧合罢了。</p>
+<p><strong>Reference:</strong>  </p>
+<ol>
+<li>
+<p><a href="https://www.paradigm.xyz/2021/06/uniswap-v3-the-universal-amm">https://www.paradigm.xyz/2021/06/uniswap-v3-the-universal-amm</a></p>
+</li>
+<li>
+<p><a href="https://www.desmos.com/calculator/08gku58vbf?lang=zh-CN">https://www.desmos.com/calculator/08gku58vbf?lang=zh-CN</a></p>
+</li>
+</ol>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/62411/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">研究报告：Aztec账户抽象介绍</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/62242/">
+                <span class="next-text nav-default">一览DeFi Degen们的链上收益策略：Sommelier Finance、IPOR、DYDX</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#intro"><strong>Intro</strong></a></li>
+    <li><a href="#目录">目录</a></li>
+    <li><a href="#1-curve-v1-公式构建的思维路径"><strong>1. Curve V1 公式构建的思维路径</strong></a></li>
+    <li><a href="#2-uniswap-v3-公式构建的思维路径"><strong>2. Uniswap V3 公式构建的思维路径</strong></a></li>
+    <li><a href="#3奇妙的擦肩而过---两种思维路径的交点"><strong>3. 奇妙的擦肩而过 - 两种思维路径的交点</strong></a></li>
+    <li><a href="#4分道扬镳---两种思维路径的不同终点"><strong>4.分道扬镳 - 两种思维路径的不同终点</strong></a>
+      <ul>
+        <li><a href="#41-curve-v1进一步的动态渐变揉合"><strong>4.1 Curve V1：进一步的动态渐变揉合</strong></a></li>
+        <li><a href="#42-uni-v3放弃大一统单一公式自由组合分段函数"><strong>4.2</strong>  <strong>Uni V3：放弃大一统单一公式，自由组合分段函数</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#5-结语"><strong>5. 结语</strong></a></li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

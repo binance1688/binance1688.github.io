@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          Unibot攻击事件分析：继Maestrobot后，Telegram Bot项目再遭恶意利用 - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="北京时间2023年10月31日12:39:23，Unibot发生漏洞恶意利用，损失了64万美元的资产。让我们来了解一下此次事件的漏洞分析和攻击过程。" />
+
+  <meta name="keywords" content="区块大全, 区块链, 区块链资讯, 区块链快讯, 区块链新闻, 比特币行情" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/62405/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="Unibot攻击事件分析：继Maestrobot后，Telegram Bot项目再遭恶意利用" />
+<meta property="og:description" content="北京时间2023年10月31日12:39:23，Unibot发生漏洞恶意利用，损失了64万美元的资产。让我们来了解一下此次事件的漏洞分析和攻击过程。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/62405/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-11-23T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-11-23T00:00:00+00:00" />
+
+<meta itemprop="name" content="Unibot攻击事件分析：继Maestrobot后，Telegram Bot项目再遭恶意利用">
+<meta itemprop="description" content="北京时间2023年10月31日12:39:23，Unibot发生漏洞恶意利用，损失了64万美元的资产。让我们来了解一下此次事件的漏洞分析和攻击过程。"><meta itemprop="datePublished" content="2023-11-23T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-11-23T00:00:00+00:00" />
+<meta itemprop="wordCount" content="3330">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Unibot攻击事件分析：继Maestrobot后，Telegram Bot项目再遭恶意利用"/>
+<meta name="twitter:description" content="北京时间2023年10月31日12:39:23，Unibot发生漏洞恶意利用，损失了64万美元的资产。让我们来了解一下此次事件的漏洞分析和攻击过程。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">Unibot攻击事件分析：继Maestrobot后，Telegram Bot项目再遭恶意利用</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-11-23">
+      2023-11-23
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 3330 字 -
+        预计阅读 7 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/"> 区块链 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p><img src="https://img.bibiqing.com/news/2023/1102/shk8gu6zs2p7t2d" alt="Unibot攻击事件分析：继Maestrobot后，Telegram Bot项目再遭恶意利用"></p>
+<p>北京时间 2023 年 10 月 31 日 12: 39: 23 ，<strong>Unibot 发生漏洞恶意利用，损失了 64 万美元的资产。</strong> 攻击者利用 Unibot 路由器合约中的“arbitrary call”漏洞，将价值 64 万美元的各种预先授权给路由合约的代币转移到自己名下。</p>
+<p>让我们先来了解一下此次事件的漏洞分析和攻击过程。</p>
+<h2 id="漏洞分析">漏洞分析</h2>
+<p><img src="https://img.bibiqing.com/news/2023/1102/mktdih4te4yd1wv" alt="Unibot攻击事件分析：继Maestrobot后，Telegram Bot项目再遭恶意利用"></p>
+<p>函数 0xb2bd16ab()未正确检查输入参数，特别是 varg 0 和 varg 4 ，这两个参数被用于任意调用外部代币合约并执行‘transferFrom()’方法。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1102/2fh11twa2rw3uml" alt="Unibot攻击事件分析：继Maestrobot后，Telegram Bot项目再遭恶意利用"></p>
+<h2 id="攻击过程">攻击过程</h2>
+<p>攻击从北京时间 31 日 12: 39: 23 开始，持续到了 31 日的 14: 09: 47 。在此期间，<strong>攻击者执行了 22 次攻击交易</strong> ，调用了攻击合约上的&quot;0x5456a7bf()&ldquo;方法，该方法反复调用 Unibot 路由器合约中的&quot;0xb2bd16ab()&ldquo;方法，将各种代币从受害者地址转移到自己的账户。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1102/wojb1k98st9ccic" alt="Unibot攻击事件分析：继Maestrobot后，Telegram Bot项目再遭恶意利用"></p>
+<p>总共有 42 种代币通过路由器从 364 个受害者地址转移到了攻击者手中，漏洞利用者随后出售了这些代币，<strong>获得总计 355.5 ETH（约合 64 万美元）。</strong></p>
+<p>Unibot 团队稍后做出回应，部署了新的路由器合约。在其官方 X 账号中他们还宣布了对所有受害者的赔偿计划。目前所有 355.5 ETH 已被转入 Tornado.Cash。</p>
+<h2 id="telegram机器人">Telegram 机器人</h2>
+<p><strong>此次攻击与此前的 Maestrobot 事件非常相似。</strong> 10 月 25 日，CertiK Alert 即在 X 平台发布警告称，Telegram 机器人项目 Maestro Bots 路由器合约遭受攻击，导致损失约 50 万美元。</p>
+<p>Telegram 机器人是Web3.0 世界中的一个新兴领域，它让用户能够通过 Telegram 界面进行各种 DeFi 操作，同时将代币整合其中。然而，如何区分真正的创新和令人迷惑的假象也变得越来越复杂。</p>
+<p>CertiK 安全团队对 CoinGecko 的 Telegram 机器人代币列表中的 61 个项目进行了研究，<strong>发现近 40% 的项目疑似处于休眠状态、可能存在欺诈现象</strong> ，或面临无法从大幅抛售中恢复的风险。这些平台的交易机制无疑是创新的，但许多都缺乏关键的技术细节，尤其是应用内钱包私钥管理的相关信息。我们建议用户在这些平台上操作需格外谨慎，尽量减少与其交互，并避免长期储存资产。</p>
+<h2 id="了解telegram机器人及其代币">了解 Telegram 机器人及其代币</h2>
+<p><strong>Telegram 机器人是通过 Telegram 聊天程序运行的自动化程序。</strong> 它们可以进行交易、向用户提供市场数据、评估社交媒体上的情绪，并通过 Telegram 界面发起的执行命令与智能合约进行交互。这种类型的机器人已存在多年，但近年来它们随着 Telegram 机器人代币的出现而备受关注。</p>
+<p>Telegram 机器人代币是集成到 Telegram 机器人中的原生代币，主要用于多样化的交易功能，如执行 DEX 交易、跨钱包管理投资组合、Yield Farming 以及其他与 DeFi 相关的可行操作。这些代币本质上允许用户仅通过与 Telegram 界面的交互就能对接整个 DeFi。<strong>如果这些程序能够长期保持安全和正常运行，可能会对 DeFi 的整体可访问性带来重大影响。</strong></p>
+<p>今年 7 月 20 日之后，这些代币的受欢迎程度急剧上升，一些代币的涨幅甚至超过了 1000% 。这种趋势反映了Web3.0 社区中常见的周期性狂热，其驱动力来自 X 平台（前 Twitter）上Web3.0 货币社区的叙事共鸣。</p>
+<p>尤其是 Unibot 崭露头角之后，又涌现出了大量 TBT。而截至 2023 年 8 月 3 日，CoinGecko 的机器人代币栏目已经列出了 61 个此类系统。</p>
+<h2 id="穿越叙事的交叉路口">穿越叙事的交叉路口</h2>
+<p>TBT（Telegram 机器人代币）在Web3.0 领域占据了独特的地位。在 X 平台（前 Twitter）上，Web3.0 货币爱好者经常把它们作为实用代币来讨论。此前，“实用”一词在Web3.0 货币领域一直与元叙事相关联，通常涉及人工智能、金融科技、物流、跨境交易等专业行业的故事。TBT 最初是伴随着“实用”叙事而发展起来的，旨在通过创新的用户界面来分散和完善交易活动。但是，TBT 其实已经超越了单一的实用元叙事，在各种 meme 和非 meme 叙事中找到了共鸣。</p>
+<p>与此同时，随着 TBT 叙事的发展，<strong>围绕迷你游戏 meme 代币的周期性炒作出现了</strong> ，尤其是一个名为“$HAMS”的项目。$HAMS 是一个昙花一现的 meme 代币，允许用户在仓鼠比赛直播中下注。然而，由于社区成员指控运营商重复使用仓鼠视频片段，$HAMS 在推出后不久便夭折了。这催生了其他各种游戏纪念代币，也称其为 TBT。其中一种代币叫“$TETRIS”，用户可以在其中赌博并参与玩家之间的俄罗斯方块竞赛。某些游戏纪念代币之间的联系是通过在 X 平台上被广泛提及而形成的。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1102/30kawg90eii5rqp" alt="Unibot攻击事件分析：继Maestrobot后，Telegram Bot项目再遭恶意利用"></p>
+<p>TBT 叙事交叉的另一个例子涉及 PAAL AI。虽然这不是一个专门的 meme，但该项目开发了一个类似 ChatGPT 的 Telegram 聊天机器人。代币和项目结构也与其他 TBT 结构类似。令人费解的是，该项目似乎并没有制作 Telegram 聊天机器人，而是提供了一个类似 ChatGPT 的网页界面。不过，该机器人还是可以通过 API 集成到用户个人的 Telegram 频道中。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1102/dejaiwtg5ce59ug" alt="Unibot攻击事件分析：继Maestrobot后，Telegram Bot项目再遭恶意利用"></p>
+<h2 id="coingecko的tbt分类">CoinGecko 的 TBT 分类</h2>
+<p>Unibot 发布后不久，CoinGecko 推出了其 TBT 详细列表。该列表最初于 7 月 20 日左右发布，包含约 30 种代币。在短短几周内，这一数字就激增到了 61 。我们采用多种方法对这份名单进行了分析，包括价格动量、流动性动态和交易活跃度等综合指标，并根据这些项目是否可能死亡或交易是否仍然活跃对其进行了分类。截至 8 月的具体分布情况如下方柱状图所示：</p>
+<p><img src="https://img.bibiqing.com/news/2023/1102/grm73q6gyr55agv" alt="Unibot攻击事件分析：继Maestrobot后，Telegram Bot项目再遭恶意利用">在这 61 个项目中，我们将 37 个归为活跃项目， 24 个归为已死亡或可能已死亡项目。这些项目要么跌幅超过 85% ，其资金池只有极少甚至没有流动性，且没有任何活动，要么很可能是退出骗局。也就是说，该类别中有近 40% 的项目已经死亡或不太可能恢复。</p>
+<p>值得一提的是，注册 Telegram 机器人账户时提供的钱包是自动生成的，而私钥是之后提供的。Unibot 未说明这些私钥的存储方式或位置是存储在本地还是服务器后台。<strong>这意味着，使用这些 Telegram 机器人进行交易和存储资金都是非常危险的。</strong></p>
+<h2 id="未整合telegram的项目">未整合 Telegram 的项目</h2>
+<p>在研究过程中，我们发现一些被列为 TBT 的项目要么没有将其代币整合到 Telegram 中，要么没有 Telegram 交易机器人，而只有普通的 Telegram 社区频道。一些项目拥有与 Unibot 相同功能的外部 DApp，另一些项目的路线图表示 Telegram 整合将在未来实现。</p>
+<p>其他项目则不具备这些功能，但它们出现在这份名单上或许表明了我们前面提到的交叉叙事。这些项目可能在向 CoinGecko 提交申请时，自我标榜为 TBT 类型的项目，并表明了整合或将在未来整合的目标。我们看到了叙事炒作如何扩大特定类别代币的情况，有些代币甚至以被“meme”的方式存在，即使该项目实际上与其被分配的类别毫无关系。据我们分析，这类叙事炒作的影响非常巨大，足以部分解释以上这种分歧现象。</p>
+<h2 id="写在最后">写在最后</h2>
+<p>每当有新的叙事在数字货币社区流行起来时，会有大量类似项目继续以同样的叙事进行发布，其中许多要么是退出骗局，要么企图窃取投资者的资产，TBT 在这方面也不例外。</p>
+<p>TBT 的开发可能是 DeFi 社区的一项独特创新。尽管这类代币的效用尚不明确，但类似平台的出现，为投资者提供了将数据汇总到交易策略中的新方法。<strong>然而，用户应该对这些平台格外谨慎。</strong></p>
+<p>在 TBT 领域，项目都是通过 meme 的方式存在，其价值可能在一夜之间消失殆尽，这就要求我们保持谨慎和知情的参与态度。很多项目不能向用户提供清晰的文档，无法说明其钱包密钥的存储位置和生成方式，因此存在巨大的未知风险。</p>
+<p><strong>用户应不考虑使用这些平台进行存储。</strong> 在将外部钱包链接到这些平台，或与这些项目生成的网站进行交互时，用户也应谨慎行事。</p>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/63815/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">Tether：在波场网络上增发10亿枚USDT</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/62237/">
+                <span class="next-text nav-default">Unibot遭攻击损失超50万美元，TG BOT安全性遭受质疑</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#漏洞分析">漏洞分析</a></li>
+    <li><a href="#攻击过程">攻击过程</a></li>
+    <li><a href="#telegram机器人">Telegram 机器人</a></li>
+    <li><a href="#了解telegram机器人及其代币">了解 Telegram 机器人及其代币</a></li>
+    <li><a href="#穿越叙事的交叉路口">穿越叙事的交叉路口</a></li>
+    <li><a href="#coingecko的tbt分类">CoinGecko 的 TBT 分类</a></li>
+    <li><a href="#未整合telegram的项目">未整合 Telegram 的项目</a></li>
+    <li><a href="#写在最后">写在最后</a></li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

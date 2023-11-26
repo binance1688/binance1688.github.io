@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          探究 Uniswap V4 中 Hook 机制的安全风险 - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="本文介绍了与 Uniswap v4 中 Hook 机制相关的概念，并概述了Hook 机制存在的安全风险。" />
+<meta name="keywords" content="Uniswap V4" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/62811/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="探究 Uniswap V4 中 Hook 机制的安全风险" />
+<meta property="og:description" content="本文介绍了与 Uniswap v4 中 Hook 机制相关的概念，并概述了Hook 机制存在的安全风险。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/62811/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-11-08T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-11-08T00:00:00+00:00" />
+
+<meta itemprop="name" content="探究 Uniswap V4 中 Hook 机制的安全风险">
+<meta itemprop="description" content="本文介绍了与 Uniswap v4 中 Hook 机制相关的概念，并概述了Hook 机制存在的安全风险。"><meta itemprop="datePublished" content="2023-11-08T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-11-08T00:00:00+00:00" />
+<meta itemprop="wordCount" content="4457">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="探究 Uniswap V4 中 Hook 机制的安全风险"/>
+<meta name="twitter:description" content="本文介绍了与 Uniswap v4 中 Hook 机制相关的概念，并概述了Hook 机制存在的安全风险。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">探究 Uniswap V4 中 Hook 机制的安全风险</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-11-08">
+      2023-11-08
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 4457 字 -
+        预计阅读 9 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E5%85%B6%E5%AE%83%E6%96%87%E7%AB%A0/"> 其它文章 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>相信 Uniswap v4 不久就会和大家见面了！</p>
+<p>这一次 Uniswap 团队可谓目标宏大，计划引入众多全新功能[1]，包括每个交易对支持无限数量的流动性池和动态费用、单例设计、闪电记账、Hook，以及支持 ERC1155 代币标准。利用 EIP-1153 引入的瞬态存储，Uniswap v4 预计将在以太坊坎昆升级之后发布。</p>
+<p>在诸多创新中，<strong>Hook 机制</strong> 因其强大潜力引起了广泛关注。Hook 机制支持在流动性池生命周期中的特定点执行特定代码，大大增强了池子的可扩展性和灵活性。</p>
+<p>然而，Hook 机制也可能是一把双刃剑。虽然它功能强大且灵活，<strong>但</strong> <strong>安全使用 Hook 同样是一个不小的挑战</strong> 。Hook 的复杂性不可避免地带来了新的潜在攻击向量。因此，我们希望撰写一个系列文章，来系统介绍与 Hook 机制相关的安全问题与潜在风险，以此推动社区的安全发展，相信这些见解将有助于构建安全的 Uniswap v4 Hook。</p>
+<p>作为该系列文章的开篇之作，本文介绍了与 Uniswap v4 中 Hook 机制相关的概念，并概述了Hook 机制存在的安全风险。</p>
+<h2 id="uniswap-v4的机制"><strong>Uniswap V4 的机制</strong></h2>
+<p>在深入探讨之前，我们需要对 Uniswap v4 的机制有一个基本的了解。根据官方公告[1]和白皮书[2]，<strong>Hook、单例架构和闪电记账</strong> 是实现自定义流动性池和跨多个池子实现高效路由的三个重要功能。</p>
+<p><strong>1.1 Hook</strong></p>
+<p>Hook 指的是在流动性资金池生命周期的不同阶段运行的合约，Uniswap 团队希望通过引入 Hook使任何人都能做出权衡决策。通过这种方式，可以实现原生支持动态费用、添加链上限价单、或者通过时间加权平均做市商 (TWAMM) 分散大订单。</p>
+<p>目前有<strong>八个</strong> Hook 回调，分为四组（每组包含一对回调）：</p>
+<ul>
+<li>
+<p>beforeInitialize/afterInitialize</p>
+</li>
+<li>
+<p>beforeModifyPosition/afterModifyPosition</p>
+</li>
+<li>
+<p>beforeSwap/afterSwap</p>
+</li>
+<li>
+<p>beforeDonate/afterDonate</p>
+</li>
+</ul>
+<p>下文是白皮书[2]中介绍的交换 Hook 的流程。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1108/24_puvr6go038.png" alt="探究 Uniswap V4 中 Hook 机制的安全风险"></p>
+<p>图 1：交换 Hook 流程</p>
+<p>Uniswap 团队用一些示例（例如 TWAMM Hook[3]）介绍了操作方法，社区参与者也做出了一些贡献。官方文档[4]还链接到了Awesome Uniswap v4 Hooks[5] 仓库，该仓库收集了更多的 Hook 示例。</p>
+<p><strong>1.2 单例、闪电记账和锁机制</strong></p>
+<p>单例（singleton）架构和闪电记账（flash accounting）旨在通过降低成本和确保效率来提高性能。它引入了一种新的 singleton 合约，即所有流动性池都保存在同一个智能合约中。这个单例设计依赖一个 PoolManager 来存储和管理所有池子的状态。</p>
+<p>在 Uniswap 协议的早期版本中，兑换或添加流动性等操作涉及直接代币转移，v4 版本则有所不同，在于其引入了闪电记账和锁机制（lock mechanism）。</p>
+<p><strong>?? 锁机制</strong> 的运作方式如下：</p>
+<p>1. 某个locker合约在 PoolManager 上请求lock。</p>
+<p>2. PoolManager 将该locker合约的地址添加到 lockData 队列，并调用其 lockAcquired 回调。</p>
+<p>3. 该locker合约在回调中执行其逻辑。在执行过程中，locker合约与池子的交互可能导致非零的货币增量。然而，在执行结束时，所有增量必须结算为零。另外，如果 lockData 队列不为空，只有最后一个locker合约可以执行操作。</p>
+<p>4. PoolManager 检查 lockData 队列和货币增量的状态。验证后，PoolManager 将删除该locker合约。</p>
+<p><strong>总结来说，锁机制防止了并发访问，并保证了所有的交易都能被清算。</strong> 而locker合约按顺序申请lock，然后通过 lockAcquired 回调执行交易。在每次池操作前后会触发对应的Hook回调。最后，PoolManager 会检查状态。</p>
+<p>这种方法意味着操作调整的是内部净余额（即_<strong>delta</strong> <em>），而不是执行即时转账。任何修改都会记录在池子的内部余额中，实际的转账则在操作（即</em><strong>lock</strong> _）结束时进行。这个过程保证了没有未清算的代币，从而维持了资金的完整性。</p>
+<p>由于锁机制的存在，外部所有账户 (EOA) 不能直接与 PoolManager 进行交互。相反，<strong>任何交互都必须通过一个合约进行</strong> 。该合约作为一个中间的locker，在进行任何池操作之前都需要请求lock。</p>
+<p>?? 主要存在两种合约交互场景：</p>
+<ul>
+<li>
+<p>某个locker合约来自官方的代码库，或者由用户部署。在这种情况下，我们可以将交互视为通过路由器进行。</p>
+</li>
+<li>
+<p>某个locker合约和 Hook 集成到同一个合约中，或由第三方实体控制。对于这种情况，我们可以将交互视为通过Hook进行。在这种情况下，Hook既扮演了locker合约的角色，又负责处理回调。</p>
+</li>
+</ul>
+<h2 id="威胁模型"><strong>威胁模型</strong></h2>
+<p>在讨论相关的安全问题之前，我们需要确定威胁模型。我们主要考虑以下两种情况：</p>
+<ul>
+<li>
+<p><strong>威胁模型 I</strong> ：Hook 本身是良性的，但存在漏洞。</p>
+</li>
+<li>
+<p><strong>威胁模型 II</strong> ：Hook 本身就是恶意的。</p>
+</li>
+</ul>
+<p>在接下来的部分，我们将根据这两种威胁模型讨论潜在的安全问题。</p>
+<p><strong>2.1 威胁模型 I 中的安全问题</strong></p>
+<p>威胁模型 I 关注的是与 Hook 本身相关的漏洞。这个威胁模型假设开发者及其 Hook 是无恶意的。然而，智能合约现有的已知漏洞也可能出现在 Hook 中。例如，如果 Hook 是作为可升级合约实现的，那么它可能会遇到类似于 OpenZeppelin 的 UUPSUpgradeable 漏洞的相关问题。</p>
+<p>鉴于以上因素，我们选择聚焦于v4版本特有的潜在漏洞。在 Uniswap v4 中，Hook 是能够在核心池操作（包括初始化、修改位置、交换和收集）之前或之后执行自定义逻辑的智能合约。虽然 Hook 预计将实现标准的接口，但它也允许包含自定义逻辑。因此，我们的讨论范围将限制在涉及标准 Hook 接口的逻辑。然后，我们将尝试找出可能的漏洞来源，例如，Hook 可能如何滥用这些标准 Hook 函数。</p>
+<p><strong>?? 具体来说，我们将关注以下两种 Hook：</strong></p>
+<ul>
+<li>
+<p>第一种 hook, 保管用户资金。在这种情况下，攻击者可能会攻击这个 hook 来转移资金，造成资产损失。</p>
+</li>
+<li>
+<p>第二种 hook, 存储用户或其他协议依赖的关键状态数据。在这种情况下，攻击者可能会试图改变关键状态。当其他用户或协议使用错误状态时，可能会带来潜在风险。</p>
+</li>
+</ul>
+<p>请注意，这两种范围之外的 hook 不在我们的讨论范围内。</p>
+<p>由于本文撰写时还没有 Hook 的真实用例，我们将从 Awesome Uniswap v4 Hooks 仓库中获取一些信息。</p>
+<p>在对Awesome Uniswap v4 Hooks仓库（提交哈希为3a0a444922f26605ec27a41929f3ced924af6075）进行深入研究后，我们发现了几个严重的漏洞。这些漏洞主要源于 hook、PoolManager 以及外部第三方之间的风险交互，主要可以分为两类：<strong>访问控制问题</strong> 和<strong>输入验证问题</strong> 。具体发现请见下表：</p>
+<p><img src="https://img.bibiqing.com/news/2023/1108/24_7cs56wuk71.png" alt="探究 Uniswap V4 中 Hook 机制的安全风险"></p>
+<p>总的来说，我们发现了22个相关项目（排除与Uniswap v4无关的项目）。在这些项目中，我们认为有8个（36%）项目是存在漏洞的。在这8个有漏洞的项目中，6个存在访问控制问题，2个容易受到不受信任的外部调用。</p>
+<p><strong>2.1.1 访问控制问题</strong></p>
+<p>在这部分讨论中，我们主要关注的是 <strong>v4 中的回调函数可能导致的问题</strong> ，包括 8 个 hook 回调和 lock 回调。当然，还有其他情况需要验证，但这些情况因设计而异，暂不在我们的讨论范围之内。</p>
+<p>这些函数应该只能被 PoolManager 调用，不能被其他地址（包括EOA和合约）调用。例如，在奖励由资金池密钥分发的情况下，如果相应的函数可以由任意账户调用，那么奖励可能会被错误地领取。</p>
+<p>因此，对于hook来说，建立强大的访问控制机制是至关重要的，尤其是它们可以被除了池子本身之外的其他方调用。通过严格管理访问权限，流动性池可以显著降低与hook未授权交互或恶意交互的风险。</p>
+<p><strong><strong>2.1.2</strong>  输入验证问题</strong></p>
+<p>在Uniswap v4中，由于存在锁机制，用户在执行任何资金池操作之前必须通过合约获得一个lock。这确保了当前参与交互的合约是最新的locker合约。</p>
+<p>尽管如此，仍然存在一个可能的攻击场景，即由于在一些易受攻击的 Hook 实现中输入验证不当而导致的不受信任的外部调用：</p>
+<ul>
+<li>
+<p>首先，hook并未验证用户打算交互的资金池。这可能是一个含有虚假代币并执行有害逻辑的恶意资金池。</p>
+</li>
+<li>
+<p>其次，一些关键的hook函数允许任意的外部调用。</p>
+</li>
+</ul>
+<p>不受信任的外部调用极其危险，因为它可能导致各种类型的攻击，包括我们熟知的重入攻击。</p>
+<p>为了攻击这些易受攻击的hook，攻击者可以为自己的虚假代币注册一个恶意资金池，然后调用hook在资金池执行操作。在与资金池交互时，恶意代币逻辑劫持控制流以便进行不良行为。</p>
+<p><strong><strong>2.1.3</strong>  针对威胁模型 I 的防范措施</strong></p>
+<p>为了规避与hook相关的此类安全问题，通过适当执行对敏感的外部/公共函数的必要访问控制，并对输入参数进行验证，从而对交互进行验证是至关重要的。此外，重入保护可能有助于确保 hook 不会在标准逻辑流程中被重复执行。通过实施适当的安全防护措施，资金池可以降低与此类威胁相关的风险。</p>
+<p>**<strong>2.2 威胁模型 II 中的安全问题</strong> **</p>
+<p>在这个威胁模型中，我们假设开发者及其 hook 是恶意的。鉴于涉及范围很广，我们仅关注与 v4 版本相关的安全问题。因此，关键在于提供的 hook 是否能够处理用户转账或授权的加密资产。</p>
+<p>由于访问 hook 的方法决定了可能赋予 hook 的权限，我们据此将 hook 分为两类：</p>
+<ul>
+<li>
+<p><strong>托管型 Hook（Managed Hooks）</strong> ：hook 不是入口点。用户必须通过路由器（可能由 Uniswap 提供）与 hook 进行交互。</p>
+</li>
+<li>
+<p><strong>独立型 Hook（Standalone Hooks）</strong> ：hook 是入口点，允许用户直接与之交互。</p>
+</li>
+</ul>
+<p><img src="https://img.bibiqing.com/news/2023/1108/24_2ul8evehrk.png" alt="探究 Uniswap V4 中 Hook 机制的安全风险"></p>
+<p>图 2：恶意 Hook 的例子</p>
+<p><strong><strong><strong>2.2.1</strong></strong>  托管型 Hook</strong></p>
+<p>在这种情况下，用户的加密资产（包括原生代币和其他代币）被转账或授权给 router 。由于 PoolManager 执行了余额检查，恶意 hook 不容易直接窃取这些资产。然而，仍然存在潜在的攻击面。例如，v4 版本的费用管理机制可能会被攻击者通过 hook 进行操纵。</p>
+<p><strong><strong><strong>2.2.2</strong></strong>  独立型 Hook</strong></p>
+<p>当 Hook 被用作入口点时，情况就更加复杂。在这种情况下，由于用户可以直接与 hook 进行交互，hook 获得了更多的权力。理论上，hook 可以通过这种交互执行想要的任何操作。</p>
+<p>在 v4 版本中，代码逻辑的验证是非常关键的。主要问题在于是否可以操纵代码逻辑。如果 hook 是可升级的，这意味着一个看似安全的 hook 可能会在升级之后成为恶意的，从而构成重大风险。这些风险包括：</p>
+<ul>
+<li>
+<p>可升级的代理（可以被直接攻击）；</p>
+</li>
+<li>
+<p>带有自毁逻辑。在联合调用 selfdestruct 和 create2 的情况下可能被攻击。</p>
+</li>
+</ul>
+<p><strong><strong><strong><strong>2.2.3</strong></strong></strong>  针对威胁模型 II 的防范措施</strong></p>
+<p>至关重要的一点在于评估 hook 是否是恶意的。具体来说，对于托管型 hook，我们应该关注费用管理的行为；而对于独立型 hook，主要的关注点在于它们是否可升级。</p>
+<h2 id="结论"><strong>结论</strong></h2>
+<p>在本文中，我们首先简要概述了与 Uniswap v4 的 Hook 安全问题相关的核心机制。随后，我们提出了两种威胁模型并简要概述了相关的安全风险。</p>
+<p>在后续文章中，我们将对每种威胁模型下的安全问题进行深入分析。</p>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/62753/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">数据：比特币在全球经济动荡之际可能升至 4 万美元</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/62806/">
+                <span class="next-text nav-default">晚间必读5篇 | Lido统治地位探究</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#uniswap-v4的机制"><strong>Uniswap V4 的机制</strong></a></li>
+    <li><a href="#威胁模型"><strong>威胁模型</strong></a></li>
+    <li><a href="#结论"><strong>结论</strong></a></li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

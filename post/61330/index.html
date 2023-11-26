@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          SevenX Ventures：Lido中心化问题潜在解决方案解析 - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="围绕Lido中心化风险的争论已经达到了沸点。在关注风险的同时，我们也应注意到相关的努力以及正在探索的潜在解决方案。" />
+<meta name="keywords" content="Lido, ETH, 去中心化" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/61330/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="SevenX Ventures：Lido中心化问题潜在解决方案解析" />
+<meta property="og:description" content="围绕Lido中心化风险的争论已经达到了沸点。在关注风险的同时，我们也应注意到相关的努力以及正在探索的潜在解决方案。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/61330/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-10-17T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-10-17T00:00:00+00:00" />
+
+<meta itemprop="name" content="SevenX Ventures：Lido中心化问题潜在解决方案解析">
+<meta itemprop="description" content="围绕Lido中心化风险的争论已经达到了沸点。在关注风险的同时，我们也应注意到相关的努力以及正在探索的潜在解决方案。"><meta itemprop="datePublished" content="2023-10-17T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-10-17T00:00:00+00:00" />
+<meta itemprop="wordCount" content="3303">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="SevenX Ventures：Lido中心化问题潜在解决方案解析"/>
+<meta name="twitter:description" content="围绕Lido中心化风险的争论已经达到了沸点。在关注风险的同时，我们也应注意到相关的努力以及正在探索的潜在解决方案。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">SevenX Ventures：Lido中心化问题潜在解决方案解析</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-10-17">
+      2023-10-17
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 3303 字 -
+        预计阅读 7 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E5%85%B6%E5%AE%83%E6%96%87%E7%AB%A0/"> 其它文章 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>作者：Grace Deng，SevenX Ventures研究员；翻译：金色财经xiaozou</p>
+<p><strong>围绕Lido中心化风险的争论已经达到了沸点。在关注风险的同时，我们也应注意到相关的努力以及正在探索的潜在解决方案。</strong> 本文将揭开这个中心化问题的全貌。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1017/21_8seuskpjzf.png" alt="oWMlh1pw8U1fUECBZdKbBLknRboTLepuo7qik1B0.png" title="7117582"></p>
+<p><strong>1、中心化问题</strong></p>
+<p>Lido的市场份额几乎占全部质押ETH的三分之一。关注重心围绕着治理攻击，Lido的持续增长可能导致stETH的过度主导地位（甚至可能比未质押ETH更占主导地位）。</p>
+<p>注：当前ETH供应质押占比约为23%。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1017/21_ghswb0jcc2.png" alt="8la5ZPxEZaBXhhrEQ5SDr2sHXcnCMHNyYtcJjdEI.png" title="7117583"></p>
+<p><img src="https://img.bibiqing.com/news/2023/1017/21_rgjyhrj4sd.png" alt="1u2cF0Dv3CGmr7JzivVSCbyTus9kI4MmR6zSmBor.png" title="7117584"></p>
+<p>例如，LDO持有者（前100名钱包控制约95%的LDO）可能会铸造无限的stETH或更改取款合约并与他人勾结以保留自己的ETH存款。mikeneuder.eth发文分析了所有潜在风险、影响和解决方案。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1017/21_qjp8gsetuo.png" alt="Y41gU4aUjpXQadAgd7RjUldBDuGDNpPpp04MvHPT.png" title="7117585"></p>
+<p>stETH持有者可能会滥用他们的否决权（未启动）来阻止政府程序。节点运营商可能串通而导致罚没，从而损害stETH的价值。LDO持有者可能参与上述政府攻击或利用其软实力侵蚀社会规范。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1017/21_gmushl4jvv.png" alt="KPv7JNcnhqB53sC0y85GnZrVxVPM6YwCwChQfSFd.png" title="7117586"></p>
+<p><strong>2、LDO的另一面</strong></p>
+<p>一个典型的粗糙解决方案是自我限制，即公开承诺限制自己不操作超过一定比例的验证器，无论是通过强制手段还是提高费用。结果就是：99.81%的LDO投了否决票，只有8%的LDO投了赞成票。</p>
+<p>我们不能过度简化去中心化协议的中心化问题；另一方面，还有许多其他因素需要考虑。对一种LS解决方案施加限制，很可能会形成交易所主导的局面，这会更加糟糕。为什么这么说？那是因为：由于强大的网络效应和品牌效应，LST市场可能是赢者通吃。RPL和其他去中心化解决方案可能难以快速扩展。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1017/21_n27v5l52oa.png" alt="n0J19rKFBLBOxoGc4480an0NnNOtC3cEpPKLXc0E.png" title="7117587"></p>
+<p>近期数据可以作为很好的参考：过去，Lido宣布的突破100万枚ETH的增长率大幅下降，但新的资金却流向中心化交易所、质押池，而不是其他去中心化LSP（上个月唯一突破3000枚ETH增长的是lido和frax）。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1017/21_2j7cj8qefj.png" alt="DbtPHh2UuamuzxqsvZQA0UYbO80XvTTWsmcE7Dll.png" title="7117588"></p>
+<p><strong>3、我们走在正确的轨道上</strong></p>
+<p>虽然自我限制可能不是一个好主意，但这并不意味着我们应该什么都不做。值得庆幸的是，事情现在正朝着正确的方向发展，Lido、以太坊和其他各方都提出了许多解决方案。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1017/21_wwcu1ads7p.png" alt="lNuFwlStMMZCq6v7vxhJ6QyRVEyywDYrt0Gu2g4o.png" title="7117589"></p>
+<p><strong>（1）Lido的双治理框架</strong></p>
+<p>skozin.eth指出，Lido治理引入额外风险的根本原因是质押者（委托人）和LDO持有者（代理人）之间的PAP。Lido提出了一个双治理框架来解决这一冲突。</p>
+<p>双治理在投票后执行前增加了一个时间锁，这样stETH持有者就可以有权否决决策，将治理过渡到未执行状态，除非后来特别撤销否决。stETH持有者将有权暂停执行。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1017/21_sbran3qdb0.png" alt="QVJ95NFsvSOM6sHm1oS79SixqrQ8rw6U1nE1GjcR.png" title="7117590"></p>
+<p>更多细节仍在讨论中，例如Lido是否应该包括更多的治理方，如节点运营商和以太坊用户，以及预防治理“停滞”状态的机制等。双治理的推出肯定会降低Lido的治理风险。</p>
+<p><strong>（2）Lido的质押路由器</strong></p>
+<p>为了降低节点运营商的风险，Lido正在不断增加更多的节点运营商，评估他们的客户端多样性、地理位置和基础设施分布，以及大规模运行验证器的经验。Lido节点运营商数量最近已增至38个。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1017/21_stuq7cyrma.png" alt="z4prOcfuJGUszx1qisLgED8GEMojznwkJUbyRj9H.png" title="7117591"></p>
+<p>此外，Lido在5月份升级到了v2版本，并推出了质押路由器，这是一种新的模块化架构，允许添加和管理任意的新质押模块。目前只有一个模块，但最终会有更多。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1017/21_g3mctqu97k.png" alt="gSfma4n3liz4ndikaYMCQMF8vVahfraC3NCWaEkB.png" title="7117592"></p>
+<p>当一个新模块被添加时，它会收到所有的新质押，直到达到上限。当可靠性得到证明后，该上限可以增加。在该LT中，质押路由器是由市场驱动的，其中模块表达偏好，质押分配基于相关指标进行了优化。</p>
+<p>LDO持有者将负责确定不同模块的分配（上限）。他们还需要监控性能并平衡风险，以保持stETH的可替代性。</p>
+<p>该质押路由器最新的提案名为“Simple DVT”，利用Obol Labs和ssv network的DVT（分布式验证技术）：之所以被命名为“simple”，是因为该模块将被限制在Lido质押的0.5%，并且因为DVT的限制测试，还将包含覆盖计划。</p>
+<p>尽管该模块的上限在未来可能会根据各群体的表现而增加，但最初设置低上限在经济上是不利的。因此，该模块的费用分配将是2%/8%，而不是5%/5%。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1017/21_9741y8mq1n.png" alt="n9rBZv433kTExo6UWssttLgTDB1InFUNO9Vb69ze.png" title="7117593"></p>
+<p><strong>（3）EIP-7002 &amp; 4788</strong></p>
+<p>在ETH协议层面，即将推出的几个EIP可以帮助简化工作流程并提高LS协议的安全性。EIP 4788将降低oracle风险。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1017/21_m5sscd7aj9.png" alt="LFhkeEwlC5UpvxedP3AZbg3DhH40oF7rGMWS7kQv.png" title="7117594"></p>
+<p>EIP-7002启用带有退出键的可触发退出，降低了节点运营商的操作风险。然而，它依赖于stETH持有者能够有效地否决恶意退出（如果当时是双治理框架）。</p>
+<p><strong>（4）Enshrinment</strong></p>
+<p>Vitalik的最新文章对enshrine某些协议内功能使LS不那么集中进行了讨论。Dankrad提出了类似于RPL机制的双级质押：只有由节点运营商质押的ETH是可罚没的，并且可以发行有限的LST。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1017/21_wwzhob0wb3.png" alt="g0GlstNDCOMohuiKgFVOzJ5t4LWNxCXkzgCR9Vd0.png" title="7117595"></p>
+<p>ETH持有者委托的ETH获得无风险利率，并可灵活切换节点运营商，没有等待时间。由于所有LST通过协议内设计都是无风险的，因此委托方只会根据收益和代币效用来评估节点运营商。</p>
+<p>来看收益和效用，由于协议内LST具有相同的安全性和r2，理想情况下下游DeFi协议将被更多的LST接收，用寡头垄断市场取代赢家通吃市场。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1017/21_u4fzsc5spf.png" alt="6q80TlcizBNi1gykbRRT4LmDhg0O4p2LLM62Nmkq.png" title="7117596"></p>
+<p>然而，节点运营商可以选择牺牲利润(r1- ε)来吸引更多的质押。委托者可能会选择委托给协议外的节点运营商，以在更高的风险下获得更高的收益(r2+ ε)。结果就是，协议内LS机制不再被使用，重新向系统注入信任。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1017/21_skhwrn6n3b.png" alt="wekAo6gSmQADhhL7Ifet5kxbt2PvtAocNe4KIX4Z.png" title="7117597"></p>
+<p>双级质押机制仍处于早期阶段，有如下悬而未决的问题：确定r1和r2的最优值；实施无风险LST和实现100% ETH质押的潜在影响；需要随机抽样委员会，以防止节点运营商中心化。</p>
+<p><strong>（5）其他LS协议</strong></p>
+<p>Rocket Pool未来的Saturn升级可以极大地扩展无需许可的LSP，并可能成倍降低节点运营商的绑定要求，方法是通过实现连接验证者的MetaPools以及调整风险计算（解决前面提到的困境）。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1017/21_0c8fs65nvf.png" alt="TYWR23rfjQVpzOFP0p6yaYTDoo3yQ3P2n3RymoG4.png" title="7117598"></p>
+<p>Frax Finance即将推出的frxETH v2去中心化了验证者，并创建了一个高效的借贷市场，实现了由市场力量和利用率决定的动态利率，提高了资本效率。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1017/21_q8d618b2vj.png" alt="aiG7h0qOG505WIuohA04XWjMGCAChaHjRrF4QFBE.png" title="7117599"></p>
+<p>Diva = 流动性质押 + DVT + 加密经济机制，其允许仅用1 ETH就可操作节点。目前Diva处于“预发布”阶段，参与者可以质押他们的ETH或stETH获得DIVA代币奖励。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1017/21_p1uwarpwqj.png" alt="Ou6ncVyS0deHjNcMfiUODthXxA15YmZaJg4WIo1w.png" title="7117600"></p>
+<p><strong>（6）独立质押者</strong></p>
+<p>我们可以预计，随着再质押协议和DVT协议的实施，未来，独立质押者数量将会增加。再质押协议（如EigenLayer）可能会提高独立质押者的收益，并使在家运行节点更具吸引力。</p>
+<p>像Obol Network和ssv network这样的DVT解决方案既可以降低技术门槛，也可以降低居家质押者的经济门槛。它们的推出还有助于增强去中心化程度，降低Lido和Rocket Pool等LS协议的运营风险。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1017/21_ihlza8yq5g.png" alt="mZfUe52iQH6iPBWjaPdZIl9iqZQBHQcVs1UiKKDR.png" title="7117601"></p>
+<p>Izzy提出了一个有趣的观点：通过将DVT实现的低门槛与更好的宏观（更高的ETH价格）相结合，独立运营商的数量可以大大增加。此外，DVT解决方案有助于降低运营风险。虽然这些风险很少见，但并非不可能发生。</p>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/61321/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">Scroll主网启动一周后，数据方面有何亮点？</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/61323/">
+                <span class="next-text nav-default">SignalPlus波动率专栏(20231017)：假新闻冲击市场</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

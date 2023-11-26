@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          波卡账户深度指南（下） - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="本期主要介绍波卡地址转换工具、索引功能，以及如何在波卡账户中添加以太坊的知名域名系统ENS等。" />
+<meta name="keywords" content="polkadot, 波卡, 波卡生態" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/61241/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="波卡账户深度指南（下）" />
+<meta property="og:description" content="本期主要介绍波卡地址转换工具、索引功能，以及如何在波卡账户中添加以太坊的知名域名系统ENS等。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/61241/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-10-16T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-10-16T00:00:00+00:00" />
+
+<meta itemprop="name" content="波卡账户深度指南（下）">
+<meta itemprop="description" content="本期主要介绍波卡地址转换工具、索引功能，以及如何在波卡账户中添加以太坊的知名域名系统ENS等。"><meta itemprop="datePublished" content="2023-10-16T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-10-16T00:00:00+00:00" />
+<meta itemprop="wordCount" content="5109">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="波卡账户深度指南（下）"/>
+<meta name="twitter:description" content="本期主要介绍波卡地址转换工具、索引功能，以及如何在波卡账户中添加以太坊的知名域名系统ENS等。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">波卡账户深度指南（下）</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-10-16">
+      2023-10-16
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 5109 字 -
+        预计阅读 11 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E5%85%B6%E5%AE%83%E6%96%87%E7%AB%A0/"> 其它文章 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h1 id="地址转换工具">地址转换工具</h1>
+<p>你可以使用以下工具转换任何网络的SS58地址，以便在不同网络上使用</p>
+<ul>
+<li>便捷的subscan工具（详情请参见：</li>
+</ul>
+<p><a href="https://polkadot.subscan.io/tools/ss58_transform">https://polkadot.subscan.io/tools/ss58_transform</a>）</p>
+<ul>
+<li>简单的地址转换器（详情请参见：</li>
+</ul>
+<p><a href="https://polkadot-address-convertor.netlify.app/">https://polkadot-address-convertor.netlify.app/</a>）</p>
+<p>如何验证公钥的关联地址</p>
+<p>你可以通过一系列检查步骤验证公钥的关联地址，其中密钥是一个基础16（十六进制）地址。</p>
+<p>1.使用Subkey从SS58地址读取公钥</p>
+<p>这是为了展示SS58地址是基于公钥（又名“账户ID”）的。</p>
+<p>Subkey工具的检查密钥（The Inspecting Keys）部分介绍了如何使用【inspect】命令重新计算密钥对的公钥和地址。</p>
+<p>首先，针对账户地址运行检查命令，检查账户的波卡地址：</p>
+<p>$subkey inspect1a1LcBX6hGPKg5aQ6DXZpAHCCzWjckhea4sz3P1PvL3oc4F</p>
+<p>Public Key</p>
+<p>URI`1a1LcBX6hGPKg5aQ6DXZpAHCCzWjckhea4sz3P1PvL3oc4F`is account:</p>
+<p>Network ID/version:polkadot</p>
+<p>Public key（hex）:</p>
+<p>0x192c3c7e5789b461fbf1c7f614ba5eed0b22efc507cda60a5e7fda8e046bcdce</p>
+<p>Account ID: 0x192c3c7e5789b461fbf1c7f614ba5eed0b22efc507cda60a5e7fda8e046bcdce</p>
+<p>SS58Address: 1a1LcBX6hGPKg5aQ6DXZpAHCCzWjckhea4sz3P1PvL3oc4F</p>
+<p>注意：</p>
+<p>&ldquo;公钥（十六进制）&ldquo;的十六进制字符串。这是你账户的公钥。</p>
+<p>在公钥和&ndash;【public】参数上运行【inspect】命令，将返回默认网络（substrate）的SS58地址。</p>
+<p>$subkey inspect&ndash;</p>
+<p>public0x192c3c7e5789b461fbf1c7f614ba5eed0b22efc507cda60a5e7fda8e046bcdce</p>
+<p>Network ID/version:substrate</p>
+<p>Public key（hex）:</p>
+<p>0x192c3c7e5789b461fbf1c7f614ba5eed0b22efc507cda60a5e7fda8e046bcdce</p>
+<p>Account ID:</p>
+<p>0x192c3c7e5789b461fbf1c7f614ba5eed0b22efc507cda60a5e7fda8e046bcdce</p>
+<p>Public key（SS58）:</p>
+<p>5CdiCGvTEuzut954STAXRfL8Lazs3KCZa5LPpkPeqqJXdTHp</p>
+<p>SS58Address: 5CdiCGvTEuzut954STAXRfL8Lazs3KCZa5LPpkPeqqJXdTHp</p>
+<p>使用&ndash;【network】标志，你可以定义要检查的网络，SS58地址将基于该网络。现在，使用&ndash;【network polkadot】运行【inspect】命令，就能返回原始波卡地址，从而验证公钥。</p>
+<p>$subkey inspect&ndash;network</p>
+<p>polkadot5CdiCGvTEuzut954STAXRfL8Lazs3KCZa5LPpkPeqqJXdTHp</p>
+<p>Public Key</p>
+<p>URI`5CdiCGvTEuzut954STAXRfL8Lazs3KCZa5LPpkPeqqJXdTHp`is account:</p>
+<p>Network ID/version:polkadot</p>
+<p>Public key（hex）:</p>
+<p>0x192c3c7e5789b461fbf1c7f614ba5eed0b22efc507cda60a5e7fda8e046bcdce</p>
+<p>Account ID:</p>
+<p>0x192c3c7e5789b461fbf1c7f614ba5eed0b22efc507cda60a5e7fda8e046bcdce</p>
+<p>Public key（SS58）:</p>
+<p>1a1LcBX6hGPKg5aQ6DXZpAHCCzWjckhea4sz3P1PvL3oc4F</p>
+<p>SS58Address: 1a1LcBX6hGPKg5aQ6DXZpAHCCzWjckhea4sz3P1PvL3oc4F</p>
+<p>你会发现Subkey工具能识别正确的地址网络，并返回关联的公钥。公钥以十六进制字符串形式返回（即前缀为&quot;0x&rdquo;）。对于两个SS58地址，返回的是相同的公钥。</p>
+<p>2.地址验证</p>
+<p>请查看以下案例：</p>
+<p><img src="https://img.bibiqing.com/news/2023/1016/bs6jtn8lunk47v4" alt="波卡账户深度指南（下）"></p>
+<p>如果你熟悉每个账户参数，可以自行在公钥字符串前加上&quot;0x&quot;前缀：</p>
+<p>From: 向波卡账户支付DOT【Pay DOTs to the Polkadot】</p>
+<p>【account:192c3c7e5789b461fbf1c7f614ba5eed0b22efc507cda60a5e7fda8e046bcdce】我们可以在地址前面加上&quot;0x&quot;前缀，得到【0x192c3c7e5789b461fbf1c7f614ba5eed0b22efc507cda60a5e7fda8e046bcdce】</p>
+<p>使用便捷的subscan工具（详情请参见：</p>
+<p><a href="https://polkadot.subscan.io/tools/ss58_transform">https://polkadot.subscan.io/tools/ss58_transform</a>），你可以验证公钥与地址的关联。将你的公钥复制到&quot;输入账户或公钥&rdquo;（Input Account or Public Key）文本框中，然后点击底部的&quot;转换&quot;（Transform）。在右侧返回的基于你的公钥生成的波卡和Substrate地址，应该与你检查过的地址一致。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1016/bdz5yezstwscq7n" alt="波卡账户深度指南（下）"></p>
+<p>注：</p>
+<p>可能需要向下滚动菜单才能找到基于Substrate的地址。你会发现许多网络也使用相同的Substrate地址。</p>
+<p>你可以记住波卡地址以&quot;1&quot;开头，而Substrate地址一般以&quot;5&quot;开头（Kusama地址以大写字母开头），从而验证你的公钥。更多详情，请参阅地址（详情请参见：</p>
+<p><a href="https://wiki.polkadot.network/docs/learn-accounts#address-format">https://wiki.polkadot.network/docs/learn-accounts#address-format</a>）。</p>
+<p>此外，还可以参考实用程序脚本（详情请参见：</p>
+<p><a href="https://github.com/w3f/utility-scripts">https://github.com/w3f/utility-scripts</a>），了解如何进行验证：pubkeyToAddress.js（详情请参见：</p>
+<p><a href="https://github.com/w3f/utility-scripts/blob/master/src/misc/pubkeyToAddress.js">https://github.com/w3f/utility-scripts/blob/master/src/misc/pubkeyToAddress.js</a>）演示了单个公钥如何解释波卡、Substrate或Kusama地址。</p>
+<h1 id="索引indices">索引Indices</h1>
+<p>波卡地址可以有索引。索引类似于地址的缩写，易于记忆。要申请索引，需要抵押10DOT，押金在索引被清空后发放。如果未被他人占用，则可以申请任何索引。</p>
+<p>但如果如上所述，某个账户被停用（Reaped）了呢？在这种情况下，索引就会清空。即该槽位会再次释放，可供任何人申请。可以冻结索引，并将其永久分配给某个地址。此操作需要消耗押金，索引将永久绑定到地址，且无法选择释放。</p>
+<p>编者注：</p>
+<p>账户被停用（Reaped）是指如果一个账户的余额低于存在存款（Existential Deposit），该账户将被停用，并且任何剩余资金都会被销毁。但是，可以随时通过存入大于存在存款的新存款来重新激活该地址。请注意，这不会恢复已销毁的资金。</p>
+<p>在链上查询账户索引</p>
+<p>当有人分享他们的账户索引时，可以通过Polkadot-JS Apps UI&gt;Developer&gt;Chain state&gt;Storage，在indices pallet上选择状态查询来查找对应的账户地址。</p>
+<p>下面为一个示例快照，展示如何使用Polkadot-JS Apps UI查找Westend网络（波卡测试网络）（详情请参见：</p>
+<p><a href="https://wiki.polkadot.network/docs/maintain-networks#westend-test-network">https://wiki.polkadot.network/docs/maintain-networks#westend-test-network</a>）上账户索引1988的对应账户地址。输出结果显示了账户地址、存款金额和一个布尔标志，表明该账户是否被永久认领。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1016/omy5n94ttg8uyd4" alt="波卡账户深度指南（下）"></p>
+<p>通过Polkadot-JS UI中的Developer-&gt;Extrinsics菜单，提交一个claim extrinsic到indices pallet来注册一个索引。这是最简单的方法：</p>
+<p>向【indices】pallet提交【claim】extrinsic来注册索引。最简单的方法是通过Polkadot-JS UI的&quot;开发者&quot;（Developer）-&gt;&ldquo;外源&rdquo;（Extrinsics）菜单进行操作：</p>
+<p><img src="https://img.bibiqing.com/news/2023/1016/qvye9whchsa35kn" alt="波卡账户深度指南（下）"></p>
+<p>要在波卡或Kusama上找到可申请的指数，这个辅助工具（详情请参见：<a href="https://www.shawntabrizi.com/substrate-js-utilities/indices/">https://www.shawntabrizi.com/substrate-js-utilities/indices/</a>）可能会派上用场。</p>
+<p>如果要永久保留索引，可以使用上述的冻结【freeze】外置功能。</p>
+<h1 id="在dotksm账户中使用ens">在DOT/KSM账户中使用ENS</h1>
+<p>以太坊名称服务ENS（Ethereum Name Service）是以太坊区块链上的一个去中心化开放智能合约系统，允许用户申请bruno.eth等域名。</p>
+<p>ENS等效于DNS（域名系统）域名。不过，它提供了一种通过智能合约翻译文本的去中心化安全方式。支持钱包可以允许发送者输入ENS域名，而不是冗长和笨重的地址，从而防止网络钓鱼、欺诈、打错字，并为普通钱包用户体验增加了一层可用性。</p>
+<p>注意：</p>
+<p>在遵循本指南时，你需要一个ENS名称和一个有以太坊的以太坊账户。要注册ENS名称，请访问ENS App（详情请参见：</p>
+<p><a href="https://app.ens.domains/">https://app.ens.domains/</a>）或任何子域注册商，如Nameth（详情请参见：<a href="https://app.ens.domains/">https://app.ens.domains/</a>）。</p>
+<p>请注意，如果使用的是旧版ENS名称，则应确保使用的是新的解析器（详情请参见：<a href="https://makoto-inoue.medium.com/ens-registry-migration-is-over-now-what-a-few-things-to-know-fb05f921872a">https://makoto-inoue.medium.com/ens-registry-migration-is-over-now-what-a-few-things-to-know-fb05f921872a</a>）。访问ENS App时会发出警告。你还需要一些使用以太坊地址的方法&ndash;建议在个人电脑上按照本指南操作。像Frame（详情请参见：</p>
+<p><a href="https://frame.sh/">https://frame.sh/</a>）和Metamask（详情请参见：</p>
+<p><a href="https://metamask.io/">https://metamask.io/</a>）这样的钱包是安全的，可以让你通过浏览器与以太坊区块链轻松互动。</p>
+<p>尽管在以太坊区块链上，ENS系统仍支持多链。在本指南中，你将经历向ENS添加KSM和DOT地址的过程。我们将介绍KSM和DOT两种不同的方法。</p>
+<p>注意：</p>
+<p>目前只能使用Resolver方法添加DOT。KSM可通过以下两种方法添加。</p>
+<p>YouTube（详情请参见：</p>
+<p><a href="https://www.youtube.com/watch?v=XKjZk-5_mQc">https://www.youtube.com/watch?v=XKjZk-5_mQc</a>）上也有本指南的视频。</p>
+<p>通过用户界面添加</p>
+<p>ENS App（详情请参见：<a href="https://app.ens.domains/">https://app.ens.domains/</a>）允许ENS域名所有者检查绑定到域的所有记录，并添加新记录。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1016/tubaw25jy97lyyv" alt="波卡账户深度指南（下）"></p>
+<p>例如，域名【bruno.eth】附带了一个以太坊和一个比特币地址。现在，我们要附加一个KSM账户。首先，点击记录选项卡中的【+】图标。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1016/ynsvr8mdvs7jov4" alt="波卡账户深度指南（下）"></p>
+<p>然后选择&quot;其他地址&quot;（Other Addresses）和&quot;KSM&quot;，输入Kusama地址：</p>
+<p><img src="https://img.bibiqing.com/news/2023/1016/45s4smyqzwmvavh" alt="波卡账户深度指南（下）"></p>
+<p>单击保存后，你的以太坊钱包会要求你确认一项交易。完成后，该记录将显示在域名页面上：</p>
+<p><img src="https://img.bibiqing.com/news/2023/1016/0hece09lsg7euf1" alt="波卡账户深度指南（下）"></p>
+<p>DOT地址也可以通过类似的方式添加。</p>
+<p>一旦交易被确认，你的地址将绑定到你的ENS域名上。</p>
+<p>钱包支持</p>
+<p>目前还没有钱包支持KSM或DOT的ENS名称，但加密会计和投资组合应用程序Rotki（详情请参见：<a href="https://rotki.com/">https://rotki.com/</a>）支持KSM ENS解析。</p>
+<p>相关链接</p>
+<ul>
+<li>ENS文档（详情请参见：<a href="https://docs.ens.domains/">https://docs.ens.domains/</a>）</li>
+<li>ENS多链公告（详情请参见：</li>
+</ul>
+<p><a href="https://medium.com/">https://medium.com/</a>@brantly.eth/ens-launches-multi-coin-support-15-wallets-to-integrate-92518ab20599）</p>
+<ul>
+<li>地址编码器（详情请参见：</li>
+</ul>
+<p><a href="https://github.com/ensdomains/address-encoder">https://github.com/ensdomains/address-encoder</a>）</p>
+<ul>
+<li>Namehash计算器（详情请参见：</li>
+</ul>
+<p><a href="https://swolfeyes.github.io/ethereum-namehash-calculator/">https://swolfeyes.github.io/ethereum-namehash-calculator/</a>）</p>
+<ul>
+<li>Address to pubkey转换器（详情请参见：</li>
+</ul>
+<p><a href="https://www.shawntabrizi.com/substrate-js-utilities/">https://www.shawntabrizi.com/substrate-js-utilities/</a>）</p>
+<h1 id="将polkadot-js-app账户地址从一台计算机转移到另一台计算机">将Polkadot-JS App账户/地址从一台计算机转移到另一台计算机</h1>
+<p>注意：</p>
+<p>这将覆盖新计算机上具有相同公钥的现有账户。这通常不会产生影响（因为它仍然可以访问相同的账户），但如果你在旧计算机的扩展中存储了外部账户，而在新计算机上直接在浏览器中创建了该账户，则可能会产生影响。</p>
+<p>在Brave和Chrome浏览器上进行了测试，但还未测试其他浏览器。</p>
+<p>步骤：</p>
+<p>1. 打开Polkadot-JS Apps。</p>
+<p>2. 在浏览器中打开JavaScript控制台（可在开发人员工具中找到）。</p>
+<p>3. 输入以下命令：</p>
+<p>JSON.stringify（localStorage）</p>
+<p>4. 复制返回的字符串，并将其保存到文本编辑器中。</p>
+<p>5. 检查你粘贴的字符串是否以引号（&rsquo;）.slice（1,-1）; console.log（key+&quot;-&gt;&quot;+val）; localStorage.setItem（key,val）; } }</p>
+<p>11. 刷新Polkadot-JS App浏览器，检查账户和地址页面。现在，你所有的账户和地址都可以使用。</p>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/61222/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">币安完成第25次BNB销毁，共销毁价值约4.53亿美元BNB</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/61204/">
+                <span class="next-text nav-default">不仅白领受波及！行业人士警告：生成式AI也将威胁蓝领“饭碗”</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

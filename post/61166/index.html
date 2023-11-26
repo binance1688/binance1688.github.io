@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          SharkTeam：起底朝鲜APT组织Lazarus Group，攻击手法及洗钱模式 - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="自2017年以来，Lazarus Group开始对加密行业进行攻击，并获利至少10亿美元。" />
+
+  <meta name="keywords" content="区块大全, 区块链, 区块链资讯, 区块链快讯, 区块链新闻, 比特币行情" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/61166/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="SharkTeam：起底朝鲜APT组织Lazarus Group，攻击手法及洗钱模式" />
+<meta property="og:description" content="自2017年以来，Lazarus Group开始对加密行业进行攻击，并获利至少10亿美元。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/61166/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-10-15T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-10-15T00:00:00+00:00" />
+
+<meta itemprop="name" content="SharkTeam：起底朝鲜APT组织Lazarus Group，攻击手法及洗钱模式">
+<meta itemprop="description" content="自2017年以来，Lazarus Group开始对加密行业进行攻击，并获利至少10亿美元。"><meta itemprop="datePublished" content="2023-10-15T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-10-15T00:00:00+00:00" />
+<meta itemprop="wordCount" content="5425">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="SharkTeam：起底朝鲜APT组织Lazarus Group，攻击手法及洗钱模式"/>
+<meta name="twitter:description" content="自2017年以来，Lazarus Group开始对加密行业进行攻击，并获利至少10亿美元。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">SharkTeam：起底朝鲜APT组织Lazarus Group，攻击手法及洗钱模式</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-10-15">
+      2023-10-15
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 5425 字 -
+        预计阅读 11 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E5%85%B6%E5%AE%83%E6%96%87%E7%AB%A0/"> 其它文章 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>国家级 APT（Advanced Persistent Threat，高级持续性威胁）组织是有国家背景支持的顶尖黑客团伙，专门针对特定目标进行长期的持续性网络攻击。朝鲜 APT 组织 Lazarus Group 就是非常活跃的一个 APT 团伙，其攻击目的主要以窃取资金为主，堪称全球金融机构的最大威胁，近年来多起加密货币领域的攻击和资金窃取案件就是他们所为。</p>
+<h2 id="一lazarus-group">一、Lazarus Group</h2>
+<p>据维基百科资料，Lazarus Group 成立于 2007 年，隶属于北韩人民军总参谋部侦察总局第三局旗下的 110 号研究中心，专门负责网络战。该组织分为 2 个部门，一个是大约 1700 名成员的 BlueNorOff（也称为 APT 38），负责通过伪造 SWIFT 订单进行非法转账，专注于利用网络漏洞谋取经济利益或控制系统来实施金融网络犯罪，此部门针对金融机构和加密货币交易所。另一个是大约 1600 名成员的 AndAriel，以韩国为攻击目标。</p>
+<p>已知 Lazarus Group 最早的攻击活动是 2009 年其利用 DDoS 技术来攻击韩国政府的「特洛伊行动」。而最著名的一次是 2014 年对索尼影业的攻击，原因是索尼上映关于暗杀朝鲜领导人金正恩的喜剧。</p>
+<p>该组织旗下机构 BlueNorOff 的一次知名攻击是 2016 年的孟加拉国银行攻击案，他们试图利用 SWIFT 网络从属于孟加拉国中央银行的纽约联邦储备银行账户非法转移近 10 亿美元。在完成了几笔交易（2000 万美元追踪到斯里兰卡， 8100 万美元追踪到菲律宾）后，纽约联邦储备银行以拼写错误引起的怀疑为由阻止了其余交易。</p>
+<p>自 2017 年以来，该组织开始对加密行业进行攻击，并获利至少 10 亿美元。</p>
+<h2 id="二技战法分析">二、技战法分析</h2>
+<h3 id="21常用攻击手法分析">2.1 常用攻击手法分析</h3>
+<p>Lazarus 早期多利用僵尸网络对目标进行 DDos 攻击；目前主要攻击手段转为鱼叉攻击、水坑攻击、供应链攻击等手法，还针对不同人员采取定向社会工程学攻击。</p>
+<ul>
+<li><strong>战术特征：</strong></li>
+</ul>
+<p>（1）使用邮件鱼叉攻击和水坑攻击</p>
+<p>（2）攻击过程会利用系统破坏或勒索应用干扰事件的分析</p>
+<p>（3）利用 SMB 协议漏洞或相关蠕虫工具实现横向移动和载荷投放</p>
+<p>（4）攻击银行 SWIFT 系统实现资金盗取</p>
+<ul>
+<li><strong>技术特征：</strong></li>
+</ul>
+<p>（1）使用多种加密算法，包括 RC 4 ，AES， Spritz 等标准算法，也使用 XOR 及自定义字符变换算法</p>
+<p>（2）主要使用虚假构造的 TLS 协议，通过在 SNI record 中写入白域名来 Bypass IDS。也使用 IRC、HTTP 协议</p>
+<p>（3）通过破坏 MBR、分区表或者向扇区写入垃圾数据从而破坏系统</p>
+<p>（4）使用自删除脚本</p>
+<ul>
+<li><strong>攻击手段：</strong></li>
+</ul>
+<p>（1）鱼叉攻击：鱼叉攻击是计算机病毒术语，是黑客攻击方式之一。将木马程序作为电子邮件的附件，并起上一个极具诱惑力的名称，发送给目标电脑，诱使受害者打开附件，从而感染木马。Lazarus 通常以邮件夹带恶意文档作为诱饵，常见文件格式为 DOCX，后期增加了 BMP 格式。入侵方式主要利用恶意宏与 Office 常见漏洞、 0 day 漏洞、植入 RAT 的手法。</p>
+<p>（2）水坑攻击：顾名思义，是在受害者必经之路设置了一个“水坑(陷阱)”，最常见的做法是，黑客分析攻击目标的上网活动规律，寻找攻击目标经常访问的网站的弱点，先将此网站“攻破”并植入攻击代码，一旦攻击目标访问该网站就会“中招”。Lazarus 通常针对贫穷的或欠发达地区的小规模银行金融机构使用水坑攻击，这样就可以在短时间内大范围盗取资金。2017 年，Lazarus 对波兰金融监管机构发动水坑攻击，在网站官方网站植入恶意的 JavaScript 漏洞，导致波兰多家银行被植入恶意程式。此次攻击感染了 31 个国家的 104 个组织，大多数目标是位于波兰、智利、美国、墨西哥和巴西的金融机构。</p>
+<p>（3）社工攻击：社会工程攻击，是一种利用&quot;社会工程学&quot; 来实施的网络攻击行为。在计算机科学中，社会工程学指的是通过与他人的合法地交流，来使其心理受到影响，做出某些动作或者是透露一些机密信息的方式。这通常被认为是一种欺诈他人以收集信息、行骗和入侵计算机系统的行为。Lazarus 擅长将社工技术运用到攻击周期中，无论是投递的诱饵还是身份伪装，都令受害者无法甄别，从而掉入它的陷阱中。2020 年期间，Lazarus 在领英网站伪装招聘加密货币工作人员并发送恶意文档，旨在获取凭证从而盗取目标加密货币。2021 年，Lazarus 以网络安全人员身份潜伏在 Twitter 中，伺机发送嵌有恶意代码的工程文件攻击同行人员。</p>
+<ul>
+<li><strong>武器库：</strong></li>
+</ul>
+<p>Lazarus 使用的网络武器中包含大量定制工具，并且使用代码有很多相似之处。肯定地说，这些软件来自相同的开发人员，可以说明 Lazarus 背后有具有一定规模的开发团队。Lazarus 拥有的攻击能力和工具包括 DDoS botnets、 keyloggers、 RATs、wiper malware，使用的恶意代码包括 Destover、Duuzer 和 Hangman 等。</p>
+<h3 id="22典型攻击事件分析">2.2 典型攻击事件分析</h3>
+<p>下面以一起典型的 Lazarus 针对加密行业的鱼叉攻击为例进行分析。Lazarus 通过邮件附件或链接的方式，诱导目标工作人员下载恶意压缩包，并执行压缩包中的恶意文件。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1015/29_lm4run1bsp.png" alt="SharkTeam：起底朝鲜APT组织Lazarus Group，攻击手法及洗钱模式"></p>
+<p>邮件末尾的“CoinbaseJobDescription”即为恶意链接并诱导用户点击，一旦点击用户就会下载恶意压缩包，并执行压缩包中的恶意文件。压缩包分为三种情况：</p>
+<p>（1）释放加密的诱饵文件和一个带有恶意命令的 LNK 文件，由 LNK 文件下载后续载荷，后续载荷释放文件密钥和恶意脚本；</p>
+<p>（2）释放 LNK 文件，LNK 文件下载后续载荷，后续载荷释放诱饵文件和恶意脚本；</p>
+<p>（3）释放带宏的 OFFICE 文件，由恶意宏下载后续载荷并执行。</p>
+<p>以样本b94a13586828f8f3474f7b89755f5e7615ff946efd510a4cca350e6e1b4af440为例进行分析。该样本文件名为 Ledger_Nano_SX_Security_Patch_Manual.zip，是一个 zip 压缩包，文件名中的 LedgerNano 是一款硬件钱包，用于保护加密资产，S 和 X 是其型号。</p>
+<p>该样本伪装成 LedgerNano 的安全补丁手册，解压后会释放一个伪装成 pdf 文件的快捷方式文件：</p>
+<p><img src="https://img.bibiqing.com/news/2023/1015/ay6d200m81uk8ok" alt="SharkTeam：起底朝鲜APT组织Lazarus Group，攻击手法及洗钱模式"></p>
+<p>用户双击该快捷方式后，会执行命令：</p>
+<p><img src="https://img.bibiqing.com/news/2023/1015/29_sgn8mq4wii.png" alt="SharkTeam：起底朝鲜APT组织Lazarus Group，攻击手法及洗钱模式"></p>
+<p>该命令中，使用 cmd 静默执行 expand 程序，将 msiexec.exe 复制到%appdata%\pat.exe 路径下，然后使用 pcalua.exe 打开 pat.exe，从远程服务器上下载 msi 文件并执行。这个过程中使用了多种逃避木马检测的技术：</p>
+<p>（1）expand.exe 是系统用于解压压缩包的程序，但可以被用来进行文件复制，代替敏感的 copy 命令；</p>
+<p>（2）复制并重命名 msiexec.exe，以逃避对 msiexec.exe 的执行检测；</p>
+<p>（3）pcalua.exe 是 windows 程序兼容性助手，是系统的白名单程序，攻击者使用该程序调用重命名为 pat.exe 的 msiexec.exe，访问远程服务器上的恶意 msi 文件，从而逃避检测。</p>
+<p>获取到的 MSI 文件运行后，会执行内嵌的脚本：</p>
+<p><img src="https://img.bibiqing.com/news/2023/1015/29_nu5gnu64dr.png" alt="SharkTeam：起底朝鲜APT组织Lazarus Group，攻击手法及洗钱模式"></p>
+<p><img src="https://img.bibiqing.com/news/2023/1015/29_7nhud7m7wm.png" alt="SharkTeam：起底朝鲜APT组织Lazarus Group，攻击手法及洗钱模式"></p>
+<p><strong>该脚本为 Lazarus 典型的一阶段脚本，其功能包括：</strong></p>
+<p>（1）下载并打开正常的 PDF 文件从而迷惑受害者；</p>
+<p>（2）向启动目录释放 Edge.lnk 文件，完成自启动；lnk 文件执行的命令与样本解压后的 lnk 文件基本相同，也是使用 pcalua.exe 调用重命名后的 msiexec.exe 加载远程服务器上的 msi 文件；该文件的名称和图标都伪装为 Edge 浏览器，使受害者降低警惕；</p>
+<p>（3）调用 WMI 命令获取进程名称列表并进行拼接，然后检查如下进程名称：</p>
+<p>“kwsprot”：金山毒霸相关进程</p>
+<p>“npprot”：Net ProtectorAntiVirus 相关进程</p>
+<p>“fshoster”：F-Secure 相关进程</p>
+<p>（4）如果拼接后的进程名称中存在上述字符串之一，则会使用 cscript.exe 执行后续脚本，否则使 npprot 用 wscript.exe；</p>
+<p>（5）将选定的脚本执行程序复制到%public%目录下；并且如果进程名称中存在 kwsprot 或 npprot，会将用于执行脚本的程序重命名为 icb.exe，以逃避检测；</p>
+<p>（6）解码 base 64 编码的后续脚本，释放到临时文件夹下，命名为 RgdASRgrsF.js</p>
+<p>（7）使用复制到%public%目录下的脚本执行程序，执行 RgdASRgrsF.js</p>
+<p>RgdASRgrsF.js 是 Lazarus 典型的二阶段脚本，其功能非常简单，生成随机的 UID 后与服务器通讯，然后循环接受服务器的命令并执行；所执行的命令通常一些收集系统信息的命令：</p>
+<p><img src="https://img.bibiqing.com/news/2023/1015/29_eybmcgosvt.png" alt="SharkTeam：起底朝鲜APT组织Lazarus Group，攻击手法及洗钱模式"></p>
+<p>至此攻击已经完成，黑客可以在用户电脑上获得他所需的文件或密码等敏感信息。通过对 Lazarus 可以发现，目前其攻击的目标行业包括政府、军队、金融、核工业、化工、医疗、航空航天、娱乐媒体和加密货币，从 2017 年开始加密货币行业的比重明显增大。</p>
+<h2 id="三洗钱模式分析">三、洗钱模式分析</h2>
+<p>目前已明确统计到的 Lazarus 攻击加密领域的安全事件和损失如下：</p>
+<p><img src="https://img.bibiqing.com/news/2023/1015/29_0oa7awht2m.png" alt="SharkTeam：起底朝鲜APT组织Lazarus Group，攻击手法及洗钱模式"></p>
+<p>超过 30 亿美元的资金在网络攻击中被 Lazarus 盗取，据悉，Lazarus 黑客组织背后有着朝鲜战略利益的支撑，为朝鲜的核弹、弹道导弹计划提供资金。为此，美国宣布悬赏 500 万美元，对 Lazarus 黑客组织进行制裁。美国财政部也已将相关地址添加到 OFAC 特别指定国民（SDN）名单中，禁止美国个人、实体和相关地址进行交易，以确保国家资助的集团无法兑现这些资金，以此进行制裁。以太坊开发商 Virgil Griffith 因帮助朝鲜使用虚拟货币逃避制裁而被判处五年零三个月的监禁,今年 OFAC 也制裁了三名与 Lazarus Group 相关人员，其中两名被制裁者 Cheng Hung Man 和 Wu Huihui 是为 Lazarus 提供加密货币交易便利的场外交易 (OTC) 交易员，而第三人 Sim Hyon Sop 提供了其他财务支持。</p>
+<p>尽管如此，Lazarus 已完成了超 10 亿美元的资产转移和清洗，他们的洗钱模式分析如下。以 Atomic Wallet 事件为例，去除黑客设置的技术干扰因素后（大量的假代币转账交易+多地址分账），可以得到黑客的资金转移模式：</p>
+<p><img src="https://img.youtocoin.com/news/2023/1015/0_gubd46fesz.png" alt="SharkTeam：起底朝鲜APT组织Lazarus Group，攻击手法及洗钱模式"></p>
+<p>图：Atomic Wallet 受害者 1 资金转移视图</p>
+<p>受害者 1 地址0x b 0 2d&hellip;c 6072 向黑客地址0x 3916&hellip;6340 转移 304.36 ETH，通过中间地址0x 0159&hellip;7 b 70 进行 8 次分账后，归集至地址0x 69 ca&hellip;5324 。此后将归集资金转移至地址0x 514 c&hellip;58 f 67 ，目前资金仍在该地址中，地址 ETH 余额为 692.74 ETH（价值 127 万美元）。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1015/29_fj1hs2sifs.png" alt="SharkTeam：起底朝鲜APT组织Lazarus Group，攻击手法及洗钱模式"></p>
+<p>图：Atomic Wallet 受害者 2 资金转移视图</p>
+<p>受害者 2 地址0x0b45&hellip;d662 向黑客地址0xf0f7&hellip;79b3 转移 126.6 万 USDT，黑客将其分成三笔，其中两笔转移至 Uniswap，转账总额为 126.6 万 USDT；另一笔向地址0x49ce&hellip;80fb 进行转移，转移金额为 672.71 ETH。受害者 2 向黑客地址0x0d5a&hellip;08c2 转移 2.2 万 USDT，该黑客通过中间地址0xec13&hellip;02d6 等进行多次分账，直接或间接将资金归集至地址0x3c2e&hellip;94a8 。</p>
+<p><strong>这种洗钱模式与之前的 Ronin Network、Harmony 攻击事件中的洗钱模式高度一致，均包含三个步骤：</strong></p>
+<p>（1）被盗资金整理兑换：发起攻击后整理原始被盗代币，通过 dex 等方式将多种代币 swap 成 ETH。这是规避资金冻结的常用方式。</p>
+<p>（2）被盗资金归集：将整理好的 ETH 归集到数个一次性钱包地址中。Ronin 事件中黑客一共用了 9 个这样的地址，Harmony 使用了 14 个，Atomic Wallet 事件使用了近 30 个地址。</p>
+<p>（3）被盗资金转出：使用归集地址通过 Tornado.Cash 将钱洗出。这便完成了全部的资金转移过程。</p>
+<p>除了具备相同的洗钱步骤，在洗钱的细节上也有高度的一致性：</p>
+<p>（1）攻击者非常有耐心，均使用了长达一周的时间进行洗钱操作，均在事件发生几天后开始后续洗钱动作。</p>
+<p>（2）洗钱流程中均采用了自动化交易，大部分资金归集的动作交易笔数多，时间间隔小，模式统一。</p>
+<p>通过分析，我们认为 Lazarus 的洗钱模式通常如下：</p>
+<p>（1）多账号分账、小额多笔转移资产，提高追踪难度。</p>
+<p>（2）开始制造大量假币交易，提高追踪难度。以 Atomic Wallet 事件为例， 27 个中间地址中有 23 个账户均为假币转移地址，近期在对 Stake.com 的事件分析中也发现采用类似技术，但之前的 Ronin Network、Harmony 事件并没有这种干扰技术，说明 Lazarus 的洗钱技术也在升级。</p>
+<p>（3）更多的采用链上方式（如 Tonado Cash）进行混币，早期的事件中 Lazarus 经常使用中心化交易所获得启动资金或进行后续的 OTC，但近期越来越少的使用中心化交易所，甚至可以认为是可以的避免使用中心化交易所，这与近期的几起制裁事件应该有关。</p>
+<h2 id="about-us">About Us</h2>
+<p>SharkTeam 的愿景是保护Web3世界的安全。团队由来自世界各地的经验丰富的安全专业人士和高级研究人员组成，精通区块链和智能合约底层理论。提供包括链上大数据分析、链上风险预警、智能合约审计、加密资产追讨等服务，并打造了链上大数据分析和风险预警平台 ChainAegis，平台支持无限层级的深度图分析，能有效对抗Web3世界的新型高级持续性盗窃(Advanced Persistent Theft，APT)风险。已与Web3生态各领域的关键参与者,如 Polkadot、Moonbeam、polygon、OKX、Huobi Global、imToken、ChainIDE 等建立长期合作关系。</p>
+<p>官网：<a href="https://www.sharkteam.org/">https://www.sharkteam.org</a></p>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/61170/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">Paxos发布USDP九月透明度报告：未偿代币总额逾4.86亿美元</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/61175/">
+                <span class="next-text nav-default">Starknet：全链游戏生态发展优势与优质项目解析</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#一lazarus-group">一、Lazarus Group</a></li>
+    <li><a href="#二技战法分析">二、技战法分析</a>
+      <ul>
+        <li><a href="#21常用攻击手法分析">2.1 常用攻击手法分析</a></li>
+        <li><a href="#22典型攻击事件分析">2.2 典型攻击事件分析</a></li>
+      </ul>
+    </li>
+    <li><a href="#三洗钱模式分析">三、洗钱模式分析</a></li>
+    <li><a href="#about-us">About Us</a></li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

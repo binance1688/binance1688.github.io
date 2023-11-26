@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          CertiK：去中心化借贷平台HopeLend遭受借贷攻击事件分析 - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="黑客利用整数除法问题漏洞掏空了对Hope.money上的资金借贷池进行了攻击。" />
+
+  <meta name="keywords" content="区块大全, 区块链, 区块链资讯, 区块链快讯, 区块链新闻, 比特币行情" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/61613/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="CertiK：去中心化借贷平台HopeLend遭受借贷攻击事件分析" />
+<meta property="og:description" content="黑客利用整数除法问题漏洞掏空了对Hope.money上的资金借贷池进行了攻击。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/61613/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-10-22T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-10-22T00:00:00+00:00" />
+
+<meta itemprop="name" content="CertiK：去中心化借贷平台HopeLend遭受借贷攻击事件分析">
+<meta itemprop="description" content="黑客利用整数除法问题漏洞掏空了对Hope.money上的资金借贷池进行了攻击。"><meta itemprop="datePublished" content="2023-10-22T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-10-22T00:00:00+00:00" />
+<meta itemprop="wordCount" content="3880">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="CertiK：去中心化借贷平台HopeLend遭受借贷攻击事件分析"/>
+<meta name="twitter:description" content="黑客利用整数除法问题漏洞掏空了对Hope.money上的资金借贷池进行了攻击。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">CertiK：去中心化借贷平台HopeLend遭受借贷攻击事件分析</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-10-22">
+      2023-10-22
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 3880 字 -
+        预计阅读 8 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E4%BA%A4%E6%98%93%E6%89%80/"> 交易所 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>北京时间 2023 年 10 月 18 日 19: 48: 59 ，Hope.money 的借贷池受到了基于闪电贷实施的攻击。</p>
+<p>Hope.money 构建了包括 HopeLend 借贷平台、HopeSwap 去中心化交易所、稳定币$HOPE、治理代币$LT，为用户提供去中心化金融全栈服务。</p>
+<p>本次攻击涉及的协议是 HopeLend，是一个去中心化借贷平台，用户可以为协议提供流动性或者超额抵押借贷赚取收益。</p>
+<h2 id="事件始末">事件始末</h2>
+<p>在 HopeLend 的代码实现中，借贷池存在可被利用的漏洞，由于在销毁存款凭证时，出现了错误的整数除法问题，导致小数点部分被截断，实现了销毁比预期少的凭证数量，获得和预期一致的价值代币。</p>
+<p>攻击者利用这个缺陷掏空了 Hope.money 上存在资金的多种借贷池。</p>
+<p>其中 hEthWbtc 借贷池于 73 天前部署，但是其中没有资金，因此黑客通过往该借贷池注入大量资金来达到让贴现率戏剧性地暴涨，从而实现了在一个区块交易内快速掏空了所有其他借贷池子的资金。</p>
+<p>更戏剧性的是，实现利用的黑客没有获得漏洞利用的资金，他的攻击交易被抢跑者发现，抢跑者模仿其攻击行为并成功抢走了所有攻击收益资金( 527 ETH)，最终有 50% 的攻击收益资金( 263 ETH)被抢跑者用于贿赂打包区块的矿工（payload）。</p>
+<p>发现漏洞的初始黑客，在区块 18377039 创建了攻击合约，并在区块 18377042 进行了攻击合约的调用，此时抢跑者监控到内存池里的交易，并将其攻击合约进行模拟，作为抢跑合约的输入，在同样的 18377042 区块进行利用，而初始黑客在 18377042 区块的交易由于排序在抢跑者后面，从而执行失败了。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1022/14_y0gsmpdss4.png" alt="CertiK：去中心化借贷平台HopeLend遭受借贷攻击事件分析"></p>
+<h2 id="资金去向">资金去向</h2>
+<p>抢跑者在获得收益后的一小时，将资金转移到：0x9a9122Ef3C4B33cAe7902EDFCD5F5a486792Bc3A</p>
+<p><img src="https://img.bibiqing.com/news/2023/1022/14_otmy24usmw.png" alt="CertiK：去中心化借贷平台HopeLend遭受借贷攻击事件分析"></p>
+<p>在 10 月 20 日 13: 30: 23 ，疑似官方团队联系了该地址，允许抢跑者留下 26 ETH（10% 的获利）作为奖励，并得到抢跑者的答复。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1022/14_z137dptnes.png" alt="CertiK：去中心化借贷平台HopeLend遭受借贷攻击事件分析"></p>
+<p>最终资金在沟通一个小时后，转移到 GnosisSafe 的多签金库中。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1022/14_ujitocjss1.png" alt="CertiK：去中心化借贷平台HopeLend遭受借贷攻击事件分析"></p>
+<p>下面我们将展示真实的漏洞和黑客进行利用的细节。</p>
+<h2 id="前置信息">前置信息</h2>
+<p>*HopeLend 的借贷协议实现 Fork 自 Aave，因此涉及到漏洞相关的核心业务逻辑参考自 Aave 的白皮书。</p>
+<p>0x00 存款和借贷</p>
+<p>Aave 是一个纯粹的 DeFi，借贷业务通过流动性池实现，用户在 Aave 存款提供流动性时，期望获得借贷所获得的收益。</p>
+<p>贷款收益并不会完全分配给用户，有少部分利息收入会被计入风险储备金，此部分比例较少，大部分贷款收益会分发给提供流动性的用户。</p>
+<p>在 Aave 中进行存款放贷时，Aave 是通过贴现的方式，将不同时间点的存款数量转化成流动性池初始时间点的存款数量份额，因此每数量份额的底层资产对应的本息和，就可以直接用 amount（份额） * index（贴现率）算出来，大大方便了计算和理解。</p>
+<p>可以理解为类似购买基金的过程，基金的初始净值是 1 ，用户投入 100 块钱获得 100 的份额，假设经过一段时间获得收益，净值变成 1.03 ，此时用户再次投入 100 块钱，获得的份额是 97 ，用户的总份额是 197 。</p>
+<p>这其实是将该资产按照 index（净值）进行贴现处理。之所以这么处理，是因为用户实际的本息和是用 balance 去乘以当前的 index。当第二次存款的时候，用户正确的本息和应该是 100 * 1.03 + 100 = 203 ，如果不做贴现处理，第二次用户存入 100 后的本息和就变成了( 100+ 100) * 1.03 = 206 ，是错误的，如果进行了贴现，本息和就变成了（100 + 100 / 1.03) * 1.03 = 103 + 100 = 203 ， 203 的结果是正确的。</p>
+<h2 id="攻击过程">攻击过程</h2>
+<p>0x25126&hellip;&hellip;403907(hETHWBTC pool)</p>
+<p>0x5a63e&hellip;&hellip;844e74（攻击合约-套现）</p>
+<p>攻击者：</p>
+<h3 id="1-借出初始闪电贷资金进行质押">1. 借出初始闪电贷资金，进行质押</h3>
+<p>攻击者首先从 Aave 闪电贷借入 2300 WBTC，将其中 2000 枚 WBTC 质押（deposit）到 HopeLend，资金将会被转移至 HopeLend 的 hEthWbtc 合约( 0x251 … 907），同时获取相应的 2000 枚 hETHWBTC。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1022/14_f7psf1esqy.png" alt="CertiK：去中心化借贷平台HopeLend遭受借贷攻击事件分析"></p>
+<h3 id="2-借助空借贷池操纵初始贴现率liquidityindex">2. 借助空借贷池操纵初始贴现率（liquidityIndex）</h3>
+<p>从 HopeLend 进行闪电贷借入 2000 枚 WBTC。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1022/14_zohp5snmeu.png" alt="CertiK：去中心化借贷平台HopeLend遭受借贷攻击事件分析"></p>
+<p>目前的价值是 1 hETHWBTC = 1 WBTC。</p>
+<p>按照正常的存取 ETHWBTC 换回 WBTC 的操作，是不会影响兑换比例（只有当收入了利息才会影响兑换比例， 1 hETHWBTC 会获得更多 WBTC）。</p>
+<p>此时黑客开始通过一系列复杂操作，操纵贴现率：</p>
+<p>• 黑客直接又将得到的 2000 枚 WBTC 通过直接转账（transfer）的方式转移资金至 HopeLend 的 hEthWbtc 合约( 0x 251 … 907），这一步并不是还贷。</p>
+<p>• 黑客随后取出（withdraw）之前步骤 1 中质押（deposit）的绝大部分 WBTC（1999.999 …），所以上一步才需要转回 WBTC 以补充池子内的资产。</p>
+<p>• 最后黑客手上仅保留最小单位( 1 e-8)的 hEthWbtc，这里不能完全提完，是因为需要留下一点点，作为计算贴现率（liquidityIndex）时，会基于现有的加上新增的，如果清零的话，导致贴现率（liquidityIndex）变成 0 ，就不能让池子里的比例失衡。</p>
+<p>• 把上一步销毁掉绝大部分 hEthWbtc 换回来的 wBTC，加上之前闪电贷剩余的 wBTC，归还向 HopeLend 池子借出的闪电贷，共支付 2001.8 枚 WBTC(其中包含利息 1.8 枚 wBTC)。</p>
+<p>• 上面的过程销毁掉大部分的 hEthWbtc，只留下 1 最小单位（1 e-8）的 hEthWbtc 在黑客账户，这样一来 hETHWBTC 总量就减少了，而借贷池里却有 2001.8 枚 wBTC，此时的贴现率（liquidityIndex）达到惊人的 126, 000, 000 。这里涉及到一个知识，存款用户的利息根本上来自池中流动性的增长,借贷池会根据存款率和使用率，动态调节借款和存款利率。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1022/14_0qmyco58d1.png" alt="CertiK：去中心化借贷平台HopeLend遭受借贷攻击事件分析"></p>
+<p>此处，当池子从闪电贷利息( 1.8 WBTC)获得额外流动性时，百分之七十( 126, 000, 000)被计入 liquidityIndex（liquidityIndex），这个数值用来计算每单位存款(hEthWbt)的贴现价值。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1022/14_g0iejejic3.png" alt="CertiK：去中心化借贷平台HopeLend遭受借贷攻击事件分析"></p>
+<p><img src="https://img.bibiqing.com/news/2023/1022/14_dinryjtkzw.png" alt="CertiK：去中心化借贷平台HopeLend遭受借贷攻击事件分析"></p>
+<p><img src="https://img.bibiqing.com/news/2023/1022/14_s1r0szjc2i.png" alt="CertiK：去中心化借贷平台HopeLend遭受借贷攻击事件分析"></p>
+<p>由于池子在黑客操作前为空，还款后 totalLiquidity 仅为 1 ，amount 是 126000000 ，初始 liquidityIndex 为 1 ，得出结果为 126000001 。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1022/14_7k982siuyf.png" alt="CertiK：去中心化借贷平台HopeLend遭受借贷攻击事件分析"></p>
+<h3 id="3-继续放大贴现率">3. 继续放大贴现率</h3>
+<p>黑客继续从 HopeLend 进行闪电贷借入 2000 枚 WBTC，并每次归还额外的 1.8 枚 WBTC，使得每次 LiquidityIndex 得以累加 126, 000, 000 。</p>
+<p>黑客重复执行了 60 次该过程，最终 liquidityIndex 达到 7, 560, 000, 001 ，攻击者持有的 1 个最小单位的 hEthWBTC 贴现价值可达 75.6 WBTC(约为 214 万美元)。</p>
+<p>这也就使得黑客操控了 hEthWBTC，使之价值失真。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1022/14_b08tfydp2q.png" alt="CertiK：去中心化借贷平台HopeLend遭受借贷攻击事件分析"></p>
+<h3 id="4-掏空其他存在资金的借贷池形成收益">4. 掏空其他存在资金的借贷池，形成收益</h3>
+<p>攻击者接着将 1 个最小单位的 hEthWBTC 为抵押，从 HopeLend 的其他五个代币池借出了大量资产。</p>
+<p>包括：</p>
+<ul>
+<li>
+<p>175.4 - WETH</p>
+</li>
+<li>
+<p>145, 522.220985 - USDT</p>
+</li>
+<li>
+<p>123, 406.134999 - USDC</p>
+</li>
+<li>
+<p>844, 282.284002229528476039 - HOPE</p>
+</li>
+<li>
+<p>220, 617.821736563540747967 - stHOPE</p>
+</li>
+</ul>
+<p><img src="https://img.bibiqing.com/news/2023/1022/14_p94dgukso3.png" alt="CertiK：去中心化借贷平台HopeLend遭受借贷攻击事件分析"></p>
+<p>这些代币被作为收益通过 Uniswap 兑换为 WBTC 和 WETH，扣除各种费用后，最终黑客获利为约 263 枚 WETH（除去贿赂 payload 的 263.9 枚 WETH）。</p>
+<p>为什么黑客可以从其他池子借走大量资金：</p>
+<p>借款或取走存款时，借贷合约会检验用户的抵押资产状况，确保借出不超过抵押。</p>
+<p>由于之前贴现率已被黑客操纵且贴现率会以 normalizedIncome 乘数计入抵押价值计算，其手中的一单位 hEthWBTC 抵押价值高达 75.6 WBTC。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1022/14_zd76hft4ma.png" alt="CertiK：去中心化借贷平台HopeLend遭受借贷攻击事件分析"></p>
+<p><img src="https://img.bibiqing.com/news/2023/1022/14_qeqjtsk9ns.png" alt="CertiK：去中心化借贷平台HopeLend遭受借贷攻击事件分析"></p>
+<p>每一次从其他池借款，黑客都轻松通过了抵押资产校验。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1022/14_imizgs7ysk.png" alt="CertiK：去中心化借贷平台HopeLend遭受借贷攻击事件分析"></p>
+<p>此时, 攻击者总共在 HopeLend 投入了 2000+ 1.8* 60 枚 WBTC 用于操纵 liquidityIndex，只留存了 1 单位的 hEtthWBTC。</p>
+<h3 id="5-利用关键漏洞点整数除法错误套现">5. 利用关键漏洞点（整数除法错误）套现  </h3>
+<p>为了取出之前的投入 wBTC，攻击者部署了另一个攻击合约：0x 5 a 63 e&hellip;&hellip;844 e 74 ，并调用其中的 withdrawAllBtc()方法</p>
+<p><img src="https://img.bibiqing.com/news/2023/1022/14_lm8nu54sld.png" alt="CertiK：去中心化借贷平台HopeLend遭受借贷攻击事件分析"></p>
+<p>漏洞过程如下：</p>
+<p>① 首先存入 151.20000002 枚 wBTC，根据当前的 liquidityIndex( 1 最小单位 hEthWBTC= 75.6 wBTC)，攻击者获得 2 个最小单位的 hEthWBTC。</p>
+<p>② 取出（withdraw） 113.4 个 wBTC，反算出其对应的 hEthWBTC 份额，对 hEthWBTC 进行 burn 操作。</p>
+<p>③ 113.4 个 wBTC 需要销毁 1.9999999998 最小单位的的 hEthWBTC，但是由于 div 函数精度问题，仅一个最小单位的 hEthWBTC 被销毁，因此变成可被利用的漏洞，黑客仍可保留 1 个最小单位的 hEthWBTC。</p>
+<h2 id="关键漏洞">关键漏洞</h2>
+<p><img src="https://img.bibiqing.com/news/2023/1022/14_kskgki4krk.png" alt="CertiK：去中心化借贷平台HopeLend遭受借贷攻击事件分析"></p>
+<p>hEthWBTC 的 burn 方法调用了高精度除法 rayDiv。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1022/14_4kz4s0amy9.png" alt="CertiK：去中心化借贷平台HopeLend遭受借贷攻击事件分析"></p>
+<p>此处：</p>
+<p>a= 11340000000(打算取出的 WBTC)</p>
+<p>b=7560000001000000000000000009655610336(贴现率)</p>
+<p>虽然(a* 1e27+b/2)/b = 1.9999999998 ，solidity 自带的 div 方法截断返回 1, 相当于 11340000000 / 7560000001 除法后小数位被截断了。</p>
+<p>0x5a63(攻击合约-套现)继续存入 75.60000001 WBTC 恰好又获得 1 个最小单位 hEthWBTC，从而继续持有 2 个最小单位 hEthWBTC。</p>
+<p>如此循环取出 113.40000000 wBTC，存入 75.60000001 wBTC 的操作，每次攻击者可以凭空获取 37.8 枚 wBTC。</p>
+<p>循环 58 次后，攻击者取出了所有前期投入的 wBTC ，并顺利归还 Aave 的闪电贷。</p>
+<h2 id="结论">结论</h2>
+<p>由于 hEthWBTC 借贷池未被初始化，攻击者得以轻易操纵 liquidityIndex，将其增至极大，提现率作为除数极大放大后，由于整数除法的截断误差，使得取出之前的投入更容易在一个区块内实现。</p>
+<p>在运转良好的借贷池中，由于池中已有流动性，不容易因为少量的贷款利息增加而极大增加贴现率。</p>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/61637/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">Big Time对GameFi的影响：破局者还是昙花一现</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/61623/">
+                <span class="next-text nav-default">ChatGPT与DALL·E 3之间的行业「黑话」被人发现了</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#事件始末">事件始末</a></li>
+    <li><a href="#资金去向">资金去向</a></li>
+    <li><a href="#前置信息">前置信息</a></li>
+    <li><a href="#攻击过程">攻击过程</a>
+      <ul>
+        <li><a href="#1-借出初始闪电贷资金进行质押">1. 借出初始闪电贷资金，进行质押</a></li>
+        <li><a href="#2-借助空借贷池操纵初始贴现率liquidityindex">2. 借助空借贷池操纵初始贴现率（liquidityIndex）</a></li>
+        <li><a href="#3-继续放大贴现率">3. 继续放大贴现率</a></li>
+        <li><a href="#4-掏空其他存在资金的借贷池形成收益">4. 掏空其他存在资金的借贷池，形成收益</a></li>
+        <li><a href="#5-利用关键漏洞点整数除法错误套现">5. 利用关键漏洞点（整数除法错误）套现  </a></li>
+      </ul>
+    </li>
+    <li><a href="#关键漏洞">关键漏洞</a></li>
+    <li><a href="#结论">结论</a></li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

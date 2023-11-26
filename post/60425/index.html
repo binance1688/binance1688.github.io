@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          如何降低视觉Transformer计算成本？时间冗余方法让人大吃一惊 - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="在为语言领域带来变革之后，Transformer 正在进军视觉领域，但其也有着高计算成本的问题。" />
+
+  <meta name="keywords" content="区块大全, 区块链, 区块链资讯, 区块链快讯, 区块链新闻, 比特币行情" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/60425/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="如何降低视觉Transformer计算成本？时间冗余方法让人大吃一惊" />
+<meta property="og:description" content="在为语言领域带来变革之后，Transformer 正在进军视觉领域，但其也有着高计算成本的问题。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/60425/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-10-06T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-10-06T00:00:00+00:00" />
+
+<meta itemprop="name" content="如何降低视觉Transformer计算成本？时间冗余方法让人大吃一惊">
+<meta itemprop="description" content="在为语言领域带来变革之后，Transformer 正在进军视觉领域，但其也有着高计算成本的问题。"><meta itemprop="datePublished" content="2023-10-06T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-10-06T00:00:00+00:00" />
+<meta itemprop="wordCount" content="3733">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="如何降低视觉Transformer计算成本？时间冗余方法让人大吃一惊"/>
+<meta name="twitter:description" content="在为语言领域带来变革之后，Transformer 正在进军视觉领域，但其也有着高计算成本的问题。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">如何降低视觉Transformer计算成本？时间冗余方法让人大吃一惊</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-10-06">
+      2023-10-06
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 3733 字 -
+        预计阅读 8 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E5%85%B6%E5%AE%83%E6%96%87%E7%AB%A0/"> 其它文章 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<blockquote>
+<p>在为语言领域带来变革之后，Transformer 正在进军视觉领域，但其也有着高计算成本的问题。近日，威斯康星大学麦迪逊分校一个研究团队提出了 Eventful Transformer，可通过在视觉 Transformer 中利用时间冗余来节省成本。</p>
+</blockquote>
+<p><img src="https://img.bibiqing.com/news/2023/1006/4_sdmvrqcd1e.png" alt="如何降低视觉Transformer计算成本？时间冗余方法让人大吃一惊"></p>
+<p>图片来源：由<a href="https://wujie.ai/ai">无界 AI</a>生成</p>
+<p>Transformer 一开始是为自然语言处理任务设计的，但现在却已经被广泛用于视觉任务。视觉 Transformer 在一系列视觉识别任务上实现了出色的准确度，并在图像分类、视频分类和目标检测等任务上取得了当前最优的表现。</p>
+<p>视觉 Transformer 的一大缺点是计算成本高。典型的卷积网络（CNN）处理每张图像需要数十 GFlops，而视觉 Transformer 所需的往往会多上一个数量级，达到每张图像数百 GFlops。在处理视频时，由于数据量巨大，这个问题更为严重。高昂的计算成本让视觉 Transformer 难以被部署到资源有限或有严格延迟需求的设备上，这就限制了这项技术的应用场景，否则我们已经有一些激动人心的应用了。</p>
+<p>在近期一篇论文中，威斯康星大学麦迪逊分校的三位研究者 Matthew Dutson、Yin Li 和 Mohit Gupta 首先提出可以在后续输入之间使用时间冗余来降低视觉 Transformer 在视频应用中的成本。他们也发布了模型代码，其中包含用于构建 Eventful Transformer 的 PyTorch 模块。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1006/nu8qlo6w8ee1wvh" alt="如何降低视觉Transformer计算成本？时间冗余方法让人大吃一惊"></p>
+<ul>
+<li>论文地址：https://arxiv.org/pdf/2308.13494.pdf</li>
+<li>项目地址：http://wisionlab.com/project/eventful-transformers</li>
+</ul>
+<p>时间冗余：首先假设有一个视觉 Transformer，其可以逐帧或逐视频片段地处理视频序列。这个 Transformer 可能是简单的逐帧处理的模型（如目标检测器）或是某个时空模型的中间步骤（如 ViViT 的分解式模型的第一步）。不同于一个输入就是一个完整序列的语言处理 Transformer，在这里，研究者的做法是随时间为 Transformer 提供多个不同的输入（帧或视频片段）。</p>
+<p>自然视频包含显著的时间冗余，即后续帧之间的差异很小。尽管如此，包括 Transformer 在内的深度网络通常都会「从头开始」计算每一帧。该方法会丢弃之前推理获得的潜在相关信息，浪费极大。故而这三位研究者设想：是否可以复用之前计算步骤的中间计算结果来提升处理冗余序列的效率？</p>
+<p>自适应推理：对于视觉 Transformer 以及一般意义上的深度网络而言，推理成本通常由架构决定。然而在现实应用中，可用的资源可能会随时间而变化，比如可能因为存在相竞争的进程或电源发生变化。如此一来，可能就存在运行时修改模型计算成本的需求。在这项新成果中，研究者设定的一大主要设计目标便是适应性 —— 其方法可实现对计算成本的实时控制。下图 1（底部）给出了在视频处理过程中修改计算预算的示例。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1006/4g76nt3835i3odi" alt="如何降低视觉Transformer计算成本？时间冗余方法让人大吃一惊"></p>
+<p>Eventful Transformer：本文提出了 Eventful Transformer，这类 Transformer 能利用输入之间的时间冗余来实现高效且自适应的推理。Eventful 这一术语的灵感来自事件相机（event camera），这种传感器能在场景变化时离散地记录影像。Eventful Transformer 会跟踪随时间发生的 token 层面的变化情况，并在每个时间步骤有选择性地更新 token 表征和自注意力映射图。Eventful Transformer 的模块中包含一种门控模块，用于控制运行时间被更新 token 的数量。</p>
+<p>该方法可用于现成的模型（通常无需再训练）并且兼容许多视频处理任务。研究者也进行了实验论证，结果表明 Eventful Transformer 可用于现有的当前最佳模型，在极大降低它们的计算成本的同时还能维持其原有的准确度。</p>
+<h2 id="eventful-transformer"><strong>Eventful Transformer</strong></h2>
+<p>这项研究的目标加速用于视频识别的视觉 Transformer。在这个场景中，视觉 Transformer 需要反复处理视频帧或视频片段，具体的任务包括视频目标检测和视频动作识别等。这里提出的关键思想是利用时间冗余，即复用之前时间步骤的计算结果。下面将详细描述如何通过修改 Transformer 模块来使其具备感知时间冗余的能力。</p>
+<p><strong>token 门控：检测冗余</strong></p>
+<p>这一小节将介绍研究者提出的两种新模块：token 门和 token 缓冲器。这些模块让模型可以识别和更新自上次更新后有明显变化的 token。</p>
+<p>门模块：该门会从输入 token N 中选择一部分 M 发送给下游层执行计算。其记忆中维护着一个参照 token 集，记为 u。这种参照向量包含每个 token 在其最近一次更新时的值。在每个时间步骤，比较各个 token 与其对应的参照值，其中与参照值相差较大的 token 获得更新。</p>
+<p>现在将该门的当前输入记为 c。在每个时间步骤，按照以下流程更新门的状态并决定其输出（见下图 2）：</p>
+<p><img src="https://img.bibiqing.com/news/2023/1006/4svwr432054z8rt" alt="如何降低视觉Transformer计算成本？时间冗余方法让人大吃一惊"></p>
+<p>1. 计算总误差 e = u − c。</p>
+<p>2. 对误差 e 使用一个选取策略。选择策略返回一个二元掩码 m（相当于一个 token 索引列表），表示其中哪 M 个 token 应被更新。</p>
+<p>3. 提取出上述策略选取的 token。图 2 中将其描述为乘积 c×m；在实践中则是通过沿 c 的第一个轴执行「gather」操作来实现。这里将收集到的 token 记为</p>
+<p><img src="https://img.bibiqing.com/news/2023/1006/3m9oq28ni9jd8k2" alt="如何降低视觉Transformer计算成本？时间冗余方法让人大吃一惊"></p>
+<p>，这就是该门的输出。</p>
+<p>4. 将参照 token 更新成所选 token。图 2 将这个过程描述为</p>
+<p><img src="https://img.bibiqing.com/news/2023/1006/u5lnso7a4vasdzk" alt="如何降低视觉Transformer计算成本？时间冗余方法让人大吃一惊"></p>
+<p>；在实践中使用的操作则是「scatter」。在第一个时间步骤，门会更新所有 token（初始化 u ← c 并返回 c˜ = c）。</p>
+<p>缓冲器模块：缓冲模块维护着一个状态张量</p>
+<p><img src="https://img.bibiqing.com/news/2023/1006/be2oo412pvnpi5z" alt="如何降低视觉Transformer计算成本？时间冗余方法让人大吃一惊"></p>
+<p>，其跟踪的是每个输入 token </p>
+<p><img src="https://img.bibiqing.com/news/2023/1006/clo4e0isc2m80zu" alt="如何降低视觉Transformer计算成本？时间冗余方法让人大吃一惊"></p>
+<p>时，该缓冲器将来自 f (c˜) 的 token 分散到其在 b 中对应位置。然后它返回更新后的 b 作为其输出，参见下图 3。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1006/z1y2ypl7m31s0wc" alt="如何降低视觉Transformer计算成本？时间冗余方法让人大吃一惊"></p>
+<p>研究者将每个门与其后的缓冲器组成一对。这里给出一种简单的使用模式：门的输出</p>
+<p><img src="https://img.bibiqing.com/news/2023/1006/s7919gaasn3izz3" alt="如何降低视觉Transformer计算成本？时间冗余方法让人大吃一惊"></p>
+<p>被传递给一系列针对各个 token 的运算 f (c˜)；然后将所得到的张量</p>
+<p><img src="https://img.bibiqing.com/news/2023/1006/gjhcnohhk8avnbe" alt="如何降低视觉Transformer计算成本？时间冗余方法让人大吃一惊"></p>
+<p>传递给一个缓冲器，其将恢复完整的形状。</p>
+<p><strong>构建可感知冗余的 Transformer</strong></p>
+<p>为了利用上述时间冗余，研究者提出了一种对 Transformer 模块的修改方案。下图 4 展示了 Eventful Transformer 模块的设计。该方法可以加速针对各个 token 的运算（如 MLP）以及查询 - 键值和注意力 - 值乘法。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1006/d48howq79cvjyss" alt="如何降低视觉Transformer计算成本？时间冗余方法让人大吃一惊"></p>
+<p>在针对各个 token 的运算 Transformer 模块中，很多运算都是针对各个 token 的，也就是说它们不涉及到 token 之间的信息交换，其中包括 MLP 和 MSA 中的线性变换。为了节省计算成本，研究者表示可以跳过未被门选取的 token 的面向 token 的运算。由于 token 之间的独立性，这不会改变对所选 token 的运算结果。参见图 3。</p>
+<p>具体来说，针对各个 token 的运算（包括 W_qkv 变换、W_p 变换和 MLP）的连续序列，研究者使用了一对门 - 缓冲器。注意，他们还在 skip 连接之前添加了缓冲器以确保两个加法操作数的 token 是正确对齐的。</p>
+<p>针对各个 token 的运算的成本正比于 token 的数量。门可将这个数量从 N 降至 M，也就将下游的针对各个 token 的运算的计算成本降低了 N/M 倍。</p>
+<p>查询 - 键值的积：现在来看看查询 - 键值积 B = q k^T。</p>
+<p>下图 5 展示了稀疏地更新查询 - 键值积 B 中一部分元素的方法。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1006/rq7jrtrh950we6p" alt="如何降低视觉Transformer计算成本？时间冗余方法让人大吃一惊"></p>
+<p>这些更新的总体成本为 2NMD，相较而言，从头开始计算 B 的成本为 N^2D。注意，新方法的成本正比于 M，即门选取的 token 的数量。当 M &lt; N/2 时（此时更新的 token 不到总量一半），可节省计算量。</p>
+<p>注意力 - 值的积：研究者为此提出了一种基于增量 ∆ 的更新策略。</p>
+<p>下图 6 展示了新提出的高效计算三个增量项的方法。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1006/dqewdt6hb6w8auq" alt="如何降低视觉Transformer计算成本？时间冗余方法让人大吃一惊"></p>
+<p>同样当 M &lt; N/2 时，可节省计算量。</p>
+<p><strong>token 选取策略</strong></p>
+<p>Eventful Transformer 的一大重要设计是其 token 选取策略。给定一个门误差张量 e，这样一个策略的目标是生成一个掩码 m，其中指示了应当被更新的 token。具体的策略包括：</p>
+<p>Top-r 策略：该策略选取 r 个误差 e 有最大范数的 token（这里使用的是 L2 范数）。</p>
+<p>阈值策略：该策略选取误差 e 的范数超过一个阈值 h 的所有 token。</p>
+<p>其它策略：更复杂精细的 token 选取策略可实现更好的准确度 - 成本权衡，比如可以使用一个轻量级策略网络来学习一个策略。但是，训练策略的决策机制的难度可能很大，因为二元掩码 m 一般是不可微分的。另一个思路是使用重要度分数作为选取的参考信息。但这些想法都还有待未来研究。</p>
+<h2 id="实验"><strong>实验</strong></h2>
+<p>研究者用实验评估了新提出的方法，具体使用的任务是视频目标检测和视频动作识别。</p>
+<p>下图 7 展示了视频目标检测的实验结果。其中正轴是计算节省率，负轴是新方法的 mAP50 分数的相对减少量。可以看到，新方法用少量的准确度牺牲换来了显著的计算量节省。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1006/u06z14u1e54se1i" alt="如何降低视觉Transformer计算成本？时间冗余方法让人大吃一惊"></p>
+<p>下图 8 给出了在视频目标检测任务上的方法比较和消融实验结果。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1006/zm0lnn7csrtaggv" alt="如何降低视觉Transformer计算成本？时间冗余方法让人大吃一惊"></p>
+<p>下图 9 给出了视频动作识别的实验结果。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1006/k4fgsehbm2lp5rr" alt="如何降低视觉Transformer计算成本？时间冗余方法让人大吃一惊"></p>
+<p>下表 2 给出了在一台 CPU（Xeon Silver 4214, 2.2 GHz）和一台 GPU（NVIDIA RTX3090）上运行时间（毫秒）结果，可以看到时间冗余在 GPU 上带来的速度提升可达 1.74 倍，在 CPU 上带来的提升可达 2.47 倍。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1006/4urrz1hc8msyu6v" alt="如何降低视觉Transformer计算成本？时间冗余方法让人大吃一惊"></p>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/60422/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">区块链项目发币未清退，投资者该怎么办？</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/60428/">
+                <span class="next-text nav-default">萨尔瓦多推出利用地热能的比特币矿池Lava Pool，净利润的23%将上交政府</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#eventful-transformer"><strong>Eventful Transformer</strong></a></li>
+    <li><a href="#实验"><strong>实验</strong></a></li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          深度解读Layer3的原理及当前市场格局 - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="Layer 3 协议可以解决各种问题，例如可扩展性、互操作性、定制化等。" />
+
+  <meta name="keywords" content="区块大全, 区块链, 区块链资讯, 区块链快讯, 区块链新闻, 比特币行情" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/63380/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="深度解读Layer3的原理及当前市场格局" />
+<meta property="og:description" content="Layer 3 协议可以解决各种问题，例如可扩展性、互操作性、定制化等。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/63380/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-11-17T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-11-17T00:00:00+00:00" />
+
+<meta itemprop="name" content="深度解读Layer3的原理及当前市场格局">
+<meta itemprop="description" content="Layer 3 协议可以解决各种问题，例如可扩展性、互操作性、定制化等。"><meta itemprop="datePublished" content="2023-11-17T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-11-17T00:00:00+00:00" />
+<meta itemprop="wordCount" content="3367">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="深度解读Layer3的原理及当前市场格局"/>
+<meta name="twitter:description" content="Layer 3 协议可以解决各种问题，例如可扩展性、互操作性、定制化等。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">深度解读Layer3的原理及当前市场格局</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-11-17">
+      2023-11-17
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 3367 字 -
+        预计阅读 7 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E5%85%B6%E5%AE%83%E6%96%87%E7%AB%A0/"> 其它文章 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>原文作者：<a href="https://www.coingecko.com/author/hweeyan">Hwee Yan</a></p>
+<p>原文编译：深潮 TechFlow</p>
+<h2 id="什么是-layer-3-协议">什么是 Layer 3 协议？</h2>
+<p>Layer 3 协议是建立在 Layer 2 之上的，目的是提供更好的可扩展性，这样开发者就可以根据他们的需求创建定制的、特定于应用程序的区块链。</p>
+<h2 id="关键要点">关键要点</h2>
+<ul>
+<li>
+<p>Layer 3 协议建立在 Layer 2 之上，用于托管特定于应用的去中心化应用程序。</p>
+</li>
+<li>
+<p>Layer 3 协议可以解决各种问题，例如可扩展性、互操作性、定制化等。</p>
+</li>
+<li>
+<p>Layer 3 协议示例：Orbs、Arbitrum Orbit 和 zkSync Hyperchains。</p>
+</li>
+</ul>
+<p><img src="https://img.bibiqing.com/news/2023/1117/tejn25z79dee777" alt="深度解读Layer3的原理及当前市场格局"></p>
+<h2 id="l1l2l3如何协同工作">L1、L2、L3如何协同工作？</h2>
+<p><a href="https://www.coingecko.com/en/categories/layer-1">Layer 1</a> 是构成基础的区块链，在其中添加区块并最终确定交易。然而，Layer 1 面临区块链三难困境，它们无法兼顾可扩展性、去中心化或安全性。像比特币和以太坊这样的区块链优先考虑去中心化和安全性而不是可扩展性，随着网络用户的增加，这些网络的交易速度会变得很低。</p>
+<p>这就是解决可扩展性问题的<a href="https://www.coingecko.com/learn/what-are-layer-2-crypto-protocols">Layer 2 的</a>用武之地。Layer 2 是链外<a href="https://www.coingecko.com/learn/vertical-scaling">垂直扩展</a>解决方案，运行在以太坊等 Layer 1 之上，以实现可扩展性，为用户提供更快的交易速度和更低的 Gas 费用。<a href="https://www.coingecko.com/learn/optimistic-vs-zero-knowledge-rollups">它们可以采用汇总</a>（Rollup)或验证的形式，就像<a href="https://www.coingecko.com/learn/pol-polygon-ecosystem-token-polygon-2-0">Polygon 2.0</a> 的情况一样。许多 Layer 2 解决方案，例如 Polygon、zkSync 和 Arbitrum，已经发布了解决方案，使开发人员能够创建构建在 Layer 2 之上的特定于应用程序的链，这将我们带到了 Layer 3 。</p>
+<p>Layer 3 是基于现有 Layer 2 解决方案构建的高级协议，可提供<a href="https://www.coingecko.com/learn/crypto-bridges-blockchain-interoperability">互操作性</a>和特定于应用程序的功能。这意味着 Layer 3 是高度可定制的，能够满足开发人员的特定需求，例如针对隐私等目标问题提供解决方案，或支持大量交易，同时仍然继承 Layer 1 区块链的安全性。目前，大多数 Layer 3 都是建立在以太坊上的，并且在撰写本文时，有些区块链（例如比特币）不适合托管 Layer 3 应用程序。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1117/3_kdqdqhm2qu.jpg" alt="深度解读Layer3的原理及当前市场格局"></p>
+<h2 id="layer-3-可以解决什么问题">Layer 3 可以解决什么问题？</h2>
+<p>现在，了解了 Layer 1、Layer 2 和 Layer 3 如何协同工作后，让我们仔细看看 Layer 3 以及它们如何进一步扩展区块链。</p>
+<h3 id="可扩展性">可扩展性</h3>
+<p>Layer 3 旨在增强可扩展性，超越当前 Layer 1 和 Layer 2 的功能，因此具有极高的可扩展性。因此，Layer 3 网络能够处理更大量的交易，同时支持更广泛的复杂应用程序。</p>
+<h3 id="复杂的-dapp-支持">复杂的 dApp 支持</h3>
+<p>Layer 3 能够提供必要的基础设施，用于开发需要更高级功能的更复杂的去中心化应用程序。这可能有助于改进网页设计，在应用程序中包含更多高级功能，使外行用户更容易使用。根据开发人员的需求，Layer 3 还可以促进更复杂的<a href="https://www.coingecko.com/learn/crypto-smart-contracts">智能合约</a> 设计，这是因为 Layer 1 和 Layer 2 可扩展性有限而无法处理的。</p>
+<h3 id="区块链互操作性">区块链互操作性</h3>
+<p>Layer 3 还解决了互操作性问题。Layer 3 可以充当各个区块链之间的桥梁，以便交易和数据可以跨不同平台流动。这意味着 Layer 3 dApp 具有连接到不同区块链（例如以太坊和 Solana）的功能。</p>
+<h3 id="定制化">定制化</h3>
+<p>Layer 3 还可以根据开发者的独特需求进行定制。例如，开发者可以引入特定于应用的机制，这些机制只允许执行私密交易和合约，从而只披露部分数据。由于 Layer 3 的高度可定制功能，开发人员可以根据自己的需求定制 dApp 的治理机制、规则和功能。</p>
+<p>Arbitrum Orbit 允许开发者定制其链上的不同方面。例如，开发者可以自定义并选择在他们的链上接受哪些代币作为交易费用。这为开发者提供了灵活性，使他们可以选择并可能包括一个平台的原生代币，从而允许开发者根据他们独特的需求定制其去中心化应用程序（dApp）的功能。</p>
+<p>此外，开发者可以定制他们的 dApp，以确保用户拥有更加一致和可靠的 Gas 价格。开发人员还可以推出自己的具有特定功能的区块链网络，例如 Arbitrum 的 Nitro 驱动的区块链网络和用于<a href="https://www.coingecko.com/learn/ethereum-virtual-machine-evm">EVM+ 兼容性</a>的 Stylus 。Arbitrum Orbit 提供的其他一些自定义功能包括隐私、权限、费用代币、治理等等。</p>
+<h3 id="高性价比">高性价比</h3>
+<p>由于 Layer 3 网络在链外处理一些交易和操作，这有助于减少网络拥堵，从而大大降低交易费用。这种成本效率有助于降低进入成本壁垒，使开发人员和用户更容易使用。</p>
+<p>例如，<a href="https://xai.games/">Xai 网络</a>是一个专门为 Web3 游戏提供支持的游戏网络。Xai 网络通过 Arbitrum 的 Layer 3 网络构建，引入并行处理以提高效率和可扩展性，同时进一步降低成本。</p>
+<h3 id="无障碍">无障碍</h3>
+<p>Layer 3 还可以变得更容易被大众使用，并且更容易实施。例如，Arbitrum Orbit 允许任何人在 Arbitrum Nitro 上构建和部署自己的第 3 层网络，而无需批准。相比之下，启动 Layer 2 需要围绕其信任模型以及如何实现完全去中心化提出建议。</p>
+<h2 id="layer-3的用例">Layer 3 的用例</h2>
+<p>现在我们已经了解了 Layer 3 解决了哪些问题，以下是 Layer 3 的一些可能的用例：</p>
+<h3 id="游戏应用">游戏应用</h3>
+<p>Layer 3 的用例之一是<a href="https://www.coingecko.com/learn/category/games">区块链游戏</a>。通过在 Layer 3 上运行，它使应用程序能够在特定的区块链上运行，从而允许交易以更快的速度处理更大量的交易。这对于游戏应用程序尤其重要，可以帮助开发人员为用户维持丝滑的游戏内体验。</p>
+<p>游戏应用程序往往需要处理许多微交易，这些交易通常成本较高。因此，在 Layer 3 上运行这些应用程序可以让开发者确保用户的成本效率，因为 Layer 3 的交易费用较低。</p>
+<h3 id="去中心化金融应用">去中心化金融应用</h3>
+<p>Layer 3 的另一个可能的用例是去中心化金融应用程序。在 Layer 3 上运行是理想的选择，因为它使去中心化金融应用程序能够根据应用程序的需求进行定制。这意味着开发人员将能够自定义应用程序的隐私设置和不同功能。 此外，Layer 3 具有极高的可扩展性，这确保了可以快速处理大量交易，这对于实时交易极为重要。Layer 3 还允许各种区块链网络之间的互操作性，允许用户跨不同网络转移资产。</p>
+<h2 id="layer-3示例">Layer 3 示例</h2>
+<p>虽然 Layer 3 的概念仍然被认为是加密领域相对较新的发展，但以下是一些值得注意的项目：</p>
+<h3 id="orbs">Orbs </h3>
+<p><a href="https://docs.orbs.network/v3/overview/layer-3-protocol">Orbs</a>与现有的 Layer 1 和 Layer 2 协议结合使用，是一个 Layer 3 区块链，专注于解决以太坊区块链面临的可扩展性问题。根据其网站，Orbs 将其第 3 层视为“增强执行”，允许开发人员通过作为去中心化无服务器云运行来开发智能合约。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1117/t8zmpw682rwkkkp" alt="深度解读Layer3的原理及当前市场格局"></p>
+<p>Source: Orbs</p>
+<p>这意味着开发人员能够在 Orbs 自己的去中心化网络上编写和部署他们的智能合约，而不必担心网络的底层基础设施。这也为开发人员提供了无需维护物理服务器的便利。目前，Orbs 可与一些 Layer 1 和 Layer 2 协议配合使用，包括以太坊、BNB Chain、Avalanche、Polygon 等。</p>
+<h3 id="arbitrum-orbit">Arbitrum Orbit</h3>
+<p>2023 年，Arbitrum 基金会还发布了新功能——Arbitrum <a href="https://arbitrum.foundation/orbit">Orbit</a>，它被设想为构建在 Arbitrum Nitro 平台之上的 Layer 3 区块链。除了更低的交易成本和增强的可扩展性之外，开发人员还能够在 Arbitrum Nitro 平台上创建自己的自我管理的专用区块链，这将允许开发人员可以根据自己的特定需求使用定制的区块链。</p>
+<h3 id="zksynchyperchains">zkSync Hyperchains</h3>
+<p>由 zkSync 团队推出的<a href="https://era.zksync.io/docs/reference/concepts/hyperscaling.html">zkSync Hyperchains</a>可以成为 Layer 3 ，它们使用 Layer 2 进行结算。zkSync Hyperchains 由 ZK Stack 上可用的同一 zkEVM 引擎驱动，在这个平台上，所有的 ZKP 电路保持一致，并且无论谁部署，都继承了 Layer 1 的安全性。一个好处是，在同一个 Layer 2 上结算的 Layer 3 之间将拥有更快的消息传递速度，并在更广泛的生态系统内实现互操作性。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1117/dnvjy42qdzsssp4" alt="深度解读Layer3的原理及当前市场格局"></p>
+<p>Source: zkSync Era</p>
+<h2 id="最后的想法">最后的想法</h2>
+<p>Layer 3 的开发是加密领域的一项有趣的创新。它通过将 Layer 1 和 Layer 2 的最佳部分结合在一起，改进了我们之前的功能，例如使网络更具可扩展性，同时更安全。尽管如此，仍然要记住，每个层在区块链生态系统中都发挥着至关重要的作用，并且不会相互竞争。目前，Layer 3 仍处于开发阶段，但我认为很明显，Layer 3 将在塑造我们未来如何利用区块链技术方面发挥关键作用，让区块链更容易处理高交易量。</p>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/63383/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">涉虚拟货币争议解决 仲裁选香港还是新加坡？</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/61945/">
+                <span class="next-text nav-default">首期AI &amp; Web3香港科普课堂《走进香港100家机构》活动顺利召开</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#什么是-layer-3-协议">什么是 Layer 3 协议？</a></li>
+    <li><a href="#关键要点">关键要点</a></li>
+    <li><a href="#l1l2l3如何协同工作">L1、L2、L3如何协同工作？</a></li>
+    <li><a href="#layer-3-可以解决什么问题">Layer 3 可以解决什么问题？</a>
+      <ul>
+        <li><a href="#可扩展性">可扩展性</a></li>
+        <li><a href="#复杂的-dapp-支持">复杂的 dApp 支持</a></li>
+        <li><a href="#区块链互操作性">区块链互操作性</a></li>
+        <li><a href="#定制化">定制化</a></li>
+        <li><a href="#高性价比">高性价比</a></li>
+        <li><a href="#无障碍">无障碍</a></li>
+      </ul>
+    </li>
+    <li><a href="#layer-3的用例">Layer 3 的用例</a>
+      <ul>
+        <li><a href="#游戏应用">游戏应用</a></li>
+        <li><a href="#去中心化金融应用">去中心化金融应用</a></li>
+      </ul>
+    </li>
+    <li><a href="#layer-3示例">Layer 3 示例</a>
+      <ul>
+        <li><a href="#orbs">Orbs </a></li>
+        <li><a href="#arbitrum-orbit">Arbitrum Orbit</a></li>
+        <li><a href="#zksynchyperchains">zkSync Hyperchains</a></li>
+      </ul>
+    </li>
+    <li><a href="#最后的想法">最后的想法</a></li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

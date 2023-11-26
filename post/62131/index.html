@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          释放 NNS 流动性？详解 IC 链第一个 LSD 协议 StakedICP - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="LSD 来到了 Internet Computer，StakedICP 能为 ICP 持有者带来哪些惊喜？" />
+<meta name="keywords" content="DFINITY, DeFi, ICP, Web3, 區塊鏈" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/62131/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="释放 NNS 流动性？详解 IC 链第一个 LSD 协议 StakedICP" />
+<meta property="og:description" content="LSD 来到了 Internet Computer，StakedICP 能为 ICP 持有者带来哪些惊喜？" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/62131/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-11-22T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-11-22T00:00:00+00:00" />
+
+<meta itemprop="name" content="释放 NNS 流动性？详解 IC 链第一个 LSD 协议 StakedICP">
+<meta itemprop="description" content="LSD 来到了 Internet Computer，StakedICP 能为 ICP 持有者带来哪些惊喜？"><meta itemprop="datePublished" content="2023-11-22T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-11-22T00:00:00+00:00" />
+<meta itemprop="wordCount" content="4322">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="释放 NNS 流动性？详解 IC 链第一个 LSD 协议 StakedICP"/>
+<meta name="twitter:description" content="LSD 来到了 Internet Computer，StakedICP 能为 ICP 持有者带来哪些惊喜？"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">释放 NNS 流动性？详解 IC 链第一个 LSD 协议 StakedICP</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-11-22">
+      2023-11-22
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 4322 字 -
+        预计阅读 9 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E5%85%B6%E5%AE%83%E6%96%87%E7%AB%A0/"> 其它文章 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>ICP 社区中频频出现“代币已死”的言论，包含着早期支持者的失望、心酸和不甘。是啊，Internet Computer 在主网上线的两年中的表现的确让人大跌眼镜，让那些一开始就将手中的 ICP 质押了长达 8 年之久的支持者苦不堪言。</p>
+<p>如今，基于 PoS 代币的叙事 LSD 已经在以太坊（及 Layer2）、Cosmos、Solana、波卡、Polygon 等主流公链上全面开花。像 Cosmos 生态有 pSTAKE、Stride 等，波卡生态有 Acala、Bifrost 等，Solana 生态有 Marinade、Jito 等。现在，这股风也吹到了 Internet Computer 上，毕竟持有者可以将 ICP 质押在治理系统 NNS 中，参与网络治理，这也为 LSD 的发展提供了基础和空间。本文要聊的 ICP 生态项目正是一个 LSD 协议——StakedICP。</p>
+<h3 id="快速回顾-lsd">快速回顾 LSD</h3>
+<p>LSD 的全称是“Liquid Staking Derivatives”，即流动性质押衍生品，是 Crypto 行业今年最热门的赛道。<strong>LSD 是一种流动代币，相当于所质押 PoS 代币的替身</strong> 。本质是为了释放已质押 PoS 代币的流动性，在随时赎回的情况下获得质押收益，并且还可以用于<strong>交易</strong> 、<strong>提供流动性</strong> 、<strong>借贷</strong> ，获得额外的 DeFi 收益。</p>
+<p>根据 DefiLlama 的数据，LSD 赛道的 TVL 接近 220 亿美元，自今年 3 月初超过借贷以来一直稳居 DeFi 的头把交椅。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1030/essi90bgykn6nmv" alt="释放 NNS 流动性？详解 IC 链第一个 LSD 协议 StakedICP"></p>
+<p>LSD 协议不仅可以增强 PoS 区块链网络的安全性和稳定性，还能保持持有者管理其代币的灵活性，以激励更多的人质押他们的代币并参与 DeFi，最终使所有相关人员受益。</p>
+<h3 id="stakedicp-如何释放-nns-的流动性"><strong>StakedICP 如何释放 NNS 的流动性？</strong></h3>
+<p>NNS（Network Nervous System）是 Internet Computer 的治理系统，负责调控网络升级、代币经济、增减子网。<strong>每一个质押 ICP 的人都会成为「神经元」，进而参与链上治理，又因参与治理而获得奖励</strong> 。有些类似于 PoS 中的 Staking 行为。目前，有 2.49 亿枚 ICP 正在质押中，约占总供应量的 49%，按当前价格计算 TVL 约为 8.21 亿美元。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1030/s4eg1v9s803f0ji" alt="释放 NNS 流动性？详解 IC 链第一个 LSD 协议 StakedICP"></p>
+<p>StakedICP 是第一个专为 NNS 神经元构建的 LSD 协议，允许用户在其上质押 ICP 后立即获得流动代币 stICP。stICP 是用户赎回 ICP 的唯一凭证，且能够捕获质押 ICP 产生的每日收益。一句话来概括：<strong>持有流动的 stICP，就是持有正在质押中的 ICP</strong> 。</p>
+<p>该协议目前处于测试阶段，仅有 123 名用户及质押在其中的 2600 ICP，APY 约为 15.8%。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1030/od6edtiiqn2qtdy" alt="释放 NNS 流动性？详解 IC 链第一个 LSD 协议 StakedICP"></p>
+<p>当用户使用 StakedICP 进行质押时，ICP 会通过该协议的神经元被质押在 NNS 上，同时收到用于代表质押 ICP 份额的 stICP 代币。也就是说，持有 stICP 一样可以获得 NNS 收益奖励。这是如何做到的呢？</p>
+<p>由于 StakedICP 的神经元在 NNS 的投票奖励会不断累积，这意味着 1 stICP＞1 ICP，stICP 的价值相比 ICP 总是在增加。</p>
+<p>假设我在最开始 1 ICP = 1 stICP 的比例时质押了 10 ICP，此时我收到了 10 stICP。</p>
+<p>几年后，由于神经元在 NNS 上投票会获得奖励，因此 StakedICP 神经元中 ICP 的数量会不断增长。假设有 128 ICP 已被质押到 StakedICP，此时 StakedICP 神经元的 ICP 总和为 160 ICP。那么 1 ICP 的价值为 0.8 stICP (128/160) ；反之，1 stICP 的价值为 1.25 ICP (160/128) 。</p>
+<p>此时，如果我选择将 10 stICP 赎回为 ICP，那么实际上可以获得 12.5 ICP，这其中包含了 NNS 投票奖励。</p>
+<p>细细品味，StakedICP 其实可以帮助 IC 链将代币质押率拉到新的高度。</p>
+<p>目前 IC 链正在围绕项目治理系统 SNS（Service Nervous System）发展生态，ICP 除了在 NNS 上质押以外， 还可以用于投资上线 SNS 的生态项目。但质押中的 ICP，肯定赶不上在 SNS 上打新。不少 ICP 持有者因此而放弃质押。StakedICP 实际上相当于一种更灵活的质押解决方案，通过质押 ICP 获得并持有 stICP，可随时赎回为 ICP，再去投 SNS。质押、打新两不误。</p>
+<p>此外，当 IC 链的 DeFi 生态发展起来后，有机会为 stICP 提供更多的应用场景，这就是 LSDfi。届时 stICP 可以被交易，甚至是借贷、理财。在获得质押收益的同时，还能获得流动性参与到 DeFi 中获得额外收益，用户会怎么做？冲？可以预见 ICP 的质押率会大幅上涨，IC DeFi 生态的规模也将进一步增长。</p>
+<h3 id="stakedicp-如何使用"><strong>StakedICP 如何使用？</strong></h3>
+<p><strong>质押</strong></p>
+<p>目前 StakedICP 的质押功能已可用。用户可以在StakedICP 上质押 ICP，获得 stICP。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1030/4e3fds1cfquoyi1" alt="释放 NNS 流动性？详解 IC 链第一个 LSD 协议 StakedICP"></p>
+<p><strong>赎回</strong></p>
+<p>目前StakedICP 只能Delayed Unstake，延迟解除质押。当用户使用此方法赎回 ICP 时，StakedICP 会销毁 stICP，找出要分裂的神经元并开始溶解以尽快完成 ICP 的赎回。这可能需要花费一些时间（取决于神经元）。StakedICP 共有 16 个神经元，质押时长从 6 个月、1 年、1.5 年到 8 年不等，以维持赎回功能的流动性。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1030/g7goyzg8ms3v3rz" alt="释放 NNS 流动性？详解 IC 链第一个 LSD 协议 StakedICP"></p>
+<p>还有一种快速赎回的功能正在开发当中，叫做 Fast Unstake，快速解除质押。简而言之，StakedICP 会为 stICP/ICP 构建一个单边流动性池，LP 可以将他们的 ICP 添加到流动性池中赚取交易手续费奖励。当用户想要用 stICP 赎回 ICP 时，只需要在池子里交换即可。</p>
+<p><strong>风险</strong></p>
+<p>StakedICP 还在早期开发阶段，存在中心化风险。在 2022 年上线的 StakedICP v1 中，为了更快地测试产品，神经元和智能合约都由开发团队直接控制。在 2023 年 5 月启动的 StakedICP v2 版中，用于质押 ICP 的 16 个神经元不再由开发团队直接控制，而是由智能合约本身控制（投票跟随公开神经元 Synapse）。然而，由于需要继续构建，智能合约仍然由开发团队管理。这一缺点有望在最终产品正式上线后得到解决，StakedICP 将上线 SNS 公募，由 SNS 接管智能合约，社区参与治理。</p>
+<h3 id="stakedicp-创始人迫不及待看到-ic-上的-lsdfi"><strong>StakedICP 创始人：迫不及待看到 IC 上的 LSDfi</strong></h3>
+<p>最近，白泽研究院在线上简单采访了 StakedICP 的创始人0xAegir，与他聊了聊对 StakedICP 的未来、IC 链上的 LSD 和 LSDfi 的看法。</p>
+<p><strong>请向大家介绍一下自己</strong></p>
+<p>我是 StakedICP 的创始人 0xAegir，拥有 15 年开发经验。</p>
+<p><strong>您做 StakedICP 的初衷是什么？</strong></p>
+<p>最初，我只想获得将 ICP 质押在 NNS 的 8 年高额收益，但却不想感受因代币锁定 8 年而会遭受的痛苦。但是，随着 StakedICP 的发展，我预想到了 stICP 这种又可以产生收益又可流通的资产会为 IC 生态系统带来巨大的好处。所以我真的很期待看到 IC 生态系统中的 DeFi 开发者在 stICP 之上构建一些新的用例。stICP 只是 LSD，但最新的 Crypto 叙事焦点是 LSDfi。</p>
+<p><strong>请向大家讲解一下 StakedICP 的运行原理</strong></p>
+<p>当你将 ICP 存入 StakedICP 时，你会收到 stICP。 ICP 被抵押在 NNS 中，并随着时间的推移通过投票奖励而增长。只需持有stICP，你就可以从投票奖励中获得不断增长的 ICP 收益。 stICP 是一种“ICRC-1”代币（正如以太坊代币标准 ERC-20），因此可以被集成在 DeFi 中交易、出售和使用。当你想要取消质押时，你目前可以使用“延迟取消质押”功能，或者等几个月后使用新开发的“快速取消质押”功能。</p>
+<p>下图为 StakedICP 最终的核心功能：</p>
+<p><img src="https://img.bibiqing.com/news/2023/1030/s6r1ps9zsvodk30" alt="释放 NNS 流动性？详解 IC 链第一个 LSD 协议 StakedICP"></p>
+<p><strong>目前你们是如何管理被锁定在 StakeICP 中的 ICP 的？</strong></p>
+<p>在 StakedICP 中质押的 ICP 又被质押在了 NNS 上的一组神经元中。去年五月，我在 IC 上推出了第一个可以托管神经元的智能合约（<a href="https://github.com/AegirFinance/canister-owned-neuron">https://github.com/AegirFinance/canister-owned-neuron</a>）。这意味着智能合约本身可以使用 IC 的阈值 ECDSA 技术来控制并完全拥有神经元。如果你是像我一样的书呆子，那就太酷了。因此，StakedICP 的神经元只能由智能合约控制，我们致力于在上线 SNS 后将智能合约的控制权转交给社区。</p>
+<p><strong>请向大家分享一下 StakedICP 的未来发展路线图吗？</strong></p>
+<p><img src="https://img.bibiqing.com/news/2023/1030/ka8h0dq79uafcuh" alt="释放 NNS 流动性？详解 IC 链第一个 LSD 协议 StakedICP"></p>
+<p>2023 年 12 月 - 核心协议代码完成</p>
+<p>我目前正在努力实现 Fast Unstake，这一核心功能为 IC 社区的广泛采用提供了巨大的可能性。</p>
+<p>还有其他一些功能需要完成，但我的目标是在 12 月之前完成所有工作。</p>
+<p>2024 年 1 月 —— Fast Unstake 功能进行内测</p>
+<p>2024 年 4 月 —— 完成代码审计</p>
+<p>为了准备上线 SNS，一旦 StakedICP 各项功能通过测试，那么将进行正式代码审计。</p>
+<p>2024 年 6 月 —— 上线 SNS + 流动性激励</p>
+<p>我希望 StakedICP 会成为 IC 链 DeFi 生态的重要组成部分。StakedICP 治理代币 STKD 的推出将使该协议能够充分发挥其潜力，并由社区直接治理。</p>
+<p><strong>我很感兴趣的一点是，能否在 stICP 的基础上实现 LSDfi，例如让 stICP 被更多 DeFi 借贷项目采用，基于 stICP 做稳定币等等。您是否已经有了一些想法或计划？</strong></p>
+<p>我对此也非常感兴趣。LSDfi 叙事才刚开始，我迫不及待地想看看人们会在 stICP 的基础之上提出什么想法。</p>
+<p>就我个人而言，我最兴奋的是那些让人们“加倍努力”、“再投资”和发展 IC 生态系统的事情。我个人很乐意看到有人将 stICP 与 SNS 相结合，仅仅是一种简单的 stICP → ICP 兑换系统，可以让 ICP 忠实信徒不仅仅在平时持有 stICP 被动赚取收益，还可以在 SNS 上新后直接用 stICP（自动转换为 ICP）参与公募，而不必被迫选择。</p>
+<p>稳定币也是一个有趣的维度，我曾与希望在 stICP 基础上构建稳定币的人进行了一些有希望的对话，但现在还处于早期阶段。尽请期待。</p>
+<p><strong>不妨让我们大胆想象，当 StakedICP 发展的足够大，能为 IC 链和 ICP 生态带来什么？</strong></p>
+<p>寻求为自己持有的 ICP 获得收益的方法，在 IC 链上最常见的就两种：</p>
+<p>- NNS 质押</p>
+<p>- 投资 SNS 项目</p>
+<p>但是这两种方式却不能同时进行。</p>
+<p>你是否将自己的 ICP 在 NNS 质押了 8 年，虽然获得了巨大的质押奖励，但却被排除在所有其他机会之外？还是自己保存 ICP，等待在 SNS 上打新，投资生态系统项目？</p>
+<p>我认为 stICP 可以提供更灵活的收益替代方案，帮助人们以新的方式进行再投资并真正全面投入 ICP 生态系统。其次，从上个问题开始，我真的在很认真思考 LSDfi 的走向。由于 IC 链有着独特的技术属性，例如反向 Gas 和 HTTPS outcalls，ICP 有巨大的机会将 DeFi 引入被封锁的 Web2 世界。其他链上已经出现了一些有趣的 LSDfi 和 RWA 创新服务，例如自还贷款和零利率贷款，那么我们如何实现落地？或者说，我们如何以廉价、高效、轻松的方式向世界各地用户提供这些新服务呢？我想一切尽在 Internet Computer。</p>
+<p><strong>注：</strong></p>
+<p>上述项目和观点不应构成投资建议，DYOR。根据央行等部门发布的《关于进一步防范和处置虚拟货币交易炒作风险的通知》，本文内容仅用于信息分享，不对任何经营与投资行为进行推广与背书，请读者严格遵守所在地区法律法规，不参与任何非法金融行为。</p>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/63636/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">世界币需要重新评估吗？了解Sam Altman的Crypto-AI-UBI实验</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/63661/">
+                <span class="next-text nav-default">释放比特币智能合约潜力 Stacks为下一轮牛市蓄力</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#快速回顾-lsd">快速回顾 LSD</a></li>
+        <li><a href="#stakedicp-如何释放-nns-的流动性"><strong>StakedICP 如何释放 NNS 的流动性？</strong></a></li>
+        <li><a href="#stakedicp-如何使用"><strong>StakedICP 如何使用？</strong></a></li>
+        <li><a href="#stakedicp-创始人迫不及待看到-ic-上的-lsdfi"><strong>StakedICP 创始人：迫不及待看到 IC 上的 LSDfi</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

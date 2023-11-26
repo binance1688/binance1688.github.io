@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          从Blast到Layer2多签后门：技术与社会共识哪个更重要 - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="既然大家都不够去信任化，本质都是靠社会共识来保证安全的，又何必抨击Blast的Layer2浓度不够高，“相煎何太急”呢？" />
+<meta name="keywords" content="Layer 2, Blast" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/64023/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="从Blast到Layer2多签后门：技术与社会共识哪个更重要" />
+<meta property="og:description" content="既然大家都不够去信任化，本质都是靠社会共识来保证安全的，又何必抨击Blast的Layer2浓度不够高，“相煎何太急”呢？" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/64023/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-11-25T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-11-25T00:00:00+00:00" />
+
+<meta itemprop="name" content="从Blast到Layer2多签后门：技术与社会共识哪个更重要">
+<meta itemprop="description" content="既然大家都不够去信任化，本质都是靠社会共识来保证安全的，又何必抨击Blast的Layer2浓度不够高，“相煎何太急”呢？"><meta itemprop="datePublished" content="2023-11-25T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-11-25T00:00:00+00:00" />
+<meta itemprop="wordCount" content="5590">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="从Blast到Layer2多签后门：技术与社会共识哪个更重要"/>
+<meta name="twitter:description" content="既然大家都不够去信任化，本质都是靠社会共识来保证安全的，又何必抨击Blast的Layer2浓度不够高，“相煎何太急”呢？"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">从Blast到Layer2多签后门：技术与社会共识哪个更重要</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-11-25">
+      2023-11-25
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 5590 字 -
+        预计阅读 12 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E6%8A%80%E6%9C%AF/"> 技术 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>作者：Faust，极客web3</p>
+<p>导语：Blast面对Polygon zkEVM等正统Layer2的潜台词，或许就是“王侯将相，宁有种乎？”<strong>既然大家都不够去信任化，</strong> <strong>本质都是靠社会共识来保证安全的，又何必抨击Blast的Layer2浓度不够高，“相煎何太急”呢？</strong></p>
+<p>诚然，Blast靠3/5多签来控制充值地址一事被广泛诟病，但大多数Layer2也同样靠多签管理合约，此前Optimism甚至只用一个EOA地址控制合约升级权限。<strong>在主流Layer2几乎都存在多签等安全隐患的当下，</strong> 抨击Blast不够安全，更像是技术精英们对一个打金项目的”看不起“。</p>
+<p>但抛开上述两者孰优孰劣一事，<strong>区块链存在的意义更多在于解决社会共识/民主治理中的信息不透明问题，</strong> 而在宣扬技术至上时，我们必须承认，社会共识本身比技术更为重要，因为它才是保障所有Web3项目有效运转的基础。<strong>归根结底，技术是为社会共识服务的，</strong> 不能被大多数人认可的项目，就算技术再优越，本质也只是一个华丽的阑尾。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1125/1_167eutwy2f.png" alt="从Blast到Layer2多签后门：技术与社会共识哪个更重要"></p>
+<p>正文：近期，Blur创始人推出的新项目Blast火爆全网，这个打着Layer2旗号的“资产生息”协议在ETH链上设置了一个充值地址，用户将资金存入Blast地址后，这些资金将被用于ETH网络原生质押、置入MakerDAO赚取利息等，所获利润将返回给用户。</p>
+<p>靠着创始人本身的光环及颇具吸引力的玩法，Blast获得了Paradigm为首的投资人给出的2000万美元融资，也吸引了无数散户的参与。<strong>上线不到5天，Blast充值地址吸引的TVL就超过了4亿美元。</strong> 毫不夸张的说，BLast就像漫漫熊市之中的一剂猛药，瞬间激起了人们的狂热。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1125/1_4urof9gt6t.png" alt="从Blast到Layer2多签后门：技术与社会共识哪个更重要"></p>
+<p>但Blast在获得阶段性成功的同时，也引来了许多专家的质疑。比如，L2BEAT和Polygon工程师均一语道破：目前的Blast只是在以太坊上部署了接收充值的Deposit合约而已，<strong>这个合约可以在3/5多签的控制下升级，</strong> 换句话说，<strong>合约的代码逻辑可能被改写，想Rug还是可以Rug。</strong> 同时，Blast只是自称要实现Rollup结构，但现在的它只是一个空壳子，连提款功能都要等到明年2月上线。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1125/1_1p4bjiy0az.png" alt="从Blast到Layer2多签后门：技术与社会共识哪个更重要"></p>
+<p>而Blast也不堪示弱的点破，<strong>绝大多数Rollup背后都靠一组多签管理合约升级权限，其他家Layer2指责“Blast用多签”只是五十步笑百步而已。</strong></p>
+<p><img src="https://img.bibiqing.com/news/2023/1125/1_mpmdttmz5c.png" alt="从Blast到Layer2多签后门：技术与社会共识哪个更重要"></p>
+<h2 id="layer2多签是一个由来已久的问题-">**<strong>Layer2多签是一个由来已久的问题</strong> **</h2>
+<p>其实，Layer2合约多签是一个由来已久的问题。早在今年7月，L2BEAT就曾针对Rollup合约可升级性进行了专题调研，所谓的“可升级”，<strong>就是变更代理合约指向的逻辑合约地址，达到更改合约逻辑的效果。</strong> 如果更改后的新合约中包含恶意的逻辑，Layer2官方就可以把用户资产盗走。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1125/1_euqfv63vcg.png" alt="从Blast到Layer2多签后门：技术与社会共识哪个更重要"></p>
+<p>（图源：wtf academy）</p>
+<p>按照L2BEAT的数据，目前<strong>Arbitrum、Optimism、Loopring、ZKSync Lite、ZkSync Era、Starknet、Polygon ZKEVM等主流Rollup都采用了多签授权的可升级合约，可以绕开时间锁限制立刻upgrade。</strong></p>
+<p><img src="https://img.bibiqing.com/news/2023/1125/1_dbcnsr8i37.png" alt="从Blast到Layer2多签后门：技术与社会共识哪个更重要"></p>
+<p>让人感到诧异的是，Optimism过去只是用一个EOA地址管理合约升级，连多签都是今年10月才加上去的。至于曾对Blast展开抨击的<strong>Polygon zkEVM，也可以在6/8多签授权下，对Rollup合约进行“紧急接管”，把Layer2从合约治理转为“赤裸裸的人治”。</strong> 有趣的是，上文中对Blast进行批判的Polygon工程师也提到了这一点，但表现的含糊其辞。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1125/1_jr8ll5mvgc.png" alt="从Blast到Layer2多签后门：技术与社会共识哪个更重要"></p>
+<p><img src="https://img.bibiqing.com/news/2023/1125/1_6fn5pjjlde.png" alt="从Blast到Layer2多签后门：技术与社会共识哪个更重要"></p>
+<p>那么这种“紧急模式”的存在意义是什么？<strong>为什么大多数Rollup都要给自己留一个紧急按钮或者说后门？</strong> 按照Vitalik此前的说法，Rollup在迭代过程中要频繁更新在ETH上部署的合约，如果不引入代理合约等可升级手段，就难以高效迭代。</p>
+<p>此外，<strong>托管了大量资产的智能合约可能存在不易察觉的bug，</strong> 而Layer2开发团队难免疏忽大意，如果某些漏洞被黑客所利用，就可能导致大量资产被盗。所以，Layer2也好，DeFi协议也罢，往往都会设置一个紧急按钮，<strong>在必要时刻由“委员会成员”介入，防止某些恶性事件发生。</strong></p>
+<p><img src="https://img.bibiqing.com/news/2023/1125/1_m1p7pl626h.png" alt="从Blast到Layer2多签后门：技术与社会共识哪个更重要"></p>
+<p>当然，<strong>Layer2设置的委员会往往可以绕开时间锁限制立刻升级合约代码，</strong> 某种角度来看，他们似乎是比黑客等外界因素更让人感到忌讳的存在。或者说，无论如何，<strong>托管了巨额资产的智能合约都难以免除某种程度的“信任假设”，即假设合约背后的多签控制者不作恶。</strong> 除非合约被设计为不可升级的，并且不存在可以威胁到用户资产安全的bug。</p>
+<p>实际情况是，现在的主流Layer2要么允许自己设立的委员会立刻更新合约，要么引入了比较短的时间锁限制（比如任何人要升级dYdX合约，都有至少48小时的延时）。<strong>如</strong> <strong>果人们发现委员会打算在新版合约代码中掺杂盗取资产的恶意逻辑，用户在理论上有足够反应时间，把资产紧急撤出Layer1。</strong></p>
+<p><img src="https://img.bibiqing.com/news/2023/1125/1_fdbd9s3gur.png" alt="从Blast到Layer2多签后门：技术与社会共识哪个更重要"></p>
+<p>（时间锁就是经过一段延时后，才允许你进行某些操作）</p>
+<p>但问题的关键在于，<strong>很多Layer2连可以绕开Sequencer排序器的强制提款功能都没设置，</strong> 这样的Layer2官方要做恶，可以先让排序器拒绝所有人的提款请求，之后把用户资产划转到Layer2官方自己控制的L2账户内。之后官方再按照自己的需要去更新Rollup合约，等时间锁延时结束后，就可以把用户资产全部提到ETH链上转移走。</p>
+<p>当然，<strong>实际情况可能比我说的更糟糕，因为大多数Rollup官方可以不受时间锁限制的升级合约，</strong> 也就是说，几乎可以在顷刻之间完成动辄上亿美元的rug。</p>
+<p><img src="https://img.youtocoin.com/news/2023/1125/0_8p8bijrp91.png" alt="从Blast到Layer2多签后门：技术与社会共识哪个更重要"></p>
+<p>真正去信任化的Layer2应该让合约升级延时大于强制提款延时</p>
+<p>其实，要解决Layer2去信任化/安全问题，需要做到以下几件事：</p>
+<p><strong>在Layer1上设置一个抗审查的提款出口，</strong> 用户可以不经排序器许可，直接把资产从Layer2提到ETH链上。强制提款的延时不应太久，这样能确保用户资产快速的从L2退出；</p>
+<p>任何人要升级Layer2合约，必须受到时间锁延时限制，<strong>合约升级应当晚于强制提款生效。</strong> 比如说，现在dYdX的合约升级至少有48小时延时，那么强制提款/逃生舱模式的生效延时，应当压低在48小时内。这样一来，<strong>用户发现dYdX项目方要在新版合约中掺杂恶意代码后，可以赶在合约更新前把资产从Layer2撤出到Layer1。</strong></p>
+<p>目前绝大多数上线了强制提款/逃生舱机制的Rollup，并不满足上述条件。比如，dYdX的强制提款/逃生舱最长7天延时，但dYdX委员会的合约升级延时仅48小时，也就是说，<strong>委员会可以在用户强制提款生效前，完成新合约的部署，赶在用户逃离前把资产盗走。</strong></p>
+<p><img src="https://img.bibiqing.com/news/2023/1125/1_v5urv9vua1.png" alt="从Blast到Layer2多签后门：技术与社会共识哪个更重要"></p>
+<p>从这个角度看，<strong>除了Fuel和ZKSpace、Degate外，其他Rollup都不能保证在合约升级前处理完用户的强制提款，</strong> 均存在较高程度的信任假设。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1125/1_ky8sjqw2ur.png" alt="从Blast到Layer2多签后门：技术与社会共识哪个更重要"></p>
+<p>许多采用Validium方案（DA在以太坊链外实现）项目虽然有很长的合约升级延时（比如8天或更长），<strong>但Validium往往依赖于链下的DAC节点发布最新数据，而DAC可能发动数据扣留攻击，使强制提款功能失效，所以不符合上面谈论的安全模型。</strong></p>
+<p>到了这里，我们似乎可以简洁明了的得出结论：<strong>除了Fuel、ZKSpace和DeGate之外的Layer2方案，都不是去信任化的。</strong> 用户要么信任Layer2项目方或其设置的安全委员会不作恶，要么信任链下的DAC节点不串谋，要么信任排序器不会审查你的交易（拒绝你的请求）。真正满足 安全、抗审查、去信任化的Layer2，目前只有上面3个。</p>
+<h2 id="安全不止靠技术实现必须要引入社会共识-">**<strong>安全不止靠技术实现，必须要引入社会共识</strong> **</h2>
+<p>其实，我们今天所谈论的话题并不新鲜，关于本文所指出的Layer2本质依赖于项目方的信用，早就被无数人指出过。比如Avalanche与Solana创始人都曾对此展开过猛烈抨击，但问题在于，<strong>这些存在于Layer2身上的信任假设，在Layer1上乃至于所有区块链项目身上也一样存在。</strong></p>
+<p>比如，我们需要假设Solana网络中占2/3质押权重的Validator节点不串谋，需要假设占比特币大部分算力份额的前两大矿池不联合起来发动51%攻击回滚最长链。虽然这些假设很难被打破，但“很难”不代表“不可以”。</p>
+<p>传统Layer1公链一旦发生了导致大量用户资产受损的作恶行为，最后往往会通过<strong>社会共识</strong> 的方式，废弃那条有问题的链分叉出一条新的链（参考2016年The DAO事件导致以太坊分叉为ETH和ETC）。如果有人尝试恶意分叉，大家也要通过社会共识的方式选择追随哪条“更靠谱”的分叉。（比如大多数人没有追随ETHW项目方）</p>
+<p><img src="https://img.bibiqing.com/news/2023/1125/1_azse6sa90y.png" alt="从Blast到Layer2多签后门：技术与社会共识哪个更重要"></p>
+<p><strong>社会共识是保障区块链项目乃至于其承载的DeFi协议有序运转的根源所在，</strong> 即便是合约代码审计、社区成员披露某项目存在问题等纠错机制，也是社会共识的一环。而单纯靠技术来实现的去中心化，往往并不能发挥最大的作用，很多时候都停留在了理论层面。</p>
+<p><strong>真的在关键时刻发挥作用的东西，往往是与技术无关的社会共识，是与学术论文无关的舆论监督，是与技术叙事无关的群众认可度。</strong></p>
+<p>我们可以试想如下场景：一个只有几百人听闻过的POW公链，暂时处于高度去中心化状态，因为还没有出现一家独大的局面。但假如某个矿机企业突然把自己的算力全部投入该POW链，自己一人就比其他所有矿工的算力都高出很多倍，此时，这条POW链的去中心化将瞬间被瓦解。如果该矿机企业打算作恶，<strong>人们就只能通过社会共识来纠错。</strong></p>
+<p><img src="https://img.bibiqing.com/news/2023/1125/1_n6ceho8ass.png" alt="从Blast到Layer2多签后门：技术与社会共识哪个更重要"></p>
+<p>反观所谓的Layer2，纵使其机制设计再过精巧，也避不开社会共识这一环，即便是Fuel、DeGate和ZKSpace这类官方几乎无法作恶的L2，<strong>他们所依托的Layer1-以太坊本身也是高度依赖于社会共识/社区-舆论监督的。</strong></p>
+<p>更何况我们认为的合约不可升级，是听信了合约审计机构及L2BEAT的陈词，但这些机构有疏忽大意或是撒谎的可能。虽然这种概率极低，但我们不得不承认，<strong>还是对其引入了微小的信任假设。</strong></p>
+<p>但区块链本身的数据开源属性，允许任何人包括黑客在内去检查合约是否包含恶意逻辑，其实已经将信任假设最小化了，这极大程度降低了社会共识的成本。如果将这种成本降低到了足够低的程度，我们可以默认这就是“去信任化”的。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1125/1_sbo4qmpuej.png" alt="从Blast到Layer2多签后门：技术与社会共识哪个更重要"></p>
+<p>当然，除了上面提到的那三家外，其他的Layer2根本就没有所谓的去信任，真正在关键时刻保障安全性的，仍然是社会共识，<strong>技术成分很多时候只是方便人们展开社会共识监督而已。</strong> 如果一个项目的技术很优越，但却得不到广泛的认可，吸引不了庞大的社区群体，那么它的去中心化治理以及社会共识本身也难以有效展开。</p>
+<p><strong>技术诚然重要，但更多的时候，能否被广泛认可、能否发展起强大的社区文化，是比技术更为重要、更有价值、更有利于项目发展的因素。</strong></p>
+<p>我们不妨以zkRollup为例，目前很多zkRollup只实现了有效性证明系统和DA数据上链，它可以对外证明自己处理的用户交易、进行的所有转账都是有效的，不是排序器伪造的，在“状态转换”这件事情上没有作恶，但Layer2官方或排序器作恶的场景并不只这一种。</p>
+<p>我们可以近似认为，<strong>ZK证明系统本质上只是极大程度降低了人们对Layer2进行监督的成本，</strong> 但很多东西是技术本身无法解决的，必须依赖于人治或社会共识的介入。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1125/1_8n3sziawsw.png" alt="从Blast到Layer2多签后门：技术与社会共识哪个更重要"></p>
+<p>如果L2官方没有设置强制提款等抗审查出口，或者官方尝试升级合约，在其中掺杂可以盗取用户资产的逻辑，社区成员就不得不依靠社会共识和舆论发酵来纠错。此时此刻，技术优越与否似乎已经不再是最重要的了，与其说技术对于安全而言重要与否，倒不如说，<strong>便</strong> <strong>于人们展开社会共识的机制设计本身，才是更重要的，这其实才是Layer2乃至区块链的真谛。</strong></p>
+<p><strong>从单纯靠社会共识来监督的Blast身上，我们应当更直接的看待社会共识与技术实现这两者之间的关系，</strong> 而不是单纯按照“哪一家L2比另一家L2更贴近vitalik口中的Layer2”来判断一个项目的优与劣。<strong>当一个项目已经获得了成百上千万人的认可与关注后，社会共识就已经形成了，</strong> 至于是靠营销还是靠技术叙事无关紧要，因为结果本身比过程更重要。</p>
+<p>诚然，社会共识本身是民主政治的延伸，而现实世界已经证实了民主治理的缺陷，但区块链本身自带的开源与数据透明，极大程度降低了社会共识的成本，所以说，<strong>Web3的“人治”与现实主权国家的“人治”有着本质的区别。</strong></p>
+<p><strong>如果我们将区块链本身视作改善民主治理中信息透明问题的一种技术手段，而不是单纯追求永远不可及的“单纯靠代码实现的Trustless”，一切似乎都变得乐观而明朗了许多。</strong> 只有摆脱了技术精英所固存的那种傲慢与偏见，拥抱更为广泛的受众群体，以太坊Layer2体系才能够真正成为一个mass adoption的世界级金融基础设施。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1125/1_42bc1lsd34.png" alt="从Blast到Layer2多签后门：技术与社会共识哪个更重要"></p>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/64010/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">币安认罚后：区块链的抗审查性将会成为行业发展的重点</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/63988/">
+                <span class="next-text nav-default">法庭文件：CZ辩称宣判前应被允许返回阿联酋或者“免入狱”</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#layer2多签是一个由来已久的问题-">**<strong>Layer2多签是一个由来已久的问题</strong> **</a></li>
+    <li><a href="#安全不止靠技术实现必须要引入社会共识-">**<strong>安全不止靠技术实现，必须要引入社会共识</strong> **</a></li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

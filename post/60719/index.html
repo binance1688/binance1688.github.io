@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          OP Stack &#43; 零知识证明 = L2的终局游戏？ - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="对于未来的Layer2开发者而言，OP Stack将成为通用的Layer2架构，开发者可以启动自己的Layer2时，依据应用所需要的安全性和实效性，灵活的选择乐观证明，或者零知识证明。" />
+<meta name="keywords" content="Layer 2, 零知識證明, ZKP, OP Stack" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/60719/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="OP Stack &#43; 零知识证明 = L2的终局游戏？" />
+<meta property="og:description" content="对于未来的Layer2开发者而言，OP Stack将成为通用的Layer2架构，开发者可以启动自己的Layer2时，依据应用所需要的安全性和实效性，灵活的选择乐观证明，或者零知识证明。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/60719/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-10-10T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-10-10T00:00:00+00:00" />
+
+<meta itemprop="name" content="OP Stack &#43; 零知识证明 = L2的终局游戏？">
+<meta itemprop="description" content="对于未来的Layer2开发者而言，OP Stack将成为通用的Layer2架构，开发者可以启动自己的Layer2时，依据应用所需要的安全性和实效性，灵活的选择乐观证明，或者零知识证明。"><meta itemprop="datePublished" content="2023-10-10T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-10-10T00:00:00+00:00" />
+<meta itemprop="wordCount" content="7053">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="OP Stack &#43; 零知识证明 = L2的终局游戏？"/>
+<meta name="twitter:description" content="对于未来的Layer2开发者而言，OP Stack将成为通用的Layer2架构，开发者可以启动自己的Layer2时，依据应用所需要的安全性和实效性，灵活的选择乐观证明，或者零知识证明。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">OP Stack &#43; 零知识证明 = L2的终局游戏？</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-10-10">
+      2023-10-10
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 7053 字 -
+        预计阅读 15 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E5%85%B6%E5%AE%83%E6%96%87%E7%AB%A0/"> 其它文章 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>作者：Bill Qian、Yongxin Song、Bonan Yuan，Cypher Capital</p>
+<p>**<strong>Layer2的终局游戏</strong> **</p>
+<p>如今的Layer2赛道厮杀异常激烈，前有Arbitrum, Optimism, Base 等基于optimistic的rollup，后有Scroll, zkSync, Starkenet, Scroll，Polygon zkEVM, Taiko, Linea等基于ZeroKnowledge Proof的ZKP rollup。看似Layer2的竞争百花齐放，实则都在工程原理上都是使用了，链下计算，链上证明的思路。无论是optimistic的 fraud Proof还是ZKP的电路证明，在工程实践上的核心区别，即是在链上证明方式的不同，别的原理其实大同小异。于是乎，Optimism选择了一条特殊的路径，即模块化Layer2，在逻辑上将Layer2多各个组件解藕。当OPstack实现Layer2各个模块的结偶后，一个非常看似脑洞大开时则合乎逻辑的思路打开了，即ZKP on OP Stack，把OP Stack的challenger由Optimistic Proof改成Zero Knowledge Proof，OpStack将成为支持多种证明的通用Layer2架构！</p>
+<p>**<strong>ZKP on OP Stack</strong> **</p>
+<p>一切讨论的开始来自一篇Optimism的RFP, <a href="https://github.com/ethereum-optimism/ecosystem-contributions/issues/61">https://github.com/ethereum-optimism/ecosystem-contributions/issues/61</a>。</p>
+<p>下面我来介绍下这篇RFP提出的问题和发展方向。</p>
+<p>意图：实现零知识证明以证明Optimism’s <a href="https://github.com/ethereum-optimism/optimism/blob/develop/specs/fault-proof.md#fault-proof-program">错误证明程序</a>(通过Golang编译器支持的指令集)</p>
+<p>如何实现：给OP链实现零知识证明(ZKP)是实现L2与L1之间安全和低延迟通信的前提。一种支持指令集的零知识证明，可以证明Optimism的错误证明程序，且包括任意OP Stack的区块链。在证明ISA的标准执行跟踪的基础上，支持故障证明程序还引入了额外的要求。</p>
+<p>具体来说，故障证明程序引入了“预图预言机”的概念，它使用特殊的系统调用将外部数据加载到程序中。每个故障证明虚拟机负责实现一些机制，通过该机制，某些数据的哈希被放置在内存的特定位置，执行系统调用，然后将该哈希的原像加载到内存中供程序使用。预图预言机还用于使用初始输入引导程序。有关详细信息，请参阅故障证明程序文档中的“预图预言机”部分。</p>
+<p>简而言之，该提案就是想利用OP Stack的高度模块化特性，将原本基于乐观证明(Opstimisic Proof)的错误证明方式，切换为利用零知识证明完成。进一步的特化，因为目前OP是将GETH通过MIPS编译为Mini Geth, 那么OP Stack的零知识证明可以理解为 ZKMips，即基于Mips虚拟机的零知识证明。</p>
+<p>**<strong>Why ZKP?</strong> **</p>
+<p>目前基于OP Stack不是跑的好好的嘛，基于乐观证明的Optimism和Arbitrum都取得极其良好的社区支持和开发者支持。OP Stack为什么还要探索零知识证明呢？笔者认为这里有几点原因</p>
+<ul>
+<li>
+<p>OP Stack将layer2的模块高度抽象化，引入ZKP只是引入不同的错误证明方式，并不意味着OP会放弃乐观证明。使用OP Stack的开发者可以自由选择不同的证明方式</p>
+</li>
+<li>
+<p>基于乐观证明(Optimistic Proof)的Optimism和Arbitrum目前依然不支持错误证明，本质上OP和ARB是两条无法证伪的单机链。</p>
+</li>
+<li>
+<p>乐观证明7天的最终确认速度，实在是太慢了。当ZKP的Layer2占据市场后，ZKP快至30分钟的证明速度会形成显著的优势，最终用户会选择安全性更高的ZKP Layer2</p>
+</li>
+</ul>
+<p>因此，Optimism支持ZKP是迟早的时间。大胆的猜想，未来OP Stack会支持乐观证明和零知识证明2套错误证明系统。OP Stack是一套通用的Layer2架构，并不断迭代。为了帮助大家理解OP Stack为什么可以实现不同证明系统的切换，下文将详细的拆解OP Stack。</p>
+<p>**<strong>OP Stack的核心模块</strong> **</p>
+<p><img src="https://img.bibiqing.com/news/2023/1010/7_1smr5hbda4.png" alt="T5XU7oxFFvAUWmn3XBuHK1v0ItiKWmKY1XDNPgpQ.png" title="7112695"></p>
+<p>(该图截自optimism的github)</p>
+<p>对于OP Stack，重要的几个模块如下:</p>
+<ul>
+<li>
+<p>op-node</p>
+</li>
+<li>
+<p>op-geth</p>
+</li>
+<li>
+<p>op-batcher</p>
+</li>
+<li>
+<p>op-proposer</p>
+</li>
+<li>
+<p>op-program</p>
+</li>
+<li>
+<p>Cannon</p>
+</li>
+<li>
+<p>op-challenger</p>
+</li>
+</ul>
+<p>这些模块均为独立的程序，并通过http的标准接口沟通，这意味着开发者如果要修改OP Stack中的一些特性，只需要修改其中的特定模块，便可以定制自己的Layer2。下面的章节，将具体的介绍每一个OP Stack的模块，和OP Stack的整体架构。</p>
+<p><strong>op-node</strong></p>
+<p>op-node是OP Stack中最重要的模块。一方面，作为Sequencer，op-node包含了区块链的共识客户端实现，可以类比以太坊中的Lighthouse, Prysm，为用户提交的交易进行排序；另一方面，作为rollup driver，op-node负责从L1区块的数据中衍生出Layer2的链。</p>
+<p>Sequencer在收集用户交易并排序后，会由op-batcher生成一个batch，在batcher将batch提交到L1之前，为了降低Rollup网络中的延迟，Sequencer可以提前生成Layer2的block，通过P2P在Rollup网络中传播。在L2直接产生的block被认为是unsafe的，需要等待batch提交到L1后进行推导才能够视为safe，不过在正常情况下（无区块重组、欺诈等），L2直接产生的block与从L1推导出的block是相同的。Binance等交易所仅等待一定的Layer2 blocks后便认为交易是确定的，而无需等待batch被提交到L1，一定程度上说明出错的概率极低。</p>
+<p>推导L2区块的过程由driver负责，driver持续跟踪L1 head block和L2链同步过程，从L1中获取存款交易、L2交易数据和对应收据并生成payload attributes，将payload attributes传递给执行引擎，计算L2 block。L2 blocks完全依赖于L1链的区块，每当包含L2 batch的L1 block产生，L2链进行延伸。此外，当L1 block发生重组，L2 block也会发生重组。</p>
+<p><strong>op-geth</strong></p>
+<p>op-geth是OP Stack的执行客户端实现，对go-ethereum进行了微小的修改以适应OP Stack的需求。共识客户端op-node通过Engine API来驱动执行客户端op-geth，利用payload attribute，op-geth可以计算出output信息，产生L2 block。</p>
+<p><strong>op-batcher</strong></p>
+<p>batcher即为batch submitter，主要包含两个任务。一个是对L2 sequencer数据压缩为batches；另一个是将batches提交至L1，让verifier能够利用数据进行验证。</p>
+<p>batcher向DA层提交batcher交易，交易包含一个或多个channel frame。channel由一系列sequencer batches组成，以获得更高的压缩率，具体而言，batcher当前使用zlib进行数据压缩。由于channel的大小可能超过batcher交易所能容纳的上限，channel被分为一个或多个channel frame，一个batcher交易可以包括一个或多个channel frame（可以来自不同的channel）。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1010/7_yaj7mz3nf8.png" alt="NdzbsEhrBtFOe0ImfgS9jrwCG1XpbWsH8QCmSSXV.png" title="7112696"></p>
+<p>source: Optimism</p>
+<p>该设计为batcher提供了很高的灵活性，未来OP Stack会支持batcher利用多个signer并行提交多个channel。</p>
+<p><strong>op-proposer</strong></p>
+<p>op-proposer负责将op-geth执行L2 block后产生的新状态承诺（当前以Output Merkle Root形式）提交到L1。Output Root不会立即生效，而需要等待争议期过后才能视为Finalized。</p>
+<p>以上为OP Stack已实现的部分，下列的Fault Proof相关模块内容尚未完成，仅根据文档规范进行论述。</p>
+<p>OP Fraud Proof由三个组件组成：</p>
+<ul>
+<li>
+<p>Program: 给定Rollup Inputs(L1 Batch tx Data)的承诺和dispute，无状态地验证dispute（通过PreImageOracle提供的Inputs复现相同的计算过程）</p>
+</li>
+<li>
+<p>VM: 给定无状态的Program和Inputs，追踪任何指令（因此是stateful），在L1上证明</p>
+</li>
+<li>
+<p>Interactive Dispute Game: 二分Dispute到单个指令，用VM解决这个base case</p>
+</li>
+</ul>
+<p><strong>op-program</strong></p>
+<p>op-program是Program的参考实现，在op-node与op-geth的基础上开发，作为无状态的中间件，验证关于L2状态转移的Claim。</p>
+<p>为了验证L2状态的声明，program首先将L1 data应用到finalized L2状态，重建最新的L2状态，这个过程与op-node的工作类似。区别在于，op-node从RPC取数据，把状态变化应用到磁盘；而Program从Pre Image Oracle取数据，将状态变化应用到内存。Program流式地从Oracle读取数据，并进行流式的状态变更，直到读到EOF或者提前终止条件。重建L2状态后，根据状态与claim是否相同返回验证结果。</p>
+<p><strong>Cannon</strong></p>
+<p>Cannon是VM的一个实现，包含两个主要组件：</p>
+<ul>
+<li>
+<p>Onchain MIPS.sol: EVM implementation to verify execution of a single MIPS instruction.</p>
+</li>
+<li>
+<p>Offchain mipsevm: Go implementation to produce a proof for any MIPS instruction to verify onchain.</p>
+</li>
+</ul>
+<p>链上部分，MIPS.sol实现了big-endian 32-bit MIPS指令集，模拟Linux内核的最小子集，为Go程序提供支持，但是不包含并发相关的系统调用。</p>
+<p>链下部分，mipsevm用Go语言模拟MIPS.sol的执行过程，</p>
+<ul>
+<li>
+<p>It&rsquo;s Go code</p>
+</li>
+<li>
+<p>…that runs an EVM</p>
+</li>
+<li>
+<p>…emulating a MIPS machine</p>
+</li>
+<li>
+<p>…running compiled Go code</p>
+</li>
+<li>
+<p>…that runs an EVM</p>
+</li>
+</ul>
+<p>简而言之，Cannon在链上就是在EVM用MIPS去跑MINI Geth(GETH的MIPS编译)，即ETH的Golang版本。</p>
+<p><strong>op-challenger</strong></p>
+<p>op-challenger负责处理与dispute game相关的流程。</p>
+<p>挑战是先选中一个tx执行后的state root发出质疑，之后tx将分解为多个instruction，每个instruction执行后产生新状态，形成S1, S2, … Sn的状态序列。</p>
+<p>为了提高效率，挑战双方需要轮流执行steps，分为Attack与Defend两类。</p>
+<ul>
+<li>
+<p>Attack: 争议的前一个状态作为输入，期待争议状态作为输出。DAG中需要有对前一个状态的承诺。</p>
+</li>
+<li>
+<p>Defend: 争议状态作为输入，争议后一个状态作为输出。DAG中需要有对后一个状态的承诺。</p>
+</li>
+</ul>
+<p>举例而言，假设有1-9999个instruction，产生S1-S10000状态序列，先检验第5000个状态，如果相同，attack step，向左二分；如果不同，defend step，向右二分。</p>
+<p>最终通过二分法将争议锁定在单个指令的前后状态上，再交由VM处理单个指令的状态验证。</p>
+<p>**<strong>模块的工作流程</strong> **</p>
+<p><strong>正常流程（不包含Challenge）</strong></p>
+<p><img src="https://img.bibiqing.com/news/2023/1010/7_fd7kyrbow0.png" alt="Vi8bzvYrWKunpvVtyhUtewYlIXERhvzfhGwSblyX.png" title="7112697"></p>
+<p>source: Cypher Capital</p>
+<ol>
+<li>
+<p>用户提交交易，可以通过L2 RPC在L2上提交，或者在L1上直接提交（可以绕过op-batcher，有更强的抗审查能力，也可作为紧急逃生装置）。</p>
+</li>
+<li>
+<p>op-node启动的RPC server接收到交易后，进行排序并发送给op-batcher与op-geth</p>
+</li>
+<li>
+<p>op-batcher对sequenced tx进行压缩，生成batch，提交到DA层（L1）。</p>
+</li>
+<li>
+<p>op-geth执行sequenced tx，将执行后的新状态传递给op-proposer</p>
+</li>
+<li>
+<p>op-proposer将L2的output root作为对于L2状态的承诺发送到L1进行存储，当挑战期结束，状态被视为finalized。</p>
+</li>
+<li>
+<p>op-node中的driver会从L1中获取交易数据以及其他信息，derive出canonical L2 block。在L1上finalized的block中batch tx derive出的L2 block被视为finalized，在L1上被confirmed但未finalized的batch tx derive出的L2 block被视为safe，为降低延迟直接由L2生成的L2 block可以通过P2P提前传播，被视为unsafe。</p>
+</li>
+</ol>
+<p><strong>Challenge流程</strong></p>
+<p><img src="https://img.bibiqing.com/news/2023/1010/7_7yokws3y8c.png" alt="OAjFcSbDRuy9GNjskeHvpVnzbj10wwLLDs6xpnyr.png" title="7112698"></p>
+<p>source: optimism</p>
+<ol>
+<li>
+<p>用户开启interactive dispute game</p>
+</li>
+<li>
+<p>Cannon (VM)在MIPS虚拟机上运行op-program（Written in Go），以便追踪每步执行的状态变化</p>
+</li>
+<li>
+<p>op-program通过PreImageOracle提供的Rollup Inputs的承诺复现L2状态的计算过程，记录execution trace，无状态地验证dispute</p>
+</li>
+<li>
+<p>op-challenger使用二分法，将争议定位到单个指令</p>
+</li>
+<li>
+<p>Cannon为执行该指令前后的状态变化生成证明，在L1上的智能合约MIPS.sol上进行验证。</p>
+</li>
+</ol>
+<p>**<strong>OP Stack+ZKP</strong> **</p>
+<p>根据上面的流程介绍，我们容易发现，Challenge模块与其他模块的耦合度很低，对基本交易流程的影响很低，只有在出现欺诈行为的情况下（自2021年12月OP Mainnet上线至今尚未出现）才需要Challenge模块的介入。</p>
+<p>为了缩短当前Optimism七天的退出确认时间，也为OP Stack提供更多模块化的选择，Optimism积极拥抱ZKP技术，希望为OP Stack带来能够证明Optimism fault proof program并且支持知名ISA的ZKP，O(1) Labs与Risc-0团队的方案通过了Foundation Mission (RFP) Application。</p>
+<p><strong>O(1) Labs方案</strong></p>
+<p><img src="https://img.bibiqing.com/news/2023/1010/7_yy9rmjani8.png" alt="LKDkCzbtd8wVcvHRJCoMkPUUDPaotpwtvdHPr5mu.png" title="7112699"></p>
+<p>source: O(1) Labs</p>
+<p>O(1) Labs作为Mina Protocol的开发团队，计划沿用Mina Protocol采用的Kimchi作为MIPS VM的proof system，仅作了一些小的改动。</p>
+<p>Kimchi是一个Halo2-like PLONKish system currently configured with an inner-product-argument style polynomial commitment scheme. It supports verifiable computation using traditional turing-machine-based instruction sets.</p>
+<p>Kimchi的后端可交换，当前的实现定义在Pasta curves using an inner-product-argument-based polynomial commitment scheme (Pasta-IPA)上，与EVM所用的密码学体系不兼容，在EVM上验证成本较高。于是O(1) Labs计划将Pasta-IPA改为KZG commitment scheme using the bn128 curves (bn128-KZG)，可以使用EVM现成的precompile，效率更高。</p>
+<p>原来输入fault proof MIPS系统的输入现在输到bn128-kzg Kimchi系统，ZK-Prove执行路径。pre-image系统调用沿用OP Stack的Cannon，最终proof发送到L1上的智能合约，验证通过后在L1更新状态。</p>
+<p><strong>RISC Zero方案</strong></p>
+<p>RISC Zero团队计划沿用当前实现的Groth16后端的基于RISC-V ISA的zkVM（augmented with accelerated co-processors for common cryptographic tasks including hashing and ECDSA signature verification）， 对基于Reth的Ethereum ZK Client进行修改以进一步适配Optimism，在zkVM中实现L1-L2的derivation logic以证明交易序列是由Optimism sequencer生成的。</p>
+<p>ZK Client由zkVM guest program和host library两个部分组成，类比OP labs方案中的op-program和cannon，zkVM guest program负责计算状态转移，host library负责获取计算数据转移所需的数据，协调zkVM guest program的执行，并生成交易执行状态转移的zkp。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1010/7_13di2ftsua.png" alt="LNjC0EoVGqLSmyycYcQk2ffXuWhW5um7BFoqztaC.png" title="7112700"></p>
+<p>**<strong>OP Stack的ZKP可能性探究</strong> **</p>
+<p>目前一家叫做ZKM的团队实现了ZKMIPs的EVM，即将EVM转译为MIPs指令集并进行零知识证明。目前反馈为，很慢，但是可用。</p>
+<p>考虑到Mina和Risc0都拥有相对成熟的开发，经验，我们有理由相信，OP Stack支持ZKP只是时间问题。但是同时，考虑到OP Stack的ZKP开发启动较晚，且不是原生支持，未来的性能如何依然无法预测。</p>
+<p>**<strong>OP Stack, Layer2的通用架构</strong> **</p>
+<p>OP Stack以其优秀的代码实现、宽容的开源协议以及模块化的架构设计获得了许多知名团队的采用，唯一为人所诟病的在于所采用的Optimistic Rollup技术确定性时间过长，技术先进性不如ZK Rollup。如今，借助第三方专业团队的力量，OP Stack开始了迈向ZKP未来的尝试。考虑到当前OP Stack尚未支持Fault Proof，OP Stack有可能跳过Fault Proof阶段，直接使用ZK Proof来获取更快的确定性与更高的安全性。</p>
+<p>对于未来的Layer2开发者而言，OP Stack将成为通用的Layer2架构，开发者可以启动自己的Layer2时，依据应用所需要的安全性和实效性，灵活的选择乐观证明，或者零知识证明。可以预见的是，乐观证明的Layer2会更加廉价，零知识证明的Layer2则会更加安全。</p>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/60790/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">Neutron是个什么项目：Binance领投4个月后上线代币</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/60738/">
+                <span class="next-text nav-default">PayPal推出的美元稳定币PYUSD总发行量超1亿枚</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

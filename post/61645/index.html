@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          DeepMind：大模型又曝重大缺陷，无法自我纠正推理，除非提前得知正确答案 - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="大语言模型又一项重大缺陷被DeepMind曝光" />
+
+  <meta name="keywords" content="区块大全, 区块链, 区块链资讯, 区块链快讯, 区块链新闻, 比特币行情" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/61645/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="DeepMind：大模型又曝重大缺陷，无法自我纠正推理，除非提前得知正确答案" />
+<meta property="og:description" content="大语言模型又一项重大缺陷被DeepMind曝光" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/61645/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-10-23T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-10-23T00:00:00+00:00" />
+
+<meta itemprop="name" content="DeepMind：大模型又曝重大缺陷，无法自我纠正推理，除非提前得知正确答案">
+<meta itemprop="description" content="大语言模型又一项重大缺陷被DeepMind曝光"><meta itemprop="datePublished" content="2023-10-23T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-10-23T00:00:00+00:00" />
+<meta itemprop="wordCount" content="4441">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="DeepMind：大模型又曝重大缺陷，无法自我纠正推理，除非提前得知正确答案"/>
+<meta name="twitter:description" content="大语言模型又一项重大缺陷被DeepMind曝光"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">DeepMind：大模型又曝重大缺陷，无法自我纠正推理，除非提前得知正确答案</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-10-23">
+      2023-10-23
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 4441 字 -
+        预计阅读 9 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E5%85%B6%E5%AE%83%E6%96%87%E7%AB%A0/"> 其它文章 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>原文来源：<a href="https://mp.weixin.qq.com/s/-i1AzuWrL6YLMJzGLmFNxg">新智元</a></p>
+<blockquote>
+<p>DeepMind的研究人员发现，LLM有一个天生的缺陷——在推理过程中无法通过自我纠正获得更好的回复，除非数据集中预设了真值标签。马库斯又高兴地转发了这篇论文。</p>
+</blockquote>
+<p><img src="https://img.bibiqing.com/news/2023/1023/5_3ey22mw43o.png" alt="DeepMind：大模型又曝重大缺陷，无法自我纠正推理，除非提前得知正确答案"></p>
+<p>图片来源：由<a href="https://wujieai.cc/ai">无界AI</a>生成</p>
+<p>大语言模型又一项重大缺陷被DeepMind曝光！</p>
+<p>LLM无法纠正自己推理中的错误。</p>
+<p>「Self-Correction」作为一种让模型修正自己回答的技术，在很多类型的任务中都能明显改进模型的输出质量。</p>
+<p>但是最近，谷歌DeepMind和UIUC的研究人员却发现，对于推理任务，LLM的「自我纠正机制」一下子就没用了。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1023/k7ru9ng08ncuh1v" alt="DeepMind：大模型又曝重大缺陷，无法自我纠正推理，除非提前得知正确答案"></p>
+<p>而且LLM不但不能自我纠正推理任务的回答，经常自我纠正之后，回答质量还会明显下降。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1023/mlccj890t43pfd1" alt="DeepMind：大模型又曝重大缺陷，无法自我纠正推理，除非提前得知正确答案"></p>
+<p>马库斯也转发了这篇论文，希望让更多研究人员关注大语言模型的这一缺陷。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1023/yisese45g1d3p9q" alt="DeepMind：大模型又曝重大缺陷，无法自我纠正推理，除非提前得知正确答案"></p>
+<p>「自我纠正」这一技术是基于一个简单设想——让LLM对自己生成的内容根据一定标准来进行纠正和改进。这个方法在数学问题等任务上能明显提高模型的输出质量。</p>
+<p>但是研究人员发现，在推理任务中，自我纠正之后的反馈有时很不错，有时效果却很不理想，甚至性能还会出现下降。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1023/6yzbks86u4r76sr" alt="DeepMind：大模型又曝重大缺陷，无法自我纠正推理，除非提前得知正确答案"></p>
+<p>研究人员又研究了那些认为「自我纠正」可以改进推理输出的文献，经过仔细检查发现，「自我纠正」的改进来自于引入了外部的信息来指导模型自我纠正。而当不引入外部信息时，这些改进就会消失。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1023/7gin63co8jplc6z" alt="DeepMind：大模型又曝重大缺陷，无法自我纠正推理，除非提前得知正确答案"></p>
+<p>具体来说，当模型能够访问基准数据集中包含的真值标签（ground-truth labels）时，自我纠正就能有效地发挥作用。</p>
+<p>这是因为算法可以准确地确定何时停止推理过程，并避免在答案已经正确时更改答案。</p>
+<p>研究人员认为，先前的研究中往往会使用真实标签来防止模型将正确答案更改为错误答案。但如何防止这种「对改错」情况的发生，实际上是确保自我纠正成功的关键。</p>
+<p>因为当研究人员从自我纠正过程中删除真实标签时，模型的性能就会显著下降。</p>
+<p>作为改进LLM在推理任务上自我纠正方法的尝试，研究人员还探究了「多智能体辩论（multi-agent debate）」作为改进推理的手段的潜力。然而，他们的结果表明，在考虑同等数量的响应时，这个方法的效果并不比自我一致性（Self-Consistency）更好。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1023/w3cuf1n3pjbohzn" alt="DeepMind：大模型又曝重大缺陷，无法自我纠正推理，除非提前得知正确答案"></p>
+<p>研究人员进一步提出了「事前提示」和「事后提示」的概念。</p>
+<p>他们将自我纠正视为事后提示的一种形式，其中纠正的提示是在LLM的回复之后再输入的。</p>
+<p>研究人员的分析表明，某些任务中自我纠正带来的增强可能源于精心设计的反馈提示，掩盖了简陋的初始提示。</p>
+<p>在这种情况下，将更好的反馈集成到初始指令中或设计更好的初始提示可能会产生更好的结果并降低推理成本。</p>
+<p>根据研究人员的研究结果，研究人员深入探讨了LLM自我纠正能力的细微差别，敦促研究社区能以更加严谨的态度来对待对自我纠的研究。</p>
+<p><strong>大语言模型可以自我纠正自己的推理吗？</strong></p>
+<p>研究人员尝试采用现有的自我纠正方法，采用其设置（使用标签来指导自我纠正过程），以检查其在提高LLM推理任务表现方面的有效性。</p>
+<h2 id="实验设置"><strong>实验设置</strong></h2>
+<p><strong>提示词</strong></p>
+<p>研究人员采用三步提示策略进行自我修正：</p>
+<p>1）提示模型进行初始生成（这也是标准提示的结果）；</p>
+<p>2）提示模型回顾其上一代并产生反馈；</p>
+<p>3）通过反馈提示模型再次回答原来的问题。</p>
+<p><strong>模型</strong></p>
+<p>研究人员的主要测试是在 GPT-3.5-Turbo 上进行的。</p>
+<p>研究人员还对2023年8月29日访问的GPT-4进行了测试，旨在测试OpenAI模型最新、最强大的迭代的自我校正能力。</p>
+<p>对于 GPT-3.5，研究人员采用前面提到的完整评估集。对于 GPT-4，为了降低成本，研究人员为每个数据集随机抽取了 200 个问题（HotpotQA 为 100 个问题）进行测试。</p>
+<p><strong>结果和思考</strong></p>
+<p><img src="https://img.bibiqing.com/news/2023/1023/ffcy49pa5crar72" alt="DeepMind：大模型又曝重大缺陷，无法自我纠正推理，除非提前得知正确答案"></p>
+<p>虽然研究人员在实验中没有利用任何外部资源或工具，但研究人员遵循之前的工作，使用真值标签来确定何时停止自我校正循环。</p>
+<p>但是在现实环境中，尤其是当研究人员打算用LLM来解决数学问题时，大部分时候是不知道正确答案的。</p>
+<p>因此，性能的提升需要更仔细的考虑。</p>
+<p>为了证实这一观点，研究人员设计了一个基于随机猜测的基线。在此基线中，研究人员继续使用真值标签来确定何时停止；然而，纠正措施不是由LLM采取的，而是根据剩余选项的随机猜测得出的。</p>
+<p>CommonSenseQA 是一个多项选择题数据集，为每个问题提供五个候选选项。</p>
+<p>如果第k轮（初始生成为第0轮）的生成精度表示为 x，则后续生成的预期精度变为 x + (1 − x)/(5 − k)。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1023/98oyw2yb4o4wthy" alt="DeepMind：大模型又曝重大缺陷，无法自我纠正推理，除非提前得知正确答案"></p>
+<p>上表2列出了该随机基线的结果。</p>
+<p>2轮后，其性能与自校正相当甚至更好，4轮后，其准确率达到100%。</p>
+<p>然而，很明显，这样的随机基线不能被视为有效的校正方法。尽管如此，使用标签获得的结果仍然可能起到预言机的作用，表明存在可以判断答案正确性的完美验证者。</p>
+<p>在代码生成等任务中，这是可行的，因为研究人员可以利用执行器和单元测试来确定生成的代码是否成功运行（Chen 等人，2023b）。</p>
+<p>然而，对于推理任务，比如解决数学问题，这种设置似乎违反直觉。如果研究人员已经掌握了事实真相，那么似乎就没有理由再用LLM来解决问题。</p>
+<p><strong>内在自我修正</strong></p>
+<p>对于 GSM8K，可能不存在类似的随机基线，但基本原理保持不变。</p>
+<p>此外，研究人员可以设计一个基线，例如每次生成一个随机数。经过相当多的轮次后，它可能会得到正确的答案，但这样的改进显然没有意义。更直接的理由是：如果研究人员已经知道答案，为什么还要这样做？</p>
+<p>实验设置如前面内容定义的那样。为了实现这一点，研究人员只需删除使用标签来确定何时停止并通过两轮自我校正来评估性能。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1023/kqn6snjhce6wjre" alt="DeepMind：大模型又曝重大缺陷，无法自我纠正推理，除非提前得知正确答案"></p>
+<p>上表3展示了准确度和模型调用次数。研究人员观察到，经过自我修正后，模型的性能在所有基准测试中都会下降。</p>
+<h2 id="为什么性能反而下降了"><strong>为什么性能反而下降了？</strong></h2>
+<p><img src="https://img.bibiqing.com/news/2023/1023/wwe2cd1r52u2nwz" alt="DeepMind：大模型又曝重大缺陷，无法自我纠正推理，除非提前得知正确答案"></p>
+<p>上图1总结了使用 GPT-3.5 进行两轮自校正后答案变化的结果，下图2中展示了两个示例。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1023/u0sjsrn67h54inf" alt="DeepMind：大模型又曝重大缺陷，无法自我纠正推理，除非提前得知正确答案"></p>
+<p>对于GSM8K，74.7%的概率下模型保留其初始答案。在其余实例中，模型更有可能将正确答案修改为错误答案，而不是将错误答案修改为正确答案。</p>
+<p>对于CommonSenseQA，GPT-3.5改变其答案的可能性更高。造成这种情况的主要原因是CommonSenseQA中的错误答案选项通常看起来与问题有些相关，并且使用自我更正提示可能会使模型偏向于选择另一个选项，从而导致较高的「正确⇒错误」比率。</p>
+<p>让研究人员再看一下上表1中显示的结果。这些结果使用真值标签来防止模型将正确答案更改为错误答案。</p>
+<p>然而，如何防止这种「修改错误」的发生，实际上是确保自我纠错成功的关键。</p>
+<p>直观的解释是：如果该模型与精心设计的初始提示相匹配，那么在给定提示和具体的解码算法的情况下，初始响应应该已经是最佳的。</p>
+<p>引入反馈可以被视为添加额外的提示，可能使模型偏向于生成适合该组合输入的响应。</p>
+<p>在内在自我纠正设置中，在推理任务中，这种补充提示可能不会为回答问题提供任何额外的优势。</p>
+<p>事实上，它甚至可能使模型偏离对初始提示产生最佳回复，从而导致性能下降。</p>
+<p>有人可能会想，研究人员测试的自我修正提示是否不理想？</p>
+<p>其他提示能否提高性能？答案是：研究人员完全有可能找到一个在特定基准上增强模型性能的提示。然而，这不再与本文讨论的内在自我校正设置一致，类似于真正的少样本设置的讨论。</p>
+<p>这种搜索本质上是利用人类或训练示例的反馈。此外，同样的策略也可以有效地应用于优化初始提示，可能会获得更好的性能，而无需额外的模型调用来进行自我校正。</p>
+<p>在附录B中，研究人员测试了不同的提示，但发现性能仍然没有提高。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1023/s67s6nt4gizs9bv" alt="DeepMind：大模型又曝重大缺陷，无法自我纠正推理，除非提前得知正确答案"></p>
+<p>此外，研究人员并不是第一个观察到自我纠正不一定能提高LLM推理能力的人。总而言之，研究人员的重点不是解决诸如「是否存在可以提高特定基准测试性能的自我修正提示？」之类的问题。这样的查询可能没有特别的意义。</p>
+<p>相反，研究人员的目标是解决一个更基本的问题——「大型语言模型真的能够仅根据其固有的能力自我纠正其推理吗？」</p>
+<p><strong>作为事后提示的自我纠正</strong></p>
+<p>在之前的内容中，研究人员观察到LLM在自我纠正其推理方面面临挑战。</p>
+<p>然而，正如之前研究所证明的那样，在某些情况下自我纠正已经产生了令人印象深刻的结果。</p>
+<p>因此，辨别差异并查明根本原因至关重要。</p>
+<p>要解决这个问题，重要的是要掌握自我纠正的基本性质。根据其形式，自我纠正可以被视为一种事后提示。</p>
+<p>它与标准提示（这里称之为事前提示）的区别在于，提示是在LLM的回答之上进行的。</p>
+<p>研究人员将改进此类提示的过程称为事后提示工程。</p>
+<p>因此，当自我纠正可以提供事前提示无法提供的有价值的指导或反馈时，就会出现自我纠正增强模型响应的情况。</p>
+<p>例如，当目标是使响应更安全时，指导模型仅使用事前提示在第一次尝试中生成完全无风险的响应可能具有挑战性。在这种情况下，自我纠正可以作为通过细粒度事后检查来增强响应安全性的一种手段。</p>
+<p>然而，对于推理任务来说，情况可能并非如此。</p>
+<p>反馈提示，例如「查看您之前的答案并发现您的答案存在问题」。不一定能为推理提供切实的好处。</p>
+<p>此外，即使观察到自我纠正后性能显著提高，仔细考虑提示设计也是必要的。</p>
+<p>例如，如果响应需要满足可以在初始指令中轻松指定的标准（例如，输出应包含某些单词、生成的代码需要高效、情绪应强烈负面），而不是提供这些要求作为事后提示中的反馈，更具成本效益的替代策略是将这些要求直接（明确地）嵌入到事前提示中。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1023/sdqobpbst1dnb20" alt="DeepMind：大模型又曝重大缺陷，无法自我纠正推理，除非提前得知正确答案"></p>
+<p>上表5中的结果表明，研究人员精心设计的提示「标准提示（研究人员的）」优于之前研究的自我校正后结果。</p>
+<p>此外，当研究人员利用他们的提示来改进研究人员的输出时，性能甚至会下降。</p>
+<p>再次强调，研究人员在这里的目的并不是争论是否存在事后提示可以胜过研究人员随意编写的提示。研究人员的主要目标是鼓励对自我校正实验进行更严格的检查。</p>
+<p>采用精心设计的事后提示来指导模型「自我纠正」通过糟糕的事前提示生成的响应是没有意义的。</p>
+<p>为了公平比较，应在事前和事后提示上投入同等的努力。</p>
+<p>参考资料：</p>
+<p><a href="https://arxiv.org/abs/2310.01798">https://arxiv.org/abs/2310.01798</a>‌</p>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/61671/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">CoinShares：上周数字资产投资产品流入总额达6600万美元</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/61692/">
+                <span class="next-text nav-default">ETH HK 现场速记：关于以太坊的挑战与未来，Vitalik 说了些什么？</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#实验设置"><strong>实验设置</strong></a></li>
+    <li><a href="#为什么性能反而下降了"><strong>为什么性能反而下降了？</strong></a></li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

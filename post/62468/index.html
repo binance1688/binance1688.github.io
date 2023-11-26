@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          从比特币应用编程理解CKB的可编程性 - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="本文从一种比 CKB Cell 更为受限的结构，「BTC UTXO」的应用编程出发，提出了一种理解 CKB Cell 可编程性的方法。" />
+
+  <meta name="keywords" content="区块大全, 区块链, 区块链资讯, 区块链快讯, 区块链新闻, 比特币行情" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/62468/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="从比特币应用编程理解CKB的可编程性" />
+<meta property="og:description" content="本文从一种比 CKB Cell 更为受限的结构，「BTC UTXO」的应用编程出发，提出了一种理解 CKB Cell 可编程性的方法。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/62468/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-11-24T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-11-24T00:00:00+00:00" />
+
+<meta itemprop="name" content="从比特币应用编程理解CKB的可编程性">
+<meta itemprop="description" content="本文从一种比 CKB Cell 更为受限的结构，「BTC UTXO」的应用编程出发，提出了一种理解 CKB Cell 可编程性的方法。"><meta itemprop="datePublished" content="2023-11-24T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-11-24T00:00:00+00:00" />
+<meta itemprop="wordCount" content="13102">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="从比特币应用编程理解CKB的可编程性"/>
+<meta name="twitter:description" content="本文从一种比 CKB Cell 更为受限的结构，「BTC UTXO」的应用编程出发，提出了一种理解 CKB Cell 可编程性的方法。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">从比特币应用编程理解CKB的可编程性</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-11-24">
+      2023-11-24
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 13102 字 -
+        预计阅读 27 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E6%AF%94%E7%89%B9%E5%B8%81/"> 比特币 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>原文作者：Ajian</p>
+<h2 id="摘要">摘要</h2>
+<p>理解一个系统的可编程性要求我们辨识这个系统在结构上的特征。对基于比特币脚本的应用编程的探索，有助于我们理解 CKB Cell 的基本结构及其编程范式。不仅如此，它还能将 CKB 的编程元件分解为恰当的部分，并帮助我们理解每一部分所带来的可编程性增益。</p>
+<h2 id="httpstalknervosorgtckb7504h-2一-引言"><a href="https://talk.nervos.org/t/ckb/7504#h-2"></a>一. 引言</h2>
+<p>“可编程性（programmability）” 是人们在比较区块链系统时经常采取的一个维度。然而，关于可编程性的描述方法，却常见分歧。一种常见的表述是，“XX 区块链支持图灵完备的编程语言”，或者， “XX 区块链支持通用的编程”，意在表示这里的 “XX 区块链” 具备强大的可编程性。这些语句的暗示有一些道理：支持图灵完备编程的系统一般都比不支持的更容易编程。但是，智能合约系统的结构性特征有多个方面，这一语句只涉及其中一个方面，因此，不足以凭它获得足够深的理解：开发者从中得不到指引，普通用户也无法凭此分辨诈骗。</p>
+<p>智能合约系统在结构上的特征包括：</p>
+<ul>
+<li>
+<p>状态表达（合约）的基本形式（账户 vs. 交易输出）</p>
+</li>
+<li>
+<p>是否允许编程任意计算（“图灵完备” 的说法关涉的就是这个方面）</p>
+</li>
+<li>
+<p>执行过程可创造新数据，还是只传出布尔值？（计算 vs. 验证）</p>
+</li>
+<li>
+<p>是否允许在合约内记录额外的状态</p>
+</li>
+<li>
+<p>一个合约在执行的时候是否可以访问另一个合约的状态</p>
+</li>
+</ul>
+<p>所以，在 “可否编程任意计算” 之外，至少还有四个方面的特征会影响一个智能合约系统的可编程性。甚至可以说，这些其它方面的特征是更为重要的，因为它们更深层地决定了什么容易实现、什么难以实现；什么是较为经济的实现，而什么是较为低效的实现。</p>
+<p>举个例子，人们常常拿以太坊作为良好可编程性的例子，但是，以太坊的状态表达的基本形式是账户，它难以编程点对点的合约（例如，支付通道、一对一的打赌合约） —— 并非绝对不能实现，只是吃力不讨好。以太坊生态并非从未有过尝试实现 支付通道/状态通道 的项目，理论探讨也有很多，但时至今日这些项目似乎都不活跃了 —— 这显然不能归咎于开发者不努力。如今在以太坊上活跃的项目都采取了 “资金池” 的形式，而非 “点对点合约” 的形式，也不是偶然。同样地，当前人们也许对以太坊的可编程性很满意，但是，若要实现 “账户抽象（account abstract）”（也可以理解为钱包概念的泛化） ，账户模型却可以说是先天不足。</p>
+<p>同理，探究 CKB 的可编程性，也要求我们理解 CKB 智能合约系统在这些方面的结构特征。我们已经知晓的是，CKB 允许编程任意计算、允许在合约内记录额外的状态、也允许一个合约在执行时访问另一个合约的状态。但是，其合约的形式是交易的输出（称为 “Cell”），这使得它跟以太坊产生了根本性的差异。因此，对以太坊智能合约系统以及其中的合约实例的了解，并不能帮助我们理解 CKB 是如何实现这些结构特性的，也不能帮助我们认识 CKB 的可编程性。</p>
+<p>幸运的是，比特币上的智能合约，似乎为我们理解 CKB 的可编程性提供了最好的基础。这不仅是因为比特币的状态表达的基本形式也是交易的输出（称为 “UTXO”），更是因为，借助比特币社区提出的一个概念 “限制条款（covenants）”，我们可以理解 CKB 具备上述结构特性的原因，并将最终的效果恰当地分拆成几个部分、逐一辨识它们所带来的可编程性增益。</p>
+<h2 id="httpstalknervosorgtckb7504ckb-vs-btc-3二-ckb-vs-btc多了什么"><a href="https://talk.nervos.org/t/ckb/7504#ckb-vs-btc-3"></a>二. CKB v.s. BTC：多了什么？</h2>
+<h3 id="httpstalknervosorgtckb7504h-4一基本结构"><a href="https://talk.nervos.org/t/ckb/7504#h-4"></a>（一）基本结构</h3>
+<p>作为比特币状态表达的基本形式，比特币的 UTXO（“未花费的交易输出”）有两个字段：</p>
+<ol>
+<li>
+<p>数额，以聪（Satoshi）为单位，表示该 UTXO 具备的比特币价值；</p>
+</li>
+<li>
+<p>脚本公钥，也称锁定脚本，表示花费这笔资金所需满足的条件，也即为解锁这笔资金设定条件的智能合约程序。</p>
+</li>
+</ol>
+<p>与后来出现的智能合约系统相比，比特币脚本是相当受限的：</p>
+<ul>
+<li>
+<p>它不允许编程任意计算；可用来验证的较为实用的计算只有几种（签名检查、哈希原像检查、时间检查）</p>
+</li>
+<li>
+<p>它不允许在合约内记录额外的状态；（例如，你无法用脚本来限制单次花费的 比例/额度 上限；也无法在其中暗藏一种 token）</p>
+</li>
+<li>
+<p>它也不允许在执行的时候访问另一个合约的状态（每个脚本都是独立的宇宙，互不依赖）。</p>
+</li>
+</ul>
+<p>这种脚本虽然有限，但并不缺乏编程出让人惊叹的应用的能力，而且也正好是我们探索 CKB 可编程性的基础。后文将有专门的一节来介绍比特币脚本编程的两个例子。</p>
+<p>与之相对的，CKB 的状态单元称为 “Cell”，有四个字段：</p>
+<ol>
+<li>
+<p>Capacity，类似于 UTXO 的数额，表达的是该 Cell 可以占据的空间大小，以字节（Bytes）为单位；</p>
+</li>
+<li>
+<p>Lock Script，类似于 UTXO 的脚本公钥，定义该 Cell 的所有权；只有所提供的数据能够通过 Lock Script 时，才能 “更新” 这个 Cell（也可以说释放这个 Cell 并用这些 Capacity 来铸造新的 Cell）；</p>
+</li>
+<li>
+<p>Data，数据，任意数据，其体积受 Capacity 的限制；</p>
+</li>
+<li>
+<p>Type Script，可选的脚本，用于为 Data 的更新设定条件。</p>
+</li>
+</ol>
+<p>此外，Lock Script 和 Type Script 还可以编程任意计算。你可以编程出任意的签名验证算法，也可以编程出任意一种哈希算法的原像检查，等等等等。</p>
+<p>读者很容易就能看出，Cell 相比 UTXO 在可编程性上的提升：</p>
+<ul>
+<li>
+<p>Cell 可以编程任意计算，而不是只能编程特定的几种计算；它的所有权验证会更加灵活；</p>
+</li>
+<li>
+<p>因为 Data 和 Type Script 字段，Cell 可以记录额外的状态；这就允许 Cell 承载所谓的 “UDT（用户自定义的 Token”）。</p>
+</li>
+</ul>
+<p>结合 Cell 本身的 “交易输出” 结构，这两点本身能带来的好处已然非常非常巨大，但是，仅从上面的描述，我们尚不知晓 Cell 是如何实现 “一个合约在运行时访问另一个合约的状态” 的。为此，我们需要借助比特币社区探讨了很长时间的一个概念：“限制条款（covenants）”。</p>
+<h3 id="httpstalknervosorgtckb7504h-5二限制条款与内省"><a href="https://talk.nervos.org/t/ckb/7504#h-5"></a>（二）限制条款与内省</h3>
+<p>限制条款的本意是限制一笔钱能被花到哪里去。在当前的比特币（尚未部署任何限制条款提议）上，一笔资金一旦解锁，就可以花到任何地方（可以支付给任意的脚本公钥）。但限制条款的想法是，可以用某种方式，限制它只能花到某些地方去，比如，某一个 UTXO 将只能被某一笔交易花费，那么，即便有人能够为这个 UTXO 提供签名，它可以花到什么地方也已经被这笔交易决定了。这种功能看起来有点奇怪，却能产生一些有趣的应用，后文会有专门的一节介绍。重要的是，它是我们进一步理解 CKB 可编程性的关键。</p>
+<p>Rusty Russell 正确地指出，限制条款可以理解为对交易的 “内省” 能力，即，当一个 UTXO A 被一笔交易 B 花费时，脚本运算程序可以读取交易 B 的部分（或者全部），然后检查它们是否与脚本预先要求的参数一致。例如，交易 A 的第一个输出的脚本公钥，是否与 UTXO A 的脚本公钥所要求的一致（这就是限制条款的最初含义）。</p>
+<p>敏锐的读者会意识到，如果具备了完全的内省能力，那么一个交易的输入就可以读取同一交易的另一个输入的状态，这就实现了我们前面说的 “一个合约在运行时访问另一个合约的状态” 的能力。事实上，CKB Cell 正是这么设计的。</p>
+<p>基于此，我们又可以将这种完全的内省能力分成四种情形：</p>
+<ul>
+<li>
+<p>Lock Script 读取其它（输入和输出）的 Lock Script</p>
+</li>
+<li>
+<p>Lock Script 读取其它（输入和输出）的 Type Script（以及 Data）</p>
+</li>
+<li>
+<p>Type Script 读取其它（输入和输出）的 Lock Script</p>
+</li>
+<li>
+<p>Type Script 读取其它（输入和输出）的 Type Script（以及 Data）</p>
+</li>
+</ul>
+<p>这就允许我们在一定的假设（Lock Script 和 Type Script 的功能分工）之下分析每一部分的内省能力在不同应用场景中的作用，也即分析每一部分为我们带来的可编程性增益。</p>
+<p>在下面的两个章节，我们将分别了解当前（尚未限制条款提议）的比特币脚本编程，以及限制条款提议有望实现功能，从而具体地理解 CKB Cell 如何编程并做得更好。</p>
+<h2 id="httpstalknervosorgtckb7504h-6三-比特币脚本编程"><a href="https://talk.nervos.org/t/ckb/7504#h-6"></a>三. 比特币脚本编程</h2>
+<p>本节将使用 “闪电通道/闪电网络” 和 “谨慎日志合约（DLC）” 作为基于比特币脚本的应用编程的案例。在展开之前，我们要先了解两个概念。</p>
+<h3 id="httpstalknervosorgtckb7504op_if-7一op_if-以及-承诺交易"><a href="https://talk.nervos.org/t/ckb/7504#op_if-7"></a>（一）OP_IF 以及 “承诺交易”</h3>
+<p>第一个概念是比特币脚本中的流程控制操作码，比如：OP_IF、OP_ELSE。这些操作码跟计算机编程中的 IF 没有什么区别，它的作用就是根据不同的输入执行不同的的语句。在比特币脚本的语境下，这意味着我们可以设置资金的多个解锁路径；搭配时间锁特性，这意味着我们可以分配行动的优先权。</p>
+<p>以著名的 “哈希时间锁合约（HTLC）” 为例，这种脚本翻译成大白话就是：</p>
+<blockquote>
+<p>要么，Bob 可以揭晓某个哈希值 H 背后的原像，再给出自己的签名，即可花费这笔资金<br>
+要么，Alice 可以在一段时间 T 过后，凭借自己的签名花费这笔资金</p>
+</blockquote>
+<p>这种 “要么 …… 要么 ……” 的效果，就是通过流程控制操作码实现的。</p>
+<blockquote>
+<p>HTLC 最突出的优点是它可以将多个操作捆绑在一起、实现原子化。例如，Alice 希望跟 Bob 以 BTC 交换 CKB，那么，Bob 可以先给出一个哈希值，并在 Nervos Network 上创造一个 HTLC；然后 Alice 在比特币上创造一个使用相同哈希值的 HTLC。要么，Bob 在比特币上拿走 Alice 支付的 BTC，同时也揭晓原像，从而允许 Alice 在 Nervos Network 上取走 CKB。要么，Bob 不揭晓原像，两个合约都过期，Alice 和 Bob 都可以取回自己投入的资金。</p>
+</blockquote>
+<p>在 Taproot 软分叉激活之后，这种多解锁路径的特性因为 MAST（默克尔抽象语法树） 的引入而得到进一步的强化：我们可以将一条解锁路径变成默克尔树上的一个叶子，每个叶子都是独立的，因此不再需要使用这样的流程控制操作码；而且，因为揭晓一条路径时无需曝光其它路径，我们可以为一个输出加入更多数量的解锁路径，而不必担心经济性问题。</p>
+<p>第二个概念是 “承诺交易”。承诺交易的想法是，在一些情况下，一笔有效的比特币交易，即使它不得到区块链的确认，也同样是真实的，有约束力的。</p>
+<p>例如，Alice 和 Bob 共同拥有一个 UTXO，这个 UTXO 需要他们两人的签名才能花费。这时候，Alice 构造一笔交易来花费它，将其中 60% 的价值转移给 Bob，剩下的价值转移给自己；Alice 为这笔交易提供自己的签名，然后发送给 Bob。那么，对 Bob 来说，不必将这笔交易广播到比特币网络中，也不必让这笔交易得到区块链的确认，这笔交易的支付效果也是真实的，可信的。因为 Alice 无法独自花费这个 UTXO（因此无法重复花费），也因为 Alice 所提供的签名是有效的，Bob 随时可以加上自己的签名，然后广播该交易，从而兑现这笔支付。也即，Alice 通过这笔有效的（不上链的）交易，给 Bob 提供了一个 “可信的承诺”。</p>
+<p>承诺交易是比特币应用编程的核心概念。如前所述，比特币的合约是基于验证的、无状态的、不允许交叉访问的；但是，如果合约不携带状态，那这些状态存放在哪里、合约如何安全推进（变更状态）？承诺交易给出了直截了当的答案：合约的状态可以用交易的形式来表达，从而，合约的参与者可以自己保存状态，而不必将它们展现在区块链上；合约的状态变更问题，也可以转化成如何安全地更新承诺交易的问题；此外，如果我们担心进入一个合约会有危险（例如，进入一个要求双方都签名才能花费的合约，会面临对方不响应从而卡死的风险），那么，只需提前生成花费该合约的承诺交易并获得签名，就可以化解风险、消除对其他参与者的信任。</p>
+<h3 id="httpstalknervosorgtckb7504h-8二闪电通道与闪电网络"><a href="https://talk.nervos.org/t/ckb/7504#h-8"></a>（二）闪电通道与闪电网络</h3>
+<p>闪电通道是一种一对一的合约，在这种合约中，双方可以无限次地相互支付，而不必让任何一次支付获得区块链的确认。如你所料，它用到了承诺交易。</p>
+<p>在解释 “承诺交易” 的部分，我们已经介绍了一种支付通道。但是，这种仅利用 2-of-2 多签名的合约仅能实现单向支付。即，要么一直是 Alice 向 Bob 支付，要么一直是 Bob 向 Alice 支付，直至用尽自己在合约中的余额。如果是双向支付，那就意味着，在某一次状态更新之后，一方的余额可能变得比以前更少，但是，TA 却拥有对方签过名的上一笔承诺交易 —— 有什么办法阻止 TA 广播旧的这笔承诺交易、让 TA 只能广播最新一笔承诺交易呢？</p>
+<p>闪电通道解决这个问题的办法叫做 “LN-Penalty”。现在，假设 Alice 和 Bob 在一条通道中各拥有 5 BTC；现在 Alice 要给 Bob 支付 1 BTC ，于是签名这样一笔承诺交易，并发送给 Bob：</p>
+<blockquote>
+<p>输入 #0 ， 10 BTC：<br>
+Alie-Bob 2-of-2 多签名输出（即通道合约）</p>
+<p>输出 #0 ， 4 BTC：<br>
+Alice 单签名</p>
+<p>输出 #1 ， 6 BTC：<br>
+要么<br>
+Alice-Bob 联合临时公钥 #1 单签名<br>
+要么<br>
+T 1 时间锁，Bob 单签名</p>
+</blockquote>
+<p>Bob 也签名一笔（跟上述交易恰成对应的）承诺交易，并发送给 Alice：</p>
+<blockquote>
+<p>输入 #0 ， 10 BTC：<br>
+Alie-Bob 2-of-2 多签名输出（即通道合约）</p>
+<p>输出 #0 ， 6 BTC：<br>
+Bob 单签名</p>
+<p>输出 #1 ， 4 BTC：<br>
+要么<br>
+Bob-Alice 联合临时公钥 #1 单签名<br>
+要么<br>
+T 1 时间锁，Alice 单签名</p>
+</blockquote>
+<p>这里的诀窍，就在于这个 “联合临时公钥”，它是使用己方的一个公钥和对方提供的一个公钥生成的，例如，Alice-Bob 联合临时公钥，是 Alice 使用自己的一个公钥，和 Bob 提供的一个公钥，各自乘以一个哈希值再相加，得出来的。这样一个公钥，在生成出来的时候，是谁也不知道其私钥的。但是，如果 Bob 把自己所提供的公钥的私钥告诉了 Alice，Alice 就可以计算出这个联合临时公钥的私钥。—— 这就是闪电通道可以 “撤销” 旧状态的关键。</p>
+<p>在下一次双方要更新通道状态（发起支付）时，双方就交换上一轮中交给对方的临时公钥的私钥。如此一来，参与者就再也不敢广播自己得到的上一笔承诺交易：这笔承诺交易为己方分配价值的输出有两个路径，而临时公钥路径的私钥已被对方知道；所以一旦广播旧的承诺交易，对方就可以立即动用这个联合临时私钥，从而将这个输出中的资金全部拿走。 —— 这就是 “LN-Penalty” 的含义。</p>
+<p>具体来说，交互的顺序是：发起支付的一方先向对方请求新的临时公钥，然后构造一笔新的承诺交易并交给对方；得到了承诺交易的一方向对方曝光自己在上一轮给出的临时公钥的私钥。这样的交互顺序保证了参与者总是先得到新的承诺交易，然后才作废自己在上一轮中得到的承诺交易，因此是免信任的。</p>
+<p>综上，闪电通道的关键设计有：</p>
+<ol>
+<li>
+<p>双方总是使用承诺交易来表达合约内部的状态，并以数额的变化来表示支付；</p>
+</li>
+<li>
+<p>承诺交易总是花费同一个输入（需要双方同时提供签名的输入），因此所有承诺交易都是相互竞争的，最终只有一笔能够得到区块链的确认；</p>
+</li>
+<li>
+<p>两个参与者签名的并不是同一笔承诺交易（虽然它们是成对的）；而他们所签名的总是对自己更有利的交易，换句话说，参与者收到的承诺交易，总是对自己不利的；</p>
+</li>
+<li>
+<p>这种不利体现在，为自己分配价值的输出带有两个解锁路径：一条路径可以凭自己的签名解锁，却需要等待一段时间；而另一条路径则用到了对方的公钥，仅当自己的一个临时私钥不暴露，才受到保护；</p>
+</li>
+<li>
+<p>在每一次支付中，双方都以新的一笔承诺交易来交换对方在上一轮使用的临时私钥，从而，交出了临时私钥的一方就不再敢广播旧的一笔承诺交易，因此，就 “撤销” 了上一笔承诺交易、更新了合约的状态；（实际上，这些承诺交易都是有效的交易，都是可以广播到区块链上的，只是参与者迫于惩罚，不敢再广播了）</p>
+</li>
+<li>
+<p>任何一方随时都可以拿对方签过名的承诺交易退出合约；但是，如果双方愿意合作，他们可以签名一笔新的交易，让双方都可以立即拿回属于自己的钱。</p>
+</li>
+</ol>
+<p>最后，因为承诺交易中也可置入 HTLC，所以，闪电通道也可以转发支付。假定 Alice 可以找出一条由闪电通道前后相接所组成的路径、触达 Daniel，那么无需跟 Daniel 开设通道就可以实现免信任的多跳支付。这便是闪电网络：</p>
+<blockquote>
+<p>Alice &ndash; HTLC &ndash;&gt; Bob &ndash; HTLC &ndash;&gt; Carol &ndash; HTLC &ndash;&gt; Daniel<br>
+Alice &lt;&ndash; 原像 &ndash; Bob &lt;&ndash; 原像 &ndash; Carol  &lt;&ndash; 原像 &ndash; Daniel</p>
+</blockquote>
+<p>当 Alice 找出了这样的路径并希望给 Daniel 支付时，她向 Daniel 请求一个哈希值，据以构造一个 HTLC 给 Bob，并提示 Bob 给 Carol 转发一条消息并提供相同的 HTLC；消息中又提示 Carol 给 Daniel 转发消息并提供相同的 HTLC。当消息传到 Daniel 手上时，他向 Carol 揭示原像，从而获得 HTLC 的价值、更新合约状态；Carol 也如法炮制，获得 Bob 的支付并更新通道状态；最后，Bob 向 Alice 揭示原像、更新状态。由于 HTLC 的特性，这一连串的支付要么一起成功，要么一起失败，因此，它是免信任的。</p>
+<p>闪电网络是由一条又一条的通道组成的，每一条通道（合约）都是相互独立的。这意味着 Alice 只需知晓自己跟 Bob 的通道内发生的事情，而不必理会其他人的通道中发生了多少次交互，也不必理会这些交互使用了哪一种货币，甚至不必知晓他们是不是真的利用了通道）。</p>
+<p>闪电网络的可扩展性不仅体现在一条闪电通道内部的支付速度仅受限于双方的硬件资源投入，还在于，由于状态的分散存储，单体节点可以用最低的成本撬动最大的杠杆。</p>
+<h3 id="httpstalknervosorgtckb7504h-9三谨慎日志合约"><a href="https://talk.nervos.org/t/ckb/7504#h-9"></a>（三）谨慎日志合约</h3>
+<p>谨慎日志合约（DLC）使用了一种叫做 “适配器签名（adaptor signature）” 的密码学技巧，使得比特币脚本可以编程出依赖于外部事件的金融合约。</p>
+<p>适配器签名可以让一个签名仅在加入一个私钥之后，才会变成有效的签名。以 Schnorr 签名为例，Schnorr 签名的标准形式是 (R, s)，其中：</p>
+<blockquote>
+<p>R = r.G  <br>
+# 签名所用 nonce 值 r 乘以椭圆曲线生成点，也可以说是 r 的公钥</p>
+<p>s = r + Hash(R || m || P) * p<br>
+# p 即为签名私钥，P 为公钥</p>
+<p>验证签名即验证 s.G = r.G + Hash(R || m || P) * p.G = R + Hash(R || m || P) * PK</p>
+</blockquote>
+<p>假设我给出了一对数据 (R, s)，其中：</p>
+<blockquote>
+<p>R = R 1 + R 2 = r 1.G + r 2.G<br>
+s = r 1 + Hash(R || m || P) * p</p>
+</blockquote>
+<p>显然，这并不是一个有效的 Schnorr 签名，它无法通过验签公式，但是，我却可以向验证者证明，只需 TA 知道 R 2 的私钥 r 2 ，就可以让它变成一个有效的签名：</p>
+<blockquote>
+<p>s.G + R 2 = R 1 + Hash(R || m || P) * P + R 2 = R + Hash(R || m || P) * P</p>
+</blockquote>
+<p>适配器签名让一个签名的有效性依赖于一个秘密数据，并且是可验证的。但是，这跟金融合约有什么关系呢？</p>
+<p>假定 Alice 和 Bob 希望打赌一场球赛的结果。Alice 和 Bob 分别赌绿魔和阿林纳胜出，赌注是 1 BTC。并且，球评网站 Carol 承诺会在球赛结果揭晓时，用一个 nonce R_c 发布对结果的签名 s_c_i。</p>
+<p>可以看出，一共有三种可能的结果（因此 Carol 的签名有 3 种可能）：</p>
+<p>- 绿魔胜出，Alice 赢得 1 BTC</p>
+<p>- 阿林纳胜出，Bob 赢得 1 BTC</p>
+<p>- 平局，两人的资金原路返回</p>
+<p>为此，两人为每一种结果创建一笔承诺交易。例如，他们为第一种结果创建的承诺交易是这样的：</p>
+<blockquote>
+<p>输入 #0 ， 2 BTC：<br>
+Alie-Bob 2-of-2 多签名输出（即打赌合约）</p>
+<p>输出 #0 ， 2 BTC：<br>
+Alice 单签名</p>
+</blockquote>
+<p>但是，Alice 和 Bob 为这笔交易创建的签名却不是 (R, s)，而是适配器签名 (R, s)；也即，双方交给对方的签名都是不能直接用来解锁这个合约的，而必须揭晓一个秘密值才可以。这个秘密值，正是 s_c_ 1.G 的原像，也即 Carol 的签名！因为 Carol 的签名 nonce 值已经确定了（是 R_c），所以，s_c_ 1.G 是可以构造出来的（s_c_ 1.G = R_c + Hash(R_c || 绿魔胜出 || PK_c) * PK_c）。</p>
+<p>当结果揭晓的时候，假定绿魔胜出，Carol 就会发布签名 (R_c, s_c_ 1)，那么无论 Alice 还是 Bob，都可以补完对手的适配器签名，再加上自己的签名，使上述交易成为一笔有效交易，并广播到网络中、触发结算效果。但如果绿魔没有胜出，Carol 就不会发布 s_c_ 1 ，这笔承诺交易也就不可能成为一笔有效交易。</p>
+<p>以此类推，另外两笔交易也是如此。就这样，Alice 和 Bob 让这个合约的执行依赖于外部事件（准确来说是依赖于断言机对外部事件的播报，其形式是个签名），而且不需要信任对手方。大大小小的金融合约，比如期货、期权，都可以用这种方式来实现。</p>
+<p>与其它形式的实现相比，谨慎日志合约最大的特点在于其隐私性：（1）Alice 和 Bob 不需要告知 Carol 自己正在使用 Carol 的数据，这完全不影响合约的执行；（2）链上观察者（也包括 Carol 在内），也无法通过 Alice 和 Bob 的合约执行交易来判定他们正在使用哪个网站的服务，甚至无法断定他们的合约是一个打赌合约（而不是一个闪电通道）。</p>
+<h2 id="httpstalknervosorgtckb7504h-10四-限制条款应用简介"><a href="https://talk.nervos.org/t/ckb/7504#h-10"></a>四. 限制条款应用简介</h2>
+<h3 id="httpstalknervosorgtckb7504op_ctv-11一op_ctv-与拥堵控制"><a href="https://talk.nervos.org/t/ckb/7504#op_ctv-11"></a>（一）OP_CTV 与拥堵控制</h3>
+<p>比特币社区的开发者曾提出过多种可被归类为限制条款的提议。从当前来看，最著名的一个提议当属 OP_CHECKTEMPLATEVERIFY（OP_CTV），其概念较为简单，却保留了相当大的灵活性，因此受到崇尚简洁的比特币社区的欢迎。OP_CTV 的想法是，在脚本中承诺一个哈希值，以约束这笔资金只能被这个哈希值所表示的的交易花费；这个哈希值承诺了交易的输出以及大部分字段，但不承诺交易的输入，只承诺输入的数量。</p>
+<p>“拥堵控制” 是一个可以体现 OP_CTV 特性的好例子。其基本应用场景是帮助大量的用户从交易所（一个需要信任的环境）退出到一个资金池中；由于这个资金池使用 OP_CTV 规划了未来的花费方式，因此它可以保证用户可以免信任地退出这个资金池，不需要任何人的帮助；又因为这个资金池只表现为一个 UTXO，它避免了在链上交易需求高涨时支付大量手续费（从 n 个输出减少到了 1 个输出；也从 n 笔交易减少到了 1 个交易）。池内用户可以伺机再从池中退出。</p>
+<p>假设 Alice、Bob、Carol 分别想从交易所中取出 5 BTC、 3 BTC 和 2 BTC。那么交易所可以制作一个带有 3 个 OP_CTV 分支的、数额为 10 BTC 的输出。假设 Alice 想要取款，她可以动用分支 1 ；该分支的 OP_CTV 所用的哈希值所代表的交易，将形成两个输出，一个输出是为 Alice 分配 5 BTC；另一个输出又是一个资金池，也使用 OP_CTV 承诺一笔交易，只允许 Bob 取出 3 BTC，并将剩下的 2 BTC 发送给 Carol。</p>
+<p>Bob 或者 Carol 想要取款，也是同理。他们在取款时，将只能使用能够通过相应 OP_CTV 检查的交易，也即只能给自己支付相应的数额，而不能任意取款；剩余的资金将又进入一个使用 OP_CTV 锁的资金池，从而保证无论用户的取款顺序如何，剩余的用户都能免信任地从池中退出。</p>
+<p>抽象地说，OP_CTV 在这里的作用是为合约规划走向合约生命终结的路径，使得这里的资金池合约不论走哪一条路径、走到了哪个状态，都能保持免信任退出的属性。</p>
+<p>这种 OP_CTV 还有一种非常有趣的用法：“隐而不发的单向支付通道”。假设 Alice 形成了这样一个资金池，并保证资金可以免信任地退出到一个带有如下脚本的输出中：</p>
+<blockquote>
+<p>要么， Alice 和 Bob 一起花费它<br>
+要么，一段时间后，Alice 可以独自花费它</p>
+</blockquote>
+<p>如果 Alice 不向 Bob 揭晓，Bob 就不会知道有这样的输出存在；一旦 Alice 向 Bob 揭晓，Bob 就可以把这个输出当成一个有时效性的单向支付通道，Alice 可以立即用其中的资金给 Bob 支付，而不必等待区块链的确认。Bob 只需在 Alice 可以独自花费它之前，让 Alice 给他的承诺交易上链即可。</p>
+<h3 id="httpstalknervosorgtckb7504op_vault-12二op_vault-与保险柜"><a href="https://talk.nervos.org/t/ckb/7504#op_vault-12"></a>（二）OP_Vault 与保险柜</h3>
+<p>OP_VAULT 是一种专为构造 “保险柜合约（vaults）” 而提出的限制条款提议。</p>
+<p>保险柜合约旨在成为一种更安全、更高级的自主保管形式。当前的多签名合约虽然能免去单个私钥的单点故障，但如果攻击者真的获得了阈值数量的私钥，钱包的主人是无计可施的。保险柜希望能为资金施加单次花费的限额；同时，使用常规路径从中取款时，取款操作将强制执行一个等待期；而在等待期内，取款操作可以被紧急恢复钱包的操作打断。这样的合约，即使被攻破，钱包的主人也可以（使用紧急复原分支）发起反制操作。</p>
+<p>理论上，OP_CTV 也可以编程出这样的合约，但却有许多的不便利，其中之一是手续费：在承诺交易的同时，它也承诺了该交易将支付的手续费。考虑到这种合约的用途，设置合约和取款的时间间隔必定很长，那就几乎不可能预测出合适的手续费。尽管 OP_CTV 没有限制输入，因此可以通过增加输入来增加手续费，但所提供的输入将全部变成手续费，因此是不现实的；另一种方式是 CPFP，也即通过花费取出的资金，在新的交易中提供手续费。此外，使用了 OP_CTV 也意味着这样的保险柜合约无法批量取款（当然也无法批量复原）。</p>
+<p>OP_VAULT 提议则尝试通过提出新的操作码（OP_VAULT 和 OP_UNVAULT）来解决这些问题。OP_UNVAULT 是专为批量复原而设计的，我们暂时不提。OP_VAULT 的动作则是这样的：当我们把它放在脚本树的一个分支上时，它可以用来承诺一个可以动用的操作码（例如 OP_CTV）而不设具体的参数；在花费这个分支时，交易可以传入具体的参数，但不能更改其它分支。由此，它不必预设手续费，可以在花费这个分支时再设定手续费；假定这个分支也带有时间锁，那么它就会强制执行一个时间锁；最后，因为只可改变自身所在的分支，新的脚本树上的其它分支（包括紧急复原分支）不会被改变，因此允许我们打断这样的取款操作。</p>
+<p>此外，还有两点值得一提：（1）OP_VAULT 操作码的动作类似于另一个限制条款提议：OP_TLUV ；Jeremy Rubin 正确地指出，这在一定程度上已经产生了 “计算” 的概念：OP_TLUV/OP_VAULT 先承诺了一个操作码，以允许使用者通过新的一笔交易为该操作码传入参数，从而更新整个脚本树叶子；这就已经不是 “根据一定的条件验证传入的数据” 了，而是 “根据传入的数据产生新的有意义的数据” 了，虽然它可以启用的计算是比较有限的。</p>
+<p>（2）完整的 OP_VAULT 提议也利用了一些交易池策略（mempool policy）上的提议（比如 v3 格式的交易）以取得更好的效果。这提醒了我们 “编程” 的含义可以比我们想象的更为广泛。（一个相似的例子是 Nervos Network 里面的 Open Transaction。）</p>
+<h2 id="httpstalknervosorgtckb7504ckb-13五-理解-ckb"><a href="https://talk.nervos.org/t/ckb/7504#ckb-13"></a>五. 理解 CKB</h2>
+<p>在上述两个章节中，我们介绍了在一种更为受限的结构（Bitcoin UTXO）上，我们如何用脚本编程出有趣的应用；也介绍了尝试为这种结构加入内省能力的提议。</p>
+<p>UTXO 虽然不乏编程出这些应用的能力，但读者也很容易觉察出它们的缺点，或者说可以优化的地方，比如：</p>
+<ul>
+<li>
+<p>在 LN-Penalty 中，通道的参与者必须保存过往的每一笔承诺交易以及相应的惩罚秘密值，以应对对手的欺诈，这构成了存储上的负担。如果有一种机制，可以确保只有最新的一笔承诺交易才会生效，而旧的承诺交易无法生效，那就可以免去这种负担，而且，也可以消除节点因为故障而误将较旧的承诺交易上链，因此被意外惩罚的问题。</p>
+</li>
+<li>
+<p>在 DLC 中，假设事件的可能结果有很多，双方要提前生成、交给对方的签名也便有很多，这也是一种巨大的负担；此外，DLC 合约的收益是直接绑定在公钥上的，因此其仓位是不便于转移的，有没有办法可以转移合约的仓位呢？</p>
+</li>
+</ul>
+<p>实际上，比特币社区已经为这些问题提出了答案，基本上跟一种 Sighash 提议（BIP-118 AnyPrevOut）有关。</p>
+<p>但是，如果我们是在 CKB 上编程，BIP-118 等于是现在就可用了（可以用内省和针对性验证签名的能力模拟出这种 Sighash 标签）。</p>
+<p>通过学习比特币编程，我们不仅知道了 “交易输出” 这种格式下可以如何编程（CKB 能编程什么），还能知道这些应用的改进方法（如果我们在 CKB 上编程这些应用，可以如何运用 CKB 的能力来改进它们）。对于 CKB 开发者来说，简直可以将基于比特币脚本的编程当成一种学习的教材，甚至是捷径。</p>
+<p>下面，我们逐一分析 CKB 编程的各个模块的可编程性。我们先不考虑内省能力。</p>
+<h3 id="httpstalknervosorgtckb7504lock-script-14一可编程任意计算的-lock-script"><a href="https://talk.nervos.org/t/ckb/7504#lock-script-14"></a>（一）可编程任意计算的 Lock Script</h3>
+<p>如上所述，UTXO 是不能编程任意计算的。而 Lock Script 可以，这就意味着 Lock Script 可以编程出（限制条款部署前）基于 UTXO 编程的所有东西，包括但不限于上文所述的闪电通道和 DLC。</p>
+<p>此外，这种可验证任意计算的能力，还使得 Lock Script 可以动用的身份验证手段比 UTXO 更多，更灵活。比如说，我们可以在 CKB 上实现一种一方使用 ECDSA 签名、另一方使用 RSA 签名的闪电通道。</p>
+<p>实际上，这正是人们在 CKB 上最早开始探索的领域之一：将这种灵活的身份验证能力用在用户的自主保管中，从而实现所谓的 “账户抽象” —— 交易有效性的授权和控制权的恢复都非常灵活，几乎没有限制。原理上，这就是 “多种花费分支” 以及 “任意身份验证手段” 的结合。实现的例子有：joyid wallet、UniPass。</p>
+<p>此外，Lock Script 也可以实现 eltoo 提议，从而实现只需保留最新一笔承诺交易的闪电通道（实际上，eltoo 可以简化一切点对点合约）。</p>
+<h3 id="httpstalknervosorgtckb7504type-script-15二可编程任意计算的-type-script"><a href="https://talk.nervos.org/t/ckb/7504#type-script-15"></a>（二）可编程任意计算的 Type Script</h3>
+<p>如上所述，Type Script 的一大用途是编程 UDT。结合 Lock Script，这意味着我们可以实现以 UDT 为标的的闪电通道（以及其它类型的合约）。</p>
+<p>实际上，Lock Script 和 Type Script 的分割可以视为一种安全性升级：Lock Script 专注于实现保管方法或者合约式协议，而 Type Script 专注于 UDT 的定义。</p>
+<p>此外，基于 UDT 的定义启动检查的能力，还使得 UDT 能够以跟 CKB 类似的方式参与合约（UDT is first-class citizen）。</p>
+<p>举个例子：笔者曾经提出过一种在比特币上实现免信任 NFT 担保借贷的协议。这种协议的关键是一种承诺交易，其输入的价值是小于输出的价值的（因此它还不算是一笔有效的交易），但是，一旦能够为这笔交易提供足额的输入，它就是一笔有效的交易：一旦贷款人能够还款，放贷者就不能将质押的 NFT 据为己有。但是，这个承诺交易的免信任性基于交易对输入和输出的数额的检查，所以贷款人只能使用比特币来还款 —— 即使贷款人和放贷者都愿意接受另一种货币（比如以 RGB 协议发行的 USDT），比特币的承诺交易也无法保证只要贷款人归还了足额的 USDT 就能拿回自己的 NFT，因为比特币交易根本不知道 USDT 的状态！（修订：换言之，无法构造出以 USDT 还款为条件的承诺交易。）</p>
+<p>如果我们能够根据 UDT 的定义发起检查，将可以让放贷者签名另一笔承诺交易，允许贷款人使用 USDT 来还款。交易将检查输入的 USDT 数量和输出的 USDT 数量，从而为用户使用 USDT 还款赋予免信任性。</p>
+<blockquote>
+<p>修订：假定这里用作抵押的 NFT 和用于还款的 token 是使用同一套协议（比如 RGB）发行的，那么，这里的问题是能够解决的，我们可以根据 RGB 协议构造一种承诺交易，使得 NFT 的状态转换和还款可以同步发生（在 RGB 协议内用交易绑定两个状态转换）。但是，因为 RGB 的交易也要依赖于比特币交易，这里的承诺交易的构造会有一定的难度。总而言之，尽管问题可以解决，但做不到 token is first-class citizen。</p>
+</blockquote>
+<p>接下来我们再考虑内省能力。</p>
+<h3 id="httpstalknervosorgtckb7504lock-script-lock-scripts-16三lock-script-读取其它-lock-scripts"><a href="https://talk.nervos.org/t/ckb/7504#lock-script-lock-scripts-16"></a>（三）Lock Script 读取其它 Lock Scripts</h3>
+<p>这意味着限制条款提议实施之后，比特币 UTXO 上的全部编程可能性。包括上文提到的保险柜合约，以及基于 OP_CTV 的应用（比如拥堵控制）。</p>
+<p>XueJie 曾经提过一个非常有趣的例子：你可以在 CKB 上实现一种收款账户 Cell，在使用这种 Cell 作为交易的输入时，如果它输出的 Cell （使用相同 Lock Script 的 Cell）具备更多的 Capacity，那么这个输入无需提供签名也不会影响交易的有效性。实际上，如果没有内省的能力，这种 Cell 是无法实现的。这种收款账户 Cell 非常适合作为机构的收款方式，因为它可以将资金归集起来，缺点是它的隐私性不佳。</p>
+<h3 id="httpstalknervosorgtckb7504lock-script-type-scripts-data-17四lock-script-读取其它-type-scripts以及-data"><a href="https://talk.nervos.org/t/ckb/7504#lock-script-type-scripts-data-17"></a>（四）Lock Script 读取其它 Type Scripts（以及 Data）</h3>
+<p>这种能力的一个有趣的应用是股权 Token。Lock Script 将根据其它输入中的 Token 的数量来决定能否动用自身的 Capacity，以及这些 Capacity 能够花到哪里去（需要内省 Lock Script 的能力）。</p>
+<h3 id="httpstalknervosorgtckb7504type-script-lock-scripts-18五type-script-读取其它-lock-scripts"><a href="https://talk.nervos.org/t/ckb/7504#type-script-lock-scripts-18"></a>（五）Type Script 读取其它 Lock Scripts</h3>
+<p>不确定，但可以假设有用。例如，可以在 Type Script 中检查交易的输入和输出的 Lock Scripts 保持不变。</p>
+<h3 id="httpstalknervosorgtckb7504type-scirpt-type-scripts-data-19六type-scirpt-读取其它-type-scripts以及-data"><a href="https://talk.nervos.org/t/ckb/7504#type-scirpt-type-scripts-data-19"></a>（六）Type Scirpt 读取其它 Type Scripts（以及 Data）</h3>
+<p>集换卡？集齐 n 个 token 可以换取更大的一个 token : )</p>
+<h2 id="httpstalknervosorgtckb7504h-20六-结论"><a href="https://talk.nervos.org/t/ckb/7504#h-20"></a>六. 结论</h2>
+<p>与此前出现的可编程任意计算的智能合约系统（如以太坊）相比，Nervos Network 采取了不同的结构；因此，对以往那些智能合约系统的了解，往往难以成为理解 Nervos Network 的基础。本文从一种比 CKB Cell 更为受限的结构 —— BTC UTXO —— 的应用编程出发，提出了一种理解 CKB Cell 可编程性的方法。并且，运用 “内省” 的概念来理解 Cell 的 “跨合约访问” 的能力，我们可以划分运用内省能力的情形，并为它们确定具体的用途。</p>
+<p>修订：</p>
+<ol>
+<li>
+<p>不考虑 Cell 的交叉访问能力（即内省能力），lock scripts 可以认为是带状态、编程能力已趋极致的 Bitcoin Script，因此单凭这一点就可以编程所有基于 Bitcoin Script 的应用；</p>
+</li>
+<li>
+<p>不考虑 Cell 的交叉访问能力（即内省能力），lock scripts 和 type scripts 的区分可以认为是一种安全性升级：它切分了 UDT 的 资产定义 与 保管方法；此外，可暴露状态的 type scripts（以及 Data）实现了 UDT is first-class citizen 的效果。</p>
+</li>
+</ol>
+<p>以上两点意味着一种跟 “BTC + RGB” 相同范式但编程能力更强的东西；</p>
+<ol>
+<li>考虑 Cell 的内省能力，Cell 可以获得比 post-covenants BTC UTXO 更强的编程能力，并实现一些 BTC + RGB 难以实现的东西（因为 BTC 无法阅读 RGB 的状态）</li>
+</ol>
+<p>关于这些用途，本文无法提出很多具体的例子，但这是因为笔者对 CKB 的生态缺乏了解的缘故。假以时日，相信人们会在其中投入越来越多的想象力，组合出如今难以想象的应用。</p>
+<h2 id="httpstalknervosorgtckb7504h-21致谢"><a href="https://talk.nervos.org/t/ckb/7504#h-21"></a>致谢</h2>
+<p>感谢 Retric，Jan Xie 和 Xue Jie 在文章撰写过程中提供的反馈。当然，文中所有的错误都由我自己负责。</p>
+<h2 id="参考文献">参考文献</h2>
+<p><a href="https://forum.celestia.org/t/accounts-strict-access-lists-and-utxos/37">Accounts, Strict Access Lists, and UTXOs</a></p>
+<p><a href="https://www.btcstudy.org/2023/07/12/covenants-in-bitcoin-a-useful-review/">比特币中的限制条款：用于评审的分类学</a></p>
+<p><a href="https://medium.com/nervosnetwork/https-medium-com-nervosnetwork-cell-model-7323fca57571">Cell Model</a></p>
+<p><a href="https://medium.com/nervosnetwork/nervos-ckb-in-a-nutshell-7a4ac8f99e0e">Nervos CKB in a Nutshell</a></p>
+<p><a href="https://xuejie.space/2019_07_05_introduction_to_ckb_script_programming_validation_model/">https://xuejie.space/2019_07_05_introduction_to_ckb_script_programming_validation_model/</a></p>
+<p><a href="https://www.btcstudy.org/2022/09/07/on-the-programmability-of-bitcoin-protocol/#%EF%BC%88%E4%BA%8C%EF%BC%89%E8%B0%A8%E6%85%8E%E6%97%A5%E5%BF%97%E5%90%88%E7%BA%A6%EF%BC%88DLC%EF%BC%89">比特币的可编程性</a></p>
+<p><a href="https://mirror.xyz/0xbeC73ba0817403cd11C11bE891D671EA30443562/95LlE7sLCL4UTvL7rU3ZAXnBvlDbh7X-rm0QWkc43Us">论账户抽象( 2022)</a></p>
+<p><a href="https://www.btcstudy.org/2021/09/07/what-is-a-bitcoin-merklized-abstract-syntax-tree-mast/">什么是比特币默克尔化抽象语法树？</a></p>
+<p><a href="https://www.btcstudy.org/2023/04/13/bitcoin-improvement-proposals-345-op-vault-commit-0b0674c546/">BIP 345 ：OP_VAULT 提议</a></p>
+<p><a href="https://www.btcstudy.org/2023/06/29/tapleaf-update-verify-covenant-opcode-introduction/">TLUV 限制条款操作码简介</a></p>
+<p><a href="https://www.btcstudy.org/2022/05/25/contracting-primitives-and-upgrades-to-bitcoin/">构造合约的元件与比特币的升级</a></p>
+<p><a href="https://www.btcstudy.org/2022/01/27/breaking-down-the-bitcoin-lightning-network-eltoo/">eltoo 详解</a></p>
+<p><a href="https://github.com/btc-study/OP_QUESTION/discussions/7">一种基于承诺交易的 NFT 担保借贷合约 · btc-study/OP_QUESTION · Discussion #7</a> </p>
+<p><a href="https://talk.nervos.org/t/ckb/7504">原文链接</a></p>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/63931/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">创办一家DeFi公司？ 总部选址的9个技巧</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/63928/">
+                <span class="next-text nav-default">从京言AI助手上线，看京东如何促进AI与产业融合</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#摘要">摘要</a></li>
+    <li><a href="#httpstalknervosorgtckb7504h-2一-引言"><a href="https://talk.nervos.org/t/ckb/7504#h-2"></a>一. 引言</a></li>
+    <li><a href="#httpstalknervosorgtckb7504ckb-vs-btc-3二-ckb-vs-btc多了什么"><a href="https://talk.nervos.org/t/ckb/7504#ckb-vs-btc-3"></a>二. CKB v.s. BTC：多了什么？</a>
+      <ul>
+        <li><a href="#httpstalknervosorgtckb7504h-4一基本结构"><a href="https://talk.nervos.org/t/ckb/7504#h-4"></a>（一）基本结构</a></li>
+        <li><a href="#httpstalknervosorgtckb7504h-5二限制条款与内省"><a href="https://talk.nervos.org/t/ckb/7504#h-5"></a>（二）限制条款与内省</a></li>
+      </ul>
+    </li>
+    <li><a href="#httpstalknervosorgtckb7504h-6三-比特币脚本编程"><a href="https://talk.nervos.org/t/ckb/7504#h-6"></a>三. 比特币脚本编程</a>
+      <ul>
+        <li><a href="#httpstalknervosorgtckb7504op_if-7一op_if-以及-承诺交易"><a href="https://talk.nervos.org/t/ckb/7504#op_if-7"></a>（一）OP_IF 以及 “承诺交易”</a></li>
+        <li><a href="#httpstalknervosorgtckb7504h-8二闪电通道与闪电网络"><a href="https://talk.nervos.org/t/ckb/7504#h-8"></a>（二）闪电通道与闪电网络</a></li>
+        <li><a href="#httpstalknervosorgtckb7504h-9三谨慎日志合约"><a href="https://talk.nervos.org/t/ckb/7504#h-9"></a>（三）谨慎日志合约</a></li>
+      </ul>
+    </li>
+    <li><a href="#httpstalknervosorgtckb7504h-10四-限制条款应用简介"><a href="https://talk.nervos.org/t/ckb/7504#h-10"></a>四. 限制条款应用简介</a>
+      <ul>
+        <li><a href="#httpstalknervosorgtckb7504op_ctv-11一op_ctv-与拥堵控制"><a href="https://talk.nervos.org/t/ckb/7504#op_ctv-11"></a>（一）OP_CTV 与拥堵控制</a></li>
+        <li><a href="#httpstalknervosorgtckb7504op_vault-12二op_vault-与保险柜"><a href="https://talk.nervos.org/t/ckb/7504#op_vault-12"></a>（二）OP_Vault 与保险柜</a></li>
+      </ul>
+    </li>
+    <li><a href="#httpstalknervosorgtckb7504ckb-13五-理解-ckb"><a href="https://talk.nervos.org/t/ckb/7504#ckb-13"></a>五. 理解 CKB</a>
+      <ul>
+        <li><a href="#httpstalknervosorgtckb7504lock-script-14一可编程任意计算的-lock-script"><a href="https://talk.nervos.org/t/ckb/7504#lock-script-14"></a>（一）可编程任意计算的 Lock Script</a></li>
+        <li><a href="#httpstalknervosorgtckb7504type-script-15二可编程任意计算的-type-script"><a href="https://talk.nervos.org/t/ckb/7504#type-script-15"></a>（二）可编程任意计算的 Type Script</a></li>
+        <li><a href="#httpstalknervosorgtckb7504lock-script-lock-scripts-16三lock-script-读取其它-lock-scripts"><a href="https://talk.nervos.org/t/ckb/7504#lock-script-lock-scripts-16"></a>（三）Lock Script 读取其它 Lock Scripts</a></li>
+        <li><a href="#httpstalknervosorgtckb7504lock-script-type-scripts-data-17四lock-script-读取其它-type-scripts以及-data"><a href="https://talk.nervos.org/t/ckb/7504#lock-script-type-scripts-data-17"></a>（四）Lock Script 读取其它 Type Scripts（以及 Data）</a></li>
+        <li><a href="#httpstalknervosorgtckb7504type-script-lock-scripts-18五type-script-读取其它-lock-scripts"><a href="https://talk.nervos.org/t/ckb/7504#type-script-lock-scripts-18"></a>（五）Type Script 读取其它 Lock Scripts</a></li>
+        <li><a href="#httpstalknervosorgtckb7504type-scirpt-type-scripts-data-19六type-scirpt-读取其它-type-scripts以及-data"><a href="https://talk.nervos.org/t/ckb/7504#type-scirpt-type-scripts-data-19"></a>（六）Type Scirpt 读取其它 Type Scripts（以及 Data）</a></li>
+      </ul>
+    </li>
+    <li><a href="#httpstalknervosorgtckb7504h-20六-结论"><a href="https://talk.nervos.org/t/ckb/7504#h-20"></a>六. 结论</a></li>
+    <li><a href="#httpstalknervosorgtckb7504h-21致谢"><a href="https://talk.nervos.org/t/ckb/7504#h-21"></a>致谢</a></li>
+    <li><a href="#参考文献">参考文献</a></li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

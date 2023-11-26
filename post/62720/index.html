@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          ZK语言调查：Noir、o1js、Circom、Leo、Cairo、Lurk - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="本文将介绍塑造 ZK 领域特定语言（DSL）。" />
+<meta name="keywords" content="zkRollup" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/62720/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="ZK语言调查：Noir、o1js、Circom、Leo、Cairo、Lurk" />
+<meta property="og:description" content="本文将介绍塑造 ZK 领域特定语言（DSL）。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/62720/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-11-07T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-11-07T00:00:00+00:00" />
+
+<meta itemprop="name" content="ZK语言调查：Noir、o1js、Circom、Leo、Cairo、Lurk">
+<meta itemprop="description" content="本文将介绍塑造 ZK 领域特定语言（DSL）。"><meta itemprop="datePublished" content="2023-11-07T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-11-07T00:00:00+00:00" />
+<meta itemprop="wordCount" content="5242">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="ZK语言调查：Noir、o1js、Circom、Leo、Cairo、Lurk"/>
+<meta name="twitter:description" content="本文将介绍塑造 ZK 领域特定语言（DSL）。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">ZK语言调查：Noir、o1js、Circom、Leo、Cairo、Lurk</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-11-07">
+      2023-11-07
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 5242 字 -
+        预计阅读 11 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E6%94%BF%E7%AD%96/"> 政策 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<h3 id="简介">简介</h3>
+<p>领域特定语言（DSL）在零知识（ZK）证明[4]领域中起着至关重要的作用。在核心上，ZK 证明解决了在不透露任何附加信息的情况下证明秘密数据中某些属性存在的挑战。然而，将高层次的想法转化为具体的证明可能会很复杂。这就是 DSL 发挥作用的地方，它们将抽象概念与证明系统所需的电路表示桥接起来。</p>
+<p>证明系统[5]是一种允许一方向另一方证明某个陈述或主张的有效性而不透露任何敏感信息的方法或协议。它涉及一组规则和程序，使证明者能够说服验证者某个陈述的真实性，例如计算的正确性或某些知识的拥有，而不透露任何底层的秘密或数据。</p>
+<p>然而，证明系统不能直接处理高层次的概念。相反，它们需要被转化为表示所需属性的电路。从高层次概念到电路的这种转变带来了挑战。这就是电路语言发挥作用的地方。电路语言通过提供一种结构化和形式化的方式来表达高层次的想法来解决这个问题。</p>
+<p>在过去的十年中，电路语言的数量和多样性有了显著增长。许多电路语言的发展，如 Noir、Cairo[6]和 Leo，表明了该领域的活跃程度。这种语言的增多使得我们可以比较和对比它们的特性、相似之处和差异。通过对这些语言进行综合考察，可以更深入地了解整个电路语言的格局。</p>
+<h3 id="tldr"><strong>TLDR;</strong></h3>
+<p><strong>– Noir</strong>  – 由 Aztec 开发，抽象了密码学的复杂性，使得任何背景的开发人员都可以编写 ZK 电路。</p>
+<p><strong>– o1js</strong>  – 由 O(1) Labs 开发的 TypeScript 库。允许开发人员编写智能合约。与现有的 JavaScript 和 TypeScript 库和工具很好地集成。</p>
+<p><strong>– **Circom**[7]</strong>  – 专为 ZKP 电路开发而设计。提供精确性和清晰性，其功能主要集中在这个特定领域。</p>
+<p><strong>– Leo</strong>  – 为开发人员提供了一个用户友好的环境。采用了经过形式验证的编译器架构，重点是早期错误检测和预防。</p>
+<p><strong>– **Cairo**[8]</strong>  – 强调效率和可扩展性。通过标准接口支持互操作性，可以与区块链平台、智能合约和链下系统集成。</p>
+<p><strong>– Lurk</strong>  – 通过利用 Lisp 实现通用电路，解决了传统 SNARK 的局限性。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1107/4_45di49vdhg.png" alt="ZK语言调查：Noir、o1js、Circom、Leo、Cairo、Lurk"></p>
+<h2 id="术语表"><strong>术语表</strong></h2>
+<p>由于我们将涉及技术概念，以下是一些可能在后续文本中遇到的复杂术语的术语表：</p>
+<p><strong>• 抽象电路中间表示（Acer：Abstract Circuit Intermediate Representation）：</strong>  Noir 使用的 ZK 电路的中间表示，可以编译成一阶约束系统（R1CS）。</p>
+<p><strong>• 自定义门（Custom gates）：</strong>  专为在 ZK 电路中高效且安全地执行密码操作而设计的专用逻辑门。</p>
+<p><strong>• SHA-256：</strong>  一种密码哈希函数，接受一个输入并产生固定大小的输出。</p>
+<p><strong>• Pedersen-Merkle 检查：</strong>  使用 Pedersen 承诺和默克尔树的密码验证技术，可以验证数据的完整性和一致性。</p>
+<p><strong>• 图灵完备性：</strong> 计算系统的属性，可以模拟图灵机，在足够的时间和资源下能够解决任何可计算问题。</p>
+<p><strong>• 过程传递风格（CPS：Continuation Passing Style）：</strong> 一种编程技术，将评估过程分解为可管理的步骤，实现统一且高效的执行。</p>
+<p><strong>• 域元素（Field elements）：</strong> 有限数学域中的元素，常用于密码学方案和计算中。</p>
+<h2 id="noir"><strong>Noir</strong></h2>
+<p>Noir[9] 是 Aztec 设计的一种领域特定语言（DSL），旨在简化 ZK 电路和 ZK 程序的创建，无需广泛的密码学知识或成为密码学家。其主要目标是使来自任何背景的开发人员能够编写 ZK（零知识）电路。Noir 优先考虑安全性、简单性和性能。它提供了一种高级的、类似于 Rust 的语法，抽象了密码学安全性并简化了密码学原语的使用，同时保持高性能。</p>
+<h3 id="通过-zk-证明扩展可能性"><strong>通过 ZK 证明扩展可能性</strong></h3>
+<p>Noir 的一个优点是它有潜力扩展可以利用 ZK 证明提供的保护隐私特性的应用范围。这些证明增强了隐私并提供了高效的验证。Noir 编译成一种中间表示称为抽象电路中间表示（Acer），可以进一步编译成一种称为 R1CS（rank one constraint system）的约束系统。这种后端证明系统与语言的解耦使得 Noir 可以支持各种证明系统，包括 Aztec Brettenberg、Turbo Plonk 以及潜在的未来集成，如 Groth16 和 Halo 2。</p>
+<h3 id="优化和标准库"><strong>优化和标准库</strong></h3>
+<p>开发人员可以在证明系统层面上优化电路，利用自定义门，一种专门设计用于高效和安全执行密码操作的逻辑门类型，提高速度、安全性和各种应用功能。该语言提供了一个标准库，其中包含了优化的函数，如 SHA-256 和 Pedersen-Merkle 检查，这些密码验证技术使用 Pedersen 承诺和默克尔树，能够验证数据的完整性和一致性。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1107/4_ka6jupy92m.png" alt="ZK语言调查：Noir、o1js、Circom、Leo、Cairo、Lurk" title="![显示 Noir 语言语法的图形"></p>
+<p>显示 Noir 语言语法的图形</p>
+<h3 id="代码组织和表达能力"><strong>代码组织和表达能力</strong></h3>
+<p>Noir 通过模块和外部 crate 支持代码组织，便于创建 Noir 程序的库。它提供了数组、元组和结构等复合数据类型，允许开发人员对数据进行分组并实现公共函数。该语言还支持控制流结构，如 for 循环、if 语句以及逻辑和位运算符。泛型和一级函数正在积极开发中，进一步增强了 Noir 的表达能力。</p>
+<p>需要注意的是，Noir 仍然在不断发展中。它可能存在一些限制和潜在的错误。开发团队持续迭代语言，并致力于不断改进。</p>
+<h2 id="o1js"><strong>o1js</strong></h2>
+<p>o1js[10] 是 (0)1Labs 设计的一种 TypeScript 库，用于使用 Snark 编程语言编写智能合约。它利用现有的开放技术，如 Node.js 和浏览器，使其对开发人员来说更加易于访问和方便。通过构建在 TypeScript 上，o1js 允许开发人员利用他们对 JavaScript 和 TypeScript 库和工具的现有知识。</p>
+<h3 id="集成"><strong>集成</strong></h3>
+<p>o1js 与 JavaScript 和 TypeScript 库和工具无缝集成，为开发人员提供了强大的功能和广泛的社区支持。这种集成提高了生产力，并减少了采用新开发环境的学习曲线。</p>
+<h3 id="vs-code-支持"><strong>VS Code 支持</strong></h3>
+<p>它提供对 Visual Studio Code (VS Code) 的支持，这是一款流行的代码编辑器。开发人员可以利用诸如代码补全、语法高亮和调试等功能，增强整体的开发体验。</p>
+<h3 id="标准库"><strong>标准库</strong></h3>
+<p>o1js 提供了一个全面的标准库，包括域元素、un-64、un-32、公钥、私钥和签名等基本类型。这些类型带有内置方法，简化了加密方案、可选数据、布尔值和椭圆曲线的处理过程。</p>
+<h2 id="circom"><strong>Circom</strong></h2>
+<p>Circom 是 Circuit Compiler 的缩写，是一种专为零知识证明 (ZKP) 电路开发而设计的强大领域特定语言 (DSL)，由 Jordi Balyna 和 iden3 团队创建。</p>
+<h3 id="表达性电路定义"><strong>表达性电路定义</strong></h3>
+<p>凭借其表达性的语法，Circom 允许开发人员以精确和清晰的方式定义用于 ZKP 应用的电路。然而，对于 Circom 的新手和对 DSL 或 ZKP 概念不熟悉的人来说，其语法和语义可能难以理解。对于新手电路开发者或具有通用编程语言背景的开发者来说，可能需要额外的努力和时间。</p>
+<h3 id="范围限制"><strong>范围限制</strong></h3>
+<p>虽然 Circom 在 ZKP 电路开发方面表现出色，但需要注意的是，它的功能主要集中在这个特定领域。因此，寻求处理各种计算任务的更通用语言的开发人员可能会发现 Circom 有所限制。为了满足更广泛的开发需求，可能需要将 Circom 与其他编程语言或框架结合使用。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1107/4_cz1h28lavj.png" alt="ZK语言调查：Noir、o1js、Circom、Leo、Cairo、Lurk"></p>
+<p>Circom 工作原理的解释。</p>
+<h3 id="工具和生态系统限制"><strong>工具和生态系统限制</strong></h3>
+<p>Circom 受到各种开发工具的支持，并拥有不断发展的生态系统，尽管与更成熟的编程语言和框架相比，其工具和资源的可用性可能仍然相对有限。开发人员可能在寻找特定用例或高级功能的全面文档、库和社区支持方面遇到挑战。这种限制可能会对 Circom 的开发速度和社区采用产生影响。</p>
+<h3 id="兼容性考虑"><strong>兼容性考虑</strong></h3>
+<p>Circom 的兼容性主要集中在像 snarkjs 和 libsnark 这样的流行零知识证明系统上。虽然这使得它可以与这些系统无缝集成，但也引入了对它们特定功能和限制的依赖。偏好或需要其他 ZKP 系统的开发人员可能会遇到兼容性问题，或需要额外的努力来适应和集成 Circom 生成的电路到他们首选的系统中。</p>
+<h2 id="leo"><strong>Leo</strong></h2>
+<p>Leo[11] 是一种专门设计用于开发零知识证明应用程序的编程语言。它旨在为开发人员提供一个用户友好的环境，特别是那些在区块链生态系统中具有先前经验的开发人员。LEO 类似于 Rust，并具有一些类似 JavaScript 的元素，旨在在应用程序开发中创建熟悉感和便利性。</p>
+<p>Leo 的一个显著特点是其编译器，它将程序转换为一种称为 R1CS 的低级证明格式。Leo 编译器的区别在于它经历的严格形式验证过程。这种验证是必要的，因为错误可能在各个阶段出现，包括编程、审计和编译。通过数学上确保编译器遵循程序员的意图，Leo 旨在最大程度地减少错误被忽视或被利用的风险，特别是在 L2 上下文、ZK-rollups 或 LEO 平台中的私有程序中。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1107/4_8hhghgn0n2.png" alt="ZK语言调查：Noir、o1js、Circom、Leo、Cairo、Lurk"></p>
+<p>Leo 语言的语法</p>
+<p>认识到尽管尽力而为，错误是不可避免的，Leo 团队强调了早期错误预防和检测的重要性，特别是在处理重要价值转移的系统中。为了解决这个问题，Leo 的经过正式验证的编译器架构注入了额外的信心，降低了意外偏离预期程序行为的可能性。</p>
+<p>除了语言和编译器之外，Leo 还提供了各种开发者体验工具和功能。这些组件旨在增强开发过程，简化任务，提高效率。借鉴了七年的经验，并观察了以太坊生态系统的发展，Leo 团队旨在提供一个用户友好的环境，类似于诸如 explorers、部署框架（如Truffle和Ganache）以及简化应用程序开发和测试的其他资源的工具演变。</p>
+<h2 id="cairo"><strong>Cairo</strong></h2>
+<p>Cairo[12]提供了一种简化构建 ZKP 电路过程的语法。借鉴传统编程语言的灵感，Cairo允许开发人员在设计 ZK 系统时利用他们现有的编程技能。通过其声明性方法，Cairo使得可以规范逻辑语句和计算，更容易地在零知识证明的背景下表示现实世界的场景。</p>
+<h3 id="效率和可扩展性"><strong>效率和可扩展性</strong></h3>
+<p>性能是 ZK 系统的关键因素。Cairo通过关注效率和可扩展性来解决这个问题。该语言采用了优化技术，如约束减少和循环消除，以最小化与 ZKP 电路相关的计算开销。通过优化电路设计，Cairo实现了更快的证明生成和验证，适用于需要高吞吐量和低延迟的应用程序。</p>
+<h3 id="互操作性和集成性"><strong>互操作性和集成性</strong></h3>
+<p>Cairo 被设计为与现有软件基础设施集成，使开发人员能够将 ZKP 的能力与其他技术相结合。该语言通过标准接口支持互操作性，允许与区块链平台、智能合约和离链系统进行集成。这种灵活性为在去中心化应用、金融系统和数据验证协议中实现增强隐私功能的可能性打开了大门。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1107/4_f2uicgpu1k.png" alt="ZK语言调查：Noir、o1js、Circom、Leo、Cairo、Lurk"></p>
+<p>一个例子中的Cairo SNARK CPU 架构</p>
+<h3 id="社区和生态系统"><strong>社区和生态系统</strong></h3>
+<p>Cairo项目培育了一个由开发人员、研究人员和爱好者组成的社区，他们为其发展做出了贡献。文档、教程和示例代码的可用性有助于入门过程，使开发人员能够掌握概念并开始构建 ZK 系统。此外，Cairo还受益于 StarkWare 更广泛的生态系统，该生态系统提供支持、工具和研究进展，以增强该语言及其功能。</p>
+<h2 id="lurk"><strong>Lurk</strong></h2>
+<p>Lurk[13]旨在通过利用 Lisp（一种函数式编程语言）实现通用电路，解决传统 SNARK 和电路的局限性。使用 Lisp，Lurk 引入了一个名为“eval”的通用函数，可以在 snark 电路中评估任何数据表达式。</p>
+<h3 id="代码即数据数据即代码"><strong>代码即数据，数据即代码</strong></h3>
+<p>Lurk 的一个基本原则是将程序表示为内容可寻址的数据。这种方法可以高效地评估和验证 Lurk 程序。内容可寻址性简化了解析过程，并且生成的数据可以直接在 snark 证明者中使用，而无需单独的编译步骤。</p>
+<h3 id="在-snark-中实现-lisp"><strong>在 SNARK 中实现 Lisp</strong></h3>
+<p>为了创建一个通用电路，Lurk 利用了 Lisp 的内存分配器“cons”。该分配器将两个表达式组合起来，并通过哈希生成对结果表达式的引用。通过证明两个表达式哈希到相同的引用，Lurk 可以在 snark 电路中执行计算。</p>
+<h3 id="延续传递风格"><strong>延续传递风格</strong></h3>
+<p>Lurk 采用了延续传递风格（CPS）将评估过程分解为可管理的步骤。每个评估步骤都变成了可处理的计算，实现了统一且高效的执行。在 SNARK 电路中包含显式的延续，有助于逐步进行评估过程。</p>
+<h3 id="赋予图灵完备性和递归能力"><strong>赋予图灵完备性和递归能力</strong></h3>
+<p>通过采用 Lisp，Lurk 实现了图灵完备性，并支持 SNARK 电路中的无限递归。这一重要能力允许证明复杂计算，并实现能够执行任意计算的通用电路。</p>
+<h3 id="影响和应用"><strong>影响和应用</strong></h3>
+<p>Lurk 的能力具有广泛的影响。通过支持无限递归、循环和条件控制流，Lurk 使得在 SNARK 电路中可以进行复杂计算。这为验证计算、私有数据处理和执行图灵完备程序开辟了各种应用。</p>
+<h2 id="结论"><strong>结论</strong></h2>
+<p>领域特定语言（DSL）的选择是多样的，并且随着零知识证明（ZK）在各个区块链生态系统中的应用案例不断扩展，预计将继续增长。目前，建立用于构建 ZK 应用程序的主导语言的竞争仍处于早期阶段，这表明我们可以预期在这个领域会有进一步的改进。</p>
+<p>然而，大多数 DSL 的一个共同限制是缺乏来自庞大社区和强大库的网络效应。拥有充满活力的社区和全面的库可以极大地提升开发者的体验。尽管这个不足可能会随着时间的推移得到解决，但对于参与 DSL 开发的团队来说，优先考虑与其他库的兼容性非常重要，可以借鉴 o1js 所采用的方法。</p>
+<p>通过确保与现有库的兼容性，DSL 可以利用更广泛的开发者社区的集体知识和资源，实现更容易的集成、更快的开发，并在实现 ZK 应用程序时具有更大的灵活性。这种协作的方式将促进围绕 DSL 的更强大的生态系统的发展，使开发者受益，并最终推动 ZK 技术的采用和效果的提升。</p>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/62693/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">SignalPlus宏观研报(20231107)：加密市场连续6周净流入</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/62707/">
+                <span class="next-text nav-default">巴比特丨每日必读：OpenAI 推出自定义版 ChatGPT 和 GPT-4 Turbo 预览版；xAI 推出 PromptIDE 工具</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#简介">简介</a></li>
+        <li><a href="#tldr"><strong>TLDR;</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#术语表"><strong>术语表</strong></a></li>
+    <li><a href="#noir"><strong>Noir</strong></a>
+      <ul>
+        <li><a href="#通过-zk-证明扩展可能性"><strong>通过 ZK 证明扩展可能性</strong></a></li>
+        <li><a href="#优化和标准库"><strong>优化和标准库</strong></a></li>
+        <li><a href="#代码组织和表达能力"><strong>代码组织和表达能力</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#o1js"><strong>o1js</strong></a>
+      <ul>
+        <li><a href="#集成"><strong>集成</strong></a></li>
+        <li><a href="#vs-code-支持"><strong>VS Code 支持</strong></a></li>
+        <li><a href="#标准库"><strong>标准库</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#circom"><strong>Circom</strong></a>
+      <ul>
+        <li><a href="#表达性电路定义"><strong>表达性电路定义</strong></a></li>
+        <li><a href="#范围限制"><strong>范围限制</strong></a></li>
+        <li><a href="#工具和生态系统限制"><strong>工具和生态系统限制</strong></a></li>
+        <li><a href="#兼容性考虑"><strong>兼容性考虑</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#leo"><strong>Leo</strong></a></li>
+    <li><a href="#cairo"><strong>Cairo</strong></a>
+      <ul>
+        <li><a href="#效率和可扩展性"><strong>效率和可扩展性</strong></a></li>
+        <li><a href="#互操作性和集成性"><strong>互操作性和集成性</strong></a></li>
+        <li><a href="#社区和生态系统"><strong>社区和生态系统</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#lurk"><strong>Lurk</strong></a>
+      <ul>
+        <li><a href="#代码即数据数据即代码"><strong>代码即数据，数据即代码</strong></a></li>
+        <li><a href="#在-snark-中实现-lisp"><strong>在 SNARK 中实现 Lisp</strong></a></li>
+        <li><a href="#延续传递风格"><strong>延续传递风格</strong></a></li>
+        <li><a href="#赋予图灵完备性和递归能力"><strong>赋予图灵完备性和递归能力</strong></a></li>
+        <li><a href="#影响和应用"><strong>影响和应用</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#结论"><strong>结论</strong></a></li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

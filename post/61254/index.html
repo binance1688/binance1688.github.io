@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          从区块交易生命周期到Rollup-centric的新趋势 - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="本文意在结合近期的基础设施赛道的一级市场观察，分享一些个人看法。" />
+<meta name="keywords" content="加密市場, Rollup" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/61254/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="从区块交易生命周期到Rollup-centric的新趋势" />
+<meta property="og:description" content="本文意在结合近期的基础设施赛道的一级市场观察，分享一些个人看法。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/61254/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-10-16T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-10-16T00:00:00+00:00" />
+
+<meta itemprop="name" content="从区块交易生命周期到Rollup-centric的新趋势">
+<meta itemprop="description" content="本文意在结合近期的基础设施赛道的一级市场观察，分享一些个人看法。"><meta itemprop="datePublished" content="2023-10-16T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-10-16T00:00:00+00:00" />
+<meta itemprop="wordCount" content="8850">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="从区块交易生命周期到Rollup-centric的新趋势"/>
+<meta name="twitter:description" content="本文意在结合近期的基础设施赛道的一级市场观察，分享一些个人看法。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">从区块交易生命周期到Rollup-centric的新趋势</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-10-16">
+      2023-10-16
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 8850 字 -
+        预计阅读 18 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E5%85%B6%E5%AE%83%E6%96%87%E7%AB%A0/"> 其它文章 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>__<strong>Part.1 Insight</strong> __</p>
+<p><strong>从区块交易生命周期到Rollup-centric的新趋势</strong></p>
+<p>不知不觉中，2023年即将走向第四季度。总体而言，近期一级市场较为沉闷，新瓶装旧酒的项目占据大多数。仅从估值来看，热度仍旧不减。本文意在结合近期的基础设施赛道的一级市场观察，分享一些个人看法。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1016/13_ouhynay6jw.png" alt="从区块交易生命周期到Rollup-centric的新趋势"></p>
+<p>（Source: Flashbots）</p>
+<p><strong>交易生命周期</strong></p>
+<p>根据交易的生命周期，一些基础设施项目可以划分为以下类别：</p>
+<ul>
+<li>
+<p><strong>Validator</strong></p>
+</li>
+<li>
+<p>Validator 可以按照 Solo Staker、Staking Service Provider、CEX Staking 和 Liquid Staking 进行划分，也可以按照加密原生（Lido）和合规（Liquid Collective）两个类别进行划分。</p>
+</li>
+<li>
+<p>目前以太坊质押率约为 22% 左右，笔者预估在未来一至两年内依然存在 15% 左右的增长空间，并且这部分增量市场较大概率从传统机构一方作为资产配置手段流入。传统机构持有的以太坊质押敞口有利于巩固和使以太坊验证者集合实现多样化。</p>
+</li>
+<li>
+<p>托管服务商（如 Fireblocks 和 BitGo）大多与 Staking Service Provider 进行合作，提供定制化、一站式的 Yield Aggregation 服务；同时，多数钱包尤其是硬件钱包也提供了 Staking 的入口。这类合作属于 Staking 一侧的 Distribution Partnership，自由度较大，甚至竞争对手之间可以相互合作并提供支持。其中，作为 Staking 方案提供商大约分得 10%-30% 的利润，提供用户流量的一端则得到更多利润分成。</p>
+</li>
+<li>
+<p>当前，由事件驱动（如 SEC 对 Kraken 在美质押业务的封锁）、价格战导向（降低质押服务手续费）和目标客户差异化（加密原生和合规两条道路），以太坊质押市场呈现动态的竞争格局。笔者认为合规市场在未来是兵家必争之地。在地域方面，随着美国对加密货币的监管收紧，大多数 Staking 服务在亚太地区寻求出路，亚太和中东是Staking 业务新的增长点。</p>
+</li>
+<li>
+<p><strong>Builder</strong></p>
+</li>
+<li>
+<p>Builder 通过各个渠道整合 Orderflow 的资源，在拍卖中相互竞价以赢得区块空间。从反向看，Builder 做的事情是从 Proposer 那里批发区块空间，拆散之后出售给 Searcher，作为中间商赚取部分价差。Builder 的核心竞争力主要有两点：Orderflow 和 Infrastructure。</p>
+</li>
+<li>
+<p>前者是进行 Block Building 最基本的生产资料，得到的 Orderflow 越多，能够表现 MEV 的机会也越多。如果 Builder 无法掌握足够多的订单流，即便有再好的策略，也是巧妇难为无米之炊，在市场上几乎没有竞争力。</p>
+</li>
+<li>
+<p>后者也可以说是 Simulation Capability，即需要对流入的交易进行不断模拟执行并更新 出价，同时也需要观察对手的出价并作出相应的更新。这个过程精确到毫秒级别，Builder 可能在短短 12 秒的一个 Slot 中更新数百次出价。</p>
+</li>
+<li>
+<p>Builder 还需要适当地做 Subsidy （即烧钱补贴），帮助自己赢得或维持市场份额。粗略地来看，Block Building 的市场份额约可以理解为 Execution/Inclusion Guarantee，即 Searcher 把 Bundle 交给你，你能够确保这个 Bundle 在下个区块被包含进去的概率有多少。由于直接与其盈亏相关，Searcher 对 Execution 的保证要求很高。因此，补贴被视为一种 Marketing 的手段。Builder 之间的 Bid 可能差别非常小，所以每个 Slot 的补贴不需要太多。在这种竞争环境之下，如何明智地选择补贴或不补贴，以及补贴多少，也是博弈空间所在。</p>
+</li>
+<li>
+<p>从 The Merge 之后 MEV-Boost 逐步得到采用至今，Builder 的竞争格局经历了数次变化。根据 Orderflow、Infrastructure 的优势和经验的积累，头部 Builder 能够形成垄断地位，且该垄断地位很难被撼动。总体而言，笔者认为 Builder 已经呈现了赢家通吃的局面，前四的 Builder 占据了 85% 的市场。从商业模式上看其利润相对微薄，稳定性和可持续性并不确定。中游或者下游的 Builder 很难获得可持续的、足够的经济激励，最终可能不得不放弃竞争，这样更加强化了上游 Builder 的统治地位。（这里讨论的是 Neutral Builder，如果是 Searcher-Builder Entity 的话情况会比较好，但由于涉及到 CEX-DEX 之间的套利，盈利情况较难估计。）</p>
+</li>
+<li>
+<p><strong>用户和钱包端</strong></p>
+</li>
+<li>
+<p>OFA（Orderflow Auction）。OFA 指的是由用户或者钱包把订单发送到 OFA，并提供一部分订单信息，供买方判断订单的价值，买方据此出价选择是否参加拍卖。最终竞价会被发回给用户或钱包作为回扣。目前主要有 MEV-Share 和 MEV Blocker 两个产品。迄今为止，后者大约为 32 万用户返还了 443 ETH 的回扣。</p>
+</li>
+<li>
+<p>OFA 对于用户而言总体上是好事情（尽管 Blocknative 近期的一篇文章指出 OFA 导致了更大的滑点和更慢的执行速度），因为他们的订单流在网络中产生的价值得到了反映，拿到了以往没有的回扣；同时也避免了抢跑和三明治攻击。并且，钱包也可以把订单流作为一种流量变现的手段。另一方面，OFA 作为 Searcher 和 Builder 获取 Orderflow 的新渠道，提供了一些多样化的选择。但是，如果更多的用户和钱包采用 OFA，而不是把交易发送到公共内存池，意味着获取 Orderflow 的成本变高，挤压了供应链上游的利润。</p>
+</li>
+<li>
+<p><strong>意图（Intent）</strong> 属于交易生命周期中跨度较大的一个概念。Intent 可以看作是区块链交易范式的转变。</p>
+</li>
+<li>
+<p>传统的交易方式由用户来指定路径。好比请别人吃饭，我选择一家餐厅，指定每道菜是什么，荤素如何搭配等等。Intent 的核心则是提出需求，以及愿意为这个需求付多少钱，进行招投标，最后择优录取。我可以定一个 500 的人均消费，让不同餐厅去安排，最终由我选择最优方案。在同样满足需求的情况下，竞争会反映在价格上。餐厅进行反向竞价，这样降低了用户的成本。</p>
+</li>
+<li>
+<p>笔者认为 Intent 是一个重要的投资方向。主要基于三点理由：一是交易是链上实体进行自我表达的基础形式，Intent 在此基础上实现了范式级别的转变；二是这个领域相对早期，包括 Flashbots 、Essential 在内的项目、开发者、社区仍然在探索阶段，格局未定；三是 Intent 相对复杂，包括技术架构和经济激励在内的设计空间较为广泛，不同的方案可能大相径庭，谁将成为赢家也无法过早下定论。</p>
+</li>
+<li>
+<p>尽管这么说，笔者相信在一段较长的时间之内，仍会是传统交易和 Intent 两种交易范式并存的中间状态。Intent-centric 的提法似乎还为时尚早。</p>
+</li>
+</ul>
+<p>综上，按照交易生命周期进行划分，可以看出基础设施向交易生命周期上游进行探索的趋势，在这个过程中专业化和精细化程度明显提高，同时不断引入竞争的多样性，并确保竞争条件均衡。</p>
+<p><strong>Rollup-centric 路线图</strong></p>
+<p><img src="https://img.bibiqing.com/news/2023/1016/13_hvs4w85zq9.png" alt="从区块交易生命周期到Rollup-centric的新趋势"></p>
+<p>（Source: IOSG Ventures）</p>
+<p>Vitalik 于 2020 年 10 月提出了 Rollup-centric Roadmap，即以太坊需要在中短期内对 Rollup 进行集中支持。其一，以太坊基础层扩容将聚焦于扩大区块的数据容量，为数据可用性提供更多空间，这随后体现为数据分片和 EIP-4844 的引入。其二，以太坊的基础设施进行调整以支持 Rollup（如 ENS 的 L2支持、钱包的 L2 集成和无缝跨 L2 资产转移）。</p>
+<p>依据当前各个模块化组件蓬勃发展的现状来看，我们已经有了 Rollup-centric Roadmap 愿景的雏形。在此架构下，以太坊逐渐退居其次，卸下执行层的包袱，成为一个足够安全的结算层和数据可用性层。通用的 Rollup 主要承担扩容的任务，承载大部分的应用和用户流量，并进一步通过 L3 实现对隐私、游戏等应用的专用执行环境的支持（即 Fractal Scaling）。RaaS 为开发者提供快速基础设施启动的工具。Restaking 借助现有的以太坊质押敞口，为新的模块化组件提供经济信任、去中心化信任和 Ethereum Alignment。随着 ETH的效用不断外延，这些组件也在强化以太坊作为基础层的地位，并且提供价值反馈。</p>
+<p>单体化和模块化一直是争论不休的话题。在系统达到一定的复杂度的时候，模块化通常来说是经过实践检验的选择。例如汽车是一个典型的模块化产品。模块化作为一种工程设计原则，具有标准化接口、独立性、可重用、灵活性等优势。</p>
+<p>基础设施项目仍然由叙事驱动和解决问题驱动，仅从商业模式上看无法支撑起庞大的估值。在这个模块化的大背景下，模块化项目之间的竞争越来越倾向于 BD Game，熊市低落的市场情绪放大了 BD 的重要性，考验项目方的运营、营销、打造品牌的能力。Rollup 和 DA 项目需要用户和客户自然不必说。Sequencer 实现网络效应的前提是采用方有足够的价值可以被捕获。RaaS 也并不算是新故事，Substrate 在 19 年就实现了一键发链，工具本身在其次，关键在于使用工具的开发者能够打造什么样的应用，之后才能谈价值反馈。在 Shared Security 项目方面，EigenLayer 和 Babylon 的成长性也依赖于需求方提供足够的经济激励和可持续性。在每个 Rollup 上面复制一个 DEX 或者类似的应用并不能称得上是生态，而需要 Friend.tech 这样打出差异化的产品。</p>
+<p>从目前来看，以太坊及其 L2 生态仍然占据优势地位，更主流的应用、更坚实的用户基础以及经过长时间检验的安全性，都在不断强化这个生态的护城河。Celo 作为 L1 也在近期转向了以太坊 L2，并由 Restaking 提供支持。在 Alt-L1 的叙事逐渐走向衰落、应用链叙事的声量逐渐被 App-Rollup 所取代之后，新项目不得不回答「是否依附于以太坊」这个问题。例如 Celestia 虽然主导着模块化区块链的叙事，但其和以太坊本身并无直接联系。作为一个通用的 DA 层，从大的视角上看，Celestia 面临着以太坊的竞争，在相同级别上也面临着基于 Restaking 的 EigenDA 的竞争。在这种项目归类的心理模型下，正统性似乎在主导人们对项目的宏观判断。但无论如何，回归到投资逻辑，主要还是看是否解决了实际问题、而非凭空创造需求；是否积极主动地对外发声、而非闭门造车。</p>
+<p><strong>Part.2 投融资</strong>事件** **</p>
+<p><img src="https://img.bibiqing.com/news/2023/1016/13_r8rkoovl6f.png" alt="从区块交易生命周期到Rollup-centric的新趋势"></p>
+<p>****<strong>Virgo Group完成500万加元融资</strong> ** **</p>
+<p>* 交易所</p>
+<p>Virgo Group宣布，继2022年首轮融资成功筹得1000万加元后，再次获得水滴资本、Skylean Capital及Nextport Capital等投资方额外注资500万加元。新资金将用于集团在合规交易所的持续发展，加速其在新区域的扩张策略，并进一步巩固从交易到资产管理的一体化生态系统及全链条服务体系。Virgo Group提供一站式服务，包括合规的数字货币交易平台、加密货币场外交易（OTC）以及虚拟资产投资管理。</p>
+<p>**<strong>Account Labs融资770万美元，Amber Group等领投</strong> **</p>
+<p>* 钱包</p>
+<p>Account Labs宣布完成 770 万美元融资，领投方包括 Amber Group、MixMarvel DAO Ventures 和启明创投。这项战略投资是在推出以消费者为中心的应用程序 UniPass Wallet 的同时推出的，UniPass Wallet 是一款专注于点对点 (P2P)稳定币转账的自助钱包。该钱包还将利用账户抽象来改善用户体验。</p>
+<p>**<strong>Parsec完成400万美元融资，Galaxy Digital领投</strong> **</p>
+<p>* 数据分析</p>
+<p>Parsec宣布完成新一轮400万美元融资。Michael Novogratz的Galaxy Digital领投，Uniswap Labs Ventures、Robot Ventures、CMT Digital等公司参投。与此同时，Parsec还推出了一款名为“Team”的DeFi和NFT分析产品，并向公众开放了API。Parsec曾于2021年1月完成125万美元的种子轮融资。</p>
+<p>**<strong>Beldex获得300万美元战略投资</strong> **</p>
+<p>* 隐私技术</p>
+<p>Beldex宣布从Web3做市商Enflux获得300万美元战略投资，且双方已达成合作，Enflux将帮助Beldex增强生态系统参与者并扩大项目范围的营销举措，并将为Beldex提供开发dApp所需的战略建议和渠道、将EVM集成到Beldex链上以及扩展网络的研究。</p>
+<p>Beldex生态系统包括私人消息传递应用程序BChat、去中心化虚拟专用网络 (VPN) BelNet、Web3浏览器Beldex和跨链隐私协议 Beldex，它使跨链资产移动匿名化。此前2月，Beldex宣布完成DWF Labs投资的2500万美元融资。</p>
+<p>**<strong>Membrane Labs完成2000万美元A轮融资，Jump Crypto等参投</strong> **</p>
+<p>* 交易和借贷</p>
+<p>Membrane Labs完成2000万美元A轮融资，参投方包括Brevan Howard Digital、Point72 Ventures、Jane Street等。</p>
+<p>Membrane最初是建立了一个清算、净额结算和结算引擎。这使得机构能够选择在何处以及如何保管资金，然后分别让其前台决定在何处以及如何执行交易。在此核心基础设施之上，Membrane为抵押品管理、贷款、场外交易和衍生品建立了工作流程管理，旨在提高透明度和风险管理。</p>
+<p>**<strong>Untangled Finance完成1350万美元融资，Fasanara Capital领投</strong> **</p>
+<p>* DeFi</p>
+<p>Untangled Finance 在获得 1350 万美元风险投资后，于周三在 Celo 网络上上线，将代币化私人信贷引入区块链。主要投资者是总部位于伦敦的资产管理公司Fasanara Capital，该公司还在该平台上开设了两个信贷池，处理链外业务和承销贷款。Untangled 还宣布计划通过 Chainlink(LINK)跨链互操作协议扩展到以太坊(ETH)和第 2 层网络 Polygon(MATIC)，使该平台成为多链且可互操作的 RWA 信用协议。</p>
+<p>**<strong>Neutral完成320万美元融资，DCG等参投</strong> **</p>
+<p>* 交易平台</p>
+<p>Neutral宣布完成320万美元融资，North Island Ventures领投，Redalpine、Digital Currency Group（DCG）等参投。该公司将利用新融资在欧洲启动一个受监管的交易平台，并计划进一步扩展到北美和亚洲的其他地区，为环境资产建立市场基础设施。</p>
+<p>**<strong>OrdinalsBot完成超100万美元种子轮融资</strong> **</p>
+<p>* 基础设施</p>
+<p>OrdinalsBot完成超100万美元种子轮融资，Kestrel 0X1、Lightning Ventures、Bitcoin Magazine Ecosystem Fund、Bitcoin Frontier Fund等参投。OrdinalsBot最近推出了软件开发工具包 (SDK)，为开发人员提供了将Ordinals功能无缝集成到其项目中的工具。</p>
+<p>**<strong>Hadean获得Yuga Labs战略投资</strong> **</p>
+<p>* 元宇宙</p>
+<p>Hadean宣布获得Yuga Labs战略投资，具体金额未披露。这项投资将支持Hadean建立一支美国团队，协助Yuga Labs研究可支持大规模并发的技术堆栈。这项投资是对Yuga Labs和Hadean在9月份宣布的最新技术合作和商业协议的补充，该协议为Yuga平台提供了一项关键技术，该技术针对高保真虚拟体验进行了优化，将创作者和玩家大规模聚集在一起。去年9月，Hadean完成3000万美元A轮融资，Epic Games等参投；今年3月，Hadean完成500万美元融资。</p>
+<p>**<strong>Web3基金会明年将部署超4000万美元资金帮助推动波卡发展</strong> **</p>
+<p>* Web3</p>
+<p>Web3基金会在X平台上宣布一项新计划，以奖励希望为波卡的成功做出贡献的团队和个人，会在2024年全年部署2000万瑞士法郎（约合2208万美元）和500万枚DOT（约合1930万美元），共计价值约4138万美元。Web3基金会表示，这增强Polkadot财库的社区治理融资机制，以帮助对波卡的未来产生有意义影响的项目，将在未来几周内分享有关正式启动日期以及如何申请资金的更多详细信息。</p>
+<p>**</p>
+<p><strong>Part.3 IOSG投后项目进展</strong></p>
+<h2 id="heading">**</h2>
+<p>**<strong>Arbitrum</strong> ** **<strong>的短期激励首轮投票已结束，Jones、GMX等29个项目获胜</strong> **</p>
+<p>* Layer 2‍‍‍‍‍‍‍</p>
+<p>Arbitrum 启动的5000万枚ARB短期激励计划（STIP）首轮投票已完成，提交的 97 项提案中按照 Arbitrum 规则将有 29 个项目能够参与本次激励计划，包括 Camelot、Jones、Dopex、GMX、Galxe、LODESTAR、Socket、Timeswap、RADIANT、Pendle、MUX、Frax、Tally等。</p>
+<p>此前，Arbitrum 启动了短期激励计划（STIP）首轮投票，将分配 5000 万枚 ARB 来推动网络发展，如果请求的赠款超过 5000 万枚，将根据以下原则分配：按照赞成提案的票数、提案发布到论坛的时间。</p>
+<p>**<strong>Scroll</strong> ** **<strong>主网已于今日下午产生创世区块</strong> **</p>
+<p>* Layer 2</p>
+<p>Scrollscan页面显示，基于ZK Rollup的以太坊二层网络Scroll主网已于北京时间今日14时左右产生创世区块。</p>
+<p>**<strong>zkSync Era</strong> ** **<strong>已开源Block Explorer和Portal (Bridge) 两个组件，并委托给核心贡献者社区</strong> **</p>
+<p>* Layer2</p>
+<p>zkSync Era正式开源Block Explorer和Portal (Bridge) 两个关键组件，目前两个组件已委托给核心贡献者社区，Matter Labs 将逐步减少在后续 zkSync 技术开发及其生态系统管理中的作用。社区用户现在可以在自行运行 zkSync Portal 并无缝桥接代币，同时用户和开发人员探索交易、区块和合约的主要界面Block Explorer现在也已完全开源并支持本地运行，已集成 Blockscout 和 L2scan 以支持用户访问链上数据。目前正在推出一个专门的资源页面，以帮助用户和开发人员采用这些替代解决方案以及其他桥梁和交易所。</p>
+<p><strong>Consensys</strong> <strong>收购SMG以推进Web3计划</strong></p>
+<p>* 区块链</p>
+<p>Consensys收购Special Mechanism Group (SMG)，该交易的财务细节并未公开披露。Consensys 在博客文章中表示，SMG 是一家以专注于区块链微观结构研究而闻名的机制设计公司。Consensys 计划利用该公司让所有人都能访问Web3。收购SMG是继2023年2月收购Hal和2022年2月收购MyCrypto之后两年内的第三次收购。</p>
+<p>****<strong>Part.4 行业脉搏</strong> ** **</p>
+<p>****<strong>Sui主网已升级至V1.11.2版本，同时Sui协议升级至版本27</strong> ** **</p>
+<p>* 基础设施</p>
+<p>Sui 主网现已升级至 V1.11.2 版本，同时 Sui 协议升级至版本 27。升级要点包括：对于更高级别的交易，更改了一些gas费设置，使其gas费消耗的更快。这些更改不影响以前在网络上运行的任何交易，只是为了确保在开始大量使用资源时按照实际使用收费；改进了 sui 客户端对象命令的输出，使其成为一个易于理解和浏览的表格。如果需要标准的JSON输出，可以使用&ndash;json标志；更新了反汇编的Move字节码中常数的显示，如果常数是有效的utf8格式的vector<u8>，则尝试显示反序列化的字符串。</p>
+<p>**<strong>LayerZero现已上线OpBNB主网</strong> **</p>
+<p>* 全链互操作协议</p>
+<p>LayerZero 宣布现已上线 OpBNB 网络，在 BNB Chain 上构建的开发人员现在可以将其应用程序扩展到 OpBNB 和具有 LayerZero 端点的 40 多个其他链。上月，opBNB主网正式上线。</p>
+<p>**<strong>Reserve已上线Base</strong> **</p>
+<p>* 去中心化稳定币协议</p>
+<p>Reserve已上线Base，这是其首次在以太坊主网之外的部署。用户将能够在Base上创建资产支持代币“RToken”。这些资产由一篮子超额抵押的ERC-20代币支持。该项目称，Reserve在以太坊和Base上的抵押品选择包括主要的稳定币、以太坊和包装比特币，它们可以单独使用，也可以从Compound、MakerDAO、Aave、Convex、Curve、Morpho和Flux Finance等协议中获得收益。</p>
+<h2 id="uniswap推出安卓测试版钱包-">**<strong>Uniswap推出安卓测试版钱包</strong> **</h2>
+<h2 id="-钱包">* 钱包</h2>
+<p>Uniswap宣布推出安卓测试版钱包应用。该应用程序此前只支持电脑和iOS移动设备。根据10月12日的公告，新的安卓测试版钱包允许用户在不切换网络的情况下选择不同链上的代币。它会自动检测代币所在的网络，并切换到该网络。目前已支持Polygon、Arbitrum、Optimism、Base和BNBChain，未来还会兼容更多区块链。</p>
+<p><strong>Web3体育游戏应用dotmoovs上线健身（Fitness）服务</strong></p>
+<h2 id="-游戏">* 游戏</h2>
+<p>dotmoovs宣布已在其移动应用上线健身（Fitness）服务，并面向品牌、教练和运动爱好者推出健身中心（Fitness hubs），用户在订阅后，可获得根据个人目标量身定制的锻炼计划以及人工智能生成的个性化营养计划。据悉，dotmoovs已获准加入NVIDIA Inception计划，在 NVIDIA 的支持下，dotmoovs将通过尖端的 AI 解决方案塑造体育的未来。</p>
+<p><strong>Xterio将于10月22日推出NFT市场“Xterio Marketplace”</strong></p>
+<h2 id="-游戏-1">* 游戏</h2>
+<p>Xterio 将于 10 月 22 日推出以游戏为中心的NFT市场“Xterio Marketplace”。此前，Web3游戏发行商Xterio曾获得Binance Labs的1500万美元投资。相关阅读：Xterio投研报告：将免费游戏和链上游戏结合的GameFi即服务平台。</p>
+<p><strong>Trezor推出新的加密硬件钱包和备份解决方案</strong></p>
+<p>*钱包</p>
+<p>Trezor 推出了新的 Trezor Safe 3 硬件钱包、仅限比特币的限量版版本和用于恢复种子备份的 Trezor Keep Metal。根据一份声明，Trezor Safe 3 硬件钱包有四种颜色：“太阳金、恒星银、银河玫瑰和宇宙黑”，售价为 79 美元。该团队补充说，仅支持比特币的 Trezor Safe 3 是为了纪念 Trezor 成立 10 周年而打造的，并采用“比特币橙”颜色，而 Trezor Keep Metal 旨在为用户恢复种子提供防错、便捷的备份解决方案。</p>
+<p><strong>Fireblocks等公司为受战争影响的以色列公民启动援助基金</strong></p>
+<p>*援助基金</p>
+<p>以色列的加密和web3社区宣布已经成立了Crypto Aid Israel，为因与哈马斯爆发战争而流离失所并需要人道主义援助的以色列公民筹集资金。到目前为止，该联盟的成员包括Fireblocks以及MarketAcross、Collider Ventures、CryptoJungle 和以色列区块链协会。</p>
+<p>该组织将托管一个由多方共同控制的多重签名钱包，以收集以多种加密货币计价的捐款，包括比特币、以太坊以及与美元挂钩的稳定币USDT和USDC。许多以色列银行和监管机构已介入协助这些加密货币捐赠的流动，据了解该计划的消息人士称，这些银行很可能首次提供桥接服务，将这些加密资产转移到银行。</p>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/61204/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">不仅白领受波及！行业人士警告：生成式AI也将威胁蓝领“饭碗”</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/61202/">
+                <span class="next-text nav-default">多角度对比分析Farcaster和Lens Protocol：协议本身、项目生态及社区</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#heading">**</a></li>
+    <li><a href="#uniswap推出安卓测试版钱包-">**<strong>Uniswap推出安卓测试版钱包</strong> **</a></li>
+    <li><a href="#-钱包">* 钱包</a></li>
+    <li><a href="#-游戏">* 游戏</a></li>
+    <li><a href="#-游戏-1">* 游戏</a></li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

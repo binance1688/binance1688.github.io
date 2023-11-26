@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          BEVM： 如何实现去中心化的BTC layer2 - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="BEVM是一个兼容EVM生态，并以原生BTC作为gas的去中心化的Bitcoin Layer2" />
+<meta name="keywords" content="Layer 2" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/61150/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="BEVM： 如何实现去中心化的BTC layer2" />
+<meta property="og:description" content="BEVM是一个兼容EVM生态，并以原生BTC作为gas的去中心化的Bitcoin Layer2" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/61150/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-10-14T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-10-14T00:00:00+00:00" />
+
+<meta itemprop="name" content="BEVM： 如何实现去中心化的BTC layer2">
+<meta itemprop="description" content="BEVM是一个兼容EVM生态，并以原生BTC作为gas的去中心化的Bitcoin Layer2"><meta itemprop="datePublished" content="2023-10-14T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-10-14T00:00:00+00:00" />
+<meta itemprop="wordCount" content="2351">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="BEVM： 如何实现去中心化的BTC layer2"/>
+<meta name="twitter:description" content="BEVM是一个兼容EVM生态，并以原生BTC作为gas的去中心化的Bitcoin Layer2"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">BEVM： 如何实现去中心化的BTC layer2</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-10-14">
+      2023-10-14
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 2351 字 -
+        预计阅读 5 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E5%85%B6%E5%AE%83%E6%96%87%E7%AB%A0/"> 其它文章 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p><strong>目前市面上主流的BTC跨链桥</strong></p>
+<ol>
+<li>
+<p>WBTC：中心化多签托管1:1 发行在以太坊主网上的包装代币。43亿美金</p>
+</li>
+<li>
+<p>tBTC：分布式门限签名1:1 托管发行在以太坊上的BTC包装代币。5000万美金</p>
+</li>
+<li>
+<p>L-BTC：Liquid侧链1:1 发行的BTC包装代币。8000万美金</p>
+</li>
+<li>
+<p>闪电网络：代币锁定在主网，链下票据无需gas 点对点做支付转账。1亿美金</p>
+</li>
+</ol>
+<p><strong>BTC 完全去中心化 Layer2 的两种思路</strong></p>
+<ol>
+<li>
+<p>把闪电网络这种OP Rollup的模型做拓展，不局限在做支付，可以做任意的合约操作。BitVM是这种思路。</p>
+</li>
+<li>
+<p>把tBTC这种分布式门限签名做到链上去中心化，BEVM是这种思路。</p>
+</li>
+</ol>
+<p><strong>BEVM：</strong> <strong>兼容EVM的完全去中心化的Bitcoin Layer2</strong></p>
+<p>BEVM是一个兼容EVM生态，并以原生BTC作为gas的去中心化的Bitcoin Layer2，BEVM把EVM生态引入BTC，让比特币生态也具备发行资产、构建应用的能力。具有以下技术特点：</p>
+<ol>
+<li>
+<p>EVM：完全兼容EVM生态、metamask等钱包、truffle/hardhat等开发框架、solidity编程语言。</p>
+</li>
+<li>
+<p>BTC原生gas：使用原生BTC作为EVM的gas费。与ETH Layer2 OP/Starknet 类似，ETH用作 Layer2 的Gas 费。</p>
+</li>
+<li>
+<p>Taproot Threshold Signature：链上POS 节点，确保阈值签名验证者的去中心化。单一隐私通信协议，确保聚合的 schnorr 签名 pubkey/msg 的安全性。</p>
+</li>
+<li>
+<p>比特币轻节点：BTC链上支持Wasm版本（no_std）的轻节点。</p>
+</li>
+<li>
+<p>Signal Privacy Distributed Protocol：Signal 协议，保证 schnorr 聚合签名和 Mast 合约组合门限签名时节点间消息通信的隐私性和安全性。</p>
+</li>
+<li>
+<p>zkstark超轻节点：针对上述轻节点的优化，可以利用zkstark技术来实现BTC的超轻节点。</p>
+</li>
+</ol>
+<p><strong>BEVM去中心化安全BTC layer2的关键：</strong> <strong>链上分布式门限签名合约托管，让分布式门限签名托管人可以做到 1000个</strong></p>
+<p>1.利用 Taproot(schnorr + mast 合约) 结合， 生成一个BTC主网上门限签名合约地址（可以设定 M/N 的门限阀值， N可以选定到 1000人，M/N 一般取值2/3）</p>
+<p>2.让BTC 主网上门限合约地址的N个参与者作为 BTC layer2的POS验证节点， BTC的门限合约的N个托管人和Layer2 上的POS 验证节点完全重合，整个BTC托管的安全性和去中心化依赖于Layer2 POS网络共识的安全性和去中心化。</p>
+<p>3.L2/BEVM会完全实现一个BTC 的链上轻节点，这样可以保证BTC链上的数据可以实时的同步到BEVM网络上。换句话说：BEVM的所有节点都有BTC网络的数据。</p>
+<p>4.BEVM的POS网络可以做到 1000个验证人，同时这1000个验证人也是 BTC托管合约的 共同托管人，只有这1000个验证人 大于2/3的验证节点 在共识层签名后才能操作 BTC和BTC网络上资产从 L2 跨到L1。资产从BTC L1跨到L2，只需要用户在BTC网络 往这1000个验证人的门限托管地址转移token或者BTC，自动会在BTC Layer2 BEVM上收到L2 上的资产。</p>
+<h2 id="bevm和其他layer2跨链方案对比"><strong>BEVM和其他Layer2/跨链方案对比。</strong></h2>
+<h3 id="虽然tbtc已经比wbtc要去中心化多了-但bevm-的跨链模式相比于tbtc的门限签名还可以有如下的优点"><strong>虽然tBTC已经比wBTC要去中心化多了， 但BEVM 的跨链模式相比于tBTC的门限签名还可以有如下的优点：</strong></h3>
+<ol>
+<li>
+<h3 id="无需集中初始设置无需使用分片私钥实现分布式门限签名避免了分片私钥带来的私钥泄露的安全问题直接使用btc原生的门限签名方案musig2"><strong>无需集中初始设置。无需使用分片私钥实现分布式门限签名，避免了分片私钥带来的私钥泄露的安全问题。直接使用BTC原生的门限签名方案：MuSig2。</strong></h3>
+</li>
+<li>
+<h3 id="链上分布式网络更加去中心化分布式门限网络的验证者都是链上的区块验证节点链上的网络增加了信任避免了链下分布式网络不透明易操作的缺陷"><strong>链上分布式网络，更加去中心化。分布式门限网络的验证者都是链上的区块验证节点，链上的网络增加了信任。避免了链下分布式网络不透明、易操作的缺陷。</strong></h3>
+</li>
+<li>
+<h3 id="无需许可只需信任代码即可btc-to-layer2网络使用btc轻节点完全信任代码的区块链逻辑避免了向链下分布式网络提交数据预言机带来的中心化欺诈问题"><strong>无需许可，只需信任代码即可。BTC to Layer2网络使用BTC轻节点。完全信任代码的区块链逻辑，避免了向链下分布式网络提交数据预言机带来的中心化欺诈问题。</strong></h3>
+</li>
+<li>
+<h3 id="分布式网络通信完全隐私signal协议用于完成btc主根门限签名的通信问题解决分布式网络的隐私通信问题避免门限签名出现时数据泄露串通或外部攻击的风险"><strong>分布式网络通信，完全隐私。Signal协议用于完成BTC主根门限签名的通信问题。解决分布式网络的隐私通信问题。避免门限签名出现时数据泄露、串通或外部攻击的风险。</strong></h3>
+</li>
+</ol>
+<h3 id="bevm和-bitvm-相比"><strong>BEVM 和 BitVM 相比</strong></h3>
+<p>BitVM是ZeroSync的负责人Robin Linus推出的一种表达图灵完备比特币合约的计算范式，根据白皮书，BitVm 合约类似于以太坊上的OP Rollup。合约不是在比特币上执行计算，而是在不需要更改网络共识角色的情况下进行验证。</p>
+<p>BitVM的OP Rollup的执行VM，有三大应用推广的缺陷。</p>
+<ul>
+<li>
+<p>局限在只能双方，而Defi基本需要三方（其中不可缺失的一方是链上合约托管账户地址）才能正常运行。</p>
+</li>
+<li>
+<p>双方的链下往BTC主网发起挑战的模式， 操作会比闪电网络更复杂和困难。</p>
+</li>
+<li>
+<p> 短时间无法做成BEVM这种成熟的通用链上Layer2平台。</p>
+</li>
+</ul>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/61163/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">用暂停 token 重新训练大模型，AI 学会三思而后行</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/61114/">
+                <span class="next-text nav-default">Bitwise CIO：现货加密ETF的需求将是期货的100倍</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#bevm和其他layer2跨链方案对比"><strong>BEVM和其他Layer2/跨链方案对比。</strong></a>
+      <ul>
+        <li><a href="#虽然tbtc已经比wbtc要去中心化多了-但bevm-的跨链模式相比于tbtc的门限签名还可以有如下的优点"><strong>虽然tBTC已经比wBTC要去中心化多了， 但BEVM 的跨链模式相比于tBTC的门限签名还可以有如下的优点：</strong></a></li>
+        <li><a href="#无需集中初始设置无需使用分片私钥实现分布式门限签名避免了分片私钥带来的私钥泄露的安全问题直接使用btc原生的门限签名方案musig2"><strong>无需集中初始设置。无需使用分片私钥实现分布式门限签名，避免了分片私钥带来的私钥泄露的安全问题。直接使用BTC原生的门限签名方案：MuSig2。</strong></a></li>
+        <li><a href="#链上分布式网络更加去中心化分布式门限网络的验证者都是链上的区块验证节点链上的网络增加了信任避免了链下分布式网络不透明易操作的缺陷"><strong>链上分布式网络，更加去中心化。分布式门限网络的验证者都是链上的区块验证节点，链上的网络增加了信任。避免了链下分布式网络不透明、易操作的缺陷。</strong></a></li>
+        <li><a href="#无需许可只需信任代码即可btc-to-layer2网络使用btc轻节点完全信任代码的区块链逻辑避免了向链下分布式网络提交数据预言机带来的中心化欺诈问题"><strong>无需许可，只需信任代码即可。BTC to Layer2网络使用BTC轻节点。完全信任代码的区块链逻辑，避免了向链下分布式网络提交数据预言机带来的中心化欺诈问题。</strong></a></li>
+        <li><a href="#分布式网络通信完全隐私signal协议用于完成btc主根门限签名的通信问题解决分布式网络的隐私通信问题避免门限签名出现时数据泄露串通或外部攻击的风险"><strong>分布式网络通信，完全隐私。Signal协议用于完成BTC主根门限签名的通信问题。解决分布式网络的隐私通信问题。避免门限签名出现时数据泄露、串通或外部攻击的风险。</strong></a></li>
+        <li><a href="#bevm和-bitvm-相比"><strong>BEVM 和 BitVM 相比</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

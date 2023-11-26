@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          双重流动性之殇 —— KyberSwap 巨额被黑分析 - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="据慢雾安全团队情报，2023 年 11 月 23 日，去中心化交易平台 KyberSwap 遭到攻击，攻击者获利约 5470 万美元。慢雾安全团队第一时间介入分析，并将结果分享。" />
+<meta name="keywords" content="技術, 黑客攻擊" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/64049/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="双重流动性之殇 —— KyberSwap 巨额被黑分析" />
+<meta property="og:description" content="据慢雾安全团队情报，2023 年 11 月 23 日，去中心化交易平台 KyberSwap 遭到攻击，攻击者获利约 5470 万美元。慢雾安全团队第一时间介入分析，并将结果分享。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/64049/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-11-26T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-11-26T00:00:00+00:00" />
+
+<meta itemprop="name" content="双重流动性之殇 —— KyberSwap 巨额被黑分析">
+<meta itemprop="description" content="据慢雾安全团队情报，2023 年 11 月 23 日，去中心化交易平台 KyberSwap 遭到攻击，攻击者获利约 5470 万美元。慢雾安全团队第一时间介入分析，并将结果分享。"><meta itemprop="datePublished" content="2023-11-26T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-11-26T00:00:00+00:00" />
+<meta itemprop="wordCount" content="4903">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="双重流动性之殇 —— KyberSwap 巨额被黑分析"/>
+<meta name="twitter:description" content="据慢雾安全团队情报，2023 年 11 月 23 日，去中心化交易平台 KyberSwap 遭到攻击，攻击者获利约 5470 万美元。慢雾安全团队第一时间介入分析，并将结果分享。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">双重流动性之殇 —— KyberSwap 巨额被黑分析</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-11-26">
+      2023-11-26
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 4903 字 -
+        预计阅读 10 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E5%85%B6%E5%AE%83%E6%96%87%E7%AB%A0/"> 其它文章 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>作者: 九九 &amp; Kong &amp; Lisa；来源：慢雾科技</p>
+<h2 id="背景"><strong>背景</strong></h2>
+<p>据慢雾安全团队情报，2023 年 11 月 23 日，去中心化交易平台 KyberSwap 遭到攻击，攻击者获利约 5470 万美元。慢雾安全团队第一时间介入分析，并将结果分享如下：</p>
+<h2 id="根本原因"><strong>根本原因</strong></h2>
+<p>由于 KyberSwap Elastic 的 Reinvestment Curve（再投资曲线特性），在基础流动性与再投资流动性作为实际流动性参与计算的情况下，使得池子通过 calcReachAmount 函数在刻度边界计算兑换所需的代币数量大于预期，造成下一价格 sqrtP 超过边界刻度的 sqrtP，且池子使用不等号对 sqrtP 进行检查，导致协议未按预期的通过 _updateLiquidityAndCrossTick 更新流动性。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1126/22_nz9cj9akdj.png" alt="双重流动性之殇 —— KyberSwap 巨额被黑分析"></p>
+<h2 id="前置知识"><strong>前置知识</strong></h2>
+<p>在分析开始前，我们需要了解关于 KyberSwap 一些关键性知识以便理解本次分析内容。</p>
+<p>KyberSwap 是一个链上去中心化交易平台，其具有一种新型的流动性优化模型——KyberSwap Elastic。该模型采用的集中流动性做市商机制使 LP 能够将流动性分配给定制的价格区间，并且引入再投资曲线，自动为 LP 复利在池子中闲置的流动性费用。</p>
+<p>首先，何谓集中流动性做市商（CLMM）？与 Uniswap v3 类似，流动性提供者可以将其资金在自定义价格区间内提供流动性，只有当价格落在此区间内，其流动性才会被使用。Uniswap v3 (<a href="https://blog.uniswap.org/uniswap-v3">https://blog.uniswap.org/uniswap-v3</a>) 与 KyberSwap (<a href="https://docs.kyberswap.com/liquidity-solutions/kyberswap-elastic">https://docs.kyberswap.com/liquidity-solutions/kyberswap-elastic</a>) 都提供了详细的文档进行解释说明，我们这里以一个简易的 ETH/USDC 池子图例来说明阅读此文章所需了解的知识：</p>
+<p><img src="https://img.bibiqing.com/news/2023/1126/22_10zncld582.png" alt="双重流动性之殇 —— KyberSwap 巨额被黑分析"></p>
+<p>From: KyberSwap Elastic Liquidity Concept (<a href="https://docs.kyberswap.com/liquidity-solutions/kyberswap-elastic/concepts/concentrated-liquidity#liquidity-tracking-lp-contributions-at-a-specific-price">https://docs.kyberswap.com/liquidity-solutions/kyberswap-elastic/concepts/concentrated-liquidity#liquidity-tracking-lp-contributions-at-a-specific-price</a>)</p>
+<p>以上是具有三个相同流动性仓位组成的 ETH/USDC 池子，当前价格为 1995。在 CLMM 中，价格范围被成为 tick-range。仓位 1 流动性所在的 tick 范围为 1960-2020，仓位 2 流动性所在的 tick 范围为 1980-2000，仓位 3 流动性所在的 tick 范围为 1990-2000。</p>
+<p>由图可得当前范围所在位置是流动性最好的范围，三个仓位流动性在 tick 1990-2000 上重合。当 ETH 价格下跌至 1985 时，其价格将向左移动越过 tick 1990 的范围，此时其将要离开仓位 3 的流动性范围，但仍在仓位 1 和 2 的流动性范围中，因此将会更新新范围内的流动性，将仓位 3 的流动性排除。而当 ETH 价格上涨至 2005 时，其价格将向右移动越过 tick 2000 的范围，此时将排除仓位 2 和 3 的流动性，但其仍在仓位 1 范围里。即当价格跨过流动性边界时必将更新流动性，或增加或减少。</p>
+<p>与 Uniswap v3 不同的是，KyberSwap Elastic 创新的引入了一个新特性 —— Reinvestment Curve（再投资曲线）。这是一个额外的 AMM 池，其将用户在池子中兑换收取的费用累积到其中，其曲线支持从 0 到无穷的价格范围。KyberSwap Elastic 通过过将再投资曲线与原始价格曲线进行聚合（即曲线分离，但资金仍在同一个池中），使得 LP 的费用及时在价格超出其仓位范围时也能复利赚取收益。</p>
+<p>简单了解 KyberSwap Elastic 的机制后，我们对攻击步骤进行分析。</p>
+<h2 id="攻击步骤分析"><strong>攻击步骤分析</strong></h2>
+<p>此处以攻击交易 0x485&hellip;0f3 为例进行分析：</p>
+<p>1. 攻击者首先从 AAVE 中闪电贷出 2000 枚 WETH，并在 KyberSwap 的池子中用 6.8496 枚 WETH 兑换成 frxETH，使 frxETH 的价格越过流动性提供者的所有仓位范围。此时当前的价格数值 sqrtP（当前价格乘以 2^96 的平方根表示）被拉升至 20282409603651670423947251286016，位于 tick 110909 上。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1126/22_21y2j9c87y.png" alt="双重流动性之殇 —— KyberSwap 巨额被黑分析"></p>
+<p>2. 接下来攻击者在指定的价格区间 [110909,111310] 添加了 0.006948 枚 frxETH 和 0.1078 枚 WETH 作为流动性，随后又移除了部分的流动性，最终将该价格区间里的流动性数值控制在 74692747583654757908 以使得流动性符合后续攻击计算时所需的数额。此时 tick [110909,111310] 区间只有攻击者一人拥有流动性，tick 111310 的价格数值 sqrtP 为 20693058119558072255662180724088。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1126/22_lgzbkksbiw.png" alt="双重流动性之殇 —— KyberSwap 巨额被黑分析"></p>
+<p>3. 之后攻击者在当前价格刻度 110909 用 387.17 枚 WETH 兑换出 0.005789 枚 frxETH。此次大额兑换将当前价格数值 sqrtP 拉升至 20693058119558072255665971001964，超过了边界刻度 111310 上的 sqrtP。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1126/22_ofswh8jqze.png" alt="双重流动性之殇 —— KyberSwap 巨额被黑分析"></p>
+<p>4. 最后攻击者从略大于价格刻度 111310 的 sqrtP 处，使用 0.005868 枚 frxETH 反向兑换出 396.2 枚 WETH，兑换后价格落回 [110909,111310] 刻度范围内。此时攻击者已经获利，其反向兑换比正向兑换多换出了约 9 枚 WETH。</p>
+<p>为何如此朴实无华的攻击步骤却能换出多于预期的资金呢？这与 KyberSwap Elastic 的再投资曲线有着极大的关联，我们接下来通过详细剖析来揭秘其获利方式。</p>
+<h2 id="攻击原理剖析"><strong>攻击原理剖析</strong></h2>
+<p>通过上述步骤我们知道在进行最后一步反向兑换时换出了多于预期的资金，在进行兑换时当前 sqrtP 为 20693058119558072255665971001964，这大于攻击者添加流动性时的 tickUpper 111310 所在的价格，我们用刻度图示意其所在的位置。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1126/22_bnh9ayr1fo.png" alt="双重流动性之殇 —— KyberSwap 巨额被黑分析"></p>
+<p>由于超过了攻击者添加的流动性刻度 [110909,111310] 范围，因此当前 sqrtP 所在的位置理论上是没有流动性的，其在兑换过程中只能向左跨过 111310 刻度才能获得有效的流动性进行兑换，我们跟进查看其是否如预期进行兑换。</p>
+<p>如下图所示，当我们查看当前 sqrtP 所在刻度的流动性时，我们发现不考虑重投资曲线的情况下，这里本该是 0 流动性的范围内却非预期的出现了大量流动性且远大于重投资曲线的流动性，并且流动性数额与刻度 [110909,111310] 范围内一致。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1126/22_00blr8zl8h.png" alt="双重流动性之殇 —— KyberSwap 巨额被黑分析"></p>
+<p>这使得在进行兑换时，将在刻度 111310 进行有效的代币兑换，如下图所示。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1126/22_n1uyv4ints.png" alt="双重流动性之殇 —— KyberSwap 巨额被黑分析"></p>
+<p>在刻度 111310 进行有效兑换后，sqrtP 将跨过此刻度进入 [110909,111310] 范围兑换剩余的代币。回顾前置知识我们知道在跨越流动性仓位范围时将进行流动性更新，在 KyberSwap Elastic Pool 中会通过 _updateLiquidityAndCrossTick 函数将 [110909,111310] 范围内的流动性加入曲线中以参与代币兑换，如下图所示。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1126/22_el1nm8kopz.png" alt="双重流动性之殇 —— KyberSwap 巨额被黑分析"></p>
+<p>这将使得刻度 [110909,111310] 范围内的有效流动性会与刻度 111310 右边多出的虚假流动性相加，导致在刻度 [110909,111310] 范围内进行兑换时的总有效流动性远大于预期，如下图所示，有效流动性比预期增加了一倍。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1126/22_ngsnzjiu43.png" alt="双重流动性之殇 —— KyberSwap 巨额被黑分析"></p>
+<p>而由于当前刻度范围内流动性的增加，使得池子的深度比预期更好，因此攻击者可以获得比预期多的资金，这些额外的资金来自于池子中其他刻度范围的流动性。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1126/22_i7y0hv48bq.png" alt="双重流动性之殇 —— KyberSwap 巨额被黑分析"></p>
+<p>而为什么在刻度 111310 右边会多出非预期的流动性，且流动性数量还与 [110909,111310] 范围的流动性相同呢？唯一的解释只能是在前一次兑换过程中池子并未按照预期进行流动性更新操作。如下图所示，理论上在进行前一次兑换跨过 tick 111310 时，也应该调用 _updateLiquidityAndCrossTick 函数，更新 sqrtP 进入 tick 111310 右边后的流动性。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1126/22_agputuf65w.png" alt="双重流动性之殇 —— KyberSwap 巨额被黑分析"></p>
+<p>我们实际分析此兑换过程，在进行兑换时 Pool 将通过 computeSwapStep 函数计算用于兑换的实际数额，以及兑换费用和新的 sqrtP 价格数值。理论上，在跨越流动性范围时，计算的 sqrtP 结果将会是落在范围边界的刻度 111310 的 sqrtP。但实际上新的 sqrtP 已经超过了刻度 111310 的 sqrtP。如下图所示，刻度 111310 的 sqrtP 为 20693058119558072255662180724088，但实际 sqrtP 却是 20693058119558072255665971001964。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1126/22_lcpshpmn9q.png" alt="双重流动性之殇 —— KyberSwap 巨额被黑分析"></p>
+<p>由于新的 sqrtP 并未落在边界刻度 111310 的 sqrtP 上，即 swapData.sqrtP != swapData.nextSqrtP，这将使得池子认为当前 sqrtP 还在 [110909,111310] 范围内，因此将跳出流动性检查操作，不会触发 _updateLiquidityAndCrossTick 函数进行流动性更新！</p>
+<p><img src="https://img.bibiqing.com/news/2023/1126/22_2qodon32si.png" alt="双重流动性之殇 —— KyberSwap 巨额被黑分析"></p>
+<p>但为什么会出现新的 nextSqrtP 未落在边界上的情况呢？通过分析 calcReachAmount 计算，我们可以发现攻击兑换的数额 387170294533119999999 正好小于当前范围内的流动性数量 387170294533120000000。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1126/22_fsk66dsqpf.png" alt="双重流动性之殇 —— KyberSwap 巨额被黑分析"></p>
+<p><img src="https://img.bibiqing.com/news/2023/1126/22_yc40bvtjo7.png" alt="双重流动性之殇 —— KyberSwap 巨额被黑分析"></p>
+<p>这使得 nextSqrtP 不会被赋值为 targetSqrtP，而是仍然为 0，因此其将直接通过 calcFinalPrice 函数进行最后的 sqrtP 计算，这使得其计算结果大于刻度 111310 的 sqrtP。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1126/22_32ew8wva0q.png" alt="双重流动性之殇 —— KyberSwap 巨额被黑分析"></p>
+<p>因此 calcReachAmount 函数是关键，其用于计算从 currentSqrtP 到达 targetSqrtP 的兑换中所需的代币数量。通过分析其计算公式，我们可以知道其计算结果主要取决于当前流动性 L，而当前流动性 L 是基础流动性和再投资流动性的总和。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1126/22_nm7rou6np1.png" alt="双重流动性之殇 —— KyberSwap 巨额被黑分析"></p>
+<p>我们都知道在 Uniswap v3 中并没有再投资曲线的特性，因此是否是因为加入了再投资流动性导致 calcReachAmount 的计算结果比预期的大呢？</p>
+<p><img src="https://img.bibiqing.com/news/2023/1126/22_g88jcosrtb.png" alt="双重流动性之殇 —— KyberSwap 巨额被黑分析"></p>
+<p>通过测试，在不包含再投资流动性的情况下，calcReachAmount 计算结果为 387160697969657129472，这小于攻击所兑换的数量 swapQty 387170294533119999999。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1126/22_5v74im296q.png" alt="双重流动性之殇 —— KyberSwap 巨额被黑分析"></p>
+<p>而在不包含再投资流动性的情况下 computeSwapStep 计算的 sqrtP 则刚好落在刻度 111310 上：</p>
+<p><img src="https://img.bibiqing.com/news/2023/1126/22_cplkd1q62a.png" alt="双重流动性之殇 —— KyberSwap 巨额被黑分析"></p>
+<p>因此真相水落石出，由于 KyberSwap Elastic 的 Reinvestment Curve（再投资曲线）特性，在使用基础流动性与再投资流动性计算从当前 sqrtP 到刻度边界 sqrtP 的兑换中，所需的代币数量将大于预期，这导致了兑换后的 sqrtP 超过刻度边界的 sqrtP，使得协议认为当前刻度范围内的流动性已经满足了兑换所需，进而停止对越过边界刻度进行流动性更新的操作。</p>
+<h2 id="misttrack-分析"><strong>MistTrack 分析</strong></h2>
+<p><strong>KyberSwap Exploiter 1：</strong> 0x50275e0b7261559ce1644014d4b78d4aa63be836</p>
+<p><strong>KyberSwap Exploiter 2：</strong> 0xc9b826bad20872eb29f9b1d8af4befe8460b50c6</p>
+<p><strong>KyberSwap Exploiter 3：</strong> 0xae7e16cAa7a4d572FfF09924Bf077a89485850Cb</p>
+<p><strong>KyberSwap Exploiter 4：</strong> 0xd01896e3D4F130Ffd6f6a5A9d6780bbd7008d71d</p>
+<p>据 MistTrack 分析，KyberSwap 攻击者共获利超 5470 万美元，涉及 Ethereum、BSC、Arbitrum、Optimism、Polygon、BASE、Scroll、Avalanche 链。</p>
+<p>在 Ethereum 上，KyberSwap Exploiter 1 的初始资金来自 Tornado Cash 转入的 20 ETH。其中 0.1 ETH 被转移到 KyberSwap Exploiter 2，2 ETH 被转移到 FixedFloat，6.5 ETH 被分别跨链到 Arbitrum, Optimism, Scroll, Base 链。而 KyberSwap Exploiter 2 则获利价值超 758 万美元的 Token，包含 USDC, WETH, KNC 等，暂未转移。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1126/22_q70jm1qico.png" alt="双重流动性之殇 —— KyberSwap 巨额被黑分析"></p>
+<p>在 BSC 上，KyberSwap Exploiter 1 收到了 FixedFloat 转入的 4.2678 BNB，作为余额暂未转移。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1126/22_3yjsby89s9.png" alt="双重流动性之殇 —— KyberSwap 巨额被黑分析"></p>
+<p>在 Arbitrum 上，KyberSwap Exploiter 2 获利价值超 2029 万美元的 Token，包含 WBTC, WETH, ARB, DAI 等，其中 500 WETH 转移到 0x98d69d3ea5f7e03098400a5bedfbe49f2b0b88d3，该地址将 300 WETH 跨链到以太坊，暂未转移。值得注意的是，KyberSwap Exploiter 2 将 1,000 WETH 转移到 Indexed Finance Exploiter 的地址 0x84e66f86c28502c0fc8613e1d9cbbed806f7adb4。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1126/22_u9iyu5t4ba.png" alt="双重流动性之殇 —— KyberSwap 巨额被黑分析"></p>
+<p>在 Optimism 上，KyberSwap Exploiter 2 获利超 1564 万美元的 Token，包含 wstETH, WETH, OP, DAI 等，暂未转移。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1126/22_6pmnys1tpe.png" alt="双重流动性之殇 —— KyberSwap 巨额被黑分析"></p>
+<p>在 Polygon 上，KyberSwap Exploiter 1 的初始资金来自 FixedFloat 转入的 2,666.1243 MATIC，接着将 100 MATIC 转到 KyberSwap Exploiter 2，目前 Exploiter 1 余额为 2,564.0016 MATIC；而 KyberSwap Exploiter 2 获利超 293 万美元的 Token，包含 WBTC, WETH, DAI 等，暂未转移；KyberSwap Exploiter 3 获利超 575 万美元的 Token，包含 wstETH, USDT, USDC 等，并将大部分 Token 转移到地址 0xa4c92d7482066878bb1e2c0510f42b20d79a7ea9。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1126/22_122lto4o0u.png" alt="双重流动性之殇 —— KyberSwap 巨额被黑分析"></p>
+<p>在 BASE 上，KyberSwap Exploiter 2 获利超 195 万美元的 Token，包含 USDC, WETH 等，暂未转移。</p>
+<p>在 Avalanche 上，KyberSwap Exploiter 1 的初始资金来自 FixedFloat 转入的 49 AVAX；而 KyberSwap Exploiter 2 获利超 2.35 万美元的 Token，包含 293.0756 WAVAX, 17,316.0305 USDC，暂未转移；KyberSwap Exploiter 4 获利超 56.5 万美元的 Token，包含 WAVAX, USDC 等，并将 USDC 转移到地址 0x9296fa3246f478e32b05d4dde35176d927be703f。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1126/22_az72vs1vhj.png" alt="双重流动性之殇 —— KyberSwap 巨额被黑分析"></p>
+<p>慢雾安全团队已拉黑相关地址，大部分资金仍未转移，我们将持续监控资金异动。</p>
+<h2 id="结论"><strong>结论</strong></h2>
+<p>此次攻击事件的根本原因在于计算当前价格到边界刻度价格的兑换中，所需的代币数量会因为 KyberSwap Elastic 的再投资曲线而将流动性多加上手续费复利的部分，从而造成其计算结果比预期大，可以覆盖用户兑换所需，但实际价格已经越过了边界刻度，使得协议认为当前刻度范围内的流动性已经满足了兑换所需，故而未进行流动性更新。最终导致反向兑换跨过边界刻度时流动性增加了两次，使得攻击者获得了多于预期的代币。</p>
+<p>慢雾安全团队建议在设计经济模型时，应对边界条件进行充分测试，并且严格判断流动性与价格而不是使用不等号进行检查。</p>
+<h2 id="参考"><strong>参考</strong></h2>
+<p>攻击者地址：0x50275e0b7261559ce1644014d4b78d4aa63be836</p>
+<p>攻击合约：0xaf2acf3d4ab78e4c702256d214a3189a874cdc13</p>
+<p>相关攻击交易：</p>
+<p>0x485e08dc2b6a4b3aeadcb89c3d18a37666dc7d9424961a2091d6b3696792f0f3</p>
+<p>0x09a3a12d58b0bb80e33e3fb8e282728551dc430c65d1e520fe0009ec519d75e8</p>
+<p>0x396a83df7361519416a6dc960d394e689dd0f158095cbc6a6c387640716f5475</p>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/64051/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">秘密研发，“威胁人类”，一个代号就引发全网恐慌？OpenAI的Q*到底是啥？</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/64053/">
+                <span class="next-text nav-default">随着币安和解加密货币权力斗争进入新阶段</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#背景"><strong>背景</strong></a></li>
+    <li><a href="#根本原因"><strong>根本原因</strong></a></li>
+    <li><a href="#前置知识"><strong>前置知识</strong></a></li>
+    <li><a href="#攻击步骤分析"><strong>攻击步骤分析</strong></a></li>
+    <li><a href="#攻击原理剖析"><strong>攻击原理剖析</strong></a></li>
+    <li><a href="#misttrack-分析"><strong>MistTrack 分析</strong></a></li>
+    <li><a href="#结论"><strong>结论</strong></a></li>
+    <li><a href="#参考"><strong>参考</strong></a></li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

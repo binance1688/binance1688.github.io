@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          全面解读跨链DEX WOOFi：交易机制、质押机制与代币经济学 - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="通过 WOOFi 挖矿，WOOFi 提供了 Supercharger Earn Vaults，这是一种不会造成无常损失的单向收益产品。" />
+
+  <meta name="keywords" content="区块大全, 区块链, 区块链资讯, 区块链快讯, 区块链新闻, 比特币行情" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/60897/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="全面解读跨链DEX WOOFi：交易机制、质押机制与代币经济学" />
+<meta property="og:description" content="通过 WOOFi 挖矿，WOOFi 提供了 Supercharger Earn Vaults，这是一种不会造成无常损失的单向收益产品。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/60897/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-10-11T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-10-11T00:00:00+00:00" />
+
+<meta itemprop="name" content="全面解读跨链DEX WOOFi：交易机制、质押机制与代币经济学">
+<meta itemprop="description" content="通过 WOOFi 挖矿，WOOFi 提供了 Supercharger Earn Vaults，这是一种不会造成无常损失的单向收益产品。"><meta itemprop="datePublished" content="2023-10-11T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-10-11T00:00:00+00:00" />
+<meta itemprop="wordCount" content="10355">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="全面解读跨链DEX WOOFi：交易机制、质押机制与代币经济学"/>
+<meta name="twitter:description" content="通过 WOOFi 挖矿，WOOFi 提供了 Supercharger Earn Vaults，这是一种不会造成无常损失的单向收益产品。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">全面解读跨链DEX WOOFi：交易机制、质押机制与代币经济学</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-10-11">
+      2023-10-11
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 10355 字 -
+        预计阅读 21 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E5%85%B6%E5%AE%83%E6%96%87%E7%AB%A0/"> 其它文章 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>原文作者：ASXN</p>
+<p>原文编译：深潮 TechFlow</p>
+<p>WOOFi 是一个跨链去中心化交易所，用户可以在 10 条不同的链上进行资产互换、赚取收益和质押。该交易所使用了一种新颖的合成主动做市（sPMM）算法来定价资产，通过检索中心化交易所的订单簿数据以及一个复杂的对冲机制来实现做市商的运作。与传统的自动做市机制（AMM）相比，这可以实现更准确的定价、更高效的流动性、最小化的无常损失以及防止竞价交易的保护。</p>
+<p>在过去一年中，WOOFi 积极追求积极的跨链扩张战略，并且经常成为新上线的 EVM 兼容链上的首批非原生去中心化交易所之一。</p>
+<p>通过 WOOFi 挖矿，WOOFi 提供了 Supercharger Earn Vaults，这是一种不会造成无常损失的单向收益产品。 Supercharger Earn Vaults，在本质上是一个资产负债率低的借贷产品，类似 Maple 借贷，可以产生真实收益。</p>
+<p>WOO 代币持有者可以通过 WOOFi 质押从这些协议费用中获益。WOOFi 质押使得用户可以在多个链上质押 WOO 并赚取协议费用，WOO 质押者的收益率一直保持在 4% 左右，奖励以 USDC 的形式发放。</p>
+<p>在过去一个月中，WOOFi 交易量的日均值达到了 1363 万美元，使其成为区块链领域交易量排名第 20 的去中心化交易所。此外，WOOFi 在这个时期的日均活跃交易者数约为 7000 。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1011/0u8tcyvkmejl1e1" alt="全面解读跨链DEX WOOFi：交易机制、质押机制与代币经济学"></p>
+<p><img src="https://img.bibiqing.com/news/2023/1011/3_lcbcvaw0d2.jpg" alt="全面解读跨链DEX WOOFi：交易机制、质押机制与代币经济学"></p>
+<h2 id="交易机制">交易机制</h2>
+<p>WOOFi 交易所使用了 sPMM 算法，该算法旨在模拟中心化交易所的报价、买卖差价和市场深度。<img src="https://img.bibiqing.com/news/2023/1011/h3zlq7gvii2b0j3" alt="全面解读跨链DEX WOOFi：交易机制、质押机制与代币经济学"></p>
+<p>相比之下，大多数去中心化交易所作为自动做市商（AMM）运作，并使用恒定乘积做市商模型。这些模型依赖于 xy = k 函数根据每个代币的可用储备余额（x 和 y）计算两个代币之间的价格。这一曲线基于这样一个原理：交易不应改变一对储备余额（x 和 y）的乘积（k）。根据恒定乘积公式，代币 x 的价格计算为价格 x = 储备代币 y / 储备代币 x。</p>
+<p>另一方面，sPMM 算法接收中心化交易所的订单簿数据，使用中间价格（P 0）（买入和卖出价格的平均值）、买卖差价（s）（卖出价格和买入价格与中间价格的差值的比率）和滑点来确定交易价格。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1011/zdgb27hjl6qagh7" alt="全面解读跨链DEX WOOFi：交易机制、质押机制与代币经济学"></p>
+<p>订单簿数据来源的中心化交易所由做市商选择，取决于做市商选择对冲的地方。使用自定义的链上价格预言机来接收数据。预言机主动推送价格更新；这意味着随着中心化交易所价格的变动，新价格替代旧价格。当用户进行兑换时，他们获得基于链上最新有效参数的价格。链上数据由做市商自行决定基于价格偏差进行更新，通常约为 0.1% （即价格变动 0.1% 时更新）。</p>
+<p>除了中间价格和买卖差价数据之外，WOOFi 还使用一个滑点系数（k）来模拟提取订单簿数据的中心化交易所的流动性。它用于确保链上滑点与中心化交易所订单簿上的滑点相匹配，即，在中心化交易所和 WOOFi 交易所上执行相同交易的用户，会经历相似的滑点。</p>
+<p>滑点系数确保链上报价具有足够的竞争力以吸引聚合器的流量，同时也管理与对冲链上流量以维持市场中性并获利相关的风险。</p>
+<p>资产 x 的价格：</p>
+<p>AMM:</p>
+<p><img src="https://img.bibiqing.com/news/2023/1011/v6hatp298usl8g8" alt="全面解读跨链DEX WOOFi：交易机制、质押机制与代币经济学"></p>
+<p>其中：y 是池中代币 y 的余额，x 是池中代币 x 的余额</p>
+<p>WOOFi Swap:</p>
+<p><img src="https://img.bibiqing.com/news/2023/1011/sw5vu31r0yw8js1" alt="全面解读跨链DEX WOOFi：交易机制、质押机制与代币经济学"></p>
+<p>以下是 WOOFi Swap 的工作概述：</p>
+<p>例子，用户想要用 USDC 买 ETH：</p>
+<ol>
+<li>
+<p>用户发起交易，用 USDC 买 ETH。</p>
+</li>
+<li>
+<p>sPMM 算法通过自定义的链上价格预言机从中心化交易所的订单簿获取中间价格和买卖差价数据。</p>
+</li>
+<li>
+<p>根据买卖差价和流动性估算用户将收到的 ETH 数量，以匹配中心化交易所。</p>
+</li>
+<li>
+<p>用户通过流动性池收到 ETH，支付 USDC。</p>
+</li>
+<li>
+<p>sPMM 池管理者对冲，与用户采取相同仓位以保持市场中性。（即由于做市商卖出了 ETH 获得 USDC，所以他们要买入 ETH 支付 USDC，或使用永续合约等其他工具增加 ETH 头寸）。</p>
+</li>
+</ol>
+<h2 id="woofi-交易所基本情况">WOOFi 交易所基本情况</h2>
+<h3 id="最小化无常损失">最小化无常损失</h3>
+<p>向传统 AMM 提供流动性的用户面临显著的无常损失。AMM 池通过套利交易者买入承价过低的代币和卖出溢价过高的代币来重新平衡，直到 AMM 价格与更广泛的市场相匹配。这部分利润是从流动性提供者那里提取的，流动性提供者遭受无常损失，承受负滑点以重新调整池中的余额。</p>
+<p>在 sPMM 模型中，用户存入资产由 sPMM 管理者进行管理。没有恶意套利流量，即没有从流动性提供者那里提取利润的套利交易者。sPMM 管理者对冲其头寸保持市场中性，因此即使互换池失衡，也能通过在 WOO X 上的头寸补上资产。</p>
+<p>例如：</p>
+<ul>
+<li>
+<p>用户从 WOOFi Swap 以 20, 000 USDC 购买 10 ETH。</p>
+</li>
+<li>
+<p>理论上，池会失衡，ETH 更少而 USDC 更多。</p>
+</li>
+<li>
+<p>sPMM 管理者通过链下买入 10 ETH 对冲头寸，以弥补失衡。</p>
+</li>
+</ul>
+<h3 id="预防-mev">预防 MEV</h3>
+<p>由于 WOOFi Swap 不使用 AMM 定价模型，即价格并不来自底层资产池，因此不会受到竞价交易机器人的影响，用户免受三明治攻击，流动性提供者（和用户）免受即时流动性攻击。</p>
+<p>首先，三明治攻击的工作方式会导致用户执行价格不佳：</p>
+<ul>
+<li>
+<p>用户提交通过 AMM 购买资产 X 的交易。</p>
+</li>
+<li>
+<p>竞价交易机器人在交易池中看到待处理的交易，在用户交易之前和之后各放一个交易。</p>
+</li>
+<li>
+<p>由于 AMM 中的资产价格来源于 AMM 流动性池中的余额，竞价交易机器人可以通过购买资产 X 来推高其价格。</p>
+</li>
+<li>
+<p>用户最终以被抬高的价格购买资产 X。</p>
+</li>
+<li>
+<p>该机器人以被抬高的价格卖出资产 X。</p>
+</li>
+</ul>
+<p>即时流动性攻击略复杂些。在大多数情况下，即时流动性实际上为用户提供了更好的兑换。其工作流程如下：</p>
+<ol>
+<li>
+<p>用户在使用 AMM 定价的 DEX 提交大规模兑换交易。通常是集中流动性的 AMM。</p>
+</li>
+<li>
+<p>竞价交易机器人/搜索者在交易池中看到此交易，旨在从此池中流动性提供者的兑换交易费中获利。</p>
+</li>
+<li>
+<p>在兑换发生之前，竞价交易机器人向将处理该交易的特定池中添加流动性。此流动性通常集中在单个价格变动（在集中流动性中）兑换最相关的地方。</p>
+</li>
+<li>
+<p>然后进行兑换，并赚取提供交易所需流动性的费用。</p>
+</li>
+<li>
+<p>兑换完成后，立即提取流动性和任何累计的费用。</p>
+</li>
+<li>
+<p>竞价交易机器人可能会在另一个交易平台对冲其库存风险，机器人的最终利润将是与对冲相关的交易费用、添加/移除流动性的交易费用和赚取的 LP 费用之间的差额。</p>
+</li>
+<li>
+<p>这通常会使兑换者获得更好的兑换价格，因为他们兑换到更深的流动性提供者当中。但是，被动的流动性提供者会受损，因为主动的即时流动性稀释了他们的交易费收益。他们没有得到与所承担风险相称的补偿。</p>
+</li>
+<li>
+<p>最近发现，如果同时实施三明治攻击，即时流动性实际上可能导致兑换者获得更差的兑换价格。</p>
+</li>
+</ol>
+<h3 id="跨链">跨链</h3>
+<p>在过去一年中，WOOFi 积极追求积极的跨链扩张战略，并且经常成为新上线的 EVM 兼容链（如 Linea 和 Base）上的首批非原生去中心化交易所。这一举措是由他们的跨链互换推动的。通过 LayerZero 的跨链消息传递协议和 Stargate 的流动性，WOOFi 交易可以使用单笔签名交易执行跨链交易。</p>
+<p>然而，值得注意的是，WOOFi Swap 依赖 Stargate 进行代币桥接，与其他桥接解决方案相比，这往往更昂贵。为解决此问题，WOOFi 已经宣布了后续支持 LayerZero 的 OFT（跨链同质化代币）标准和 Chainlink 的 CCTP。<img src="https://img.bibiqing.com/news/2023/1011/hwpifwvmgd3q4y0" alt="全面解读跨链DEX WOOFi：交易机制、质押机制与代币经济学"></p>
+<h3 id="上所数量有限">上所数量有限</h3>
+<p>WOOFi 交易所无法提供许多币种的互换，因为他们的 sPMM 模型依赖中心化交易所进行定价。决定新增币种上市需要考虑对冲的适用性，因此该平台优先选择中心化交易所流动性强的代币——特别是永续合约市场流动性强的代币。到目前为止，WOOFi 交易所仅本地支持 11 个交易对：USDC、USDT、WOO、ETH、BTC、ARB、AVAX、BNB、MATIC、FTM 和 OP。</p>
+<p>不幸的是，尽管 sPMM 模型具有减轻无常损失和减少竞价交易等优势，但其主要缺点之一是无法快速新增币种上市，因为需要满足流动性要求，特别是永续流动性要求。</p>
+<p>此外，目前上市数量有限，因为增加更多资产会增加所有资产的风险，如果一个资产跌至零。这是因为 WOOFi 使用单一池设计。WOOFi 正在探索为长尾资产提供独立池以支持更多上市。WOOFi 已经集成 1inch 以应对上市数量有限的问题：在 WOOFi 上不可交易的资产将通过 1inch 路由。</p>
+<p>例如，如果用户正在交易资产 A（在 WOOFi 上不可用）：</p>
+<ul>
+<li>
+<p>用户在以太坊区块链上将资产 A 兑换为 Arbitrum 区块链上的 ARB。</p>
+</li>
+<li>
+<p>1inch 执行资产 A 兑换 USDC 的互换。</p>
+</li>
+<li>
+<p>WOOFi 执行 USDC 和 ARB 的跨链互换。</p>
+</li>
+</ul>
+<h3 id="资本效率">资本效率</h3>
+<p>传统 AMM 需要大量流动性且资本效率相对较低，因为大多数交易集中在狭窄的价格范围内完成。WOOFi 交易所需要更少的总锁定价值但可以实现类似的定价，因为使用了订单簿数据进行定价以及专业做市商，而不是未充分利用的“懒散流动性”。</p>
+<h3 id="woofi-挖矿">WOOFi 挖矿</h3>
+<p><img src="https://img.bibiqing.com/news/2023/1011/fz9ys745lrz3be1" alt="全面解读跨链DEX WOOFi：交易机制、质押机制与代币经济学">WOOFi 通过 WOOFi 挖矿界面提供 Supercharger Earn Vaults，，这是一种没有无常损失的单向收益产品。 Supercharger Earn Vaults，允许用户通过向保险库存入资产的方式，以固定的借贷利率向 sPMM 池管理者借出代币。需要注意的是，sPMM 池管理者没有为其借贷提供抵押品。本质上，WOOFi 构建了一个类似 Maple 借贷的无抵押借贷和资产支持证券产品。</p>
+<p>sPMM 池管理者从充值用户那里借入，并将其存入流动性池。用户只与流动性池互动，在那里进行结算。</p>
+<p>借贷利率是通过估计抵押非稳定币贷款的利率并根据抵押率应用乘数计算的。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1011/zw9stwkwzitycy9" alt="全面解读跨链DEX WOOFi：交易机制、质押机制与代币经济学"></p>
+<p>其中：B_i 是单个平台 i 的借贷利率，X_i 是平台 i 上非稳定币资产的过抵押借贷利率，抵押率乘数来源于借贷平台。</p>
+<p>最终借贷利率 B 的计算使用多个借贷平台，并使用 Bi 的指数移动平均计算。</p>
+<p>例如，假设 ETH 的借贷利率仅考虑三个平台：Aave、Compound 和 Radiant：</p>
+<p>Aave：借贷利率： 3% ，抵押率： 105% </p>
+<p><img src="https://img.bibiqing.com/news/2023/1011/hpcrw2kldj2kdwy" alt="全面解读跨链DEX WOOFi：交易机制、质押机制与代币经济学"></p>
+<p>Compound：借贷利率： 3.2% ，抵押率： 102% </p>
+<p><img src="https://img.bibiqing.com/news/2023/1011/94h2si4lya9kmfc" alt="全面解读跨链DEX WOOFi：交易机制、质押机制与代币经济学"></p>
+<p>Radiant：借贷利率： 2.8% ，抵押率： 110% </p>
+<p><img src="https://img.bibiqing.com/news/2023/1011/j76qzr3iklg88bt" alt="全面解读跨链DEX WOOFi：交易机制、质押机制与代币经济学"></p>
+<p>然后 ETH 的最终借贷利率为：</p>
+<p><img src="https://img.bibiqing.com/news/2023/1011/je5cnvbb7mis10z" alt="全面解读跨链DEX WOOFi：交易机制、质押机制与代币经济学"></p>
+<p>sPMM 池管理者可以借出保险库中高达 90% 的资产。保险库的运营周期为 7 天，最后 24 小时内，管理者必须与用户结算贷款。用户可以在此 24 小时结算期内免费提取存款。此外，用户可以选择立即提取，提取费为 0.3% 。</p>
+<p>通过 Supercharger Earn Vaults，，向 sPMM 管理者借出资产的用户可以赚取借贷费，同时承担交易对手风险。此外， Supercharger Earn Vaults 最小化了无常损失。</p>
+<h2 id="woofi-质押机制">WOOFi 质押机制</h2>
+<h3 id="woofi-质押-10">WOOFi 质押 1.0 </h3>
+<p>WOOFi 协议通过真实收益质押机制给予 WOO 代币效用，WOO 质押者的收益率持续保持在 4% ，奖励以 USDC 支付。最初，WOOFi 在 2021 年 12 月实现了 WOO 代币的质押，利用独特的针对每个链的质押合约，将每个链上的所有互换费用的 80% 分配给该链上的 WOO 质押者。WOO 质押者的赎回期为 7 天，或者支付 5% 的费用立即赎回。在这一版本中，用户可以在 Polygon、Arbitrum、BNB 链和 Avalanche 上质押。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1011/ktrpd3s962muhio" alt="全面解读跨链DEX WOOFi：交易机制、质押机制与代币经济学"></p>
+<p>在质押机制的第一版中，WOO 协议使用 WOOFi 生成的 80% 互换费用回购 WOO 代币并分配给 WOO 质押者。这非常成功，超过 1 亿代币质押在多个链上，质押者总共赚取了 460 万 WOO 代币。<img src="https://img.bibiqing.com/news/2023/1011/b44vh0af6gf0c94" alt="全面解读跨链DEX WOOFi：交易机制、质押机制与代币经济学"></p>
+<p><img src="https://img.bibiqing.com/news/2023/1011/gswyjvdpggpsdvz" alt="全面解读跨链DEX WOOFi：交易机制、质押机制与代币经济学"></p>
+<p>然而，WOOFi 部署在多个链上，每个链都有独特的质押合约，这导致了不同链之间质押 APR 的差异。这意味着在互换量与质押 WOO 数量比较高的链上质押 WOO 的用户可以赚取更高的 APR。这种设计并不理想，导致了 WOOFi 质押 2.0 的诞生。</p>
+<h3 id="woofi-质押-20">WOOFi 质押 2.0 </h3>
+<p>改进了 WOOFi 质押 1.0 的一些缺点后，WOOFi 推出了 WOOFi 质押 2.0 或跨链质押。通过与 Layerzero 的跨链消息传递协议的集成，WOOFi 使用户能够在多个支持的链上质押 WOO 并赚取相同的收益，而与 WOO 质押的位置无关。每个链上的所有 WOOFi 费用都以该链的报价币种收取（除 BSC 使用 USDT 外都为 USDC），然后以 USDC 而不是之前的 WOO 代币回购和分配的方式支付收益。</p>
+<p>质押页面新增了一个选择加入的“自动复投”功能，用户需要 claim 他们的 USDC 收益，然后兑换 WOO 代币并质押 WOO 代币。这就是质押 2.0 中的 WOO 回购的来源，自上线以来已经回购了超过 100 万 WOO。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1011/if7dahnp9t0b01r" alt="全面解读跨链DEX WOOFi：交易机制、质押机制与代币经济学"></p>
+<p>跨链机制：</p>
+<ol>
+<li>
+<p>用户可以在这些链上质押 WOO：Polygon、Arbitrum、BSC、Avalanche、Optimism 和以太坊。</p>
+</li>
+<li>
+<p>WOOFi 收取每个链上 WOOFi 部署的互换费用的 80% 。</p>
+</li>
+<li>
+<p>每周四，这些互换费用通过 Layerzero 的协议桥接到 Arbitrum，然后在接下来的 7 天内流向 WOO 质押者。</p>
+</li>
+<li>
+<p>计算这笔收益时会考虑用户在所有链上质押的全部 WOO 余额（和乘数点）。</p>
+</li>
+</ol>
+<p>乘数</p>
+<p>在质押 1.0 中，WOO 质押者的赎回期为 7 天，或者可以通过支付 5% 的费用选择立即赎回。WOOFi 质押 2.0 取消了这些赎回限制，而是通过类似 GMX 的乘数点（MP）系统激励长期质押 WOO。该乘数点系统在不增加通胀的情况下奖励长期 WOO 质押者。</p>
+<p>乘数系统的工作方式如下：</p>
+<ul>
+<li>
+<p>用户在任意支持的链上质押他们的 WOO 代币。</p>
+</li>
+<li>
+<p>所有 WOO 质押者以 50% 的基础年化利率赚取 MP（例如，如果你质押 1000 个 WOO 一年，你将累积 500 个 MP）。</p>
+</li>
+<li>
+<p>这些 MP 本身也可以被质押，每一个 MP 与 1 个被质押的 WOO 代币具有相同的收益潜力（1 个被质押的 MP 赚取的 USDC 收益与 1 个被质押的 WOO 代币相同）。</p>
+</li>
+<li>
+<p>如果一个用户决定赎回部分 WOO 代币，等量的 MP 将被销毁，这意味着他们失去了那些 MP 的收益潜力。例如，如果一个用户质押了 1000 个 WOO 和 1000 个 MP，他将赚取相当于 2000 个被质押 WOO 的 USDC 收益。如果他们然后决定赎回 100 个 WOO（被质押总 WOO 的 10% ），那么 10% 的 MP（100 个 MP）将被永久销毁。</p>
+</li>
+</ul>
+<h3 id="挑战mpapr-提升">挑战（MP APR 提升）</h3>
+<p>如前所述，MP 的基础年化收益率为 50% 。然而，通过完成“挑战”或 WOOFi 协议特定的任务，用户可以将赚取 MP 的速率提升到最高 109.85% 的年化收益率。</p>
+<p>有 3 种方法可以提升 MP 收益率：WOOFi 互换量、超级充值保险库存款和使用自动复投功能。要完成这些挑战，WOO 质押者需要至少质押 1800 个 WOO，并且基于用户质押的 WOO 数量有一个分级制度。如果一个用户完成了其质押层对应的所有挑战，他们将在讨论的三个类别中每个获得 1.3 倍的 MP 收益率提升。为了从 MP 中赚取这些收益提升，他们的 MP 必须被质押。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1011/sz89jj68t0okphf" alt="全面解读跨链DEX WOOFi：交易机制、质押机制与代币经济学"></p>
+<p>例子：一个质押了 2000 WOO 的用户将处于最低的有效质押层级。为了从交易量中获得 1.3 倍 MP 收益率提升，该用户需要在观察的 30 天周期内累计交易至少 200 美元的交易量（包括跨链互换）。同样，他们需要在超级充值保险库中存入至少 100 美元，持续 30 天。要获得最后一个 1.3 倍提升，WOO 质押者必须启用自动复投功能。</p>
+<h3 id="woofinft增强收益">WOOFi NFT 增强收益</h3>
+<p>未来，WOOFi 将通过 NFT 引入提升质押收益的新方式。有两种计划中的 NFT 类型可以用于提升 WOO 质押收益：</p>
+<ul>
+<li>
+<p>消耗型 NFT —— 这些 NFT 通过任务或挑战获得，然后可以被质押以获得临时收益提升。收益提升的幅度基于获得的 NFT 的稀有度。</p>
+</li>
+<li>
+<p>头像 NFT —— 这些 NFT 将提供永久的质押收益提升。</p>
+</li>
+</ul>
+<h3 id="woofi-质押-20-指标">WOOFi 质押 2.0 指标</h3>
+<p>自 WOOFi 质押从 1.0 迁移以来，我们看到总共有 1.32 亿 WOO 质押在 WOOFi 中。这些 WOO 代币从 5 月 18 日以来赚取了超过 30 万美元的 USDC 收益，平均年化收益率为 4.15% 。</p>
+<p>尽管用户可以在 7 条不同的链上进行质押，但质押集中在 Arbitrum（36.8% ）、Avalanche（24.5% ）和以太坊（16.3% ）。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1011/sfnnacckszc57y6" alt="全面解读跨链DEX WOOFi：交易机制、质押机制与代币经济学"></p>
+<p><img src="https://img.bibiqing.com/news/2023/1011/kie2z3h8co8sgmo" alt="全面解读跨链DEX WOOFi：交易机制、质押机制与代币经济学"></p>
+<p><img src="https://img.bibiqing.com/news/2023/1011/3_5fs9trdep7.jpg" alt="全面解读跨链DEX WOOFi：交易机制、质押机制与代币经济学"></p>
+<p><img src="https://img.bibiqing.com/news/2023/1011/a6qsht7tb2p6iek" alt="全面解读跨链DEX WOOFi：交易机制、质押机制与代币经济学"></p>
+<h3 id="woofi-pro">WOOFi Pro</h3>
+<p>除了在 EVM 链上的标准 sPMM 实施之外，WOOFi 还在实验中心限额订单簿模型（CLOB）。CLOB 建立在 Orderly 网络的“即插即用 CLOB”交易所协议之上，允许 WOOFi 外包风险引擎、匹配引擎和资产池。</p>
+<p>WOOFi Pro 面向专业交易员，允许更复杂的订单类型、使用专业的交易界面和工具，同时允许那些交易员自我托管资产。</p>
+<p>WOOFi Pro 的初始实施是在 Near 上。这些现货和永续合约市场的 CLOB 交易量非常小，这些市场的总日交易量仅为低 6 位数，这可能部分是因为 Near 整体活跃度不高。</p>
+<p>该团队已经从 Near 转移重心到成为跨链的，并将支持来自 Arbitrum、Optimism、BSC、以太坊、Base、Linea 和 Polygon 的跨链存款。此外，WOOFi Pro 的交易费将在主网上线后（预计将在 2023 年第四季度启动）与 WOOFi 质押者共享。</p>
+<h3 id="竞争格局">竞争格局</h3>
+<p>目前，跨链互换在该领域还相对少被开发，除了 WOOFi 交易所以外，只有少数协议，主要是 Hashflow 和 SushiXSwap 实现了相关解决方案。</p>
+<h3 id="sushiswap">SushiSwap</h3>
+<p>SushiXSwap 是 Sushi 使用 LayerZero 的 Stargate 构建的跨链 AMM。Sushiswap 最初于 2020 年在以太坊上启动，作为 Uniswap 的一个分叉。</p>
+<p>SushiXSwap 当前已经与 Optimism、Arbitrum、BSC、Avalanche、Polygon 集成。SushiXSwap 未来将聚合更多的桥，重点是以模块化、可组合的方式构建 SushiXSwap。SushiXSwap 在跨链交易中利用 Sushi 在每个链上的流动性。</p>
+<h3 id="hashflow">Hashflow</h3>
+<p>Hashflow 是一个去中心化交易所，类似于 WOOFi 交易所，提供非 AMM 的跨链互换。与 AMM 不同，Hashflow 使用专业做市商的 RFQ 模型。</p>
+<p>一个链下 RFQ 引擎从管理链上流动性池的做市商那里接收报价。RFQ 模型在链上处理结算和资产互换，而做市商在链下定价资产。</p>
+<h3 id="比较">比较</h3>
+<p>Sushi 采用 AMM 模型。该模型使用 xy = k 函数根据各自的储备余额（x 和 y）为两个代币确定价格。</p>
+<p>相比之下，WOOFi 的 sPMM 算法和 Hashflow 使用来自中心化交易所的订单簿数据来设置交易价格。由于 Hashflow 和 WOOFi 的定价机制都不依赖 AMM 定价模型，它们不容易受到竞价交易机器人的操纵，保护用户免受夹层攻击，并保护流动性提供者和用户免受即时流动性攻击。</p>
+<p>此外，众所周知，传统 AMM 对流动性提供者构成风险。向这些 AMM 提供流动性的人往往会遭受巨大的无常损失。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1011/kl3p4dmtirsjlws" alt="全面解读跨链DEX WOOFi：交易机制、质押机制与代币经济学"></p>
+<p>截至 2023 年 9 月，Sushi 跨越最多的链，共 18 条链，其次是 WOOFi，跨 10 条链，Hashflow 跨 6 条链。以 24 小时交易量而言，Hashflow 领先，约为 1646 万美元，其次是 WOOFi， 1363 万美元，Sushi 居尾， 1231 万美元。</p>
+<p>然而，就过去 30 天赚取的费用而言，Sushi 主导，高达 1080 万美元，而 WOOFi 仅生成 75.1 万美元，Hashflow 未赚取任何费用。在收入方面，Sushi 再次领先，达到 1475 万美元，WOOFi 次之， 621 万美元。按月均活跃用户 examining，Sushi 拥有显着优势，高达 127.8 万用户，远超 WOOFi 的 7.1 万和 Hashflow 的 4.7 万。</p>
+<p>值得注意的是，即使 WOOFi 的用户规模只有 Sushi 的一小部分，其日均交易量仍高于 Sushi。 此外，与 Sushi 相比，WOOFi 的收入与费用的比率相对更高，这表明 WOOFi 的收入获取更有效。</p>
+<h2 id="历史和合作伙伴关系">历史和合作伙伴关系</h2>
+<h3 id="概览">概览</h3>
+<p>WOO Trade 和 WOO 生态系统由 Kronos Research 于 2019 年创立。Kronos 活跃参与各种交易策略，如做市商、套利、商品交易顾问服务和高频交易。通过在那时达到每日 50 —— 100 亿美元的交易量，他们在数字资产市场上已经小有名气。</p>
+<p>最初，WOO 代币被称为 KRON，之后在 2019 年 12 月更名为 WOO。 在 2019 年末和 2020 年初，WOO 产品继续取得进展，其 WOO Trade 2.0 版本顺利上线。他们的成功获得了该领域顶级资本分配者的关注，并在 2020 年 9 月 28 日成功完成了 1000 万美元的种子轮融资，投资方包括龙飞资本、分布式资本、QCP Capital 风投部门、Hashkey 和 3AC。</p>
+<p>2020 年期间，该平台继续创下新的交易量高点，同时吸引机构交易员并与该领域的大玩家建立战略合作关系。2020 年 10 月 29 日，WOO 代币在 Gate.io 开始交易，之后第二天在火币上市。但是，WOOFi 交易所直到 2021 年才正式上线，远迟于 Woo 团队在中心化交易所领域证明自己的时间。</p>
+<h3 id="woofi-发展路线图">WOOFi 发展路线图</h3>
+<ul>
+<li>
+<p>2021 年 10 月 27 日，Woo Network 宣布 WOOFi Swap 1.0 在 BSC 上 alpha 测试版上线。这标志着 Woo 正式进入链上流动性的世界，并成为 DeFi 的参与者。</p>
+</li>
+<li>
+<p>11 月，Woo 完成了 A 轮融资，从 Binance Labs 筹集了超过 3000 万美元。</p>
+</li>
+<li>
+<p>2021 年 12 月 15 日，首个版本的 WOOFi 质押在 BSC 上线，允许用户质押 WOO。</p>
+</li>
+<li>
+<p>2022 年 2 月 9 日，Woo 推出 WOOFi 挖矿。</p>
+</li>
+<li>
+<p>2022 年 3 月 2 日，WOOFi 交易所在 Avalanche 网络上线。</p>
+</li>
+<li>
+<p>3 月 9 日，Woo 宣布 WOOFi 进行了一系列开发：完成 Verilog 审计的代码审计，与 Yield Yak 聚合器集成，并与数据导航台同时上线 Debank。</p>
+</li>
+<li>
+<p>2022 年 4 月 14 日，WOOFi 交易所在 Fantom 网络上线。</p>
+</li>
+<li>
+<p>2022 年 3 月 19 日，Woo 推出 WOOFi 经纪商。</p>
+</li>
+<li>
+<p>2022 年 7 月 16 日，Woo 宣布 Avalanche、Fantom 和 BSC 之间的跨链互换已经上线。2 周后，Polygon 被添加。</p>
+</li>
+<li>
+<p>2022 年 7 月 20 日，Polygon 冒险家 NFT 发布，展示了 WOOFi 跨链 NFT 基础设施的功能。</p>
+</li>
+<li>
+<p>2022 年 11 月 9 日，WOOFi 交易所在 Arbitrum 网络上线。</p>
+</li>
+<li>
+<p>2022 年 12 月 12 日，WOOFi 交易所在 Optimism 网络上线。</p>
+</li>
+<li>
+<p>2023 年 1 月 10 日，Woo Network 发布了经过修订的代币经济模型，包括燃烧总发行量的 24% 。</p>
+</li>
+<li>
+<p>2023 年 2 月 3 日，WOO Ventures 空投了风险投资代币给 WOO X 和 WOOFi 交易所的质押者。</p>
+</li>
+<li>
+<p>2023 年 3 月 9 日，WOOFi 跨链互换退出测试阶段，结合更多链和更好的用户体验。</p>
+</li>
+<li>
+<p>2023 年 4 月 27 日，WOOFi 交易所在 zkSync Era 上线。</p>
+</li>
+<li>
+<p>2023 年 5 月 25 日，WOOFi 交换发布了 WOOFi 质押 2.0 ，通过 LayerZero 合作伙伴关系在 Arbitrum 上实现跨链质押。</p>
+</li>
+<li>
+<p>2023 年 7 月 5 日，WOOFi 交换在其第 10 个网络 Polygon zkEVM 网络上启动。</p>
+</li>
+<li>
+<p>2023 年 8 月 4 日，与 Burrito wallet 达成战略合作伙伴关系。</p>
+</li>
+<li>
+<p>2023 年 8 月 10 日，WOOFi 交换在 Linea 网络上上线。</p>
+</li>
+<li>
+<p>8 月 15 日，WOOFi 兑换在 Base 网络上线。</p>
+</li>
+</ul>
+<p><img src="https://img.bibiqing.com/news/2023/1011/meylakik0cs5s4h" alt="全面解读跨链DEX WOOFi：交易机制、质押机制与代币经济学"></p>
+<h2 id="woo-代币经济学">WOO 代币经济学</h2>
+<h3 id="代币功能">代币功能</h3>
+<p>WOO 代币在 WOO 生态系统的 DeFi 和 CeFi 产品中贯穿始终。因此，各种市场参与者持有 WOO 代币有多种原因：</p>
+<ol>
+<li>
+<p>真实收益 —— 正如讨论的，当 WOO 代币被质押时，它会赚取 80% 的 WOOFi 的交换和收益费，用 USDC 支付。目前 WOO 的质押年化回报率约为 5% ，已有超过 1.3 亿的 WOO 被质押。</p>
+</li>
+<li>
+<p>交易优惠 —— WOO 代币还从 WOO X 中心化交易所中获得实用价值。与其他交易所代币模型类似，WOO 可以被质押来解锁零手续费区域，为 CeFi 交易提供大幅度的手续费减免。其他优惠包括推荐奖金、免费提款以及永续合约和 API 交易的费用折扣。</p>
+</li>
+<li>
+<p>机构优惠 —— 在 WOO X 上的交易公司和做市商被激励质押 WOO，以获得手续费减免和提高 API 限额。</p>
+</li>
+</ol>
+<h3 id="代币供应">代币供应</h3>
+<p>WOO 的初始代币分配如下：</p>
+<p><img src="https://img.bibiqing.com/news/2023/1011/dahscteecq3kvag" alt="全面解读跨链DEX WOOFi：交易机制、质押机制与代币经济学"></p>
+<p>但由于在 WOO 的 Q1 代币经济学改版文章中提到的多种原因，WOO 团队决定从生态系统和团队部分销毁大约 7.052 亿 WOO 代币（总数 30 亿 WOO 代币的 23.51% ）。</p>
+<p>首先，WOO Ventures 被停止，并且 WOO 网络决定销毁剩余的代币数量（WOO Ventures 团队获得的总供应量的 5% ）。这导致了 1.474 亿 WOO 代币被发送到销毁地址。</p>
+<p>其次，WOO DAO 被停止。这使 WOO 网络销毁了分配给 WOO DAO 的 2.591 亿 WOO 代币，并发送了 500 万 WOO 代币到新成立的 WOO Force，该机构将专注于社区参与。</p>
+<p>最后，销毁的剩余 2.986 亿 WOO 代币来自保险基金。鉴于 2022 年的事件（CeFi 崩溃，FTX 借款反对他们的波动代币），WOO 网络决定使用 WOO 代币支持 WOO X 的保险基金，这些代币与 WOO X 的问题相关且具有波动性，这并不理想。因此，他们决定分配公司拥有的 1 千万美元的稳定币来形成一个保险基金，该基金在 WOO 网络遭受损失或流动性来源违约时作为第一损失的分层。因此，保险基金中的 WOO 代币被销毁。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1011/cviy1v4z92oceja" alt="全面解读跨链DEX WOOFi：交易机制、质押机制与代币经济学"></p>
+<p>Q1 代币经济学燃烧的结果是更好的代币分配和减少了计划归属的代币数量。目前，WOO 代币的流通量为 17.41 亿，而总供应量现在为 22 亿代币。因此，已经有 79.81% 的 WOO 代币在流通。</p>
+<h3 id="代币分配和发行">代币分配和发行</h3>
+<p>当前 Q1 代币经济学升级后的代币分配如下：</p>
+<p><img src="https://img.bibiqing.com/news/2023/1011/n77kssuqwi6m905" alt="全面解读跨链DEX WOOFi：交易机制、质押机制与代币经济学"></p>
+<p><img src="https://img.bibiqing.com/news/2023/1011/oiwb1lzs5u3duu9" alt="全面解读跨链DEX WOOFi：交易机制、质押机制与代币经济学"></p>
+<h3 id="投资者">投资者</h3>
+<p>WOO 代币从早期开始就得到了空间内一些最大的资本配置者和风投公司的支持，分为几个轮次。WOO 网络通过三种方式筹资：种子轮、发射台和 A 轮。</p>
+<h3 id="种子轮">种子轮</h3>
+<p>在 2020 年 9 月 28 日，WOO 在获得 Dragonfly Capital、Three Arrows Capital、IOSG Ventures、QSN（QCP Capital 的风投部门）、Defi Capital、Fenbushi Capital、Chain Capital、One Boat Capital、Vector Capital、AKG Ventures、Evernew Capital、Krypital Group、Axia 8 Ventures、The Cabin Capital、Hashkey Capital、SNZ 和 Fenbushi Capital 的总共 1 千万美元投资后结束了他们的种子轮。</p>
+<h3 id="发射台">发射台</h3>
+<p>在 2020 年 10 月 30 日，火币全球在其平台上推出了 WOO 交易。WOO 网络向火币全球提供了 900 万 WOO（他们初始流通代币的 10% ）。</p>
+<h3 id="投资者-1">投资者</h3>
+<p>所有投资者都完全投资了，除了 A 轮投资者，他们拥有总供应的 2.27% （7100 万 WOO）。A 轮的锁定期为 3 年，有 6 个月的悬崖期。锁定开始于 2021 年 11 月 1 日。目前还有大约 13 个月，直到 A 轮投资者完全投资。值得注意的是， 2022 年 1 月，一小部分 225 万 WOO 完成了锁定期。</p>
+<h3 id="团队和顾问">团队和顾问</h3>
+<p>团队和顾问部分（8.43% ）被锁定，并有一个根据每个团队成员和他们的加入时间独立的发射计划。当一个 WOO 员工加入时，他们会在加入公司时开始的 4 年锁定期内获得 WOO 代币。</p>
+<h2 id="风险">风险</h2>
+<h3 id="智能合约风险">智能合约风险</h3>
+<p>WOOFi，像所有去中心化应用程序一样，由于智能合约的性质，面临被利用/故障的风险。这是 DeFi 面临的一个无法避免的现实，我们仍然看到像 Curve 和 Balancer 这样经过良好测试和受到尊敬的项目被利用。这里还有一个分层的智</p>
+<p>能合约风险，因为 spMM 使用第三方协议在 spMM 经理不使用超级充电器保险库资产时获得收益。WOOFi 已经采取措施通过进行多次合同审核来检查缺陷来减轻这种风险。WOOFi 审计：</p>
+<ul>
+<li>
+<p>2021 年 10 月，WOOFi 交换由 Certik 和 Verilog 审核。</p>
+</li>
+<li>
+<p>2021 年 12 月，WOOFi Stake 由 Certik 审核。</p>
+</li>
+<li>
+<p>2022 年 2 月，WOOFi Earn 由 Certik 审核。</p>
+</li>
+<li>
+<p>2022 年 7 月和 8 月，WOOFi Earn Supercharger Vaults 分别由 Certik 和 Peckshield 审核。</p>
+</li>
+<li>
+<p>2022 年 10 月，WOOFi Swap v2 由 Certik 审核。</p>
+</li>
+<li>
+<p>2023 年 5 月，WOOFi Staking v2 由 Certik 审核。</p>
+</li>
+</ul>
+<h3 id="中心化风险">中心化风险</h3>
+<p>Kronos Ventures，Kronos 的风投部门，孵化了 WOO 网络，因此在其当前状态，WOOFi 在一个 sPMM 经理，Kronos Research 上有很大依赖。如果 Kronos 研究遇到任何财务问题或必须停止管理 spMM，WOOFi 的流动性和功能可能会变得非常糟糕。最初，WOO X 非常依赖 Kronos 研究作为做市商，但随着交易所的进展，越来越多的做市商加入并分摊了 Kronos 的交易量。这对交易所是一个健康的状态，我们也会鼓励和欢迎更多的 sPMM 经理加入 WOOFi。</p>
+<h3 id="supercharger-vault-风险">Supercharger Vault 风险</h3>
+<p>用户贷款给 Kronos Research，这是 sPMM Manager，没有抵押品，通过 Supercharger Vaults 赚取收益。这带来了重大的交易对手风险，并可能导致资金损失，如果 Kronos Research 由于智能合约利用、对冲过程中的损失或其他问题而无法偿还贷款。</p>
+<h3 id="跨链桥风险">跨链桥风险</h3>
+<p>WOO 代币是多链的，这允许用户在许多不同的链上质押 WOO。虽然这对质押的可用性和简单性很有帮助，但在各种跨链桥合同中锁定的大量 WOO 代币由于这些协议的脆弱性而代表了一种尾部风险。跨链桥非常容易被利用，部分原因是跨链桥的复杂性和这些合同利用的有利性。</p>
+<h3 id="监管风险">监管风险</h3>
+<p>WOOFi 面临监管风险，就像大多数 DeFi 一样。收益的聚合和分配的基础机制可能违反美国证券法，并将 WOO 归类为未注册的证券。此外，运行 WOOFi / WOO X 可能构成运行一个未经许可的交易所，类似于 Coinbase 和 Binance 目前在美国司法系统中面临的情况。</p>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/60824/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">去中心化稳定币协议Reserve上线Base网络</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/60833/">
+                <span class="next-text nav-default">人工智能，颠覆iPhone?</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#交易机制">交易机制</a></li>
+    <li><a href="#woofi-交易所基本情况">WOOFi 交易所基本情况</a>
+      <ul>
+        <li><a href="#最小化无常损失">最小化无常损失</a></li>
+        <li><a href="#预防-mev">预防 MEV</a></li>
+        <li><a href="#跨链">跨链</a></li>
+        <li><a href="#上所数量有限">上所数量有限</a></li>
+        <li><a href="#资本效率">资本效率</a></li>
+        <li><a href="#woofi-挖矿">WOOFi 挖矿</a></li>
+      </ul>
+    </li>
+    <li><a href="#woofi-质押机制">WOOFi 质押机制</a>
+      <ul>
+        <li><a href="#woofi-质押-10">WOOFi 质押 1.0 </a></li>
+        <li><a href="#woofi-质押-20">WOOFi 质押 2.0 </a></li>
+        <li><a href="#挑战mpapr-提升">挑战（MP APR 提升）</a></li>
+        <li><a href="#woofinft增强收益">WOOFi NFT 增强收益</a></li>
+        <li><a href="#woofi-质押-20-指标">WOOFi 质押 2.0 指标</a></li>
+        <li><a href="#woofi-pro">WOOFi Pro</a></li>
+        <li><a href="#竞争格局">竞争格局</a></li>
+        <li><a href="#sushiswap">SushiSwap</a></li>
+        <li><a href="#hashflow">Hashflow</a></li>
+        <li><a href="#比较">比较</a></li>
+      </ul>
+    </li>
+    <li><a href="#历史和合作伙伴关系">历史和合作伙伴关系</a>
+      <ul>
+        <li><a href="#概览">概览</a></li>
+        <li><a href="#woofi-发展路线图">WOOFi 发展路线图</a></li>
+      </ul>
+    </li>
+    <li><a href="#woo-代币经济学">WOO 代币经济学</a>
+      <ul>
+        <li><a href="#代币功能">代币功能</a></li>
+        <li><a href="#代币供应">代币供应</a></li>
+        <li><a href="#代币分配和发行">代币分配和发行</a></li>
+        <li><a href="#投资者">投资者</a></li>
+        <li><a href="#种子轮">种子轮</a></li>
+        <li><a href="#发射台">发射台</a></li>
+        <li><a href="#投资者-1">投资者</a></li>
+        <li><a href="#团队和顾问">团队和顾问</a></li>
+      </ul>
+    </li>
+    <li><a href="#风险">风险</a>
+      <ul>
+        <li><a href="#智能合约风险">智能合约风险</a></li>
+        <li><a href="#中心化风险">中心化风险</a></li>
+        <li><a href="#supercharger-vault-风险">Supercharger Vault 风险</a></li>
+        <li><a href="#跨链桥风险">跨链桥风险</a></li>
+        <li><a href="#监管风险">监管风险</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          全面分析MEV：常见MEV攻击、相关生态和PBS - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="MEV的未来将是一个复杂局面。" />
+<meta name="keywords" content="MEV" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/61948/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="全面分析MEV：常见MEV攻击、相关生态和PBS" />
+<meta property="og:description" content="MEV的未来将是一个复杂局面。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/61948/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-11-17T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-11-17T00:00:00+00:00" />
+
+<meta itemprop="name" content="全面分析MEV：常见MEV攻击、相关生态和PBS">
+<meta itemprop="description" content="MEV的未来将是一个复杂局面。"><meta itemprop="datePublished" content="2023-11-17T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-11-17T00:00:00+00:00" />
+<meta itemprop="wordCount" content="9939">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="全面分析MEV：常见MEV攻击、相关生态和PBS"/>
+<meta name="twitter:description" content="MEV的未来将是一个复杂局面。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">全面分析MEV：常见MEV攻击、相关生态和PBS</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-11-17">
+      2023-11-17
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 9939 字 -
+        预计阅读 20 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E5%85%B6%E5%AE%83%E6%96%87%E7%AB%A0/"> 其它文章 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>作者：Delta Blockchain Fund；翻译：金色财经xiaozou</p>
+<p><strong>1、前言</strong></p>
+<p>区块链技术虽具有革命性，但也因一些细微差别，对各领域系统和生态带来挑战。在区块链中，矿工和验证者作为安全支持者来确认交易并保障链的安全。这意味着他们也是独立的各方，能够为了自己的利益重新排序给定区块中的交易。</p>
+<p>最大可提取价值（也称为矿工可提取价值），简称MEV，是指区块生产者通过在其生产的区块内安排、添加或删除交易可以获得的最大利润。其回报主要来自于单方面排除、包含或重新排序区块内的交易。尽管名为最大可提取价值，但它不仅适用于PoW链，还适用于PoS链上的验证者。本文旨在对MEV进行全面分析，探讨其起源、其对各区块链网络的影响，以及区块链生态系统中不同参与者利用或降低MEV的策略。</p>
+<p><strong>2、历史与理论</strong></p>
+<p>（<strong>1</strong> ）历史</p>
+<p>首个有记录的MEV案例出现在2014年的以太坊区块链上，由一位程序员发现的。他对这项技术非常感兴趣并充满希望，直到他意识到该系统中的一个致命缺陷——验证者和矿工的自治性质使他们能够从毫无戒心的用户那里提取价值。</p>
+<p>2019年，Chainlink Labs的一队研究人员发表了一篇名为“Flash Boys 2.0”的文章，该文强调MEV不是一种理论实践，而是一种被广泛采用的协议直接利用的功能。</p>
+<p>（<strong>2</strong> ）理论</p>
+<p>区块链最初被设计为由分散的机器网络保护，这些机器被称为区块生产者。这些区块生产者包括验证者和矿工，他们在不可篡改的分布式账本系统上承担确认交易的角色。它们将待处理的交易聚合到一个区块中，随后由网络验证，然后包含在全域系统中。</p>
+<p>虽然有措施可以证明所有交易都是有效的，并且没有被重复记录，但没有办法确保交易是按照发布在链上的顺序排列的。这就是为什么当区块生产者从内存池（区块链的待处理交易队列）中选择交易时，他们能够在提交之前优先考虑费用最高的交易。</p>
+<p><strong>3、MEV的技术基础设施</strong></p>
+<p>在目前的MEV生态系统中，有第三方机器人和各方操纵交易费用，以确保他们的交易在区块提交时被优先考虑。对于普通用户来说，这可能是不利的，因为他们可能没有必要的资金、资源或技术专长来利用MEV。</p>
+<p>在区块生产者端，也有第三方的参与，包括搜寻者、建设者和中继者。搜寻者实质是在“搜寻”待处理交易的内存池，以寻找潜在的MEV利润机会。他们将这些交易打包捆绑，发送给“建设”完整区块并将其发送给中继者的建设者。中继者（即提议区块的可信聚合者）验证交易，并将最有利可图的一个交易传递给验证者提交。</p>
+<p><strong>4、常见MEV攻击</strong></p>
+<p>如前所述，MEV攻击是矿工、验证者或交易者使用的策略，用于利用他们重新排序、包含或排除区块内交易的能力，以最大化其利润。以下是一些常见的MEV攻击类型：</p>
+<p>（<strong>1</strong> ）<strong>Front-Running</strong> 抢先交易</p>
+<p>这是指参与者观察到内存池中有待处理的有利可图的交易后，迅速创建一个类似交易，但gas费更高。这就鼓励矿工首先包含他们的交易，使他们能够从原交易触发的价格变动中受益。</p>
+<p>例如：_Alice_想买一个玩具，但是_Bob_为了让商家能够优先处理他的交易而支付了一小笔费用贿赂商家，最后_Bob_成功买下了这个玩具。</p>
+<p>（<strong>2</strong> ）<strong>Back-Running</strong> 尾随交易</p>
+<p>尾随交易类似于抢先交易，但攻击者不是将自己的交易置于目标交易之前，而是置于目标交易之后。这通常用于攻击者打算从原始交易触发的价格变动中获利的场景。</p>
+<p>例如：_Alice_计划在拍卖会上对一幅画出价。_Bob_等_Alice_出价后，迅速以_Alice_出的高价把他手里一模一样的画卖给周围的人。</p>
+<p>（<strong>3</strong> ）<strong>Sandwich Attacks</strong> 三明治攻击</p>
+<p>在这种类型的攻击中，攻击者将交易置于目标交易前后。这便可以让攻击者以低买高卖的方式操纵代币价格，本质上是将目标交易“夹在”中间。</p>
+<p>例如：_Alice_打算买一个玩具。_Bob_先买了这个玩具，抬高了玩具价格。_Alice_以这个高价购买，然后_Bob_再以这个高价出售他的玩具，把_Alice_的购买夹在了中间。</p>
+<p>（<strong>4</strong> ）<strong>Arbitrage</strong> 套利</p>
+<p>这些攻击利用了不同的去中心化交易所（DEX）之间的价格差异。攻击者可以在一个DEX上以较低的价格购买代币，然后在另一个DEX上以较高的价格出售。</p>
+<p>例如：_Bob_发现另一个城镇的苹果更便宜。他在那里购入苹果，然后以更高的价格在自己的镇上出售。</p>
+<p>（<strong>5</strong> ）<strong>Time-Bandit Attacks</strong> 时间强盗攻击</p>
+<p>在工作量证明网络中，矿工进行所谓的链重组，以操纵先前确认的区块。这样做的目的是从已被包含入块的交易中提取MEV。这不仅是一种更复杂的MEV攻击形式，而且可能更具破坏性，因为这种攻击需要改变现有的区块链结构。</p>
+<p>例如：矿工_Bob_看到_Alice_发现了一处金矿。他用自己的力量让时间倒流，在_Alice_之前抵达金矿，把金子占为己有。</p>
+<p><strong>5、MEV案例研究</strong></p>
+<p>（<strong>1</strong> ）市场情绪及数据</p>
+<p>2023年的MEV领域是一个充满活力的多元化领域，融合了机遇、挑战和创新。过去一年里，MEV领域的活动非常活跃，机器人在以太坊上创收至少3.07亿美元。其中最频繁常见的是套利机会，占总收入的47.5%以上，与此同时，三明治攻击和平仓机会也发挥了重要作用。</p>
+<p>在此背景下，2023年6月8日这一周的数据提供了持续趋势的快照。套利活动提取了848万美元，三明治攻击提取了55.9万美元，清算攻击不那么普遍，只提取了1.4万美元。这些数字部分表明了MEV生态系统复杂性和动态性。</p>
+<p>2022年涉及三明治机器人的MEV总量达到惊人的2870亿美元，Uniswap V3是套利和三明治机器人的聚集地。有趣的是，币安智能链(BSC)上的MEV机会被发现比以太坊更具成本效益，这表明BSC上的环境更加友好。</p>
+<p>根据市场情况的不同，MEV机会的频率和性质会有所不同。虽然套利机会是最常见的，但清算机会更多地依靠剧烈的市场波动。不同MEV类型产生的收入也呈现出月度变化，因具体的市场事件，某些月份的收入会显著提升。</p>
+<p>还出现了MEV的寡头垄断模式，在以太坊大合并后，前2个区块建设者地址捕获了一半以上的MEV，尽管建设者在区块的最后一笔交易中将大多数MEV传递给了提议者。MEV机器人的竞争环境和不同类型机器人之间的利润分配进一步说明了市场的复杂性。</p>
+<p>通过分析具体数据，在不同区块链平台之间进行对比分析以及了解更广泛的趋势，我们可以获得对这个不断发展的领域更全面的看法。这些见解有助于更深入地了解MEV生态系统，反映其多面性和对未来去中心化金融的影响。不断探索流动性数据，开发新的做市策略，以及努力解决MEV市场的公平性和监管问题，对于驾驭这一动态环境至关重要。</p>
+<p>（<strong>2</strong> ）<strong>MEV</strong> 漏洞攻击</p>
+<p>2023年4月3日，在以太坊区块高度16,964,664时，一组MEV机器人受漏洞攻击损失了2530万美元。对该漏洞攻击的分析显示，一个叛变验证者切换了MEV机器人的交易，并扣押了各种加密代币。</p>
+<p>这个漏洞攻击是一个复杂的操作，涉及一个恶意以太坊验证者和一组MEV机器人。这个恶意验证者被称为“Sandwich the Ripper”（开膛手三明治），他准备了多个代币资产，诱使一群目标MEV机器人试图在低流动性V2 Uniswap池上抢先交易他的交易。这个过程持续了18天。</p>
+<p>在典型的三明治攻击中，MEV机器人读取传入的交易并抢先执行订单，从而推高原买家的资产价格。然后，买家通过购买与最初预期相同的资产，进一步推高了价格。然后，MEV机器人在原买家的交易完成后立即出售该资产，从买家身上赚取套利利润。</p>
+<p>然而，在这种情况下，恶意验证者用一个有漏洞的交易引诱MEV机器人，迫使机器人在低流动性池中套利诱饵资产，而攻击者并不需要进行实际的购买交易。在MEV机器人购买了诱饵资产后，攻击者立即修改同一区块内的交易顺序，出售所有代币（攻击前已有准备）。然后，攻击者以更高的价格出售自己的代币，以耗尽低流动性池中的所有WETH，在这个过程中，MEV机器人获得的代币将变得一文不值。</p>
+<p>恶意验证者在24个交易中使用相同策略耗尽了5个MEV机器人。被盗的代币随后被分配到三个不同的钱包中，分别为2000万美元、230万美元和290万美元。</p>
+<p>作为对该漏洞攻击的回应，Flashbot社区已经为所有中继（relay）发布补丁，以防止此类攻击再次上演。虽然有些人认为这次攻击是“恶意的”，但加密社区里的其他人则认为，对MEV机器人的攻击是游戏的一部分，并没有违反游戏规则。</p>
+<p>（<strong>3</strong> ）<strong>DeFi</strong> 之夏</p>
+<p>虽然MEV经常与挑战和负面影响联系在一起，但它在某些情况下也发挥了有益作用。例如，在2021年的DeFi之夏，以太坊更快的交易和更低的gas费与MEV的使用不无关联。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1026/28_zii0mnwtke.png" alt="UdDgZOiHSVxAnm0Ez05iWezJUD1xA8dZG6teSNJ4.png" title="7123748"></p>
+<p> </p>
+<p>像Flashbots的MEV-geth这样的MEV提取软件的采用已大大上升，超过78%的以太坊矿工现在使用MEV提取软件来打包序列交易包并捕获MEV利润。这是通过矿工贿赂和拒绝捆绑等功能实现的，而无需支付gas费。如上图所示，MEV捆绑的扩散似乎与以太坊较低的平均gas费相关，因为MEV软件缓解了优先gas拍卖（PGA）等问题，在这些问题情况下，机器人通过交易费大战推高了费用。</p>
+<p>在三明治攻击情况下，矿工或验证者在一个区块中包含某些交易，放弃其他交易。通过这种方式对交易进行优先级排序，他们可以促进更快的执行并降低用户的总成本。这种选择性包含让网络可以处理更多的交易量，有助于在高需求期间提高系统的效率和效力。</p>
+<p>总之，以MEV为中心的软件已经在以太坊中占据主导地位，这些软件通过交易排序技术来协调对矿工和交易员的激励，这也可能无意中缓解了网络拥塞，降低了网络成本。</p>
+<p><strong>6、MEV周边产品</strong></p>
+<p>（<strong>1</strong> ）<strong>Flashbots</strong></p>
+<p>Flashbots等公司通过研究和开发协议来减轻MEV带来的负面外部性，以帮助生态系统实现再平衡。他们建立了一个生态系统，在这个生态系统中，机器人直接向矿工提交交易包，而不是向公共以太坊池提交交易包，然后矿工收到报价（其他人是看不到的），并将这些交易包包含在他们开采的区块中。</p>
+<p>由Flashbots创建的MEV-Boost等协议为验证者提供了一种通过建设者（想要购买区块空间）市场访问中继块的方法。通过使用MEV Boost，验证者可以选择包括这些特殊区块，这些区块由于交易被重排可能具有更高的盈利性。这让验证者有机会从建设者已经识别并打包到中继块中的MEV机会中获得更多收益。他们还可以添加来自Flashbots、Bloxroute、Blocknative、Eden或Manifold的中继器（仅举几例）。</p>
+<p>（<strong>2</strong> ）<strong>Fastlane</strong></p>
+<p>Fastlane是另一家欲重新平衡MEV带来的安全担忧的基础设施公司。Fastlane是一款协议，旨在奖励保护Polygon区块链健康的参与验证者。</p>
+<p>Fastlane提供了一个独特的解决方案，让验证者从区块链生态系统中的各方参与者那里产生收入，包括套利者、清算者和NFT交易者。通过竞争性拍卖程序，算法搜寻者在指定的“sprints”期间竞标访问Fastlane。中标者获得成功交易的可能性将增加，而无需直接连接到验证者节点，而且更重要的是，无需知晓验证者ID、节点地址或IP地址。</p>
+<p>这种方法极大地增强了验证者节点的安全性和隐私性，通过减少机器人用冗余交易淹没节点的经济动机，让节点更加健康。Fastlane的设计不会促进诸如抢先交易和“三明治”攻击等恶意行为。相反，它优先考虑的是Polygon链的整体健康状况。此外，通过消除交易传播动态中的随机性，Fastlane可以潜在地降低哨兵节点的数据成本，进一步提高网络的效率和可靠性。</p>
+<p>（<strong>3</strong> ）<strong>Cow Protocol</strong></p>
+<p>还有一些具有特定用例的应用程序或软件利用MEV实现不同目的，例如Cow协议。Cow协议尽可能撮合点对点交易，消除了对中间商的需求，为用户节省了资金。这被称为需求巧合（CoW）。他们搜索所有的交易所和聚合器，以确保用户获得最优惠的价格，从而省去了用户在不同平台上比价的麻烦。他们还可以保护用户免受抢先交易攻击和三明治攻击，这些攻击可能会给交易者带来重大损失。Cow协议通过点对点撮合交易以及利用批量拍卖来实现这一点，让交易顺序变得无关紧要。</p>
+<p>如果在下单后，价格向有利于用户的方向倾斜，Cow协议将在执行时向用户提供价格。它每30秒收集一次订单进行打包。这是在链下完成的，有几个好处，比如不向失败交易收费，以出售代币（非ETH）收取的费用。Cow协议的solver（外部求解器）竞相在所有去中心化交易所和聚合器中为你的交易寻找最佳的流动性来源。他们在链上提交交易包，并对公共内存池隐藏，保护交易免受矿工和机器人的操纵（抢先交易及其他形式的MEV）。</p>
+<p>（<strong>4</strong> ）<strong>Kolibrio</strong></p>
+<p>最后来看Kolibrio，它试图通过成为第一批提供广播可提取价值(BEV)中继的协议来彻底改变MEV领域。这项技术确保了交易广播者（如节点提供商、DeFi钱包、桥和其他dApp）可以拥有他们创建的订单流，并能够将其货币化。在交易进入内存池之前自动搜寻MEV机会时，这是有可能的。当交易中存在MEV机会时，BEV会将该信息传递给搜寻者，搜寻者随即将根据该信息对交易喊价。</p>
+<p>通过将交易维持在广播状态并引入MEV拍卖机制，它让MEV提取民主化，减少了通过交易顺序或抢先交易等漏洞攻击的机会。系统的验证和等待机制充当了针对恶意MEV策略的缓冲区，而交易聚合确保了难以操纵的高效交易处理。此外，通过自动将MEV利润分配给广播者，该系统不仅确保了公平分配，还激励了实体优先考虑用户利益，从而形成一个更加安全、更加以用户为中心的区块链生态系统。</p>
+<p><strong>7、以太坊之外的MEV</strong></p>
+<p>（<strong>1</strong> ）<strong>Solana</strong></p>
+<p>MEV可以通过各种策略实现，包括抢先交易、尾随交易和三明治攻击。然而，当我们从以太坊背景过渡到Solana时，由于两个区块链之间的基本架构差异，MEV状况也发生了重大变化。</p>
+<p>在Solana的PoS系统中，质押大量代币的验证者负责对交易的最终确定。Solana独特的验证者集群功能进一步强化了该系统。验证者被为多个集群，轮流担任leader验证者的角色。Leader的角色仅限于确定投票交易的顺序，而不是其最终确定性，从而针对潜在恶意参与者增加了额外的安全层。</p>
+<p>Solana和以太坊的另一个关键区别在于内存池。虽然以太坊的内存池是许多MEV策略的关键组成部分，但Solana没有内存池。这意味着独立的网络参与者（通常被称为“搜寻者”），除非他们充当验证者，否则是无法针对单个交易提取MEV的。此外，Solana最近在固定费用的基础上引入了优先处理费，这样搜寻者就可以更快地将他们的交易包含入块。</p>
+<p>尽管存在这些结构上的差异，Solana也不是完全不受MEV的影响。在Solana上，MEV活动的一种普遍形式是去中心化交易所（DEX）套利。在这种情况下，交易者利用了不同DEX之间的价格差。例如，交易者可能会识别出Solana上的两个去中心化交易所Raydium和Orca之间的SOL/USDC汇率差，随即执行有利可图的套利交易。</p>
+<p>有趣的是，三明治攻击是以太坊上常见的MEV策略，但在Solana上不见踪影。这可能是由于Solana没有内存池，并且只有leader验证者才能在交易最终确定之前访问交易。</p>
+<p>在NFT领域，MEV以NFT机器人的形式表现出来。这些机器人用铸造请求淹没了流行的NFT发布，旨在确保即时转售尽可能多的代币。这不仅扰乱了NFT市场，还导致了网络拥塞。为了解决这个问题，Solana提出了一些解决方案，比如调整交易gas费以增加垃圾请求的成本，以及对无效交易征“税”。</p>
+<p>此外，一家名为Jito Labs的公司提供了一套专门的产品，可能会对Solana的MEV格局产生重大影响。详情如下：</p>
+<p>· 更好的验证性能和更高收益**——** <strong>Jito-Solana</strong> 客户端：</p>
+<p>通过提供开源验证者客户端，Jito Labs帮助Solana上的验证者更好地利用他们的硬件并获得更高收入。这可以促使验证更具竞争性，从而减少交易排序中的潜在MEV提取。Jito区块引擎帮助为验证者构建最有利可图、最高效的区块。通过优化区块构建，它可以减少交易的重新排序机会（一种常见的MEV策略），使网络对某些MEV攻击更具弹性。</p>
+<p>· 外包垃圾请求缓解和签名验证**——** <strong>Jito Relayer</strong> ：</p>
+<p>此工具允许验证者外包垃圾请求缓解和签名验证，这可以减少拥塞，实现更高效的区块创建。这可能降低恶意行为者通过垃圾请求攻击利用MEV的可能性。</p>
+<p>· 序列执行和增强的交易能力**——** <strong>Jito Bundles</strong> ：</p>
+<p>通过支持交易的序列执行，Jito Labs为交易排序添加了额外的控制层。这可以缓解一些MEV策略，如抢先交易和三明治攻击。Jito内存池：交易者可以利用Jito内存池获得更高的交易交付保证。这确保了更可靠的交易执行，减少了通过交易重新排序或排除交易提取MEV的可能性。ShredStream：这个功能让交易者可以直接从leader那里接收碎片从而节省大量时间。通过提高交易效率，它可以减少MEV攻击的机会窗口，例如套利漏洞攻击。</p>
+<p>Jito Labs的产品提供了多维方法来强化Solana区块链。通过专注于优化验证者性能、确保高效的区块构建、缓解垃圾请求以及增强交易能力，Jito Labs为更安全、更有弹性的网络做出了贡献。</p>
+<p>这些创新可以让Solana链不易受常见MEV策略的攻击，营造更公平透明的交易环境。虽然它可能不会完全消除MEV，但Jito Labs的产品与Solana的集成代表了减轻与MEV相关负面影响方面的积极举措。</p>
+<p>在快速发展的区块链领域，Jito Labs的这些技术进步为解决MEV挑战提供了有价值的见解，不仅在Solana内部，在其他区块链网络中也是如此。</p>
+<p>综上所述，虽然由于架构上的差异，Solana上MEV的性质和表现形式与以太坊有很大不同，但MEV仍然是一个普遍存在的问题。Solana社区不断在探索实施解决方案，以降低MEV对其网络的影响，确保其区块链运营的完整性和效率。</p>
+<p>（<strong>2</strong> ）<strong>L2</strong> 及跨链</p>
+<p>L2上的MEV是从以太坊L1上的原始MEV扩展而来。然而，在EVM链的情况下，参与者操纵交易的顺序、包含或审查的可能性在L1和L2之间没有显著差异。这两层有着相同的MEV概念，MEV主要来自于矿工（或权益证明系统中的验证者）在他们生产的区块内重新排序、包含或审查交易的能力。</p>
+<p>这种能力可用于利用套利机会、抢先交易或从用户那里提取租金。然而，随着以太坊2.0的引入以及人们越来越多地使用L2解决方案来实现可扩展性，这一切正在微妙地改变MEV格局。</p>
+<p>Avalanche(AVAX)等特定链上出现了MEV领域里的一个特殊区别，即这些链不共享内存池数据（除非与验证者共享）。这种独特的方式可以改变MEV动态，因为可以访问交易数据的实体变少了，这可能会影响交易操作和价值提取的范围。</p>
+<p>然而，L2环境也为MEV问题的创新解决方案提供了机会。例如，提议者-建设者分离(PBS)的概念可以应用于L2解决方案，其中提议区块和建设区块的角色是分开的，这可能会一定程度减轻MEV相关问题。</p>
+<p>此外，跨链MEV的探索，包括跨不同区块链网络的MEV提取，也是L2 MEV领域的重要组成部分。这是L1中不存在的一个新维度，它为MEV提取和缓解开辟了一个全新的研究领域和潜在策略。</p>
+<p>总之，虽然L2 MEV与L1 MEV有着共同的基本概念，但L2解决方案的独特架构和操作特性为MEV问题引入了新维度。该领域正在进行的研究和开发对于确保以太坊和其他区块链网络在扩展时的可靠性、公平性和去中心化特性来说至关重要。</p>
+<p><strong>8、提议者-建设者分离（PBS）</strong></p>
+<p>（<strong>1</strong> ）什么是提议者**-** 建设者分离？</p>
+<p>提议者-建设者分离（PBS）是针对区块链网络中审查和MEV攻击的挑战提出的一种解决方案。PBS概念植根于将网络的区块构建和区块提议的角色分离开来的想法。这种职责分离旨在创建一个更加去中心化更安全的网络，同时还解决了MEV问题。</p>
+<p>（<strong>2</strong> ）<strong>PBS</strong> 出现之前</p>
+<p>在区块链网络中，称为验证者的专门参与者对于交易处理和区块创建等操作至关重要。在像以太坊这样的早期区块链协议中，验证者被分配了两个关键任务——区块建设和区块提议。相同的验证者将收集待处理交易，确定区块内容，排序交易，并构建完整的新区块。然后，这些相同的实体将把他们创建完成的区块作为提案向网络的其他方广播，以进行验证及包含入链。</p>
+<p>这种责任的合并是有问题的，因为它赋予验证者对区块中包含哪些交易以及以什么顺序包含交易过度的控制权。验证者可以利用这种影响力来实施为自己创造额外利润的策略。例如，他们可以对交易进行排序，从而从那些希望优先处理交易的用户那里获取最高费用。验证者还可以利用其地位进行市场操纵，包含或排除特定交易，以影响代币价格，使局面对自己有利。这些做法符合最大可提取价值的概念，其中验证者通过优化交易排序和审查将自己的利润最大化。</p>
+<p>资源充足的大型验证者自然最适合微调区块、实施这些MEV策略。这便导致了中心化风险，小型验证者在从交易中提取最大价值的竞争中苦苦挣扎。总的来说，将区块建设和区块提议的职责融合到一个验证者实体中，会在公平性、安全性和去中心化方面产生漏洞。</p>
+<p>（<strong>3</strong> ）<strong>PBS</strong> 出现之后：缓解<strong>MEV</strong> ，提升区块链安全</p>
+<p>为了解决这些问题，特引入了诸如提议者-建设者分离（PBS）之类的创新之举。PBS正式将两个验证职责（区块构建和区块提议）分为由不同节点类型处理的独立角色。</p>
+<p>在PBS下，区块构建是由专门的建设者节点处理的。它们的唯一功能就是以优化的方式建设区块内容，使整个网络的价值最大化，不偏袒任何一个实体。交易排序、包含和顺序是使用旨在限制操纵机会的算法确定的。然后，这些完成的区块包将被传递到专门的提议者节点。</p>
+<p>提议者节点的角色很简单——从建设者那里获得完整区块，并将它们提议给验证者网络的其余节点，以获得批准并包含在区块链中。重要的是，提议者不参与PBS下的区块创建。这可以防止他们对区块应用优先交易排序或进行其他服务自身利益的更改，因为他们只有在区块构建完成后才能看到区块内容。</p>
+<p>通过将这两种职责正式分解为单独的专门角色，PBS限制了单个节点对端到端交易流程的影响。这反过来又增强了以太坊等网络的去中心化特性、安全性和公平性。PBS代表了区块链网络架构和治理方式的重要演变。</p>
+<p><strong>9、结论及未来发展方向</strong></p>
+<p>受DeFi的兴起和区块链技术发展的影响，MEV的未来将是一个复杂局面。虽然MEV可以为区块链生态系统中的某些参与者带来可观利润，但它同时也带来了挑战，包括对交易发起者的潜在负面影响以及验证者中心化风险。</p>
+<p>以太坊社区正在积极探索缓解这些挑战的策略，同时保留MEV的有益之处。这些策略包括MEV burning（MEV销毁）、MEV smoothing（平滑MEV峰值）和MEV sharing（MEV共享），每种策略都有其独特的优势和利弊权衡，它们的成功实施需要仔细考虑和大量资源。</p>
+<p>以太坊大合并和PBS概念的引入进一步增加了MEV领域的复杂性。MEV-Boost的广泛采用带来了区块奖励的增加，但也带来了验证者中心化的潜在风险。</p>
+<p>总而言之，MEV的管理是以太坊和其他区块链网络未来的关键问题。随着这些技术的不断发展，MEV的管理策略也将不断发展。未来的研究应继续探索这些策略，以及新型MEV的出现及其对各区块链网络的影响。随着各网络不断扩展，MEV领域的持续探索和开发对于确保网络的可靠性、公平性和去中心化特性至关重要。</p>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/61922/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">全面保护AI安全，HiddenLayer获5000万美元A轮融资</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/61890/">
+                <span class="next-text nav-default">日本如何引领稳定币监管：发行人真的有资产支持它们吗？</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

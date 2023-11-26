@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          扩展链上历史：从比特币到 Arweave - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="今天的话题我将谈论 Arweave 的机制如何运作" />
+<meta name="keywords" content="Arweave" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/60762/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="扩展链上历史：从比特币到 Arweave" />
+<meta property="og:description" content="今天的话题我将谈论 Arweave 的机制如何运作" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/60762/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-10-10T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-10-10T00:00:00+00:00" />
+
+<meta itemprop="name" content="扩展链上历史：从比特币到 Arweave">
+<meta itemprop="description" content="今天的话题我将谈论 Arweave 的机制如何运作"><meta itemprop="datePublished" content="2023-10-10T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-10-10T00:00:00+00:00" />
+<meta itemprop="wordCount" content="4500">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="扩展链上历史：从比特币到 Arweave"/>
+<meta name="twitter:description" content="今天的话题我将谈论 Arweave 的机制如何运作"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">扩展链上历史：从比特币到 Arweave</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-10-10">
+      2023-10-10
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 4500 字 -
+        预计阅读 9 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E6%AF%94%E7%89%B9%E5%B8%81/"> 比特币 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>作者：DMacOnArweave</p>
+<p>好的，让我们开始这个话题吧。今天的话题我将谈论 Arweave 的机制如何运作。所以今天，我们将讨论如何扩展 Arweave 以及比特币到 Arweave 的链上历史扩展。为此，我们将深入探讨在区块链上存储人类历史的过程，解锁链上数据，并探索我们接下来的发展方向。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1010/13_gt5b5tydef.png" alt="扩展链上历史：从比特币到 Arweave"></p>
+<p><strong>区块链上存储人类历史的过去</strong></p>
+<p>人类的历史始终是区块链的一部分。想要了解这一点，我们必须要回溯到首个去中心化的区块链的第一个区块，那就是比特币的创世区块。比特币的创世区块中有一个交易，被称为币基交易（coinbase transaction）。这个特殊的交易在协议中奖励了区块的生产者区块奖励。在这种情况下，它奖励了中本聪（Satoshi Nakamoto）50 个比特币。币基交易的另一个特殊属性是它允许区块的生产者向区块链写入 100 字节或 100 个字符的信息。在这种情况下，中本聪利用这次机会写下了以下引文：“2009 年 1 月 3 日泰晤士报，财政大臣即将为银行实施第二轮救助。” 通过这样的方式，他将人类的历史镌刻到了首个区块链的第一个区块中。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1010/13_hileonqr20.png" alt="扩展链上历史：从比特币到 Arweave"></p>
+<p>比特币于 2009 年 1 月启动，并随后进行了许多更新和改进。甚至在这段时间里，中本聪本人也从该协议中退了出来，这些更新和改进一直持续到了大约 2015 年为止。在此期间，比特币社区内部开始产生一场争论。社区内一半的人想要增加区块大小，以便在比特币中进行更多的交易，而另一半人则想保持它的小型性，以保持网络的去中心化特性。这场争论导致有关比特币的所有开发工作处于停滞状态，这种状态维持了大约两年，这段期间被称为区块大小之战。这场战争以大区块的支持者分离出去并创建了一个名为比特币现金的新链作为结束，而比特币的现有主线则继续进行了一个名为隔离见证（SegWit）的软分叉。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1010/13_qjase3qt9v.png" alt="扩展链上历史：从比特币到 Arweave"></p>
+<p>那么，SegWit 到底做了什么呢？如您在下图的左边可以看到，在 SegWit 出现之前，比特币的区块有它们的币基交易，然后是一系列从一个地址移动到另一个地址的交易，以及它们的签名。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1010/13_2lr4iqes8u.png" alt="扩展链上历史：从比特币到 Arweave"></p>
+<p>在 SegWit 出现之后，他们竟然通过一个软分叉做到了这一点，这意味着它与现有的挖矿软件向后兼容（那里有某种魔法）。SegWit 将所有的交易移动到了区块的顶部，并增加了整体的区块大小，同时仍将交易部分限制在 1 兆字节，保留了协议的原始意图。它做的是将签名数据和元数据移动到了见证数据中，增加了比特币可以存储的非纯交易数据的信息量。这最终导致了一些非常有趣的事情，比如在比特币区块链的见证数据中添加了压缩很小的图像。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1010/13_3yq6q8chw5.png" alt="扩展链上历史：从比特币到 Arweave"></p>
+<p>回溯到 2017 年，一个名叫 Sam Williams 的博士生正在阅读一些非常让人感到压抑的书籍，如《古拉格群岛》和《1984》。他看的得非常投入，并决定创建一个区块链来永久保存世界的知识。他阅读这些书是关于如何由于权威主义政权通过操纵历史来操纵他们的社会。所以，Sam 在 2017 年的某个时候组建了一个团队，一年后，Arweave 主网发布了。如果你以为我说 Sam Williams 看这些这些令人压抑的书是开玩笑的，但实际上，Arweave 在 2018 年 6 月发布的时间正好是乔治·奥威尔的《1984》出版的第 39 周年纪念日。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1010/13_f3wurp0kp4.png" alt="扩展链上历史：从比特币到 Arweave"></p>
+<p>当 Arweave 发布时，它有着令人印象深刻的统计数据性能。每个区块有 1000 笔交易，且每个区块用时为 2 分钟。每笔交易大小可达 5.8 兆字节。这意味着单一的 Arweave 交易可以存储整个比特币区块 —— 包括见证数据和交易数据。Arweave 在接下来的几年里就像比特币一样都在进行更新和改进，此次更新和改进一直持续到 2020 年 3 月。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1010/13_ttvkv9946r.png" alt="扩展链上历史：从比特币到 Arweave"></p>
+<p>在那个时候，Arweave 解锁了很大的交易额。最大的交易额大小变成了 2 的 256 次方减 1，这是一个理论上的限制，仅受已知宇宙中的原子数量的限制。从协议的角度来看，此次改进是一个重要的扩展。然而，由于矿工提供给网络的数据量和可用带宽存在实际限制，现有的带宽确实限制了规模。但从协议的角度来看，它可以扩展以容纳非常大的交易。</p>
+<p>那么，他们是如何实现这一点的呢？好吧，没有动画演示的话，这里可能解释起来有点复杂。为了理解 Arweave 是如何做到的，我们需要查看两种不同的安全机制。其中之一是共识，网络中的所有参与者在协议中都需要就协议的当前状态达成一致。另一个机制是挖矿，传统上是由个人矿工进行的，在比特币中有名的工作是工作证明，这只是为了能够参与网络。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1010/13_zk3lkcr8ho.png" alt="扩展链上历史：从比特币到 Arweave"></p>
+<p><img src="https://img.bibiqing.com/news/2023/1010/13_5ysdybmocm.png" alt="扩展链上历史：从比特币到 Arweave"></p>
+<p>所以我们可以在这里看到，对于比特币而言，共识机制就是最长链，这是网络中的参与者如何就比特币区块的当前状态和见证数据达成协议的方式。并且众所周知，挖矿机制是工作证明，所以他们计算很多 SHA-256 哈希值。因此，这是最长链的一个例子。由于挖矿中的随机性，两个区块偶尔可以同时生成，在这个时候，网络中的参与者需要决定使用哪一个区块。他们做决策的方式是等待其中一个链变得比另一个更长，然后使用那个更长的链作为网络的官方状态。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1010/13_bwy7jqsdu0.png" alt="扩展链上历史：从比特币到 Arweave"></p>
+<p>非常有趣的是，我们这里有我们的比特币区块；它们有它们小小的币基交易。您可以看到位于顶部的灰色区块的交易数据，以及位于底部蓝色区块的见证数据，它们的大小都在 4 兆字节左右。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1010/13_dtwls2raid.png" alt="扩展链上历史：从比特币到 Arweave"></p>
+<p>在比特币上发生的情况是，您可以看到它逐渐消失，但是一旦节点，矿工，使用了见证数据来验证交易，他们可以直接丢弃它。他们没有理由在处理区块的第一次之后再保留它，这是故意设计的。这是为了保持运行节点的系统要求较低，这样 Arweave 或比特币上就可以有很多节点。但我们正在解决这个问题。对于一个想要存储人类，比如，您知道的，所有世界知识的协议，它需要有更强的激励来存储数据，对吧？</p>
+<p><img src="https://img.bibiqing.com/news/2023/1010/13_w15mect78o.png" alt="扩展链上历史：从比特币到 Arweave"></p>
+<p>那么 Arweave 是如何解决这个问题的呢？有什么变化？Arweave 的关键创新之一是它改变了挖矿机制。Arweave 不仅仅是盲目地使用哈希，而是使用了所谓的 SPoRa，即 “同步随机访问证明”。这是矿工做的一种密码学证明，用来证明他们正在存储 Arweave 数据的小块，每次 256 千字节。这允许协议将安全性从数据以及从需要网络中的每个人都拥有的共识机制移动到挖矿机制，这意味着矿工都可以单独证明他们正在存储数据，从而大大改善了系统。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1010/13_mnnybhgf37.png" alt="扩展链上历史：从比特币到 Arweave"></p>
+<p>这是 Arweave 区块的一个例子，您可以看到区块的数据部分大小不一。Arweave 上的每一个区块都可以存储不同量的数据。Arweave 协议所做的是每秒钟协议都会发生一次变化；它为矿工提供了一个新的挖矿范围。所以这就是数据部分中的这些小蓝色矩形，他们每秒钟都有一个新的数据范围用于检查证明。就像我们在这里看到的，偶尔有一个小粉红色的块是允许矿工生成新块的证明。当矿工获得一个胜利的证明时，它会生成一个新的块并获得区块奖励。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1010/13_4p0jydkkyk.png" alt="扩展链上历史：从比特币到 Arweave"></p>
+<p>您可以看到其中的问题，或者不是问题，但值得注意的有趣之处是，网络对交易达成了共识，但数据还没有到位，这有点令人惊讶。</p>
+<p>所以您可以看到这是一个灰色的框，随着时间的推移，随着挖矿的继续，数据开始从网络的不同区域流入，每产生一个新的区块，矿工都会与其他矿工交易以获得那些数据并全部填充进去。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1010/13_a1jqqbr4n9.png" alt="扩展链上历史：从比特币到 Arweave"></p>
+<p>可以看到，随着新数据的流入，Arweave 上的挖矿机制开始允许矿工从那些新数据中生成证明。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1010/13_vmk2sh51yh.png" alt="扩展链上历史：从比特币到 Arweave"></p>
+<p>所以当区块被添加时，您可以看到第三个区块现在已经被添加，矿工能够完全挖掘那些数据。当新的区块被添加时，您还可以看到数据会开始在新的区块上流入。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1010/13_engyal9uf9.png" alt="扩展链上历史：从比特币到 Arweave"></p>
+<p><strong>在所有规模上解锁链上数据</strong></p>
+<p>这样做的目的是激励矿工之间进行数据交易，因为这允许他们进行更多的证明并有更好的机会获得奖励，所以他们都想要新的数据。因此，由于挖矿机制的原因，添加到 Arweave 的数据在整个网络中被复制了数百次。</p>
+<p>所以这就是 Arweave 如何在所有规模上解锁链上数据。它还激励数据的复制，使 Arweave 的数据和交易能够抵御审查。所以你可能会说，“看，DMac，我之前用过 Arweave；我只是发布交易，然后它就被发送给其他矿工。我不懂你说的分离交易数据以及其他类似的事件。”</p>
+<p><img src="https://img.bibiqing.com/news/2023/1010/13_1dp45e3tdj.png" alt="扩展链上历史：从比特币到 Arweave"></p>
+<p><img src="https://img.bibiqing.com/news/2023/1010/13_csboos8shd.png" alt="扩展链上历史：从比特币到 Arweave"></p>
+<p><img src="https://img.bibiqing.com/news/2023/1010/13_01v90qa91b.png" alt="扩展链上历史：从比特币到 Arweave"></p>
+<p>实际上，您可能是将您的交易发布到了像 arweave.net 这样的网关，该网关为了给于您方便，它在后台帮您进行了相关步骤。该网关将交易发布到一个新的区块，一旦被挖出，它就将数据发送给网络中的所有矿工，虽然这很不错，但这也引入了被审查的可能性。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1010/13_ggbus43b2m.png" alt="扩展链上历史：从比特币到 Arweave"></p>
+<p><img src="https://img.bibiqing.com/news/2023/1010/13_1j3lzz2qle.png" alt="扩展链上历史：从比特币到 Arweave"></p>
+<p><img src="https://img.bibiqing.com/news/2023/1010/13_hbba2r7lyl.png" alt="扩展链上历史：从比特币到 Arweave"></p>
+<p>假如网关不喜欢这笔交易，它看到您的数据中的某些内容并认为：“我不想发布这个。”，网关可以直接将其删掉。如果以上就是 Arweave 的整个运行方式，那么其就会存在一个对其协议的中心化的监督人，而这样的运行方式并不是完全去中心化的。但是好消息是, Arweave 是去中心化的，因此你可以跳过网关并且不必使用它。你可以直接将你的交易发布到网络，一旦你的交易被包含在一个区块中，你就可以添加数据，它将在整个网络中被复制。</p>
+<p><strong>我们的未来在何方？</strong></p>
+<p><img src="https://img.bibiqing.com/news/2023/1010/13_oq16qe9cup.png" alt="扩展链上历史：从比特币到 Arweave"></p>
+<p>这个过程非常重要，因为它确保建立在 Arweave 之上的网关和服务都保持诚信。因此 Arweave 的开发需要继续进行，并在大型交易推出一个月后，Arweave 推出了 ANS-102 捆绑包（抱歉图片上被遮挡住了一部分信息）。推出捆绑包的目的是允许这些非常大额的交易涵盖许多其他交易。因此，Arweave 开始从两个方面进行扩展：大额交易和大量交易，这样做虽然很有用，但直到一年后 ANS-104 出现为协议带来了巨大的进展。因为该协议优化了 ANS-102 标准，提高了捆绑包的性能、它们的空间效率以及创建它们所需的计算。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1010/13_j6se93jr7h.png" alt="扩展链上历史：从比特币到 Arweave"></p>
+<p>ANS-104 捆绑包在 Solana 的 NFT 夏季左右发布，当时人们正在上传包含 10,000 个 NFT 的大型收藏数据，并使用捆绑包来做到这一点。从那时起，您就可以看到 Arweave 数据集的增长。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1010/13_9k0rznovpm.png" alt="扩展链上历史：从比特币到 Arweave"></p>
+<p>因此这才成就我们的今天。我想说，我们离 Arweave 的 2.7 升级只有几周的时间了。再次强调，该更新将包括优化捆绑包以及降低生产计算成本，并且还为捆绑包引入了与区块交易一样的抵抗机制来抵御审查。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1010/13_ocprqhjsaw.png" alt="扩展链上历史：从比特币到 Arweave"></p>
+<p>那么，我认为我想在这里强调的一点是，自从引入捆绑包和大额交易以来，Arweave 的数据模型在过去三年中一直保持稳定。我们看到的 Arweave 的更新都是关于提高性能、抵抗审查和最终协议的去中心化。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1010/13_clmovn5tkh.png" alt="扩展链上历史：从比特币到 Arweave"></p>
+<p>让我们回顾一下，记录人类历史这件事自区块链诞生之初就成为其一部分，但现在，这个前沿凭借其可扩展的链上数据，真正地从比特币转移到了 Arweave。从 2020 年四月开始，凭借捆绑包和大额交易，Arweave 已经能够在多个维度上扩展，成为链上数据的终极位置。展望未来，我期望看到更多的同样的对 Arweave 性能和去中心化的增量更新。非常感谢！</p>
+<p><img src="https://img.bibiqing.com/news/2023/1010/13_n5krcyspak.png" alt="扩展链上历史：从比特币到 Arweave"></p>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/60740/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">近半年看到的最创新的虚拟社交App，没有之一</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/60775/">
+                <span class="next-text nav-default">利用Meme币洗白Rug Pull项目资金，揭秘PEPE操盘手真身</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

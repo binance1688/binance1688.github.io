@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          区块链系统中以意图为中心的设计 - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="以意图为中心的设计的兴起标志着区块链的变革时刻和新时代的开始，将复杂的技术迷宫转变为以用户为导向的前沿领域。" />
+
+  <meta name="keywords" content="区块大全, 区块链, 区块链资讯, 区块链快讯, 区块链新闻, 比特币行情" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/60511/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="区块链系统中以意图为中心的设计" />
+<meta property="og:description" content="以意图为中心的设计的兴起标志着区块链的变革时刻和新时代的开始，将复杂的技术迷宫转变为以用户为导向的前沿领域。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/60511/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-10-07T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-10-07T00:00:00+00:00" />
+
+<meta itemprop="name" content="区块链系统中以意图为中心的设计">
+<meta itemprop="description" content="以意图为中心的设计的兴起标志着区块链的变革时刻和新时代的开始，将复杂的技术迷宫转变为以用户为导向的前沿领域。"><meta itemprop="datePublished" content="2023-10-07T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-10-07T00:00:00+00:00" />
+<meta itemprop="wordCount" content="8525">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="区块链系统中以意图为中心的设计"/>
+<meta name="twitter:description" content="以意图为中心的设计的兴起标志着区块链的变革时刻和新时代的开始，将复杂的技术迷宫转变为以用户为导向的前沿领域。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">区块链系统中以意图为中心的设计</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-10-07">
+      2023-10-07
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 8525 字 -
+        预计阅读 18 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/"> 区块链 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>原文撰文：Adam Arreola @NGC Ventures</p>
+<p>中文翻译：Tudd Cai Henry Zhang @NGC Ventures</p>
+<h2 id="介绍">介绍</h2>
+<p>在目前阶段，使用区块链解决方案进行交易对普通用户来说过于复杂。用户可能知道他们的目标是什么，但复杂的步骤阻碍了他们实现意图（Intent）的过程。<a href="https://www.youtube.com/watch?v=zxTPIvtYaUc&amp;ab_channel=%5BEthCC%5DLivestream5">最近，一种被称为“以意图为中心的设计”</a>(Intent-centric design)的解决方案引起了社区的关注。通过意图，用户可以描述他们期望的结果，而不是列出实现这一目标所需的每个步骤。例如，如果一个用户想要收到一定数量的以太坊（ETH），并愿意支付一定数量的比特币（BTC）来收到它，以意图为中心的解决方案将可以实现这一目标，而无需用户指定跨链交易的具体步骤。</p>
+<p>本文将探讨新兴的以意图为中心的设计以及它们将如何简化区块链交互，并将详细探讨意图的生命周期、相关设计目前的实现情况以及未来该技术的应用。除了评估意图为中心的系统带来的风险和挑战之外，本文还将评估其中的价值流向，对这个正在迅速改变区块链格局的创新进行全面的考察。</p>
+<h3 id="用户需要简洁的区块链交互过程">用户需要简洁的区块链交互过程</h3>
+<p>区块链交易的复杂性造成了一个不公平的竞争环境，只有最精明的用户才有望获利。做市商、高频交易公司和 MEV 搜索者（Searcher）等经验丰富的参与者利用先进的资源、系统和算法竞争，来获取最大的利润。</p>
+<p>以意图为中心的设计有助于公平竞争，简化用户在链上交易的方式，同时提高整个系统的资本效率。对于经验丰富的参与者来说，考虑到他们现有的能力，在以意图为中心的系统中成为<a href="https://hackmd.io/@0xapriori/r1stc3zPi#:~:text=A%20user%20signs,the%20order%20matching.">处理者</a>（Solver）并不是一个重大的转变，因为他们已经具备了相应的能力。以意图为中心的系统提供了更好的 UI、优化的<a href="https://ethereum.org/en/developers/docs/gas/">Gas 费用</a>、<a href="https://help.coinbase.com/en/coinbase/trading-and-funding/advanced-trade/slippage">滑点</a>处理以及更好的可组合性。</p>
+<p>用户只需要描述他们想要实现的效果，他们就能轻松地实现目标。用户不需要知道或理解实现其目标所需的底层流程；他们只需要知道他们想要的最终效果是什么。这使得链上交易更容易被普通参与者接受。为用户提供改进后更容易上手的操作界面，可以使用户对区块链系统的需求得到增长，从而增加整体流动性并使区块链生态系统更加健全。</p>
+<p>深入探讨，以意图为中心的系统消除了用户在处理 Gas 费和滑点时常见的困扰。例如，在传统的区块链交易中，用户必须支付 Gas 费，这对于习惯了传统金融系统中将这些费用抽象化的新手用户来说可能是一种陌生的体验。<a href="https://ethereum.org/en/roadmap/account-abstraction/">账户抽象</a>（通过<a href="https://academy.binance.com/en/articles/what-is-erc-4337-or-account-abstraction-for-ethereum">ERC-4337</a> 引入）允许用户使用任何 ERC-20 代币支付 Gas 费，或者通过授权协议为其用户赞助并支付 Gas 费，从而让 Gas 费的支付变得更加灵活。这不仅简化了交互过程，还增强了对交易的控制。以意图为中心的系统可以优化每笔交易所需的 Gas 费用以实现用户期望的效果，而无需让用户痛苦地估计所需的 Gas。同样，用户在估算滑点时通常会受到影响。以意图为中心的系统可以抽象和优化滑点设置以及交易时机，来尽量减少对于用户的价格影响。</p>
+<h2 id="意图的生命周期">意图的生命周期</h2>
+<p>虽然意图简化了用户的交易体验，但其背后的技术却很复杂。有多个不同的团队致力于构建意图系统，但以意图为中心的交易流程一般如下：</p>
+<p><img src="https://img.youtocoin.com/news/2023/1007/0_m1updesomq.jpg" alt="区块链系统中以意图为中心的设计"></p>
+<p>图片来自 Flashbots 的文章《<a href="https://flashbots.mirror.xyz/bqCakwfQZkMsq63b50vib-nibo5eKai0QuK7m-Dsxpo">MEV 供应链：窥探该行业的未来</a>》</p>
+<p><strong>1.  链下提交：</strong> 用户使用钱包来提交意图。</p>
+<p><strong>2. 进入内存池(Mempool)或者发送给区块构建者(Block builder)：</strong> 交易可以选择进入<a href="https://academy.binance.com/en/glossary/mempool">内存池</a>或直接发送给区块构建者来加快执行速度。选择使用备用内存池、标准内存池还是完全绕过内存池取决于意图的具体要求。例如，高价值的交换，尤其是遵循 ERC-4337 标准的交换，通常被设计为完全绕过公共内存池。这是为了减轻与<a href="https://coinmarketcap.com/alexandria/article/frontrunners-and-mev-explained-how-to-beat-the-bots">抢先交易</a>（Front-running)和<a href="https://tabtrader.com/academy/articles/what-are-sandwich-attacks-in-defi">三明治攻击</a>(Sandwich attacks)等有害 MEV 相关的风险。相反，这些交易直接从捆绑者(Bundler）（通常充当作区块构建者）发送，确保了更快、更安全的交易过程。</p>
+<p><strong>3. MEV 搜索者寻找机会：</strong> 如果交易进入到内存池，<a href="https://ethereum.org/en/developers/docs/mev/#:~:text=In%20theory%20MEV,to%20the%20network.">MEV 搜索者</a>会看到内存池中的数据，并寻找实现意图和获利机会的最佳路径。MEV 搜索者可以选择自己处理交易，或者将找到的信息出售给“处理者”。在大多数情况下，MEV 搜索者不仅发现机会，同时自己也充当处理者的角色。</p>
+<p><strong>4. 处理者竞争最佳交易执行和意图的捆绑：</strong> 处理者在竞争为用户提供最佳交易执行时充当做市商。用户自然会寻求最便宜、最快捷的解决方案来实现他们的意图，而能够提供该解决方案的处理者则可以赚取费用。处理者将多个意图聚合成束(Bundle)，使它们能够在单个交易中执行，然后将这些束转发给区块构建者，以便在即将到来的区块中容纳它们。</p>
+<p><strong>5. 区块构建和验证：</strong> <a href="https://docs.flashbots.net/flashbots-mev-boost/block-builders">区块构建者</a>选择捆绑包(Bundle)并将它们打包成区块。然后这些区块被发送给验证者(Validator)，以便将他们纳入区块链。这个阶段代表了意图的最终组装和验证，确保它们被正确执行并记录在区块链上。</p>
+<h2 id="现有的与意图有关的项目">现有的与意图有关的项目</h2>
+<p>以意图为中心的早期设计形式已经能在现有的应用程序和区块链中看到。其中知名的项目有：</p>
+<h3 id="cow-protocol--cow-swap">Cow protocol + Cow swap</h3>
+<p><a href="https://docs.cow.fi/overview/introduction">Cow protocol</a>是一种无需许可的交易协议，利用<a href="https://docs.cow.fi/overview/batch-auctions">批量拍卖</a>（Batch auctions）来发现价格。通过寻找到<a href="https://docs.cow.fi/overview/coincidence-of-wants">“需求巧合”</a> （Coincidence of wants)的机会（两个用户各自拥有对方想要的东西的情况）并聚合所有可用的链上流动性来源使流动性最大化。与传统的交易协议不同，Cow 协议的处理者竞相为用户提供实现其意图的最佳方案。</p>
+<p><a href="https://swap.cow.fi/">Cow swap</a>是由同一团队开发的 Cow 协议的前端界面。它是一个去中心化交易所 (DEX)，用以意图为中心的方法帮助用户找到来自所有 DEX 和聚合器的最低交易价格。此外，Cow swap 以意图为中心的设计可以保护用户免受抢先交易和其他有害 MEV 的影响。Cow swap 的新功能<a href="https://blog.cow.fi/cow-hooks-you-are-in-control-480ccb40044a">Cow Hooks</a>允许开发人员和高级交易者编写自定义操作（如交易、跨链、质押、存款等），这些操作可以在交易之前或者之后执行，而且全部都包含在单个交易内，从而充分体现了意图。</p>
+<h3 id="soul-wallet">Soul wallet</h3>
+<p><a href="https://www.soulwallet.io/">Soul wallet</a>（NGC Ventures 的投资组合公司之一）是一款即将推出的用户友好型智能合约钱包，利用<a href="https://ethereum.org/en/roadmap/account-abstraction/">账户抽象</a>(Account abstraction)来提升 Gas 费支付和赞助的灵活性。它还可以实现<a href="https://www.argent.xyz/learn/what-is-social-recovery/">社交恢复</a>(Social recovery)的功能，这是一种无需使用助记词的恢复加密钱包的安全机制。用户或者他们信任的朋友和家庭成员（称为“监护人”guardians）拥有的大多数（例如，五分之三）其他钱包可以签署恢复钱包的协议，以帮助用户重新获得对其的访问权限。除了社交恢复之外，Soul wallet 还提供双重验证，允许用户指定另一个钱包来批准交易。此外，Soul wallet 抽象了底层区块链机制，以便在使用以太坊及其各种 Layer-2 解决方案时提供无缝体验。Soul wallet 的&lt;a href=https://www.soulwallet.io/#:~:text=Additionally,%20take%20advantage%20of%20our%20One-Click% 20 Secure% 20 Swap% 20 feature.% 20 With% 20 this% 20 feature,% 20 you% 20 can% 20 trade% 20 without% 20 concerns% 20 about% 20 token% 20 approvals% 20 or% 20 security% 20 risks.&gt;一键安全交换(One-Click secure swap)利用帐户抽象，让用户可以在不担心安全风险和手动代币批准的情况下进行交易。</p>
+<h3 id="uniswapx">UniswapX</h3>
+<p><a href="http://uniswap.org/">Uniswap</a>的新产品<a href="https://uniswap.org/whitepaper-uniswapx.pdf">UniswapX</a>通过其以意图为中心的架构解决了 DeFi 领域一些最紧迫的挑战。</p>
+<p>UniswapX 的一个目标是解决分散的流动性问题。通过聚合各种流动性来源，例如各种资产对的 Uniswap V2 和 V3 池，UniswapX 会满足每个用户的意图，来找到资产并为用户提供最佳的资产价格。这是由第三方<a href="https://support.uniswap.org/hc/en-us/articles/17081681967757-Who-fills-UniswapX-orders-">填充者</a>(Filler)推动的，他们利用这些不同池中的流动性或他们自己的私有流动性来实现交易。</p>
+<p>UniswapX 还通过让填充者承担交换的 Gas 费并将其包含在交易价格中，为用户带来无 Gas 的交易过程。这消除了用户为失败的交易付费或持有原生的网络代币来支付 Gas 费的需要，进一步简化了 Uniswap 的用户体验。</p>
+<p>UniswapX 以意图为中心的设计也有助于防范有害 MEV。 例如，UniswapX 通过将订单产生的盈余以价格优化的形式返还给用户，减少了用户的损失。此外，UniswapX 的设计通过使用<a href="https://blog.uniswap.org/permit2-and-universal-router">Permit 2</a> 和&lt;a href=https://gov.uniswap.org/t/uniswapx-and-the-dao/21718#:~:text=The%20protocol%E2%80%99s%20core,Reactor% 20 executes% 20 it.&gt;Reactor Contract 来保护用户免受套利者的抢先交易和三明治攻击，使交易符合用户期望并调整不符合用户期望的交易。UniswapX 运用具有时间依赖性执行的<a href="https://ld-capital.medium.com/uniswapx-pioneering-the-uniswap-v4-defi-experimental-hub-6491ac51a03d#:~:text=Competition%20among%20Fillers,execute%20the%20order.">荷兰式拍卖订单</a>(Dutch auction orders)，<a href="https://ld-capital.medium.com/uniswapx-pioneering-the-uniswap-v4-defi-experimental-hub-6491ac51a03d#:~:text=Dutch%20Auction%20Flow%20Diagram">鼓励</a>填充者之间的竞争，最大程度地减少有害 MEV 的发生。</p>
+<p>展望未来，UniswapX 计划推出与其意图驱动理念相一致的附加功能。即将推出的对<a href="https://blog.uniswap.org/uniswap-v4">Uniswap V4</a>的支持是一个值得关注的发展，但更具突破性的是对无 Gas 跨链交易的引入。用户将能够指定他们目标链上接收的资产，从而避免跨链交易产生的高额费用和延迟。</p>
+<h2 id="即将推出的意图协议">即将推出的意图协议</h2>
+<h3 id="anoma">Anoma</h3>
+<p><a href="https://anoma.net/">Anoma</a>（NGC Ventures 的另一家投资组合公司）是<a href="https://www.google.com/search?q=heliax+crypto&amp;sca_esv=559191296&amp;ei=WR_lZMCUI-_ikPIPiNSr0As&amp;ved=0ahUKEwiApfKMkvGAAxVvMUQIHQjqCroQ4dUDCBA&amp;uact=5&amp;oq=heliax+crypto&amp;gs_lp=Egxnd3Mtd2l6LXNlcnAiDWhlbGlheCBjcnlwdG8yBRAAGIAEMggQABiKBRiGA0ioCVDeAViJCHABeAGQAQCYAdIBoAHVBqoBBTMuMy4xuAEDyAEA-AEBwgIKEAAYRxjWBBiwA8ICChAAGIoFGLADGEPCAgcQABiKBRhDwgIIEC4YgAQY5QTiAwQYACBBiAYBkAYK&amp;sclient=gws-wiz-serp#:~:text=Heliax%20-%20Pioneering%20the,https://heliax.dev">Heliax</a>正在开发的<a href="https://research.nansen.ai/articles/anoma-a-new-era-in-composable-privacy-and-decentralized-discovery-1#:~:text=Anoma%20is%20a%20public%20good%20that%20anyone%20can%20use%20to%20build%20out%20anything%20they%20want%20-%20any%20layer%201%20chain,%20layer%202,%20rollup%20sequencers,%20and%20even%20SUAVE%20can%20build%20on%20Anoma%E2%80%99s%20architecture.">多功能</a>意图解决方案，它将允许带有附加条件的交易。该协议寻求为用户的意图在各个区块链之间找到最佳匹配，确保交易根据用户指定的条件完成。这是通过<a href="https://members.delphidigital.io/reports/wtf-is-anoma-part-1-wtf-are-intents#counterparty-discovery---solving-00bf">去中心化的交易对手发现机制</a>(<a href="https://members.delphidigital.io/reports/wtf-is-anoma-part-1-wtf-are-intents#counterparty-discovery---solving-00bf">decentralized counterparty discovery mechanism</a>)实现的，这个机制消除了协议对中心化第三方机构的依赖，进而加强了协议与区块链去中心化精神的一致性。</p>
+<p>通过分布式的方案，Anoma 让处理者之间相互竞争来实现用户的意图。去中心化的交易对手方发掘了在各方之间建立的直接且无需信任的交互方式，而分布式解决方案则利用了处理者的集体计算资源来有效地实现用户意图。</p>
+<p>此外，Anoma 的多链原子结算能力(Multi-chain atomic settlement capability)通过将流程压缩为单个交易来优化跨多个区块链的数字资产交易。该功能消除了手动进行一系列交易的麻烦，提升了跨链交易的效率和整体用户体验。</p>
+<h3 id="由-flashbots-支持的suave">由 Flashbots 支持的 SUAVE</h3>
+<p><a href="https://writings.flashbots.net/the-future-of-mev-is-suave/">SUAVE</a><a href="https://writings.flashbots.net/the-future-of-mev-is-suave/">（价值表达单一统一拍卖）是由</a><a href="https://www.flashbots.net/">Flashbots</a>（NGC Ventures 的另一家投资组合公司）开发的产品，它将内存池和区块构建者的角色从现有区块链中分离出来，并提供高度专业化和去中心化的即插即用的替代方案。SUAVE 旨在促进<a href="https://www.blocknative.com/block-building">区块构建</a>的去中心化，以减少区块链生态系统内区块构建者进行审查和滥用权力的可能性。 截至 2023 年 8 月 25 日当周，以太坊上排名前五的区块构建商已经<a href="https://www.relayscan.io/overview?t=7d">构建了约 90% 的区块</a>，并且<a href="https://www.mevwatch.info/">约 48% 的已构建区块符合 OFAC 要求</a> 。这导致了用户受到中心化审查的风险，违背了以太坊所建立的去中心化和抗审查制度的初衷。</p>
+<p>SUAVE 正在开发<a href="https://writings.flashbots.net/mevm-suave-centauri-and-beyond">MEVM</a>，这是 EVM 的专业版本，使开发人员能够在灵活且富有表现力的编程环境中将 MEV 应用程序创建为智能合约。MEVM 由三个主要组件组成：<a href="https://medium.com/intotheblock/suave-the-future-opportunities-and-challenges-of-mev-part-ii-1855dbe4bca#:~:text=its%20core%20components:-,1">通用偏好环境（UPE）</a>%20UPE,-The%20first%20component)，它是一条链和内存池，旨在表达和聚合跨不同链的偏好（意图）；最佳执行市场（OEM） ，其中处理者争相为用户提交的意图提供最佳执行，以及区块构建者的去中心化网络将加密用户的意图合并到区块中。这种架构可以更轻松地构建新的 MEV 应用程序，促使解决意图的竞争，并使 MEV 供应链去中心化。</p>
+<p>SUAVE 的<a href="https://writings.flashbots.net/the-future-of-mev-is-suave/">路线图</a>（分为三个阶段：<a href="https://writings.flashbots.net/the-future-of-mev-is-suave/#-suave-centauri">Centauri</a>、<a href="https://writings.flashbots.net/the-future-of-mev-is-suave/#-suave-andromeda">Andromeda</a>和<a href="https://writings.flashbots.net/the-future-of-mev-is-suave/#%EF%B8%8F-suave-helios">Helios</a>）描述了他们通过以意图为中心的设计重塑 MEV 格局的计划。在 Centauri 阶段，SUAVE 引入了隐私意识订单流拍卖，允许用户回收其交易生成的 MEV。在 Andromeda 阶段，SUAVE 的主网启动将使用户能够在 SUAVE 的执行市场中表达意图，并采用<a href="https://eprint.iacr.org/2016/086.pdf">SGX 机制</a>(SGX-based)来提高拍卖和区块生成的效率和隐私性。Helios 阶段将进一步分散建筑网络，并为跨域 MEV 解决方案奠定基础。这种以意图为中心的方法符合 SUAVE 的使命，即为不同区块链的用户、搜索者、构建者和验证者建立一个中立的家园。</p>
+<h3 id="essential">Essential</h3>
+<p><a href="https://blog.essential.builders/">Essential 正在</a><a href="https://blog.essential.builders/introducing-essential/">开发的</a>基于意图的基础设施是一套由三个产品组成的套件：用于意图表达<a href="https://www.jetbrains.com/mps/concepts/domain-specific-languages/">的领域特定语言 (DSL) 、</a>用于以太坊和 EVM 的新的以意图为中心的帐户抽象&lt;a href=https://crypto.com/university/what-are-token-standards#:~:text=and%20ERC-1155.-,Ethereum% 20 Request% 20 for% 20 Comment% 20(ERC)% 20 is% 20 essentially% 20 a% 20 set% 20 of% 20 technical% 20 documents% 20 containing% 20 guidelines% 20 on% 20 developing% 20 a% 20 smart% 20 contract.,-The% 20 ERC-20&gt;ERC 标准，以及<a href="https://blog.essential.builders/introducing-essential/#:~:text=3.%20Modular%20Intent%20Layer">模块化意图层</a>。</p>
+<p>就目前而言，意图缺乏跨区块链系统进行交流的标准化语言。这可能会导致跨链意图被误解，从而导致不好的结果，比如错误的代币交换。Essential 想要通过为意图生成特定领域语言 (DSL) 来解决这个问题，以便用户可以在不同系统之间有效地传达意图，并由处理者进行解释。</p>
+<p>据项目团队介绍，Essential 的<a href="https://blog.essential.builders/introducing-essential/#:~:text=2.%20Intent-Centric%20Account%20Abstraction%20Standard%20for%20Ethereum%20and%20EVM">新 ERC 标准</a>与<a href="https://academy.binance.com/en/articles/what-is-erc-4337-or-account-abstraction-for-ethereum">ERC-4337 的</a>不同之处在于，它将为处理者分配构建有效交易的任务来满足用户的意图。截至 2023 年 8 月 25 日，该团队尚未分享有关即将推出的 ERC 标准机制的更多细节。这一新解决方案将为<a href="https://gocrypto.com/blog/what-are-evm-compatible-blockchains">EVM 兼容的区块链</a>带来以意图为中心的设计的优势，通过 EVM 将意图超越以太坊，并创建为更广泛的区块链生态系统提供更流畅的体验。</p>
+<p>最后，Essential 的目标是通过制作模块化意图层来更进一步。意图将被分组为各个批次，模块化意图层将处理每个新块作为一批意图的解决方案。Essential 的模块化意图层将通过统一的处理者网络引导所有的订单流，从而促进透明的订单流聚合，确保它们能够访问尽可能多的信息来处理交易。此外，通过鼓励处理者之间的竞争来为用户提供意图的最佳实现，模块化意图层将能够抵抗以交易为中心的设计系统中的有害 MEV。该层的模块化将使协议能够集成到各种生态系统中，创建出有效的跨链意图执行的路径。</p>
+<h2 id="未来潜在意图应用">未来潜在意图应用</h2>
+<p>有许多<a href="https://www.brink.trade/blog/powerful-intents-part-1#:~:text=The%20Future%20of%20Intents">新颖的意图应用程序</a>正在开发中，未来将可供用户使用；</p>
+<p>●    <a href="https://www.brink.trade/blog/powerful-intents-part-1#:~:text=of%20related%20intents-,Conditional%20Intents,-Current%20Web3%20apps">有条件意图</a>（Conditional intents)将使操作能够根据特定条件执行，例如某些治理决策的结果或达到的价格。</p>
+<p>●    <a href="https://www.brink.trade/blog/powerful-intents-part-1#:~:text=single%20signed%20intent.-,Continuous%20Intents,-Intents%20will%20offer">连续意图</a>(Continuous intents)将允许操作通过单个意图表达被重复执行，从而实现成本均衡或做市等任务。</p>
+<p>●    &lt;a href=https://www.brink.trade/blog/powerful-intents-part-1#:~:text=these%20price%20points.-,Multi-Step% 20 Intents,-Intents% 20 could% 20 be&gt;多步意图(Multi-step intents)将通过表达单个意图来实现一系列操作，其中一个操作的完成将提示后面的操作按顺序执行。</p>
+<p>以意图为中心的设计还可以与人工智能等其他独特技术相结合。例如，通过<a href="https://eips.ethereum.org/EIPS/eip-4337">账户抽象</a>利用以意图为中心的设计并将其与人工智能相结合，用户可以享受个性化和自动化的投资策略。 让每个用户都能有量身定制的区块链体验，使链上操作变得更加容易，同时为新的创新应用程序和服务打开了大门。此外，人工智能还可用于增强处理者的能力，帮助他们优化交易执行并更有效地适应市场条件。</p>
+<p><strong>意图的另一个有趣的潜在应用是与</strong> <a href="https://blockchain.news/wiki/What-is-Real-World-Assets-RWA-bb61b465-c361-44da-8c9e-ac0820480561"><strong>现实世界资产</strong> </a><strong>（RWA）相结合：</strong></p>
+<ul>
+<li>
+<p>如果用户想要将传统金融资产转换为代币化区块链资产的话，意图可以用来连接传统金融和 DeFi。</p>
+</li>
+<li>
+<p>意图可以用在借贷协议中，在该协议中，用户表明意图使用 RWA 作为 DeFi 贷款的抵押品。协议可以为用户标记资产并将其用作抵押品，而无需用户指定实现其目标所需的每笔交易。</p>
+</li>
+<li>
+<p>在用户想要赚取房地产代币化收益的情况下，意图可以帮助用户产生 RWA 收益。协议可以代表用户投资房产，从租金收入或房产升值中赚取收益。</p>
+</li>
+</ul>
+<p>此外，以意图为中心的设计还有可能应用于区块链领域之外，从而彻底改变日常生活的许多方面。例如：</p>
+<ul>
+<li>
+<p>以意图为中心的解决方案可以聚合 Uber 和 Lyft 等乘车共享应用程序，让用户表达他们的旅行意图，并让系统跨多个平台为用户找到最佳乘车选择。</p>
+</li>
+<li>
+<p>预订航班时，基于意图的系统可以分析用户偏好，例如旅行日期、首选航空公司和预算限制，来找到为用户预订的最佳航班选项。</p>
+</li>
+<li>
+<p>通过以意图为中心的设计，用户可以在许多在线商店中找到最优惠的价格，提升在线购物体验。</p>
+</li>
+</ul>
+<p>与 Expedia 等只能编译选项的传统聚合器不同，以意图为中心的系统考虑并诠释了用户的潜在需求。虽然聚合器根据预定义的标准提供了一组固定的选择，但以意图为中心的系统积极地满足每个用户的独特偏好，动态调整来提供更具个性化的解决方案。</p>
+<h2 id="风险与挑战">风险与挑战</h2>
+<p>尽管意图优化了用户的体验流程，但它们也带来了一系列风险和挑战。首先，意图依赖于将决策外包给第三方——处理者和区块构建者。这意味着用户必须对这些各方以及连接它们的系统给予一定程度的信任。用户需要提防处理者和区块构建者滥用他们的能力对意图的执行过程收取高额费用，或优先执行提供最高报酬的意图。这可能会导致用户为了执行意图支付过高的费用，而使系统效率低下。同样，如果一小群人控制了大部分意图的执行，系统就面临着少部分人决定条款、设定价格或审查交易的风险。这可能会导致竞争萎缩、用户成本上升以及整体去中心化程度降低等问题。为了防止这些因素抑制创新并破坏用户的体验，加密用户必须要求系统设计能够对抗中心化，并通过透明度和加密经济激励措施来激励中间商的良好行为，帮助构建可信中立的生态系统。</p>
+<p>与以意图为中心的系统交互的用户还面临着其意图被误解的风险，比如通过执行错误的操作而产生意外的后果。构建者应该谨慎地为以意图为核心开发标准化的通信形式（例如<a href="https://essential.builders/">Essential</a>正在<a href="https://blog.essential.builders/introducing-essential/#:~:text=1.%20DSL%20for%20Intent%20Expression">构建的</a>通用<a href="https://www.jetbrains.com/mps/concepts/domain-specific-languages/">特定领域语言</a>）来避免这种风险。</p>
+<p>最后，随着以意图为中心的系统的出现，可能会出现新的安全威胁。例如意外授予未经授权的账户访问权限、导致用户隐私泄露的数据泄露以及导致其他交易者抢先交易或操纵市场的信息泄露。在这种情况下，期望处理者表现得公平公正是不现实的。正如今天的 MEV 搜索者利用该系统获取利润一样，以意图为中心的系统中的处理者如果有利可图，也会有动机进行作弊。因此，这些系统的架构师有责任构建一个框架，阻止恶意行为，同时促使对用户最有利结果的产生。</p>
+<h3 id="在以意图为中心的系统中不断变化的价值流向">在以意图为中心的系统中不断变化的价值流向</h3>
+<p>在以意图为中心的架构中，MEV 搜索者、处理者、区块构建者和验证者的利益与用户意图的实现是一致的。就目前而言，以意图为中心的区块链系统的价值主要流向 MEV 搜索者、处理者和区块构建者，因为他们共同努力为用户传达和执行可能的最佳结果，并从这个过程中获利。</p>
+<p>显然，MEV 搜索者和处理者会积累价值。他们是首先看到意图的，也是在单个零散意图或他们可以批量处理的潜在意图分组中发现最大价值的个体。处理者实际上充当做市商的角色，因为他们竞相致力于为用户提供最佳的交易。用户希望以最便宜、最快的方式实现他们的意图。用最佳的方式实现意图不仅是一项服务，而且对这些个体来说也是一个有利可图的机会，有助于激励他们提供最佳的结果。用户、MEV 搜索者和处理者之间的利益一致有助于系统高效、透明地运行，从而促使形成有利于所有参与者的竞争环境。</p>
+<p>很大一部分价值也流向了区块构建者。区块构建者负责构建和确定区块的形成，在实现每个用户的意图方面发挥着关键作用。由于搜索者、处理者和用户依赖区块构建者来实现意图，当系统变得更加复杂时，区块构建者的角色对于所有参与者来说尤其有价值。</p>
+<p>然而，随着搜索者、处理者和构建者之间竞争的不断加剧，价值有望重新分配给验证者、质押者和用户，反映了 MEV 生态系统不断演化的特点。</p>
+<p>验证者和质押者将从搜索者、处理者和构建者之间的激烈竞争中获得巨大收益。随着越来越多的处理者、搜索者和构建者加入 MEV 领域，个体的利润率会下降。当链上以意图为中心的架构的透明度不断提高，以及各方将彼此复制的算法相结合时，Gas 费最终可能会侵蚀处理者希望获得的大部分利润。值得注意的是，价值并不会消失，而是重新分配给验证者和质押者。这种变化对于网络的长期稳定至关重要。一个被充分补偿的验证者可以提高网络的安全预算，而更高的质押回报会激励进一步的质押，提高了网络的整体安全性。</p>
+<p>此外，随着系统变得越来越高效和富有竞争力，用户（交易的发起者）也将从中受益。处理者的利润和 Gas 费的降低使用户能够用更低的成本执行他们的意图。此外，处理者之间为提供最佳执行路径而加剧的竞争为用户带来了更好的价格和更快的交易。</p>
+<h2 id="结束语">结束语</h2>
+<p>基于意图的范式转变不仅仅是技术上的进步，更是一种价值偏好的转变。项目方应当将开发的注意力放在实现用户的意图，而不是复杂的操作上。以意图为中心的系统为构建一个重视用户需求、效率和透明度的可组合的区块链格局提供了实现道路。不仅如此，增强的用户体验还可以加速加密应用程序的采用，让复杂的区块链技术更加贴近用户的日常使用习惯。关于意图的研究让我们可以一睹未来的风采：用户、MEV 搜索者，处理者和区块构建者之间一致的利益关系可以简化区块链的交互过程，并推动整个加密生态系统的发展。通过将用户意图的实现放在首位，开发人员为构建一个更加公平和以用户为中心的区块链格局铺平了道路，其中价值的流动与人类意图的实现联系在一起。以意图为中心的设计的兴起标志着区块链的变革时刻和新时代的开始，将复杂的技术迷宫转变为以用户为导向的前沿领域。</p>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/60524/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">胖企鹅CEO回顾创业历程 回应“参与多个跑路NFT骗局”指控</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/60528/">
+                <span class="next-text nav-default">全链游戏的去中心化和协议化</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#介绍">介绍</a>
+      <ul>
+        <li><a href="#用户需要简洁的区块链交互过程">用户需要简洁的区块链交互过程</a></li>
+      </ul>
+    </li>
+    <li><a href="#意图的生命周期">意图的生命周期</a></li>
+    <li><a href="#现有的与意图有关的项目">现有的与意图有关的项目</a>
+      <ul>
+        <li><a href="#cow-protocol--cow-swap">Cow protocol + Cow swap</a></li>
+        <li><a href="#soul-wallet">Soul wallet</a></li>
+        <li><a href="#uniswapx">UniswapX</a></li>
+      </ul>
+    </li>
+    <li><a href="#即将推出的意图协议">即将推出的意图协议</a>
+      <ul>
+        <li><a href="#anoma">Anoma</a></li>
+        <li><a href="#由-flashbots-支持的suave">由 Flashbots 支持的 SUAVE</a></li>
+        <li><a href="#essential">Essential</a></li>
+      </ul>
+    </li>
+    <li><a href="#未来潜在意图应用">未来潜在意图应用</a></li>
+    <li><a href="#风险与挑战">风险与挑战</a>
+      <ul>
+        <li><a href="#在以意图为中心的系统中不断变化的价值流向">在以意图为中心的系统中不断变化的价值流向</a></li>
+      </ul>
+    </li>
+    <li><a href="#结束语">结束语</a></li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

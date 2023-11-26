@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          Taproot VS Drivechain：比特币扩容的不同探索 - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="2021年11月，比特币进行了2017年后至今为止唯一一次代码升级：Taproot 升级。这次升级如同生石灰洒入平静的湖泊，慢慢的加热整片湖水，引起热气不断冒泡。" />
+<meta name="keywords" content="BTC, Taproot升級, Drivechain, 擴容" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/61663/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="Taproot VS Drivechain：比特币扩容的不同探索" />
+<meta property="og:description" content="2021年11月，比特币进行了2017年后至今为止唯一一次代码升级：Taproot 升级。这次升级如同生石灰洒入平静的湖泊，慢慢的加热整片湖水，引起热气不断冒泡。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/61663/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-10-23T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-10-23T00:00:00+00:00" />
+
+<meta itemprop="name" content="Taproot VS Drivechain：比特币扩容的不同探索">
+<meta itemprop="description" content="2021年11月，比特币进行了2017年后至今为止唯一一次代码升级：Taproot 升级。这次升级如同生石灰洒入平静的湖泊，慢慢的加热整片湖水，引起热气不断冒泡。"><meta itemprop="datePublished" content="2023-10-23T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-10-23T00:00:00+00:00" />
+<meta itemprop="wordCount" content="4170">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Taproot VS Drivechain：比特币扩容的不同探索"/>
+<meta name="twitter:description" content="2021年11月，比特币进行了2017年后至今为止唯一一次代码升级：Taproot 升级。这次升级如同生石灰洒入平静的湖泊，慢慢的加热整片湖水，引起热气不断冒泡。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">Taproot VS Drivechain：比特币扩容的不同探索</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-10-23">
+      2023-10-23
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 4170 字 -
+        预计阅读 9 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E6%AF%94%E7%89%B9%E5%B8%81/"> 比特币 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>来源：LayerTwo Labs</p>
+<p>2021年11月，比特币进行了2017年后至今为止唯一一次代码升级：Taproot 升级。这次升级如同生石灰洒入平静的湖泊，慢慢的加热整片湖水，引起热气不断冒泡。</p>
+<p>Bitcoin 前7年 16次软升级、Bitcoin 后7年 仅2次软升级；SegWit 软分叉升级花了20个月、Taproot 软分叉升级花了46个月。<img src="https://img.bibiqing.com/news/2023/1023/4_cnyqredt9k.png" alt="Taproot VS Drivechain：比特币扩容的不同探索"></p>
+<p>2023年，比特币生态一反常态的活跃，相关创新如雨后春笋般遍地冒尖，从3月份的Ordinals协议，到9月份整个比特币社区都在讨论Drivechain ，10月份集中出现的BitVM、Taproot Asset等，比特币生态似乎聚集着重回舞台中央的能量，也彰示着加密货币之王的强大吸引力和作为开源软件的可能性。</p>
+<h2 id="近期主要的比特币生态">近期主要的比特币生态</h2>
+<h3 id="1ordinals">1、Ordinals</h3>
+<p>Ordinals是利用隔离见证升级，将图片、文字、音视频，甚至是代码等数据，只要大小在 4MB 以下，写入比特币交易的隔离见证区当中，并通过一个编号、索引器来区别、追踪每一个比特币聪，从而实现在比特币主网发行、交易NFT资产，随后又出现了基于Ordinals的BRC20 token。在今年4月，基于Ordinals的NFT和BRC20 Token炒作达到了顶峰，吸引了整个加密圈的关注。</p>
+<h3 id="2babylon">2、Babylon</h3>
+<p>Babylon旨在将比特币安全性带至 PoS 网络和 DApp ，支持比特币持有者通过质押比特币，以提高 PoS 链和 DApp 的安全性并帮助用户获得收益。</p>
+<p>Babylon 的比特币质押协议通过密码学技术，将比特币质押者攻击 PoS 网络共识的行为，转换为将其在比特币网络质押的比特币全部或部分罚没。并且该罚没只会在攻击确实产生时触发，保证了诚实质押者资产的绝对安全，如此一来，就可以在不需要比特币跨链的情况下，使得比特币成为和 PoS 原生代币一样的质押资产。</p>
+<p>其中的核心技术叫做「可提取的一次性签名」（EOTS, extractable one-time signature）技术，当使用该技术时，同一秘钥只能签一次名。如果签名两次，则该秘钥可以被解码。该技术底层签名算法基于比特币原生签名算法，所以受现有比特币网络支持。</p>
+<h3 id="3bitvm">3、BitVM</h3>
+<p>不久之前由Zerosync团队Robin linus刚刚发布的构想，被描述为“不需要改变现有比特币共识，甚至不需要任何升级，在比特币上实现任何计算”，白皮书中表述，这通过Op-Rollup、欺诈证明和Taproot Leaf 和 Bitcoin Script来实现。</p>
+<p>据加密分析师 @tmel0211 的看法，BitVM提案的核心点是，通过taproot地址矩阵或者说taptree实现了类似二进制电路的各类程序指令，组合起来就相当于完整的合约执行了。最小单元指令确实由比特币全节点完成，而且无限叠加taproot地址，无限组合的可能性可以叠加很多复杂计算。某种程度上，说它为图灵完备机不为过。但无限叠加taproot地址只会增加成本消耗，理论上是可以图灵完备实现一切，但却不切实际。</p>
+<p>目前，BitVM依然处于讨论阶段。</p>
+<h3 id="4taproot-asset">4、Taproot Asset</h3>
+<p>日前刚刚由Lightning Labs团队发布，Taproot Assets是一个基于比特币区块链的新协议，它利用了比特币最新的升级—Taproot，以实现更高的隐私和可扩展性，为开发者在比特币区块链上发行、发送、接收和发现资产提供了核心功能。这些资产可以被存入Lightning网络的通道中，并可以通过现有的Lightning网络进行转移。</p>
+<p>Taproot assets完全基于 UTXO，在Taproot地址的Script脚本中写入“简单的代码”，把它当成UTXO花费条件指令来执行。在Taproot Assets的资产发行场景内，可以把这串简单的操作码指定为Token发行总量、发行时间，发行对象等规则，可接入一组多签地址来联合触发该操作码。</p>
+<p>不难发现，这些生态出现的重要基础是Segwit与Taproot升级。</p>
+<h2 id="segwit-与taproot升级">Segwit 与Taproot升级</h2>
+<p>Taproot是比特币网络的一次升级，于2021年11月14日上线。自SegWit问世以来，Taproot与Schnorr签名一直是备受期待的比特币技术升级。</p>
+<p>Taproot升级由3项不同的比特币改进提案(BIP340[1]、BIP341[2]、BIP342[3])组成，其中包括：Taproot、Tapscript及其核心，即名为“Schnorr签名”的全新数字签名方案。Taproot旨在改变比特币脚本的运作方式，提升私密性、可扩展性与安全性，为比特币用户带来诸多好处，例如提升交易私密性和降低交易费用。还将让比特币执行更多复杂的交易，从而拓宽用例，与以太坊一较高下，尤其是智能合约功能和网络对去中心化金融(DeFi)和非同质化代币(NFT)的支持。</p>
+<p>某种程度上，结合此前的Segwit升级，Taproot升级开启了比特币实现更复杂合约的大门。</p>
+<p>Segwit是2017年的一个更新，通过增加一个可以支持任意数据的 &ldquo;见证数据（witness data）&rdquo; 部分，有效地将比特币交易隔离成两个部分。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1023/4_849ghrputj.png" alt="Taproot VS Drivechain：比特币扩容的不同探索"></p>
+<p>非SegWit区块和SegWit区块的结构比较图</p>
+<p>在技术上，SegWit的实施意味着交易不再需要包括见证数据（不会占用比特币原本为区块安排的 1MB 空间）。取而代之的是，在一个区块的末尾，为见证数据创建了一个额外独立的空间。它支持任意的数据转账，并有一个折扣的 &ldquo;区块重量&rdquo;，巧妙地将大量的数据保持在比特币的区块大小限制内，以避免硬分叉的需要。</p>
+<p>隔离见证（SegWit）的实施给比特币网络带来了两个重大变化：</p>
+<ul>
+<li>
+<p>签名数据通常占存储在块中数据的 65%，从主“基础”块中删除并存储在单独的块中。这允许在每个基本块中容纳更多事务。</p>
+</li>
+<li>
+<p>SegWit 还引入了“块权重”，在技术上将比特币块从 1 MB 增加到 4 MB；由 3 MB 的签名数据和 1 MB 的交易数据组成。</p>
+</li>
+</ul>
+<h2 id="segwit--taproot-vs-drivechain">Segwit &amp; Taproot VS Drivechain</h2>
+<p>简单而言Segwit与Taproot是通过对区块数据、签名方式的改变，让UTXO或者区块当中可以写入更多样的数据，然后通过链下的一些操作，实现特定的功能，一定程度上增强了比特币网络实现更复杂合约的能力。</p>
+<p>但不可否认的基础事实是，<strong>比特币的能力受到其底层Script的限制，同时加上区块大小、出块时间因素，扩容潜力非常有限。</strong></p>
+<p>在Ordinals火爆期间我们已经看到了这个问题，大量的BRC20交易使比特币网络拥堵不堪，交易手续费飙升至数百美金一笔，引起了社区的不满。</p>
+<p>而BitVM憧憬的比特币图灵完备，应用单个taproot地址的脚本实施最小编程单位，不能超出比特币的执行逻辑框架比如hashlock、timelock这些，不能超出限定的存储条件，这个基础上要实现复杂合约需要组合大量地址进行taptree构建，要花费的成本也越大，而且慢。</p>
+<p>与Taproot这些链上扩容方案相比，Drivechain 的分层、“链下扩容”方案，有更大的可能性，并且更低廉的花费。</p>
+<p>同样不触及比特币的共识机制，<strong>Drivechain 只需要在区块中添加BIP300中设计的6种新的区块消息，使用算力托管地址，辅以BIP-301的盲合并挖矿方案，就可以低成本的实现比特币大面积的侧链扩容，侧链拥有比特币主网的安全性，和非常自由设计的高可拓展性。</strong>  在理论上，Drivechain 带来的可能性是无限的。</p>
+<p>逻辑上来说，Taproot Asset也是相同的思路，资产在比特币主网，但交易在闪电网络中。而实际上，他们都可以使用Drivechain 来实现，成为Drivechain 架构里的侧链，能够实现交易、转账之外更多的功能。Layer 2 Labs团队自身，就已经在推动7条Drivechain 侧链的建设，RSK等侧链也有意在Drivechain 激活之后转入Drivechain 体系。</p>
+<p>Blockstream创始人、POW共识发明者Adam Back[4]曾在Layer 2 Labs的推特Space中这么说到：“如果能够在1层引入一些新的功能和扩展性，那么比特币可以在某种程度上实现固化，同时在2层上继续进行创新。比特币需要可扩展性和模块化，以便更快地创新和采纳新功能。像闪电网络这样的技术已经有所帮助，但在解决可扩展性和用户需求方面还有更多工作可以做，需要技术解决方案来为用户提供更好的选择，比如在侧链或驱动链上访问真实的UTXO。他们认识到比特币的采用可能会迅速增长，技术需要跟上以适应增加的需求，非常期待Drivechain 的表现。”</p>
+<p><img src="https://img.bibiqing.com/news/2023/1023/4_llovhkip1s.png" alt="Taproot VS Drivechain：比特币扩容的不同探索"></p>
+<p>从Adam Back的角度看，Taproot是比特币在一层的新功能和拓展，Drivechain 则是2层创新的方式。BIP300 由Bitcoin核心开发者Luke-jr 正式提交 PR。</p>
+<p><strong>比特币是安全第一的加密货币，也是可编程的软件应用程序。</strong>  BTC社区的探索有韧性，在多年的创新停滞之后，<code>仅仅是开放了些许区块空间和并支持更多数据类型</code>，就带来了社区的跃跃欲试和市场的高度关注，可以预见在拥有更大潜力空间之后，比特币会以怎样的规模席卷世界。</p>
+<p>作为比特币的拥簇，Layer 2 Labs非常期待这一天的到来，热切希望与比特币生态的开发者们通力合作，实现比特币的大规模采用。</p>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/61708/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">Solana生态协议Marinade开始屏蔽英国用户</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/61676/">
+                <span class="next-text nav-default">TikTok在印尼，「夹起尾巴做人」</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#近期主要的比特币生态">近期主要的比特币生态</a>
+      <ul>
+        <li><a href="#1ordinals">1、Ordinals</a></li>
+        <li><a href="#2babylon">2、Babylon</a></li>
+        <li><a href="#3bitvm">3、BitVM</a></li>
+        <li><a href="#4taproot-asset">4、Taproot Asset</a></li>
+      </ul>
+    </li>
+    <li><a href="#segwit-与taproot升级">Segwit 与Taproot升级</a></li>
+    <li><a href="#segwit--taproot-vs-drivechain">Segwit &amp; Taproot VS Drivechain</a></li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

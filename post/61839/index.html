@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          Scroll会带动Layer2新浪潮吗？以及你不得不知晓的zkEVM电路与审计知识 - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="本文我们将详细分析 Scroll 的架构和技术" />
+<meta name="keywords" content="Scroll" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/61839/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="Scroll会带动Layer2新浪潮吗？以及你不得不知晓的zkEVM电路与审计知识" />
+<meta property="og:description" content="本文我们将详细分析 Scroll 的架构和技术" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/61839/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-10-25T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-10-25T00:00:00+00:00" />
+
+<meta itemprop="name" content="Scroll会带动Layer2新浪潮吗？以及你不得不知晓的zkEVM电路与审计知识">
+<meta itemprop="description" content="本文我们将详细分析 Scroll 的架构和技术"><meta itemprop="datePublished" content="2023-10-25T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-10-25T00:00:00+00:00" />
+<meta itemprop="wordCount" content="5879">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Scroll会带动Layer2新浪潮吗？以及你不得不知晓的zkEVM电路与审计知识"/>
+<meta name="twitter:description" content="本文我们将详细分析 Scroll 的架构和技术"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">Scroll会带动Layer2新浪潮吗？以及你不得不知晓的zkEVM电路与审计知识</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-10-25">
+      2023-10-25
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 5879 字 -
+        预计阅读 12 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E5%85%B6%E5%AE%83%E6%96%87%E7%AB%A0/"> 其它文章 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>10月10日14:00，以太坊二层解决方案 Scroll 主网产生了第一个区块，标志着 Scroll 的主网成功上线。截止到10月25日，已有超过7600个ETH通过跨链桥进入 Scroll 网络，24个去中心化交易平台上线 Scroll 主网，总TVL约1千万美元。</p>
+<p>10月17日，Scroll 官方在宣布主网启动的同时，继续坚持开源和去中⼼化的承诺。下⼀阶段 Scroll 将致力于构建去中⼼化的证明⽹络和排序器。<strong>本文我们将详细分析 Scroll 的架构和技术，帮助大家了解 Scroll 当前的网络状态和未来的发展方向，以及为大家讲解 Scroll zkEVM 电路与审计知识，加强zk项目方的安全防范。</strong></p>
+<p><img src="https://img.bibiqing.com/news/2023/1025/2_y7wvb22hv0.png" alt="Scroll会带动Layer2新浪潮吗？以及你不得不知晓的zkEVM电路与审计知识"></p>
+<h3 id="带动layer2新浪潮的scroll-是谁"><strong>带动Layer2新浪潮的Scroll 是谁？</strong></h3>
+<p>Scroll 是一种基于零知识证明技术的以太坊 Layer 2 扩容解决方案，旨在提高以太坊网络的交易吞吐量和速度。相较于Optimistic Rollup，Scroll 通过零知识证明技术进行扩容，并通过硬件加速零知识证明的生成和验证，致力于实现字节码级别的 EVM 兼容。这意味着开发者可以直接使用 Solidity 和以太坊相关的开发工具来构建智能合约，无需进行任何修改就可将其部署到 Scroll 上。</p>
+<p>据 Scroll 官网公布，目前 Scroll 团队核心成员共有10名，分布于亚洲、美洲和欧洲。团队相关成员均拥有丰富的 zkRollup 开发经验和行业运营经验，大多数毕业于知名大学，并拥有博士学位。</p>
+<p>目前，Scroll 生态非常丰富，<strong>基础设施包含了钱包、开发工具、安全设施等方面的项目，旨在帮助项目在设计、开发、运行以及安全审计方面的整个生命周期里，都能得到全方位的支持，目前 Scroll 主网已有超过180个生态项目。</strong></p>
+<p><strong>1. 钱包</strong></p>
+<p>Scroll 目前支持几乎所有的主流钱包：Metamask、TrustWallet、MathWallet、TokenPocket、WalletConnect、Binance Chain Wallet、SafePal Wallet。除此之外，Scroll生态钱包还有OKX Wallet、Versa Wallet等。</p>
+<p><strong>2. 跨链桥</strong></p>
+<p>Scroll 官方的跨链基础设施包括了 Celer Network、Stargate、Orbiter Finance、Hop Protocol、LI.FI、Connext 等。此外还包含了跨链流动性协议 Synapse Protocol、专注于 Layer 2 跨链桥的 Owlto Finance、以太坊 Layer 1 与 Layer 2 跨链桥 Pheasant Network、Symbiosis、Catalyst 等。  </p>
+<p><strong>3. DeFi</strong></p>
+<p>Scroll 生态中有不少老牌的 DeFi 项目，包括了借贷协议 Aave、多链 DEX 聚合器 DODO、DEX SushiSwap、DEX 聚合器 OpenOcean、多链 DeFi 协议 iZUMi Finance、DEX Syncswap、DeFi 收益率协议 Pendle Finance、借贷协议 dForce、杠杆交易聚合器 MUX Protocol等，也有GMX等原生未被大规模使用的创新项目。</p>
+<p><strong>4.  其他</strong></p>
+<p>在NFT、游戏、社交等方面 ，Scroll 生态的其他项目还包括了NFTScan、Web3 任务平台 QuestN、TaskOn、电子协议签署平台 EthSign、Galaxy Blitz、OmniKingdoms等在线链游。</p>
+<p><strong>Scroll 技术特点有何不同？</strong></p>
+<h4 id="1-整体架构"><strong>1.  整体架构</strong></h4>
+<p>Scroll 的架构分为以下三个主要组件：</p>
+<p><strong>Scroll Node：</strong> 它根据用户交易产生 Scroll 网络的区块，将这些交易提交到以太坊基础层，并处理以太坊和 Scroll 之间的消息传递。</p>
+<p><strong>Roller：</strong> Roller负责将智能合约转化成 zkEVM 电路，随后生成证明，用于证明交易的正确性。在 Scroll 网络中存在多个Roller，并行处理并通过硬件加速以减少生成证明的时间。Scroll 由于直接证明EVM的字节码处理正确与否，因此对于EVM做到了字节码层面的兼容。</p>
+<p><strong>Rollup 和 Bridge Contract：</strong> 这些合约为 Scroll 的交易提供数据可用性，验证 zkEVM 生成的有效性证明。可以说，Scroll 是通过 Rollup 合约和 Bridge 合约和以太坊基础层连接的。通过这些合约，用户可以在以太坊和 Scroll 之间传递任意消息，并且借助网关合约向任一方向转移ERC-20资产。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1025/2_myfv8b7z80.png" alt="Scroll会带动Layer2新浪潮吗？以及你不得不知晓的zkEVM电路与审计知识"></p>
+<p>source: <a href="https://scroll.mirror.xyz/nDAbJbSIJdQIWqp9kn8J0MVS4s6pYBwHmK7keidQs-k">https://scroll.mirror.xyz/nDAbJbSIJdQIWqp9kn8J0MVS4s6pYBwHmK7keidQs-k</a></p>
+<p><strong>Scroll 在以太坊部署的主要合约：</strong></p>
+<p>网关路由代理合约（保证代币在跨链操作中的正确映射）：0xF8B1378579659D8F7EE5f3C929c2f3E332E41Fd6</p>
+<p>消息代理合约（传递L1与L2之间的消息）：0x6774Bcbd5ceCeF1336b5300fb5186a12DDD8b367</p>
+<p>值得注意的是以上合约可由代理管理员（Proxy Admin）和持有者（Owner）进行修改。此外，Scroll 还设置了白名单功能，可以改变特定地址在 Scroll 的gas费。Scroll的排序器目前是中心化的，可以审查 Scroll 网络的消息和交易，并且有可能跳过消息队列中的任何消息直接最终确认某一消息。</p>
+<h4 id="2-scroll-zkevm工作流程"><strong>2.  Scroll zkEVM工作流程</strong></h4>
+<p>Scroll 生成区块后，会经过协调器（Coordinator）和多个证明器（Roller）后生成聚合证明，然后提交给以太坊上的 Rollup 合约进行验证。详细过程如下：</p>
+<p><img src="https://img.bibiqing.com/news/2023/1025/2_h694hkiszf.png" alt="Scroll会带动Layer2新浪潮吗？以及你不得不知晓的zkEVM电路与审计知识"></p>
+<p>1、排序器获得新的交易后，虚拟机会读取该笔交易相关的字节码，生成对应的执行踪迹(Execution Trace)并将其发送给协调器。同时，排序器还将交易数据提交给Rollup合约。</p>
+<p>2、Roller先将从协调器接收到的执行踪迹转化为 zkEVM 电路。每一步执行踪迹都有对应的 zkEVM 电路，此处对于某些zk不友好的函数（hash，Keccak），Scroll 通过构建查找表，将执行踪迹中此类函数的输入和输出映射到查找表，利用额外的电路来验证查找表的正确性。随后 Roller 为这些 zkEVM 电路生成对应的证明。</p>
+<p>3、在生成证明后，Roller 将其发送回协调器。每经过若干个区块，协调器将聚合任务随机分配给某一 Roller，然后该 Roller 将若干个区块的证明聚合成单个证明。</p>
+<p>4、最后，协调器将聚合证明提交给 Rollup 合约，Rollup合约再根据聚合证明来验证之前提交给 Rollup 合约的状态和交易数据，确定区块的正确性。</p>
+<h3 id="scroll-zkevm电路与审计"><strong>Scroll zkEVM电路与审计</strong></h3>
+<h4 id="1-主要电路"><strong>1.  主要电路</strong></h4>
+<p>zkEVM 由许多电路组成，每个电路负责检查EVM的某个方面。这些电路最后以某种方式进行聚合或组合，共同完成交易执行的证明。下图显示了这些电路和表格之间的关系：</p>
+<p><img src="https://img.bibiqing.com/news/2023/1025/2_veguz2c2g1.png" alt="Scroll会带动Layer2新浪潮吗？以及你不得不知晓的zkEVM电路与审计知识"></p>
+<p>其中有一些较小的子电路，例如 ECDSA 电路和操作码相关的子电路，不会以影响电路的组合方式与其他表和电路交互，因此为了清楚起见，它们没有在图中显示。</p>
+<p><strong>EVM Circuit</strong></p>
+<p>以太坊虚拟机（Ethereum Virtual Machine，简称EVM）是一个状态机，它定义了以太坊协议中有效状态转换的规则。这意味着它规定了一个确定性函数，根据当前的EVM状态计算下一个有效的EVM状态。EVM的执行部分使用操作码（opcodes）来实现这些状态转换，从而产生执行轨迹（Execution trace）。EVM电路的目标是构建与执行轨迹相对应的约束系统，可以通过后端的零知识证明系统进行证明。</p>
+<p>EVM电路的高级设计思想在某种程度上类似于EVM本身的设计（例如go-ethereum）。在go-ethereum中，解释器循环遍历执行轨迹上的所有指令操作码。在每个指令中，解释器帮助检查相关的上下文信息，如gas、堆栈、内存等，然后将操作码发送到JumpTable，从中获取该操作码应执行的详细操作。</p>
+<p>类似地，在EVM电路中，Scroll 根据执行轨迹中的步骤构建执行步骤，并为操作码和执行上下文提供证明。对于每个执行步骤，会施加一组约束来检查上下文信息。对于每个操作码，会施加一组约束来检查操作码的行为。在执行轨迹中，相同的操作码应具有相同的约束。Scroll使用选择器来“打开”执行轨迹中相同操作码的所有步骤，并使用后端的证明系统证明它们的行为。</p>
+<p><strong>State Circuit</strong></p>
+<p>在执行过程中，EVM 的所有读写操作都记录在 rw_table中，并按计数器变量 rw_counter排序。而state Circuit的目的就是证明正确的生成了rw_table。</p>
+<p><strong>MPT Circuit</strong></p>
+<p>Merkle Patricia Tree 是以太坊存储层使用的关键数据结构之一。在 Scroll 的 zkevm- Circuits 中，将原始 MPT 修改为zkTrie，它本质上是一个稀疏二进制 Merkle Patricia Trie。在 zkevm- Circuits 中，Scroll 使用 MPT 表来逐步跟踪 MPT 操作的状态转换。MPT 表具有以下表布局：</p>
+<p><img src="https://img.bibiqing.com/news/2023/1025/2_7rdy3yh7jy.png" alt="Scroll会带动Layer2新浪潮吗？以及你不得不知晓的zkEVM电路与审计知识"></p>
+<p>MPT 电路的目标是验证上述 MPT 表的正确性，即确保MPT表中记录的每次更新都会导致正确的更改。为了实现这个目标，MPT 电路使用约束系统来强制执行 MPT 的唯一更改。这意味着对于 MPT 表中的每个更新，MPT 电路会确保只有一种可能的更改方式。这样可以防止意外或非法的更改，并确保 MPT 的完整性和正确性。特别地，当 MPT 由于帐户或存储的更新而发生更改时，MPT 电路必须证明这次更新会导致正确的根更改。这意味着 MPT 电路需要验证更新操作是否按照规定的规则进行，并且确保根哈希正确地反映了所有更改的结果。</p>
+<p><strong>Keccak Circuit</strong></p>
+<p>Scroll 在遵循NIST Keccak 规范、Keccak 团队 Keccak 规范的条件下实现了他们自己的Keccak256。</p>
+<p>而 Keccak 电路则用于证明 Keccak256 运算结果的正确性。这部分电路的实现复杂，主要因为 keccak256 算法本身就是zk-unfriendly的。</p>
+<p><strong>Tx Circuit</strong></p>
+<p>Tx电路提供了验证交易正确性的约束条件。它主要检查交易的以下几个方面：</p>
+<p>1. CallDataLength和累积CallDataGasCost的正确性：通过自定义门和查找tx表中tx的最后一行call data字节；</p>
+<p>2. TxSign和TxHash相关数据的正确性：通过查找RLP表和Keccak表；</p>
+<p>3. 证明 “若tx_type为L1Msg，则msg_hash” 的正确性：通过查找RLP表进行验证；</p>
+<p>4. 通过ECDSA正确执行tx签名，并且能够正确的从ECDSA签名中恢复调用者地址：通过查找sig表进行验证；</p>
+<p>5. tx id、cum_num_txs和call_data_length等的正确过渡行为。</p>
+<p>6.  一些基本约束，如一些指示变量的布尔值等。</p>
+<p><strong>Bytecode Circuit</strong></p>
+<p>EVM 电路需要查找存储正确字节码信息的字节码表。这确保了合约中存储的字节与表中加载的字节相同。而字节码电路的目的是约束上述字节码表的正确性。这包括：</p>
+<p>1.  与标签（tag）的边界行为相关的约束：首行和末行的约束条件，从tag==byte转换到header以及反之的转换，从header转换到header的转换；</p>
+<p>2.  约束代码大小：包括通过约束字节码的最后一个字节的索引来计算字节码的长度；</p>
+<p>3.  约束代码哈希：对代码哈希中字节的RLC行为进行正确约束，并通过查找Keccak表来验证代码哈希；</p>
+<p>4.  确保PUSH行为的正确性：is_code = push_data_left == 0（必须是布尔值），并通过查找push_table来确保PUSH1-PUSH32的推送数据大小；</p>
+<p>5.  确保在一个字节码中每行的正确传播。</p>
+<h4 id="2-安全审计"><strong>2.  安全审计</strong></h4>
+<p>不同的链拥有各自的自定义业务模块功能，这些模块通常会修改EVM中的预编译合约以及操作码，其中 Scroll zkEVM 作为一种基于零知识证明的二层扩容方案，该方案使用电路重构了相关操作码并根据执行跟踪生成证明，这个复杂的实现极大增加了审计难度。Beosin安全专家评估后认为，目前 zkEVM 安全审计主要分为以下几个方面：</p>
+<p>1.  GAS：zkEVM 电路在生成执行跟踪对应的证明时，会同时校验交易耗费gas的正确性。如果在操作码的实现电路中高频次地使用没有约束的自由变量，可能导致证明生成失败或其他未知错误。</p>
+<p>2.  内存安全：部分 zkEVM 电路实现的数学基础是多项式承诺，如 Scroll 使用的KZG承诺。而多项式计算不会自动对齐，因此如果电路缺乏约束会导致取值域与计算机程序中的字节范围不一致，在部分合约开发者开启了gas优化的情况下，数据的紧凑排列可能导致内存安全问题，如 Polygon zkEVM 中的BYTE_C4096常数多项式。多项式允许参数的取值范围超过字节的最大取值范围255，这在一些采取AMM模式的交易所中，可能导致恶意的Sequencer伪造参数获利。本质上，这一类的漏洞都是由于电路表示的数值有效范围与程序的变量取值范围不一致导致的，如Beosin安全研究员在Snarkjs库中发现的漏洞CVE-2023-33252。</p>
+<p>3.  操作码安全：zkEVM 操作码实现时，存在普遍的欠约束等安全问题，尤其是精度问题。例如底层电路在实现两个数的比较时，如果程序中比较运算的精度为1个字节，那么电路约束需要规定取值范围，否则电路中运算的精度将远超程序精度，导致结果错误。</p>
+<p>4.  安全EIP支持：EIP-2、EIP-155等安全类eip的支持。</p>
+<p>5.  Sequencer中心化问题：目前 Scroll 生成的证明全部依赖Sequencer生成的执行跟踪，如果Sequencer作恶，zkEVM 无法保护用户资产安全。</p>
+<p>6.  兼容性问题：zkEVM 根据执行踪迹生成电路证明并在合约验证，即使Sequencer进行微小的升级，也可能导致底层语言级别生成的执行踪迹存在较大差异。</p>
+<h3 id="scroll的未来展望"><strong>Scroll的未来展望</strong></h3>
+<p>1.  Scroll 目前采用了两层KZG版本的Halo2证明系统，使用GPU硬件加速加快证明生成的速度，目前瓶颈转移到了见证生成和复制数据这部分。此外，Roller 的中心化程度和硬件运行费用也是 Scroll 在未来发展多阶段证明系统需要考虑的部分。</p>
+<p>2.  因为EVM执行踪迹是动态变化的，会存在各种各样的电路约束和规模。目前为满足动态变化执行踪迹，每步执行踪迹都需要满足最大的电路规模，造成额外的内存浪费。</p>
+<p>3.  Scroll 的 Roller 目前预计通过网络交易费用获利，然而当前 Scroll 网络的用户数和交易费用无法满足 Roller 和排序器的运行费用。在未来，Scroll 网络如何进行经济激励以吸引用户和维持网络稳定运行是一个需要思考的问题。</p>
+<p><strong>目前，Beosin也已支持zk项目的审计，我们对zk相关的硬核安全研究，可阅读下面文章：</strong> 1、三种针对ZK基础算法Groth16的攻击手法分享；2、深入探究 Tornado.Cash，揭示zkp项目的延展性攻击。</p>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/61847/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">RWA会是香港的一次转型机会吗？</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/61870/">
+                <span class="next-text nav-default">SignalPlus波动率专栏(20231025)：价格整盘，波动率下跌</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#带动layer2新浪潮的scroll-是谁"><strong>带动Layer2新浪潮的Scroll 是谁？</strong></a></li>
+        <li><a href="#scroll-zkevm电路与审计"><strong>Scroll zkEVM电路与审计</strong></a></li>
+        <li><a href="#scroll的未来展望"><strong>Scroll的未来展望</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

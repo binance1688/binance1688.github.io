@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          链下转移：比特币资产协议的演进之路 - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="本文希望通过回顾BTC历史上出现过的资产协议，探寻BTC资产协议发展的未来。" />
+<meta name="keywords" content="BTC, RGB, Lightning, Prime Trust, Taproot Assets" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/62620/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="链下转移：比特币资产协议的演进之路" />
+<meta property="og:description" content="本文希望通过回顾BTC历史上出现过的资产协议，探寻BTC资产协议发展的未来。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/62620/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-11-06T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-11-06T00:00:00+00:00" />
+
+<meta itemprop="name" content="链下转移：比特币资产协议的演进之路">
+<meta itemprop="description" content="本文希望通过回顾BTC历史上出现过的资产协议，探寻BTC资产协议发展的未来。"><meta itemprop="datePublished" content="2023-11-06T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-11-06T00:00:00+00:00" />
+<meta itemprop="wordCount" content="10655">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="链下转移：比特币资产协议的演进之路"/>
+<meta name="twitter:description" content="本文希望通过回顾BTC历史上出现过的资产协议，探寻BTC资产协议发展的未来。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">链下转移：比特币资产协议的演进之路</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-11-06">
+      2023-11-06
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 10655 字 -
+        预计阅读 22 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E6%AF%94%E7%89%B9%E5%B8%81/"> 比特币 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>作者：Ben77，来源：Mirror</p>
+<h2 id="前言">前言</h2>
+<p>基于 BTC 去做资产发行，一直都是一个热点话题。从最早在 2011 年出现的 Colored Coins 到近来大火的 Ordinal 协议，BTC 社区其实总能涌现出新的玩家和共识，但是能留下的寥寥无几。但随着野心勃勃的 Lightling Labs 宣布自己在 Taproot Assets 至上构建 Stable Coin 的计划，Tether 也宣布将选择 RGB 进行 USDT 在比特币一层的铸造。</p>
+<p>这代表着曾经名噪一时的OmniLayer(Mastercoin)不再是BTC生态最大的玩家，客户端验证(CSV)资产协议由开始进入大家的视野，与传统的BTC资产协议的不同在于，它们还带上了为BTC扩容的属性。但是面对BTC生态如此繁多的资产协议，人们不禁要问，他们的差别在哪里，面对如此众多的资产协议，我们该如何去选择和并且从中找到自己的机会。本文希望带着大家通过回顾BTC历史上出现过的资产协议，也探寻BTC资产协议发展的未来。</p>
+<h2 id="染色币colored-coins">染色币：Colored Coins</h2>
+<p>Colored Coins的想法最早由Yoni Assia，现eToro的CEO在2012年3月27日的编写的一篇名为bitcoin 2.X (aka Colored bitcoin)文章提出。 文章认为比特币作为底层技术是完美的，就像HTTP是网络的基础一样。因此在复用BTC的基础上去设计了Colored Coins这个代币协议。</p>
+<p>Yoni Assia希望通过这样的形式创建BTC2.0的经济-任何社区都可以通过这种方式来创建多种货币。这种将比特币作为底层技术用于清算交易和避免双重支付的方式在当时无疑于是非常大胆的想法。</p>
+<p>Colored Coins作为一种基于比特币发行资产的协议，其做法就是将一定数量的比特币“上色”以表示这些资产。这些标记的比特币在功能上仍然是比特币，但它们同时也代表了另一个资产或价值。但是这样的想法该如何在比特币上实现呢？</p>
+<p>2014 年 7 月 3 日，ChromaWay 开发了增强型基于填充订单的着色协议（EPOBC），该协议简化了开发人员制造彩色硬币的过程，这便是最早采用 Bitcoin Script 的<code>OP_RETURN</code>功能的协议。</p>
+<p>最终实现的效果如下图所示：</p>
+<p><img src="https://img.bibiqing.com/news/2023/1106/6_zi0wcdissv.png" alt="链下转移：比特币资产协议的演进之路"></p>
+<p>这样的实现非常简洁，但是由此也带来了很多问题：</p>
+<p><strong>1.同质化代币与最小绑定值</strong></p>
+<p>在创世交易中为某个染色币绑定了1000 sat，则该染色币的最小分裂单位为1 sat。这意味着该资产或代币可以被切分或分配为最多1000份（但是仅为理论上的，为了防止粉尘攻击，比如当年的sat都定在546 SAT，后面到ordinal则是更高）。</p>
+<p><strong>2.验证问题</strong></p>
+<p>为了确定染色币的真实性和其所有权，需要从该资产的创世交易追踪验证到当前的UTXO。因此需要专门开发钱包与配套的全节点，甚至是浏览器。</p>
+<p><strong>3.潜在的矿工审查风险</strong></p>
+<p>因为ColoredTransaction的特征较为明显，即在output中写入了metadata信息，这给矿工审查带来了可能性。</p>
+<p>染色币实际上是一种资产跟踪系统，它使用比特币的验证规则来追踪资产转移。不过，为了证明任何特定的输出（txout）代表某一特定资产，需要提供一整条从资产起源到现在的转移链。这意味着验证某笔交易的合法性可能需要很长的证明链。为了解决这个问题当初也是有人提出了OP_CHECKCOLORVERIFY来帮助在btc上直接对Colored Coins的交易正确性进行验证，但是该提案也并没有通过。</p>
+<h2 id="加密行业的第一个icomastercoin">加密行业的第一个ICO：Mastercoin</h2>
+<p>Mastercoin 的最初概念由 J.R. Willett 提出。在2012年，他发布了一个名为&quot;The Second Bitcoin Whitepaper&quot;的白皮书，描述了在比特币的现有区块链上创建新的资产或代币的概念，这后来被称为“MasterCoin”。而再后来则改名为Omni Layer。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1106/6_lsj64zlsk7.png" alt="链下转移：比特币资产协议的演进之路"></p>
+<p>Mastercoin项目在2013年进行了一个初步的代币销售（今天我们称之为ICO或初始代币销售），并成功筹集了数百万美元，这被认为是历史上第一个ICO。Mastercoin最著名的应用则是Tether (USDT)，作为最知名的法币稳定币，最初是在Omni Layer上发行的。</p>
+<p>其实Mastercoin的想法是要比Colored Coins出现得要早的，之所以在这里放在第二个去讲，是因为相对于Colored Coins来说，MasterCoin是一个相对来说更重的方案。MasterCoin建立了一个完整的节点层，从而提供了更为复杂的功能（如智能合约），Colored Coins则更加简单和直接，主要侧重于“染色”或标记比特币UTXO，以代表其他资产。</p>
+<p>与Colored Coins最大的不同是，在链上Mastercoin只会去发布各种类型的交易行为，而不会记录相关的资产信息。在Mastercoin的节点中，会通过扫描比特币区块来维护一个状态模型的数据库在链下的节点中。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1106/6_28chlfflwu.png" alt="链下转移：比特币资产协议的演进之路"></p>
+<p>相对于Colored Coins来说，其能完成的逻辑要更加复杂。并且由于不在链上记录状态和进行验证，所以其交易之间可以不要求连续（持续染色）。</p>
+<p>但为了实现Mastercoin的复杂逻辑，用户需要去相信节点中的链下数据库中的状态，或者自己允许Omni Layer节点来进行验证。</p>
+<h2 id="总结">总结</h2>
+<p>Mastercoin与Colored Coins最大的差异在于，其没有选择在链上维护协议所需的所有数据，而是通过寄生了BTC的共识系统，来实现了自己交易发布和排序，然后在链下数据库中维护状态。</p>
+<p>据OmniBolt的相关提供的消息：Omni Layer正在向泰达提出新UBA(UTXO Based Asset)资产协议，会利用Taproot升级，把资产信息编入tapleaf，从而做到条件支付等功能。与此同时OmniBolt正在将Stark引入OmniLayer的闪电网络设施。</p>
+<h3 id="客户端验证client-side-validation思想">客户端验证(Client Side Validation)思想</h3>
+<p>如果我们要去了解客户端验证的概念，那么我们就要把时间拉回到Colored Coins和Mastercoin出现的第二年，那便是2013年。Peter Todd在这一年发布文章：<strong>Disentangling Crypto-Coin Mining: Timestamping, Proof-of-Publication, and Validation</strong> 。虽然看文章名字上去和客户端验证没有关系，但是仔细阅读便可以发现这便是最早关于客户端验证的启蒙思想。</p>
+<p>Peter Todd是比特币和密码学的早期研究者，一直在寻找一种使比特币工作方式更高效的方法。他基于时间戳的概念开发了一个更为复杂的客户端验证概念。此外，他还提出了“<strong>single use seal</strong> ”的概念，这将在后面有所提及。</p>
+<p>现在让我们顺着Peter Todd的思想，先要去了解BTC实际上解决了什么样的问题。在Peter todd看起来BTC总共解决了三个问题：</p>
+<p><strong>1.</strong> <strong>证明的发布（Proof-of-publication）</strong></p>
+<p>证明的发布本质是解决双花问题，比如Alice有一些比特币想要转给Bob，虽然通过签署了一笔交易转账给了Bob，所以Bob在物理上并不一定知道有这么一笔转账的存在。所以我们需要一个公共的地方进行交易的发布，并且每个人可以从中对交易进行查询。</p>
+<p><strong>2.</strong> <strong>交易定序（Order consensus）</strong></p>
+<p>在计算机系统，并不存在我们平常感受的物理时间。在分布式系统这个时间通常是分布式时钟lamport，这个时钟并不是为我们的物理时间提供度量，而是为我们的交易进行定序。</p>
+<p><strong>3.交易验证（Validation）（可选项）</strong></p>
+<p>BTC上的验证便是关于签名和BTC转账金额的验证。但是在这里，Peter Todd认为这个验证对于在BTC之上构建一个代币系统是非必要的，只是一个优化选项。</p>
+<p>大家看到这里其实已经想到之前提到的Ominilayer，OminiLayer本身并没有把状态的计算和验证交给BTC，但是它同样复用了BTC安全性。Colored Coins则是把状态的追踪交给了BTC。这两者的存在已经证明了验证并不一定要发生在链上。</p>
+<h2 id="那么客户端验证如何有效验证交易">那么客户端验证如何有效验证交易？</h2>
+<p>首先来看看哪些东西是需要被验证的：</p>
+<ol>
+<li>
+<p>状态（交易逻辑验证）</p>
+</li>
+<li>
+<p>输入TxIn是否有效（防止双花）</p>
+</li>
+</ol>
+<p>很容易可以发现在btc上发布的资产，每次交易都需要校验整个相关的交易的历史，才能确保引用的输入是没有被消费并且状态是正确的。这非常不合理，那么如何去改进呢？</p>
+<p>Peter Todd认为，我们可以通过改变验证的焦点来简化这一过程。而不是确认一个输出没有被双重支出，这个方法重点放在了确认交易的输入已被发布，并且没有与其他输入冲突。通过对每个区块中的输入进行排序和使用Merkle树，可以更高效地进行这种验证，因为每次验证都只需要一小部分的数据，而不是该输入的整个链上的历史。</p>
+<p>Peter Todd提出的commitment tree结构如下：</p>
+<p><code>CTxIn -&gt; CTxOut -&gt; &lt;merkle path&gt; -&gt; CTransaction -&gt; &lt;merkle path&gt; -&gt; CT= xIn</code></p>
+<p>但是我们该如何在链上存储这样一个commitment tree呢？所以在这里我们就可以引出一次性密封（single use seal）的概念了。</p>
+<h2 id="一次性密封-single-use-seal">一次性密封 Single Use Seal</h2>
+<p>Single use seal是理解客户端验证的核心概念之一，这与实际世界中用于保护货运集装箱的物理、单次使用的密封相类似。Single use seal是一个独特的对象，可以确切地在一个消息上关闭一次。简言之，一次性密封是一个抽象的机制，用于防止双花。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1106/6_ik5lg1vomc.png" alt="链下转移：比特币资产协议的演进之路"></p>
+<p>对SealProtocol来说，有三个要素，两个动作。</p>
+<p><strong>基础要素：</strong></p>
+<ul>
+<li>
+<p>l： seal, 即是密封</p>
+</li>
+<li>
+<p>m： message, 消息</p>
+</li>
+<li>
+<p>w：witness, 见证人</p>
+</li>
+</ul>
+<p><strong>基本操作</strong> ：有两个基础操作：</p>
+<ul>
+<li>
+<p>Close(l,m) → w：在消息m上关闭密封l，产生一个证人w。</p>
+</li>
+<li>
+<p>Verify(l,w,m) → bool：验证密封l是否在消息m上被关闭。</p>
+</li>
+</ul>
+<p>single use seal的实现在安全性方面是<strong>无法被攻击者找到两个不同的消息m1和m2，并使得Verify函数对同一个密封返回true</strong> 的。</p>
+<p>首先一次性密封（Single-Use Seal）是一个概念，它确保某种资产或数据只被使用或锁定一次。在比特币的环境中，这通常意味着一个UTXO（未使用的交易输出）只能被消费一次。因此，比特币交易的输出可以被看作是一次性密封，而当这个输出被用作另一个交易的输入时，该密封就被“打破”或“使用”了。</p>
+<p>对于在BTC上的CSV资产来说，比特币自己就充当了单次密封的“见证人”（witness）。这是因为，为了验证一个比特币交易，节点必须检查交易的每个输入是否引用了一个有效且尚未花费的UTXO。如果一个交易试图双重花费一个已经被使用的UTXO，那么比特币的共识规则和全网的诚实节点会拒绝该交易。</p>
+<p><strong>能不能再简单一点？</strong></p>
+<p><strong>single use seal</strong>  就是把任意一个区块链当作一个数据库，我们将某个消息的承诺通过某种方式存入这个数据库里，并且为它维护一个已消费或者待消费的状态。</p>
+<p>是的，就是这么简单。</p>
+<p>综上所述，客户端验证的资产有以下特点：</p>
+<ol>
+<li>
+<p><strong>链下数据存储</strong> ：客户端验证的资产其交易历史、所有权和其他相关数据大多数都存储在链下。这大大减少了链上的数据存储需求，并有助于提高隐私。</p>
+</li>
+<li>
+<p><strong>承诺机制</strong> ：虽然资产数据存储在链外，但对这些数据的更改或转移会通过承诺（commitments）被记录到链上。这些承诺使得链上的交易能够引用链外的状态，从而确保链外数据的完整性和不可篡改性。</p>
+</li>
+<li>
+<p><strong>链上见证者（不一定是BTC）</strong> ：虽然大部分数据和验证都在链外，但通过嵌入到链上的承诺，客户端验证的资产仍然可以利用基础链的安全性（证明的发布，交易的排序）。</p>
+</li>
+<li>
+<p><strong>验证工作在客户端完成</strong> ：大部分验证工作都在用户设备上完成。这意味着不需要全网节点都参与验证每笔交易，只有涉及到的参与者需要验证交易的有效性。</p>
+</li>
+</ol>
+<p>对于使用客户端验证资产的人来说，还会有一点需要注意：</p>
+<p>在链下交易和验证客户端验证的资产的时候，不仅要出示持有资产的私钥，也要同时出示对应资产的完整的merkel路径的证明。</p>
+<h3 id="客户端验证csv的先行者rgb">客户端验证（CSV）的先行者：RGB</h3>
+<p>RGB的概念在2015后由社区中的知名人物Giacomo Zucco提出，由于以太坊的兴起和ICO开始泛滥，以及在ICO之前，许多人都尝试在比特币之外做一些事情，如Mastercoin和Colored Coins项目。</p>
+<p>Giacomo Zucco对此表示失望。他认为这些项目都不如比特币，并且他认为之前在比特币上实现代币的方式都不恰当。在此过程中，他遇到了Peter Todd，对Peter todd在客户端验证(Client-Side-Validation)的想法开始着迷。便开始提出了RGB的想法。</p>
+<p>RGB同此前的资产协议的最大的区别除了之前提到的客户端验证资产的那些特点，还增加了执行的VM来进行图灵完备的合约执行引擎。此外为了保证合约数据的安全性，还设计了Schema和Interface。Schema和以太坊的比较相似，声明合约的内容和功能，而Interface则负责具体功能的实现，与编程语言中的interface一样。</p>
+<p>这些合约的schema负责在vm执行的时候限制没有超出预期的行为，比如RGB20和RGB21，分别负责同质化代币和非同质化代币在交易上的一些限制。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1106/6_9sasfo8v1d.png" alt="链下转移：比特币资产协议的演进之路"></p>
+<h3 id="rgb的承诺机制-perdersenhash">RGB的承诺机制 PerdersenHash</h3>
+<p>从承诺机制来看，RGB采用了Perdersen哈希。它的优点在于可以承诺某个值而不用披露它。将 Pedersen 哈希用于构建 Merkle 树意味着你可以创建一个隐私保护的 Merkle 树，它可以隐藏其中的值。这种结构可用于某些特定的隐私保护协议中，如一些匿名加密货币项目。但是也许并不适用于CSV资产，在后面和Taproot Assets的对比里会提到。</p>
+<h3 id="rgb的虚拟机设计-simplicity--aluvm">RGB的虚拟机设计 Simplicity → AluVM</h3>
+<p>RGB的目标不仅在于实现一个客户端验证的资产协议，更在于在扩展到图灵完备的虚拟机执行和合约编程进行扩展。在早期的RGB的设计中，它声称自己是用一个叫Simplicity的编程语言，该语言的特点是在执行表达式的时候会产生一个执行证明，并且能对其编写的合约更容易去做形式化验证（避免产生bug）。但是该语言的开发并不理想，最后陷入了困境。这最后直接导致了当年RGB整个协议难产。最后RGB开始使用一个叫AluVM，由Maxim开发的VM，目标是避免任何未定义的行为，这和最初的Simplicity类似。 新的AluVM据称在未来会使用一门叫Contractum的编程语言来替换当下使用的Rust。</p>
+<h3 id="rgb-layer2扩容方向闪电网络还是侧链">RGB layer2扩容方向：闪电网络还是侧链？</h3>
+<p>客户端验证资产没有办法在链下保证安全的情况下连续交易的。因为客户端验证的资产还是依赖L1去进行交易发布和定序，所以在没有L2扩容方案的时候，其交易速度还是会受到其L1见证者的出块速度限制。这代表如果直接在比特币上进行RGB的交易，在严格的安全要求下，两笔相关的交易的时间需要最长间隔十分钟(BTC的出块时间)。毫无疑问，在大部分的时候这样的交易速度是难以接受的。</p>
+<h3 id="rgb与闪电网络">RGB与闪电网络</h3>
+<p>闪电网络的原理简单来说，就是交易的双方之间会在链下签一堆合同(承诺交易)，用于保证交易双方中任何一方在违背合同的情况下，被侵害的一方能够把合同(承诺交易)递交到BTC进行结算，取回自己的资金并惩罚对方。也就是说闪电网络是通过协议和博弈的设计，保证在链下交易的安全性。</p>
+<p>RGB可以通过设计适用于RGB自己的支付通道合同细则来构建自己的闪电网络设施，但闪电网络的复杂度极高，构建这套设施并不是容易的事。但相对于Lightnling labs已经在这个领域的多年耕耘，并且LND在市场上有着超过90%的占有率。</p>
+<h3 id="rgb的侧链-prime">RGB的侧链 Prime</h3>
+<p>LNP-BP作为当下RGB协议的维护者，Maxim在2023年6月发布了一篇提案叫**Prime**的客户端验证资产扩容方案，并在其中批评了现有的侧链和闪电网络扩容方案在开发方面太复杂。Maxim表示他认为除了Prime以外的扩展方式还有NUCLEUS多节点闪电通道和Ark/Enigma通道工厂,这两个方案都需要开发两年以上。但是Prime仅需要一年便可以完成。</p>
+<p>Prime并非传统意义上的区块链设计，而是一个为客户端验证设计的模块化证明发布层，其由四个部分组成:</p>
+<ol>
+<li>
+<p>时间戳服务<br>
+最快10秒最终确定一个交易序列。</p>
+</li>
+<li>
+<p>证明<br>
+通过PMT形式存储与区块头一同生产和发布。</p>
+</li>
+<li>
+<p>一次性密封<br>
+抽象的单次密封协议，保证防双花即可。在比特币上实现，则是可以绑定到UTXO，与当下RGB设计类似。</p>
+</li>
+<li>
+<p>智能合约协议<br>
+分片合约-RGB (可替换)</p>
+</li>
+</ol>
+<p>从中其实可以看到，为了解决RGB交易确认时间的问题，Prime采用了一个时间戳服务来快速将链下的交易确认，并且将交易和ID装入区块中。并且于此同时可以把prime上的交易证明进一步通过PMT合并后再以类似checkpoint的方式锚定上BTC。</p>
+<h3 id="基于-taproot-的-csv-资产协议taproot-assets">基于 Taproot 的 CSV 资产协议：Taproot Assets</h3>
+<p>Taproot Assets是基于Taproot的CSV资产协议，用于在比特币区块链上发行客户端验证的资产，这些资产可以通过闪电网络进行即时、大容量、低费用的交易。Taproot Assets 的核心是利用比特币网络的安全性和稳定性以及闪电网络的速度、可扩展性和低费用。该协议是由Lightnling labs的CTO roasbeef设计并开发，roasbeef可能是这个星球上唯一亲自主导过比特币客户端（BTCD）和闪电网络客户端（LND）的比特币研发，对BTC的理解极深。</p>
+<p>Taproot交易只携带了资产脚本的根哈希，使得外部观察者难以辨识是否涉及Taproot Assets，因为哈希本身是通用的，能代表任意数据。随着Taproot升级，比特币获得了智能合约（TapScript）的能力。在此基础上，Taproot Assets的资产编码相当于创建了一个与ERC20或ERC721相似的代币定义。这样，比特币不仅拥有了资产定义的功能，还具备了智能合约的编写能力，从而为比特币打下了代币智能合约基础架构的雏形。</p>
+<p>Taproot Assets编码结构如下：</p>
+<p><img src="https://img.bibiqing.com/news/2023/1106/6_2ubiwlbu9w.png" alt="链下转移：比特币资产协议的演进之路"></p>
+<p>图片来自 Lightning Labs CTO roasbeef</p>
+<p>同样作为CSV资产协议，Taproot Assets相对于RGB的设计更加简洁。并且最大利用了当下BTC生态的进展，比如Taproot升级，PSBT等。Taproot Assets在应用扩展性上同RGB最大的差异在于执行VM，Taproot Assets使用的是和BTC原生默认相同的TaprootScriptVM。近些年许多针对BTC的基础设施研究都是基于TapScript进行的，但受限于BTC的升级缓慢在短时间内得不到应用，可预见Taproot Assets未来会是这些新鲜想法的试验田。</p>
+<h2 id="taproot-assets和rgb的差异在哪里">Taproot Assets和RGB的差异在哪里？</h2>
+<h3 id="1-交易的校验与轻节点友好性">1. 交易的校验与轻节点友好性</h3>
+<p>Taproot Assets由于sum tree的实现，验证效率和安全性高（仅通过持有证明便可以进行验证状态和进行交易，不需要遍历输入所有的交易历史）。RGB使用的pedersen承诺导致其无法有效去验证输入的有效性，导致RGB需要回溯输入的交易历史，交易衍生到后期将会是一个非常沉重的负担。Merkel sum的设计，也让Taproot Assets轻松实现了轻节点验证，这相对于以往在BTC之上的资产协议都不存在的。</p>
+<h3 id="2-执行vm">2. 执行VM</h3>
+<p>Taproot Assets是顺应Taproot升级而生，其使用的TaprootScriptVM是比特币在Taproot升级后自带的脚本执行引擎，并且使用的vPSBT是BTC的PSBT的翻版，这代表一旦Taproot Assets的闪电通道机制开发完成，可以立刻复用所有当前LND的基础设施，还有以往Lightning labs的产品（LND在闪电网络目前的占有率在90%以上）。并且最近火热的BitVM提案都是基于TaprootScript的，理论上所有的这些改进最后都可以助力Taproot Assets。</p>
+<p>但是对于RGB而言它的VM还有验证规则(SCHEMA)都是自成体系的，从某种程度上是一个相对封闭的小生态。基于RGB的构建只能在自己的生态里运转，其和比特币生态的关系都不如大家想象那般紧密。以Taproot升级的跟进举例，RGB和Taproot 升级唯一的关系便是把链上承诺数据编码到Witness的TapLeaf中。</p>
+<h3 id="3-智能合约">3. 智能合约</h3>
+<p>当下RGB的实现设计里，合约和VM是一个被浓墨重彩的部分。但是在Taproot Assets中，暂时没有看到智能合约的身影。不过当下RGB在当下Global State的修改如何跟各个独立合约分片(UTXO)进行同步还没解释。且Pedersen承诺只能对资产总数进行保证，对于别的状态如何保证篡改被识别，目前看起来也没有更多解释。而对于Taproot Assets来讲，虽然设计简洁，但目前对于状态的存储也仅有资产余额，并没有更多状态，暂无法谈智能合约。不过据Lightning Labs透露，明年Taproot Assets将会在智能合约设计上发力。</p>
+<h3 id="4-同步中心">4. 同步中心</h3>
+<p>从之前提到的在客户端验证的资产的基本原则中可以了解到，持有Proof和持有私钥同样重要，但是Proof一直在用户客户端则可能会是容易丢失的，那又该怎么办呢？在Taproot Assets中，我们可以通过universe来避免这样的问题。Universe是一个公开可审计的（MS-SMT），覆盖一个或多个资产。与普通的Taproot资产树不同，Universe不用来托管Taproot资产。相反，Universe承诺了一个或多个资产历史的子集。</p>
+<p>在RGB之中负责这个部分的则是Storm，会把链下的证明数据通过p2p的方式进行同步存储，但是由于RGB的开发团队的历史原因，这些团队的证明格式目前都各不兼容。RGB生态团队DIBA目前则是表示会开发 carbonado 来解决这个问题，不过尚不清楚进度。</p>
+<h3 id="5-工程实现">5. 工程实现</h3>
+<p>Taproot Assets所使用的所有lib都是久经考验的，因为Lightning labs有自己的比特币客户端（BTCD），闪电网络客户端（LND），以及大量<strong>wallet lib</strong> 实现。反观RGB实现所用的lib大部分来自自己定义，从工业标准看RGB的实现尚处于实验室阶段。</p>
+<h2 id="浅谈-btc-扩容的未来">浅谈 BTC 扩容的未来</h2>
+<p>讨论到这里，大家也就发现了客户端验证的资产协议已经脱离了协议的范畴，开始迈向了计算扩容方向。</p>
+<p>很多人都说未来比特币将作为数字黄金去存在，而由其他链去打造应用生态。但是对此，我有不同的看法。就像在btc论坛上很多讨论都是关于各种山寨币(alt-coin)和它们短暂的生命。这些山寨币的快速的消亡，让曾经围绕它们的资本和努力都化为泡沫。我们已经有了比特币这样强大的共识基础，没有必要为了应用协议去构建新的L1。我们要做的就是如何将比特币这个最强的基础设施用好，从而构建一个更长期的去中心化的世界。</p>
+<h2 id="更少的链上计算更多的链上验证">更少的链上计算，更多的链上验证</h2>
+<p>从应用设计来看，比特币很早选择了不是以链上计算为核心目标，而是以验证为主的设计哲学（<strong>Turing completeness and state for smart contract</strong> ）。区块链本质是一个复制状态机，如果一个链的共识放在了链上计算，那么其实我们很难说最后让网络里所有的节点都重复这些计算是合理可扩展的做法。若是以验证为主，那么通过验证链下交易的有效性可能是最适合BTC扩容的方案。</p>
+<h2 id="验证发生在哪里这很重要">验证发生在哪里？这很重要</h2>
+<p>对于在比特币之上的协议开发者而言，如何使用比特币做关键的验证，甚至说是把验证放在链下，如何设计安全方案，其实都是协议设计者自己的事情，不需要也不应该和链本身有所关联。那么如何实现验证，就会衍生出BTC不同的扩容方案。</p>
+<p>那么基于验证实现的视角，我们有三个扩容的方向：</p>
+<ol>
+<li>
+<p><strong>验证发生在链上（OP-ZKP）</strong></p>
+<p>如果在TaprootScriptVM直接去实现OP-ZKP，相当于让BTC本身加入ZKP验证的能力，从而再配合一些Covenant设计结算协议，就可以打造出能够继承BTC的安全性的Zk-Rollup扩容方案。但是不同于在以太坊上部署一个验证合约，BTC的升级本身就缓慢，再加入这样非通用并且可能需要后续升级的op-code注定是艰难的。</p>
+</li>
+<li>
+<p><strong>验证发生在半链上 （BitVM）</strong></p>
+<p>BitVM的设计注定了它不会是为了普通的交易逻辑服务，Robin linus也表明了BitVM的未来是做各个SideChain的自由跨链市场。之所以说BitVM的方案是发生在半链上，是因为大部分时候这些验证计算都不会在链上发生，而是说发生在链下。但是围绕BTC的Taproot去设计的重要原因是为了在必要的时刻也能够利用TapScriptVM进行计算验证，这样也是为了从理论上继承BTC的安全性。在这个过程中也同时产生了一个验证信任链条，比如n个验证人里只要有一个是诚实的就行，也就是<strong>Optimistic Rollups</strong> 。</p>
+<p>BitVM在链上的开销巨大，但是能够使用ZK欺诈证明进行效率提升吗？答案是否定的，因为ZK欺诈证明的实现是建立在链上可以进行ZKP的验证的基础上，这就回到了OP-ZKP方案的困窘。</p>
+</li>
+<li>
+<p><strong>验证发生在链下 （Client-Side-Validation, Lightning Network）</strong></p>
+<p>验证完全发生在链下，那就是之前的讨论过这些CSV的资产协议还有闪电网络了。在之前讨论里可以看到在CSV的设计里，我们没有办法完全杜绝共谋篡改的发生，我们能做的就是利用密码学和协议设计让这种恶意共谋伤害的范围在可控范围内，使得这种行为无利可图。</p>
+<p>在链下验证的优点和缺点同样是非常明显，优点在于对链上的资源占用极少，扩容的潜力巨大。缺点则是几乎不可能去完全复用到BTC的安全性，这就对能进行的链下交易类型和交易方式有了极大的限制。并且链下验证也同时代表数据都在链下，由用户自行保管，这对软件执行环境安全性还有软件的稳定性上提出了更高的要求。</p>
+</li>
+</ol>
+<h2 id="扩容演进的趋势">扩容演进的趋势</h2>
+<p>当下在以太坊流行的Layer2从范式上来讲，是通过Layer1去验证了Layer2的计算有效性，也就是把状态计算下推到了Layer2，但是验证还是保留在Layer1之上。在未来我们可以把验证计算同样下推到链下，进一步释放当下区块链基础设施的性能。</p>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/62645/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">扩容之路百舸争流 OP和ZKRU还有新DA谁是王者？</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/62643/">
+                <span class="next-text nav-default">链游周报 | Stepn为创世鞋持有者空投《Gas Hero》NFT；BIGTIME价格跌超20%</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#前言">前言</a></li>
+    <li><a href="#染色币colored-coins">染色币：Colored Coins</a></li>
+    <li><a href="#加密行业的第一个icomastercoin">加密行业的第一个ICO：Mastercoin</a></li>
+    <li><a href="#总结">总结</a>
+      <ul>
+        <li><a href="#客户端验证client-side-validation思想">客户端验证(Client Side Validation)思想</a></li>
+      </ul>
+    </li>
+    <li><a href="#那么客户端验证如何有效验证交易">那么客户端验证如何有效验证交易？</a></li>
+    <li><a href="#一次性密封-single-use-seal">一次性密封 Single Use Seal</a>
+      <ul>
+        <li><a href="#客户端验证csv的先行者rgb">客户端验证（CSV）的先行者：RGB</a></li>
+        <li><a href="#rgb的承诺机制-perdersenhash">RGB的承诺机制 PerdersenHash</a></li>
+        <li><a href="#rgb的虚拟机设计-simplicity--aluvm">RGB的虚拟机设计 Simplicity → AluVM</a></li>
+        <li><a href="#rgb-layer2扩容方向闪电网络还是侧链">RGB layer2扩容方向：闪电网络还是侧链？</a></li>
+        <li><a href="#rgb与闪电网络">RGB与闪电网络</a></li>
+        <li><a href="#rgb的侧链-prime">RGB的侧链 Prime</a></li>
+        <li><a href="#基于-taproot-的-csv-资产协议taproot-assets">基于 Taproot 的 CSV 资产协议：Taproot Assets</a></li>
+      </ul>
+    </li>
+    <li><a href="#taproot-assets和rgb的差异在哪里">Taproot Assets和RGB的差异在哪里？</a>
+      <ul>
+        <li><a href="#1-交易的校验与轻节点友好性">1. 交易的校验与轻节点友好性</a></li>
+        <li><a href="#2-执行vm">2. 执行VM</a></li>
+        <li><a href="#3-智能合约">3. 智能合约</a></li>
+        <li><a href="#4-同步中心">4. 同步中心</a></li>
+        <li><a href="#5-工程实现">5. 工程实现</a></li>
+      </ul>
+    </li>
+    <li><a href="#浅谈-btc-扩容的未来">浅谈 BTC 扩容的未来</a></li>
+    <li><a href="#更少的链上计算更多的链上验证">更少的链上计算，更多的链上验证</a></li>
+    <li><a href="#验证发生在哪里这很重要">验证发生在哪里？这很重要</a></li>
+    <li><a href="#扩容演进的趋势">扩容演进的趋势</a></li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

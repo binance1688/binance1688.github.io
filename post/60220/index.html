@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          V神最新长文：以太坊协议是否应该封装更多功能？ - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="流动性质押、ZK-EVM 和预编译案例展示了一条中间道路：最小可行封装。" />
+
+  <meta name="keywords" content="区块大全, 区块链, 区块链资讯, 区块链快讯, 区块链新闻, 比特币行情" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/60220/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="V神最新长文：以太坊协议是否应该封装更多功能？" />
+<meta property="og:description" content="流动性质押、ZK-EVM 和预编译案例展示了一条中间道路：最小可行封装。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/60220/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-10-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-10-01T00:00:00+00:00" />
+
+<meta itemprop="name" content="V神最新长文：以太坊协议是否应该封装更多功能？">
+<meta itemprop="description" content="流动性质押、ZK-EVM 和预编译案例展示了一条中间道路：最小可行封装。"><meta itemprop="datePublished" content="2023-10-01T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-10-01T00:00:00+00:00" />
+<meta itemprop="wordCount" content="9635">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="V神最新长文：以太坊协议是否应该封装更多功能？"/>
+<meta name="twitter:description" content="流动性质押、ZK-EVM 和预编译案例展示了一条中间道路：最小可行封装。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">V神最新长文：以太坊协议是否应该封装更多功能？</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-10-01">
+      2023-10-01
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 9635 字 -
+        预计阅读 20 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E5%85%B6%E5%AE%83%E6%96%87%E7%AB%A0/"> 其它文章 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>原文标题：<a href="https://vitalik.eth.limo/general/2023/09/30/enshrinement.html">Should Ethereum be okay with enshrining more things in the protocol?</a></p>
+<p>原文作者：Vitalik Buterin</p>
+<p>Odaily星球日报译者 | 念银思唐</p>
+<p><em>特别感谢 Justin Drake, Tina Zhen 和 Yoav Weiss 的反馈和审查。</em></p>
+<p>从以太坊项目开始，就有一个强烈的理念，即试图使核心以太坊尽可能简单，并通过在其上构建协议来尽可能实现这一点。在区块链领域，“在L1上构建”与“专注于L2”的争论通常被认为主要是关于扩展的，但实际上，在满足多种以太坊用户的需求方面存在类似的问题：数字资产交换、隐私、用户名、高级加密、账户安全、抗审查、抢先交易保护，等等。然而，最近有一些谨慎的想法愿意将更多这些功能封装（enshrine）进核心以太坊协议中。</p>
+<p>这篇文章将深入探讨最初的最小封装哲学背后的一些哲学推理，以及一些最近思考这些想法的方法。目标将是开始建立一个框架，以便更好地确定可能的目标，在这些目标中，封装某些功能可能值得考虑。</p>
+<h2 id="关于协议极简主义的早期哲学">关于协议极简主义的早期哲学</h2>
+<p>在当时被称为“以太坊 2.0 ”的早期历史中，人们强烈希望创建一个干净，简单和美观的协议，该协议尽可能少地尝试通过自身来构建，并将几乎所有这类工作都留给用户。理想情况下，协议只是一个虚拟机，而验证一个区块只是一个虚拟机调用。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1001/1_5rrq95v5lc.png" alt="V神最新长文：以太坊协议是否应该封装更多功能？"></p>
+<p>这是我和 Gavin Wood 在 2015 年初绘制白板图的近似重建，当时我在谈论以太坊 2.0 的样子。</p>
+<p>“状态转换函数”（处理区块的函数）将只是单个 VM 调用，所有其他逻辑将通过合约发生：一些系统级合约，但主要是由用户提供的合约。这个模型的一个非常好的功能是，即使是整个硬分叉也可以被描述为对于区块处理器合约而言的单笔交易，该交易将通过链下或链上治理进行批准，然后以升级的权限运行。</p>
+<p>2015 年的这些讨论特别适用于我们考虑的两个领域：<strong>账户抽象和扩容</strong> 。在扩容的情况下，我们的想法是尝试创建一个最大程度的抽象形式的扩容，感觉就像上面图表的自然扩展。合约可以调用大多数以太坊节点未存储的数据，协议将检测到这一点，并通过某种非常通用的扩展计算功能来解决调用。从虚拟机的角度来看，该调用将进入某个单独的子系统，然后一段时间后神奇地返回正确的答案。</p>
+<p>我们对这种思路进行了简短的探索，但很快就放弃了，因为我们太专注于验证任何类型的区块链扩容都是可能的。尽管我们稍后会看到，数据可用性采样和 ZK-EVM 的结合意味着以太坊扩容的一个可能的未来实际上看起来非常接近这个愿景！另一方面，对于帐户抽象，我们从一开始就知道某种实现是可能的，因此研究立即开始尝试使一些尽可能接近“交易只是一个调用”的纯粹出发点的东西变为现实。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1001/1_izse53dpa9.png" alt="V神最新长文：以太坊协议是否应该封装更多功能？"></p>
+<p><em>在处理交易和从发送方地址发出实际的底层 EVM 调用之间，会出现大量的样板代码，之后还会出现更多的样板代码。我们如何将这些代码尽可能减少到接近于零？</em></p>
+<p>这里的主要代码之一是 validate_transaction(state, tx)，它负责检查交易的 nonce 和签名是否正确。从一开始，帐户抽象的实际目标就是允许用户用自己的验证逻辑替换基本的非增量验证和 ECDSA 验证，这样用户就可以更轻松地使用社交恢复和多签名钱包等功能。因此，找到一种方法将 apply_transaction 重新架构为一个简单的 EVM 调用，这不仅仅是一个“为了使代码干净而使代码干净”的任务；相反，它是关于将逻辑移动到用户的帐户代码中，为用户提供所需的灵活性。</p>
+<p>然而，坚持让 apply_transaction 包含尽可能少的固定逻辑的做法最终带来了很多挑战。我们可以看下最早的帐户抽象提案之一 EIP-86 。</p>
+<p>如果按原样包含 EIP-86 ，它将降低 EVM 的复杂性，代价是大量增加以太坊堆栈其他部分的复杂性，需要在其他地方编写本质上完全相同的代码，除了引入全新的怪异类别之外，例如具有相同哈希值的同一交易可能会在链中多次出现，更不用说多重失效问题了。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1001/1_whth5lbfnk.png" alt="V神最新长文：以太坊协议是否应该封装更多功能？"></p>
+<p><em>账户抽象中的多重失效问题。在链上包含的一笔交易可能会使内存池中的数千笔其他交易无效，从而使内存池很容易被廉价地充斥。</em></p>
+<p>从那时起，帐户抽象分阶段发展。EIP-86 后来变成了 EIP-208 ，最终出现了实际可行的 EIP-2938 。</p>
+<p>然而，EIP-2938 一点也不简约。其内容包括：</p>
+<ul>
+<li>
+<p>新的交易类型</p>
+</li>
+<li>
+<p> 三个新交易范围的全局变量</p>
+</li>
+<li>
+<p>两个新的操作码，包括非常笨拙的 PAYgas 操作码，用于处理 gas 价格和 gas 限制检查，作为 EVM 执行断点，以及临时存储 ETH 以一次性支付费用</p>
+</li>
+<li>
+<p>一组复杂的挖矿和转播策略，包括交易验证阶段禁止的操作码列表</p>
+</li>
+</ul>
+<p>为了在不涉及以太坊核心开发人员（专注于优化以太坊客户端和实现合并）的情况下实现账户抽象，EIP-2938 最终被重新架构为完全是协议外的 ERC-4337 。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1001/1_wewed5sn64.png" alt="V神最新长文：以太坊协议是否应该封装更多功能？"></p>
+<p>ERC-4337 。它确实完全依赖于 EVM 调用！</p>
+<p>因为这是一个 ERC，它不需要硬分叉，并且在技术上存在于“以太坊协议之外”。所以……问题解决了吗？事实证明并非如此。ERC-4337 当前的中期路线图实际上涉及最终将 ERC-4337 的大部分转变为一系列协议功能，这是一个有用的指导示例，可以了解为什么要考虑这条路径。</p>
+<h2 id="封装erc-4337">封装 ERC-4337 </h2>
+<p>有几个关键原因讨论了最终将 ERC-4337 重新纳入协议：</p>
+<ul>
+<li>
+<p><strong>gas 效率</strong> ：在 EVM 内部进行的任何操作都会导致一定程度的虚拟机开销，包括在使用诸如存储槽之类 gas 费昂贵的功能时效率低下。目前，这些额外的低效率加起来至少要消耗 2 万 gas，甚至更多。将这些组件放入协议中是消除这些问题的最简单方法。</p>
+</li>
+<li>
+<p><strong>代码 bug 风险</strong> ：如果 ERC-4337 “入口点合约”有一个足够可怕的 bug，所有与 ERC-4337 兼容的钱包都可能看到他们所有的资金枯竭。用协议内功能取代合约会产生一种隐含的责任，即通过硬分叉修复代码错误，从而消除用户的资金枯竭风险。</p>
+</li>
+<li>
+<p><strong>支持 EVM 操作码</strong> ，如 txt.origin。ERC-4337 本身使 txt.origin 返回将一组用户操作打包到交易中的“捆绑器（bundler）”的地址。原生帐户抽象可以解决这个问题，方法是使 txt.origin 指向发送交易的实际帐户，使其运作方式与 EOA 相同。</p>
+</li>
+<li>
+<p><strong>抗审查</strong> ：提议者/构建者分离的挑战之一是审查单笔交易变得更容易。在以太坊协议可以识别单笔交易的世界中，包含列表可以极大地缓解这个问题，该列表允许提议者指定在几乎所有情况下必须包含在接下来两个插槽中的交易列表。但是协议外的 ERC-4337 将“用户操作”封装在单笔交易中，使得用户操作对以太坊协议不透明；因此，以太坊协议提供的包含列表将无法对 ERC-4337 用户操作提供审查阻力。封装 ERC-4337 ，并使用户操作成为一种“适当的”交易类型，将解决这个问题。</p>
+</li>
+</ul>
+<p>值得一提的是，在目前的形式下，ERC-4337 比“基本”以太坊交易要贵得多：交易成本为 21, 000 gas，而 ERC-4337 的成本约为 42, 000 gas。</p>
+<p>理论上，应该有可能对 EVM gas 成本系统进行调整，直到协议内成本和协议外访问存储的成本相匹配；当其他类型的存储编辑操作更便宜时，转移 ETH 没有理由需要花费 9000 gas。事实上，与即将到来的 Verkle 树转换相关的两个 EIP 实际上试图做到这一点。但是，即使我们这样做了，有一个显而易见的原因可以解释为什么无论 EVM 变得多么高效，封装的协议功能都将不可避免地比 EVM 代码便宜得多：封装代码不需要为预加载支付 gas。</p>
+<p>功能齐全的 ERC-4337 钱包很大，编译并放到链上的这个实现占用了约 12, 800 字节。当然，你可以一次部署这段代码，并使用 DELEGATECALL 来允许每个单独的钱包调用它，但是仍然需要在使用它的每个区块中访问该代码。在 Verkle 树 gas 成本 EIP 下， 12, 800 字节将组成 413 个 chunk，访问这些 chunk 将需要支付 2 倍的 witness branch_cost（总共 3, 800 gas）和 413 倍的 witness chunk_cost（总共 82, 600 gas）。这甚至还没有开始提到 ERC-4337 入口点本身，在 0.6.0 版本中，链上有 23, 689 字节（根据 Verkle 树 EIP 规则，约有 158, 700 个 gas 要加载）。</p>
+<p>这就导致了一个问题：实际访问这些代码的 gas 成本必须以某种方式在交易中分摊。ERC-4337 使用的当前方法不是很好：bundle 中的第一笔交易消耗了一次性存储/代码读取成本，使其比其他交易昂贵得多。协议内封装将允许这些公共共享库成为协议的一部分，所有人都可以免费访问。</p>
+<h2 id="我们能从这个例子中学到什么什么时候更普遍地进行封装">我们能从这个例子中学到什么，什么时候更普遍地进行封装？</h2>
+<p>在这个例子中，我们看到了在协议中封装账户抽象方面的一些不同的基本原理。</p>
+<ul>
+<li>
+<p><strong>当固定成本较高时，“将复杂性推向边缘”的基于市场的方法最容易失败。</strong> 事实上，长期的账户抽象路线图看起来每个区块都有很多固定的成本。244, 100 gas 用于加载标准化钱包代码是一回事；但是聚合可能会为 ZK-SNARK 验证增加数十万的 gas，以及证明验证的链上成本。没有一种方法可以在不引入大量市场低效率的情况下向用户收取这些成本，而将其中一些功能转化为所有人都可以免费访问的协议功能则可以很好地解决这个问题。</p>
+</li>
+<li>
+<p><strong>社区范围内对代码 bug 的响应。</strong> 如果一些代码片段被所有用户或非常广泛的用户使用，那么区块链社区承担硬分叉的责任来修复出现的任何错误通常更有意义。ERC-4337 引入了大量的全局共享代码，从长远来看，通过硬分叉修复代码中的错误无疑比导致用户损失大量 ETH 更合理。</p>
+</li>
+<li>
+<p><strong>有时，可以通过直接利用协议的功能来实现其更强形式。</strong> 这里的关键例子是协议内的抗审查功能，如包含列表：协议内的包含列表可以比协议外的方法更好地保证审查阻力，为了使用户级操作真正受益于协议内的包含列表，单个用户级操作需要对协议“易读”。另一个鲜为人知的例子是， 2017 年时代的以太坊权益证明设计对权益密钥进行了账户抽象，这被放弃了并转而支持封装 BLS，因为 BLS 支持一种“聚合”机制，必须在协议和网络层面实现，这可以使处理大量签名的效率更高。</p>
+</li>
+</ul>
+<p>但重要的是要记住，<strong>与现状相比，即使是封装协议内账户抽象，仍然是一种巨大的“去封装化”</strong> 。如今，顶级以太坊交易只能从外部拥有的账户（EOA）发起，这些账户使用单个 secp 256 k 1 椭圆曲线签名进行验证。帐户抽象消除了这一点，并将验证条件留给用户自行定义。因此，在这个关于账户抽象的故事中，我们也看到了反对封装的最大理由：<strong>灵活地满足不同用户的需求</strong> 。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1001/1_3js87mw3hz.png" alt="V神最新长文：以太坊协议是否应该封装更多功能？"></p>
+<p>让我们通过查看最近被考虑封装的其他几个特征示例来进一步充实这个故事。我们将特别关注：<strong>ZK-EVM，提议者-构建者分离，私有内存池，流动性质押和新的预编译</strong> 。</p>
+<h2 id="封装zk-evm">封装 ZK-EVM</h2>
+<p>让我们把注意力转移到以太坊协议的另一个潜在封装目标：ZK-EVM。目前，我们有大量的 ZK-rollup，它们都必须编写相当相似的代码来验证 ZK-SNARK 中类似以太坊区块的执行。有一个相当多样化的独立实现生态系统：PSE ZK-EVM、Kakarot、Polygon ZK-EVM、Linea、Zeth 等等。</p>
+<p>EVM ZK-rollup 领域最近的一个争议与如何处理 ZK 代码中可能出现的 bug 有关。目前，所有这些正在运行的系统都有某种形式的“安全理事会”机制，可以在出现 bug 的情况下控制证明系统。去年，我试图创建一个标准化的框架，以鼓励项目明确他们对证明系统的信任程度，以及对安全理事会的信任程度，并随着时间的推移，逐渐减少对该组织的权力。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1001/1_swi8mezwhq.png" alt="V神最新长文：以太坊协议是否应该封装更多功能？"></p>
+<p><em>从中期来看，rollup 可能依赖于多个证明系统，而安全理事会只有在两个不同的证明系统产生分歧的极端情况下才有权力。</em></p>
+<p>然而，有一种感觉是，其中一些工作感觉是多余的。我们已经有了以太坊基础层，它有一个 EVM，我们已经有了一个处理实现中 bug 的工作机制：如果有 bug，客户端将进行更新来修复，然后链继续运作。从有 bug 的客户端角度来看，似乎已经最终确认的区块将不再确认，但至少我们不会看到用户损失资金。同样，如果 rollup 只是想保持与 EVM 等同的作用，那么它们需要实施自己的治理来不断更改其内部 ZK-EVM 规则以匹配对以太坊基础层的升级，这感觉是错误的，因为最终它们是在以太坊基础层本身之上构建的，它知道何时升级以及根据什么新规则。</p>
+<p>由于这些L2 ZK-EVM 基本上使用与以太坊完全相同的 EVM，我们能否以某种方式将“验证 EVM 在 ZK 中的执行”纳入协议功能，并通过应用以太坊的社会共识来处理异常情况，如 bug 和升级，就像我们已经为基础层 EVM 执行本身所做的那样？</p>
+<p>这是一个重要而富有挑战性的话题。</p>
+<p>关于原生 ZK-EVM 中数据可用性的一个可能的争论主题是有状态性（statefulness）。如果 ZK-EVM 不需要携带“见证（witness）”数据，它们的数据效率就会高得多。也就是说，如果某个特定的数据已经在之前的某个区块中被读取或写入，我们可以简单地假设证明者可以访问它，并且不必再次使它可用。这不仅仅是不重新加载存储和代码；事实证明，如果一个 rollup 正确地压缩了数据，那么与无状态压缩相比，有状态压缩最多可以节省 3 倍的数据。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1001/1_uldp1thafz.png" alt="V神最新长文：以太坊协议是否应该封装更多功能？"></p>
+<p>这意味着对于 ZK-EVM 预编译，我们有两个选项：</p>
+<p><strong>1.</strong> <strong>预编译要求所有数据在同一区块中可用</strong> 。这意味着 prover 可以是无状态的，但也意味着使用这种预编译的 ZK-rollup 比使用自定义代码的 rollup 要昂贵得多。</p>
+<p><strong>2.</strong> <strong>预编译允许 pointer 指向先前执行使用或生成的数据</strong> 。这使得 ZK-rollup 接近最优，但它更复杂，并引入了一种必须由 prover 存储的新状态。</p>
+<p>我们能从中学到什么？以某种方式将 ZK-EVM 验证封装有一个很好的理由：rollup 已经在构建自己的自定义版本，并且以太坊愿意将其多个实现和链下社会共识的权重置于L1上执行 EVM，这感觉是错误的，但是做完全相同工作的L2必须实现涉及安全理事会的复杂小工具。但另一方面，细节中有一个大问题：有不同版本的 ZK-EVM，它们的成本和收益不同。有状态和无状态的区分只是触及了表面；尝试支持“近 EVM（almost-EVM）”，这些定制代码已经被其他系统证明，这可能会暴露出更大的设计空间。因此，<strong>封装 ZK-EVM 既带来了希望，也带来了挑战</strong> 。</p>
+<h2 id="封装提议者与构建者分离epbs">封装提议者与构建者分离（ePBS）</h2>
+<p>MEV 的兴起使区块生产成为一种大规模经济活动，复杂的参与者能够生产出比默认算法产生更多收入的区块，而默认算法只是观察交易的内存池并包含它们。到目前为止，以太坊社区试图通过使用 MEV-Boost 等协议外的提议者-构建者分离（proposer-builder separation）方案来解决这个问题，该方案允许常规验证者（“提议者”）将区块构建外包给专门的参与者（“构建者”）。</p>
+<p>然而，MEV-Boost 在一个新的参与者类别中进行了信任假设，称为中继（relay）。在过去的两年里，有很多人提议创建“封装 PBS”。这样做的好处是什么？在这种情况下，答案非常简单：通过直接使用协议功能构建的 PBS 比不使用它们构建的 PBS 更强大（在具有更弱的信任假设的意义上）。这与封装协议内价格预言机的情况类似——尽管在这种情况下，也存在强烈的反对意见。</p>
+<h2 id="封装私有内存池">封装私有内存池</h2>
+<p>当用户发送交易时，该交易立即公开并对所有人可见，甚至在它被包含在链上之前。这使得许多应用程序的用户容易受到经济攻击，例如抢先交易。</p>
+<p>最近，有许多项目专门致力于创建“私有内存池”（或“加密内存池”），它将用户的交易加密，直到它们被不可逆转地被接受到一个区块中。</p>
+<p>然而，问题是，这样的方案需要一种特殊的加密：为了防止用户涌入系统并率先进行解密，加密必须在交易确实被不可逆转地被接受后自动解密。</p>
+<p>为了实现这种形式的加密，有各种不同权衡的技术。Jon Charbonneau 曾做过很好的描述：</p>
+<ul>
+<li>
+<p><strong>对中心化运营商进行加密</strong> ，例如 Flashbots Protect**。**</p>
+</li>
+<li>
+<p><strong>时间锁加密</strong> ，该加密形式经过一定的顺序计算步骤后，任何人都可以解密，并且不能并行化；</p>
+</li>
+<li>
+<p><strong>阈值加密</strong> ，信任一个诚实的多数委员会来解密数据。具体建议请参见封闭信标链概念。</p>
+</li>
+<li>
+<p><strong>可信硬件</strong> ，如 SGX。</p>
+</li>
+</ul>
+<p>不幸的是，<strong>每一种加密方式都有不同的弱点。虽然对于每个解决方案，都有一部分用户愿意信任它，但没有一个解决方案的信任程度足以让它实际上被 Layer 1 接受。</strong> 因此，至少在延迟加密得到完善或其他一些技术突破之前，<strong>在 Layer 1 封装反提前交易功能似乎是一个困难的命题</strong> ，即使它是一个足够有价值的功能，许多应用程序解决方案已经出现。</p>
+<h2 id="封装流动性质押">封装流动性质押</h2>
+<p>以太坊 DeFi 用户的一个共同需求是能够同时使用他们的 ETH 进行质押和作为其他应用程序中的抵押品。另一个常见的需求仅仅是为了方便：用户希望能够在没有运行节点并保持其始终在线的复杂性的情况下进行质押（并保护线上质押密钥）。</p>
+<p>到目前为止，满足这两种需求的最简单质押“接口”只是一种 ERC 20 代币：将你的 ETH 转换为“质押 ETH”，持有它，然后再转换回来。事实上，Lido 和 Rocket Pool 等流动性质押提供商已经开始这样做了。然而，流动性质押有一些自然的中心化机制在起作用：人们自然会进入最大版本的质押 ETH，因为它是最熟悉和最具流动性的。</p>
+<p>每个版本的质押 ETH 都需要有一些机制来确定谁可以成为底层节点运营商。它不能是无限制的，因为这样攻击者就会加入并利用用户的资金扩大攻击。目前，排名前两位的是 Lido 和 Rocket Pool，前者拥有 DAO 白名单节点运营商，后者允许任何人在存入 8 枚 ETH 的情况下运行一个节点。这两种方法有不同的风险：Rocket Pool 方法允许攻击者对网络进行 51% 的攻击，并迫使用户支付大部分成本；至于 DAO 方法，如果某质押代币占主导地位，就会导致一个单一的、可能受到攻击的治理小工具控制所有以太坊验证者的很大一部分。值得肯定的是，像 Lido 这样的协议已经实施了防范措施，但一层防御可能还不够。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1001/1_wohe9dgceh.png" alt="V神最新长文：以太坊协议是否应该封装更多功能？"></p>
+<p>在短期内，一种选择是鼓励生态系统参与者使用多样化的流动性质押提供商，以减少一家独大带来系统性风险的可能性。然而，从长期来看，这是一种不稳定的平衡，过度依赖道德压力来解决问题是危险的。一个自然的问题出现了：<strong>在协议中封装某种功能以使流动性质押不那么中心化是否有意义？</strong></p>
+<p>这里的关键问题是：什么样的协议内功能？简单地创建一个协议内可替代的“质押 ETH”代币存在一个问题，即它要么必须有一个封装以太坊范围内治理来选择谁来运行节点，要么是开放的，但这会把它变成攻击者的工具。</p>
+<p>一个有趣的想法是 Dankrad Feist 关于流动性质押最大化的文章。首先，我们咬紧牙关，如果以太坊受到 51% 攻击，可能只有 5% 的攻击 ETH 被罚没。这是一个合理的权衡；目前有超过 2600 万枚 ETH 被质押，其中三分之一（约 800 万枚 ETH）的攻击成本是过度的，特别是考虑到有多少种“模型外”攻击可以以更低的成本完成。事实上，类似的权衡已经在“超级委员会”关于实施 single-slot finality 的提案中进行了探讨。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1001/1_krud0ozoft.png" alt="V神最新长文：以太坊协议是否应该封装更多功能？"></p>
+<p>如果我们接受只有 5% 的攻击 ETH 被罚没，那么超过 90% 的质押 ETH 将不会受到罚没的影响，因此它们可以作为协议内可替代流动性质押代币，然后被其他应用程序使用。</p>
+<p>这条路径很有趣。但它仍然留下了一个问题：<strong>具体封装什么？</strong> Rocket Pool 的运作方式与此非常相似：每个节点运营商提供一些资金，流动性质押者提供其余的资金。我们可以简单地调整一些常量，将最大罚没惩罚限制为 2 枚 ETH，Rocket Pool 现有的 rETH 将变得无风险。</p>
+<p>通过简单的协议调整，我们还可以做其他聪明的事情。例如，假设我们想要一个系统，有两种“层”的质押：节点运营商（高抵押品要求）和储户（没有最低抵押品要求，可以随时加入和离开），但我们仍然希望通过赋予一个随机抽样的储户委员会权力来防止节点运营商的中心化，比如建议必须包括的交易列表（出于抗审查的原因），在不活动泄漏期间控制分叉选择，或者需要在区块上签名。这可以通过一种基本上脱离协议的方式来实现，方法是调整协议，要求每个验证器提供（i）一个常规的质押密钥，以及（ii）一个 ETH 地址，该地址可以在每个槽间被调用以输出二级质押密钥。该协议将赋予这两项密钥权力，但在每个槽中选择第二个密钥的机制可以留给质押池协议。直接封装一些功能可能仍然更好，但值得注意的是，这种“包含一些东西，把其他东西留给用户”的设计空间是存在的。</p>
+<h2 id="封装更多预编译">封装更多预编译</h2>
+<p>预编译（或“预编译合约”）是实现复杂加密操作的以太坊合约，其逻辑在客户端代码中原生实现，而不是 EVM 智能合约代码。预编码是以太坊开发之初采用的一种折衷方案：由于虚拟机的开销对于某些非常复杂和高度专业化的代码来说太大了，我们可以在本地代码中实现一些对重要应用程序有价值的关键操作，以使其更快。如今，这基本上包括一些特定的散列函数和椭圆曲线运算。</p>
+<p>目前有人在推动为 secp 256 r 1 添加预编译，这是一种与用于基本以太坊账户的 secp 256 k 1 略有不同的椭圆曲线，因为它得到了可信硬件模块的良好支持，因此广泛使用它可以提高钱包安全性。近年来，社区还推动为 BLS-12-377、BW 6-761、广义配对和其他功能添加预编译。</p>
+<p>对这些要求更多预编译文件的反驳是，之前添加的许多预编译（例如 RIPEMD 和 BLAKE）最终的使用量远低于预期，我们应该从中吸取教训。与其为特定操作添加更多的预编译，我们也许应该专注于一种更温和的方法，该方法基于 EVM-MAX 和休眠但始终可恢复的 SIMD 提案等思想，这将使 EVM 实现能够以更低的成本执行广泛的代码类。也许即使是现有的很少使用的预编译也可以被删除，并用相同函数的 EVM 代码实现（不可避免地效率较低）代替。也就是说，仍然有可能存在特定的加密操作，这些操作的价值足以加速，因此将它们作为预编译添加是有意义的。</p>
+<h2 id="我们从这一切中学到了什么">我们从这一切中学到了什么？</h2>
+<p>尽可能少封装的愿望是可以理解的，也是好的；它源自 Unix 哲学传统，即创建极简的软件，可以很容易地适应用户的不同需求，避免软件膨胀的诅咒。然而，区块链不是个人计算操作系统，而是社会系统。这意味着在协议中封装某些功能是有意义的。</p>
+<p>在许多情况下，这些其他的例子与我们在帐户抽象中看到的类似。但我们也学到了一些新的教训：</p>
+<ul>
+<li><strong>封装功能可以帮助避免堆栈中其他区域的中心化风险</strong> ：</li>
+</ul>
+<p>通常，保持基本协议的最小化和简单性会将复杂性推到一些协议之外的生态系统。从 Unix 哲学的角度来看，这很好。然而，有时存在协议外生态系统将中心化的风险，通常（但不仅仅是）因为高固定成本。封装有时可以减少事实上的中心化。</p>
+<ul>
+<li><strong>封装太多内容，可能会过度扩大协议的信任和治理负担</strong> ：</li>
+</ul>
+<p>这是前一篇关于“不要让以太坊共识过载”文章的主题：如果封装一个特定的功能削弱了信任模型，并使以太坊作为一个整体变得更加“主观”，这就削弱了以太坊的可信中立性。在这些情况下，最好将特定功能作为以太坊之上的机制，而不是试图将其引入以太坊本身。在这里，加密内存池是最好的例子，它可能有点难以封装，至少在延迟加密技术改进之前是这样。</p>
+<ul>
+<li><strong>封装太多内容可能会使协议过于复杂</strong> ：</li>
+</ul>
+<p>协议复杂性是一种系统性风险，在协议中添加太多功能会增加这种风险。预编译就是最好的例子。</p>
+<ul>
+<li><strong>长期来看，封装功能可能会适得其反，因为用户的需求是不可预测的</strong> ：</li>
+</ul>
+<p>一个很多人认为很重要并且会被很多用户使用的功能，很可能在实践中并没有被经常使用。</p>
+<p>此外，流动性质押、ZK-EVM 和预编译案例显示了一条中间道路的可能性：最小可行封装（minimal viable enshrinement）。协议不需要封装整个功能，而可以包含解决关键挑战的特定部分，使该功能易于实现，而不会过于偏执或过于狭隘。这样的例子包括：</p>
+<ul>
+<li>
+<p>与其封装一个完整的流动性质押系统，不如改变质押惩罚规则，让去信任流动性质押更可行；</p>
+</li>
+<li>
+<p>与其封装更多的预编译器，不如封装 EVM-MAX 和/或 SIMD，以使更广泛的操作类别更容易有效地实现；</p>
+</li>
+<li>
+<p>可以简单地封装 EVM 验证，而不是封装 rollup 的整个概念。</p>
+</li>
+</ul>
+<p>我们可以将前面的图表扩展如下：</p>
+<p><img src="https://img.bibiqing.com/news/2023/1001/1_b99zdl520u.png" alt="V神最新长文：以太坊协议是否应该封装更多功能？"></p>
+<p>有时候，去封装一些东西是有意义的，去除很少使用的预编译就是一个例子。帐户抽象作为一个整体，正如前面提到的，也是一种重要的去封装形式。如果我们想支持现有用户的向后兼容性，那么该机制实际上可能与去封装预编译的机制惊人地相似：其中一个提案是 EIP-5003 ，它将允许 EOA 将其帐户转换为具有相同（或更好）功能的合约。</p>
+<p>哪些功能应该被引入协议，哪些功能应该留给生态系统的其他层，这是一个复杂的权衡。随着我们对用户需求的理解以及可用想法和技术套件的不断改进，这种权衡有望随着时间的推移而继续改进。</p>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/60223/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">VC：想要GPU吗？快来拿我的钱！</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/60227/">
+                <span class="next-text nav-default">拜登签署短期支出法案，避免美国政府关门</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#关于协议极简主义的早期哲学">关于协议极简主义的早期哲学</a></li>
+    <li><a href="#封装erc-4337">封装 ERC-4337 </a></li>
+    <li><a href="#我们能从这个例子中学到什么什么时候更普遍地进行封装">我们能从这个例子中学到什么，什么时候更普遍地进行封装？</a></li>
+    <li><a href="#封装zk-evm">封装 ZK-EVM</a></li>
+    <li><a href="#封装提议者与构建者分离epbs">封装提议者与构建者分离（ePBS）</a></li>
+    <li><a href="#封装私有内存池">封装私有内存池</a></li>
+    <li><a href="#封装流动性质押">封装流动性质押</a></li>
+    <li><a href="#封装更多预编译">封装更多预编译</a></li>
+    <li><a href="#我们从这一切中学到了什么">我们从这一切中学到了什么？</a></li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

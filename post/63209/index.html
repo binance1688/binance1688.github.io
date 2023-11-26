@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          深入探讨dYdX v4：通证经济学和估值前景的改进 - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="与v3相比，v4在代币标准、治理、折扣功能和交易者奖励、质押、Gas以及费用分配方面都进行了较小的改进，增加了代币的内在价值。" />
+<meta name="keywords" content="dYdX, dYdX v4" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/63209/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="深入探讨dYdX v4：通证经济学和估值前景的改进" />
+<meta property="og:description" content="与v3相比，v4在代币标准、治理、折扣功能和交易者奖励、质押、Gas以及费用分配方面都进行了较小的改进，增加了代币的内在价值。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/63209/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-11-15T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-11-15T00:00:00+00:00" />
+
+<meta itemprop="name" content="深入探讨dYdX v4：通证经济学和估值前景的改进">
+<meta itemprop="description" content="与v3相比，v4在代币标准、治理、折扣功能和交易者奖励、质押、Gas以及费用分配方面都进行了较小的改进，增加了代币的内在价值。"><meta itemprop="datePublished" content="2023-11-15T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-11-15T00:00:00+00:00" />
+<meta itemprop="wordCount" content="6877">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="深入探讨dYdX v4：通证经济学和估值前景的改进"/>
+<meta name="twitter:description" content="与v3相比，v4在代币标准、治理、折扣功能和交易者奖励、质押、Gas以及费用分配方面都进行了较小的改进，增加了代币的内在价值。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">深入探讨dYdX v4：通证经济学和估值前景的改进</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-11-15">
+      2023-11-15
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 6877 字 -
+        预计阅读 14 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E5%85%B6%E5%AE%83%E6%96%87%E7%AB%A0/"> 其它文章 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>作者：Gryphsis Academy，Medium；编译：松雪，金色财经</p>
+<h2 id="tldr">TL;DR</h2>
+<ol>
+<li>
+<p>dYdX成立于2017年，是一个去中心化的永续交易所，集成了借贷、杠杆交易和永续合约。dYdX已经完成了四轮融资，并得到了Paradigm和A16Z等知名机构的投资。</p>
+</li>
+<li>
+<p>在2021年迁移到Starkware之后，dYdX解决了TPS和Gas费用的问题，24小时交易量超过8亿美元，在永续Dex市场占据领先地位。</p>
+</li>
+<li>
+<p>dYdX采用分层交易费用机制，对Maker和大额交易者收取较低的费用以转换流动性，其费用低于其他交易所。此外，作为对即将推出的v4版本的早期采用者的激励，他们正在推出$DYDX代币奖励，进一步增强其竞争力强的费用结构。</p>
+</li>
+<li>
+<p>v4 的亮点： (a) dYdX v4 迁移到基于 Cosmos SDK 的 Layer1 链。 (b) 链下撮合、链上共识的交易过程。 (c) 下单/取消订单不需要Gas费，仅在完成时收取费用。 (d)dYdX实现了完全去中心化的治理。</p>
+</li>
+<li>
+<p>与v3相比，v4在代币标准、治理、折扣功能和交易者奖励、质押、Gas以及费用分配方面都进行了较小的改进，增加了代币的内在价值。</p>
+</li>
+<li>
+<p>为什么选择Cosmos：(a) Cosmos提供去中心化和高性能。(b) v4版本中的去中心化降低了监管审查的风险。(c) 在Cosmos上可用的USDC增强了dYdX的流动性。(d) Cosmos为dYdX提供了更好的可扩展性和可组合性。</p>
+</li>
+<li>
+<p>在我们的评估中，Layer 1的质押和费用分配增加了代币的效用和价值捕获能力。Circle在Cosmos上推出了本地USDC，这提升了代币的流动性。总的来说，这些因素无疑提升了$DYDX代币的基本面，并带来了积极的消息。虽然这些都是令人兴奋的前景，但我们也必须关注潜在的安全影响。</p>
+</li>
+</ol>
+<h2 id="1-协议概述">1. 协议概述</h2>
+<p>dYdX是一个分布式永续合约交易所，目前托管在由StarkWare构建的以太坊Layer 2区块链上，依赖以太坊的安全性，并使用零知识证明来加速交易并降低交易费用。dYdX采用订单簿模型，在24小时交易量和每日活跃用户（DAU）方面表现出色，是市场上最大且最广泛使用的永续合约交易所。每日交易量超过8亿美元，超过了Kwenta、GMX、gTrade、Vertex等协议的综合交易量。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1115/3_z1aujrcbeb.png" alt="Kdr0pM9mtd9u6G2JLotIbEnaoPU72VOYFXVI3rQO.jpeg" title="7136329"></p>
+<p>24H成交量对比</p>
+<h2 id="2-团队及资助情况">2. 团队及资助情况</h2>
+<p>dYdX成立于2017年，拥有一支在区块链行业具有丰富经验和技术专长的团队。值得注意的是，dYdX与中心化交易所Coinbase有着密切的关系。首先，dYdX的一些核心团队成员曾在Coinbase工作，包括其创始人安东尼奥·朱利亚诺（Antonio Juliano），他曾在Coinbase担任高级工程师。其次，Coinbase还积极参与了dYdX的种子轮融资，并为其借贷产品提供了流动性支持。此外，dYdX的现任首席执行官是查尔斯·德豪西（Charles d’Haussy），他之前曾担任ConsenSys的全球业务发展主管，并在香港特区政府（投资推广署）担任金融科技主管。</p>
+<p>根据提供的信息，dYdX的高管团队和董事会成员毕业于全球知名的大学，并曾在知名公司担任职务，如沃顿金融科技中心（Wharton FinTech）、美国国际集团（AIG）、LinkedIn等。这突显了dYdX团队在金融和技术领域拥有丰富的专业知识和经验。</p>
+<p>截至目前，dYdX已完成4轮融资，共筹集8700万美元，其投资者阵容强大，资金充裕，包括Paradigm、Polychain Capital、Andreessen Horowitz（A16Z）等业内知名机构，以及著名的加密市场做市商Wintermute。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1115/3_2i3do9ois1.png" alt="tmhxbjgt37zMrz17mRN3nts8U8D7X9ilCPxjjOS5.jpeg" title="7136331"></p>
+<h2 id="3dydx的历史和发展现状">3.dYdX的历史和发展现状</h2>
+<p>dYdX最初建立在以太坊主网上，但DeFi盛夏的爆发导致其遇到了天价的gas费用和以太坊网络的拥塞问题。这些挑战显著影响了用户的交易体验。为解决gas费用问题，2021年，dYdX迁移到了由StarkWare开发的更具可扩展性的以太坊Layer 2平台。这一举措有效解决了与交易速度（TPS）和gas费用相关的问题。</p>
+<p>在迁移后，dYdX的交易量大幅增加，dYdX v3的总交易量约为1万亿美元，牢固确立了其作为市场领先的永续合约去中心化交易所的地位。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1115/3_g64ats4q58.png" alt="lkWCJAx5kmHsaKBl6Kcg80XC0MYfmDHt4LnpsYEw.jpeg" title="7136337">按市值排名的顶级衍生品 DEX</p>
+<h2 id="4业务板块及交易成本改善情况">4、业务板块及交易成本改善情况</h2>
+<p>dYdX提供了一系列全面的功能，包括借贷、杠杆交易和永续合约。杠杆交易具有集成的借贷功能，用户存入的资金自动形成一个资金池。如果在交易过程中资金不足，平台会自动代用户借贷并代表用户支付利息。dYdX通过向Maker收取较低的费用来增加流动性，月度交易量越大，费率越低，该机制对机构和专业交易者更加友好。正如所示，dYdX较低的交易费使其在主要加密货币交易平台中具有显著优势。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1115/3_lvt35ti2ao.png" alt="sW7TyyIspnmt87iawmxRSNQrTuPQ10OMjk0Nr7jw.jpeg" title="7136343"></p>
+<p><img src="https://img.bibiqing.com/news/2023/1115/3_13w1656qcl.png" alt="icw8EuLeZskMuIUZGO55foJXKtFSbuvXl1lSIuqz.jpeg" title="7136344">dYdX上的交易费用根据30天内的交易量档次而变化。在dYdX v3中，有六个档次，较高的档次对应着更大的交易量。这种结构使得随着交易量的增加，Maker和Taker的费用降低。值得注意的是，当30天内的交易量超过或等于5000万美元时，Maker费用降至零。</p>
+<p>根据官方计划，在v4上线后的前120天，除非30天的交易量达到或超过2,500万美元，否则Maker会产生下单费用，此时Maker费用将豁免。此外，当30天的交易量达到1.25亿美元并超过市场份额的0.5%时，Maker将再次有资格获得交易奖励。需要注意的是，这只是目前的情况，费用档次可能会根据实际情况由治理社区进行调整。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1115/3_16jhnmauva.png" alt="MFiK1PFjt5zVFTqKdJxd7u2u0UZuB2kgLqM0fhhx.jpeg" title="7136347">DYDX V3 的费用结构与DYDX V4 的费用结构</p>
+<p>与此同时，根据截至10月2日通过的最新提案，社区将在6个月内向v4的早期采用者分发价值2000万美元的DYDX代币，以激励用户过渡到v4，并无缝迁移到dYdX链。预计这一措施将有效推动v4的采用，并支持其早期增长。它还增强了dYdX的费用优势。</p>
+<h2 id="5-dydx-v4-的代币经济学">5. dYdX v4 的代币经济学</h2>
+<h3 id="51-代币分配和锁定时间表">5.1 代币分配和锁定时间表</h3>
+<p>总共发行了10亿DYDX，将在从2021年8月3日开始的五年内逐步释放。自DYDX推出以来，已经有几个治理提案（DIP 14，DIP 16，DIP 17，DIP 24）导致了对初始分配的更改。目前的分配包括：</p>
+<ul>
+<li>
+<p>50.0%（500,000,000 DYDX）分配给社区，其中14.5%（144,693,506 DYDX）基于交易奖励公式，5.0%（50,309,197 DYDX）分配给在dYdX Layer 2 Protocol上完成特定交易里程碑的过去用户（追溯挖矿奖励），5.2%（52,458,925 DYDX）基于做市商奖励公式，24.2%（241,735,862 DYDX）分配给社区宝藏和奖励宝藏，0.6%（5,753,430 DYDX）分配给将USDC抵押到做市池的用户，0.5%（5,049,079 DYDX）分配给将DYDX抵押到安全质押池的用户。</p>
+</li>
+<li>
+<p>另外的50.0%（500,000,000 DYDX）主要用于分发给投资者和员工。</p>
+</li>
+</ul>
+<p>在启动后的五年内，治理可以采用每年最高2%的持续通货膨胀率，以增加DYDX的供应，从而确保获得维持协议发展和扩张所需的资源。任何通货膨胀措施都需要通过治理提案获得批准，并受到每年最高2%的限制。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1115/3_vgb8zpka9b.png" alt="OPisUZb6Ga0sexIdFehnS3v9ELaHkNkMPbyWyTt2.jpeg" title="7136348">当前分配</p>
+<p><img src="https://img.bibiqing.com/news/2023/1115/3_pa6tnmoisy.png" alt="DWMryjHTEsT3Np4ZkVVxdCWHnoJ64Ig4oPUMKTr3.jpeg" title="7136349">分配变化</p>
+<p><img src="https://img.bibiqing.com/news/2023/1115/3_23zw6igcu7.png" alt="SdGZPKTPQntmm67D9jkTPVJFOcJUak3yqKH8WaP1.jpeg" title="7136350"></p>
+<p><img src="https://img.bibiqing.com/news/2023/1115/3_7nyuyoo3r2.png" alt="WLfjBjhxAj8llTK9LlmXMycvX5pS6yC1ZdjhM20i.jpeg" title="7136351">锁定计划</p>
+<h3 id="52-代币效用和价值捕获">5.2 代币效用和价值捕获</h3>
+<p>在v3版本中，$DYDX代币的三个主要用途是治理、费用折扣和质押。值得注意的是，安全性质押模块在2022年10月的一项提案中被停用。</p>
+<p>相比之下，v4引入了验证器质押的新功能。通过v4，dYdX完全实现了去中心化，完全由代币持有者进行治理。这使$DYDX代币持有者能够定义代币的功能，添加或删除市场，并修改dYdX v4的参数。在永续合约取得成功的基础上，dYdX还可以进入现货市场，发展成为一个具有高用户保留率的多功能DeFi应用。</p>
+<h2 id="6dydx-v4的边际改进">6.dYdX v4的边际改进</h2>
+<h3 id="61-新版本的主要特点">6.1 新版本的主要特点</h3>
+<p>dYdX 的新版本 v4 将于 2023 年第四季度在主网上发布。以下是该新版本的主要功能：</p>
+<p><strong>1) 第 2 层 → 替代第 1 层</strong></p>
+<p>dYdX v4不再依赖以太坊主网，而是在Cosmos生态系统内运行，利用Cosmos SDK和CometBFT POS机制。</p>
+<p>v4采用了一种权益证明共识机制，由两种类型的节点支持：验证者和全节点。验证者负责存储订单、处理交易，并通过共识过程生成新块，而全节点不参与共识机制，但处理交易传播和块处理。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1115/3_yinuejzqy4.png" alt="XMFRMdOKMlhUyMjY2J0acWtZOJz1I4ZrFwn6vYne.jpeg" title="7136352">V4系统架构</p>
+<p><strong>2）订单机制更新</strong></p>
+<p>在 v4 上下单时，将遵循以下流程：用户在前端发起交易 → 交易发送给验证人 → 撮合订单并创建新区块 → 共识过程：2/3 验证节点通过投票确认 → 更新数据，通过索引器返回到前端。</p>
+<p><strong>3）无交易Gas费</strong></p>
+<p>在 dYdX v4 中，每个验证者都维护一个链下订单簿。 用户订单提交和取消通过网络在链下传播。 只有当订单实时匹配时，交易结果才会提交到区块链。 这意味着用户订单提交和取消被视为链下操作，不需要支付交易 Gas 费用。 该协议仅在订单在链上完成时收取交易费用。</p>
+<p><strong>4）完全去中心化治理</strong></p>
+<p>根据已批准的 DIP 18-Operations SubDAO 提案，dYdX DAO 将获得对该协议的完全授权，将控制权从 dYdX Trading Inc 手中转移出去。这意味着 dYdX 的运营将完全去中心化，社区在促进过渡方面发挥着关键作用 通过建立运营子DAO来确保运营框架的无缝转型。</p>
+<h3 id="62-v3-和-v4-的比较">6.2 v3 和 v4 的比较</h3>
+<p>根据v4激励计划以及v4采用和代币迁移计划的建议，我们确定了v4相对于v3代币使用边际改进的六个领域，即代币标准、治理、折扣、质押、Gas费用支付和费用分配。 详细的对比说明请参考下表：</p>
+<p><img src="https://img.bibiqing.com/news/2023/1115/3_a2kbwskvwy.png" alt="FESdKgDPPRAyHREWeftJKVUaZsRPdSoL71r7pgvF.jpeg" title="7136353"></p>
+<h3 id="63-为什么选择-cosmos">6.3 为什么选择 Cosmos</h3>
+<p><strong>1）去中心化和高性能</strong></p>
+<p>dYdX 中的订单簿和撮合引擎的实现机制对吞吐量提出了极高的要求。 目前，以太坊网络面临可扩展性问题，而 Cosmos 网络的安全性、速度和可扩展性可以帮助 dYdX 应对这些挑战。 这反过来又为交易者提供了更快的交易速度、更低的费用和完全去中心化的交易体验。</p>
+<p><strong>2）监管弹性</strong></p>
+<p>根据美国商品期货交易委员会（CFTC）9月份的最新裁决，Opyn, Inc.、ZeroEx, Inc.、Deridex, Inc.这三个DeFi协议均被指控非法提供数字资产衍生品交易，并面临数十万美元的罚款。 与 SEC 相比，CFTC 对加密货币执行更严格的监管。 鉴于这一趋势，CFTC可能会将监管范围扩大到更多基于智能合约的去中心化永续合约交易平台，并要求它们实施了解你的客户（KYC）程序。 值得注意的是，这三个被指控的协议都是在加州注册的实体。 同样，在美国注册为单一实体的 dYdX Trading, Inc. 也面临同样的情况。 在 v3 中，dYdX Trading, Inc. 控制了协议并享有所有费用收入，由于其集中管理方式，使其容易受到监管审查。 尽管 dYdX 在美国的监管问题上一直极为谨慎，不向美国居民提供服务，但显然，面对日益严格的监管趋势，向完全去中心化过渡是明智之举。 在 v4 中，dYdX 将完全去中心化，dYdX Trading, Inc.（平台运营商）不再运行任何中心化组件。 dYdX 将由社区以完全去中心化的方式进行管理和控制。 随着完全去中心化，监管机构将不再将 dYdX 归类为“中心化交易所”，从而使 dYdX 能够扩大市场并覆盖更多用户。</p>
+<p><strong>3) Cosmos 上线 USDC</strong></p>
+<p><img src="https://img.bibiqing.com/news/2023/1115/3_3bn27imh50.png" alt="NCstxbOgDCgmejMo7kffNmGNL0iaNilceheQvVj8.jpeg" title="7136355"></p>
+<p>dYdX 链作为一条新的Layer 1，拥有自己的一组验证器，需要用户通过跨链桥进行连接。 正如以太坊联合创始人 Vitalik Buterin 所指出的，加密货币资产的安全性不仅取决于原始网络，还取决于资产通过跨链桥进行打包、锁定和转移时所经过的其他链。 跨链桥被黑客攻击的情况屡见不鲜，对大笔资金的流动构成重大威胁，而无法应对跨链桥的风险对于 dYdX 来说将是致命的，特别是考虑到其庞大的用户基础。 Circle 最近在 Cosmos 上推出了原生 USDC，这有助于提高 dYdX 的流动性，并减少跨链资产转移的需求和相关风险。 这是dYdX选择Cosmos不可或缺的原因之一。</p>
+<p><strong>4) 可扩展性和可组合性</strong></p>
+<p>dYdX 交易以离散“块”的形式记录在区块链上。 每个块只能容纳有限数量的数据并定期进行处理。 随着区块链吸引更多用户，有限的区块空间变得更受追捧，导致Gas费用增加。 为了解决这个问题，由 Cosmos 提供支持的 dYdX v4 引入了应用链的概念。</p>
+<p>与大多数Rollups不同，应用链是专为特定目的调整的自包含区块链。应用链的构建者可以自由定制每个方面，从底层协议到用户界面。应用链具有自己独特的共识协议，并具有广泛的可定制性。这为全新的功能开辟了 entirely novel functionalities，并在增强去中心化和可扩展性的同时提供了事务速度。尽管 dYdX v3 位于 Starknet（L2 解决方案）上，v4 将促使转向应用链。对于 dYdX 来说，与当前的 Rollup 解决方案相比，应用链模型在去中心化、可扩展性、可组合性和事务速度方面提供了更优越的组合。</p>
+<h2 id="7dydx-v4的展望">7.dYdX v4的展望：</h2>
+<p>目前，对于dYdX v3，所有的交易收入都流向了dYdX Trading，Inc。除了用于治理和质押以获取费用折扣和平台奖励之外，$DYDX代币的财富效应相对较小，这一点一直是其价格上涨的一个重要障碍。在dYdX v4中，这个缺点有望得到改善，因为不再有中心化实体会收到费用收入。此外，dYdX社区已经通过提案，将利用$DYDX代币用于质押和保护dYdX链，提供更实质性的效用和目的。</p>
+<p><strong>1) Layer 1 质押提高了 $dYdX 代币的持有需求</strong></p>
+<p>安全质押模块（SSM）是dYdX协议的一种保护机制，用于应对资金短缺的情况，比如智能合约风险。在过去，资金提供者（质押者）从创世供应中为承担这些风险而获得奖励。在v3中，将$DYDX代币质押到安全模块是该代币的一种实用功能，但这并没有显著推动购买dYdX代币的需求。在协议资金短缺的情况下，质押者质押的资金价值可能面临减少的风险。因此，SSM机制的有效性是值得质疑的，因为智能合约风险可能导致代币价格下跌，安全模块储备的价值显著减少。因此，在2022年11月28日，社区通过了DIP17提案，关闭了安全质押模块。</p>
+<p>根据官方公告，dYdX v4主网发布后，dYdX Chain将成为一条权益证明的区块链网络。在这一阶段，v4将需要一种L1协议代币供验证者质押，以确保网络的安全，并将其管理委托给这种L1代币的质押者。目前，dYdX社区已经选择$DYDX作为dYdX链的L1代币。由于dYdX采用PoS（权益证明）机制，L1代币用于验证者质押。任何质押了一定数量代币的人都有机会成为验证者，确保链的安全性。尽管我们目前还不确定验证者质押所需的确切$DYDX代币数量，可用节点数量或委托机制的具体细节，但可以预见的是，v4中的这种新的质押模型将取代先前v3的SSM质押模型，增加对$DYDX代币的需求，有可能推动其价格上涨。</p>
+<p><strong>2) 费用分配增强了代币基础</strong></p>
+<p>根据官方文档的初步构想，每笔交易后，交易费用的一部分将通过智能合约自动返还给用户作为交易奖励。每笔交易后，一部分佣金将直接从智能合约作为交易奖励发送给用户。每笔交易的最大交易奖励不会超过该交易的处理费用。由于交易奖励受限于该区块协议生成的净交易费用，而分发的交易奖励可能以每个区块为基础，因此协议可以激励交易活动，而不会超出其预算，从而节省大量资金并减少代币通货膨胀。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1115/3_ylscj6woly.png" alt="xssB7MnmnkQ6QxbAwy4bHgoIViWk9VgHrFanNqVk.jpeg" title="7136359"></p>
+<p>按照计划，v4将不收取GAS费，只收取交易费。 $DYDX 代币很可能将用于支付这些交易费用。 这显著扩大了代币的实际用途并增加了其内在需求。 此外，交易费用的分配完全由社区决定。 如果社区批准该提案，平台的更多收入将流向 $DYDX 代币持有者。 这使得 $DYDX 代币能够从协议的开发中获取更多价值。</p>
+<p><strong>3）引入原生稳定币增强资产安全</strong></p>
+<p>Circle 最近宣布 Cosmos 将支持原生 USDC。 链上原生稳定币的引入不仅提高了$DYDX代币的流动性，还减少了跨链资产转移的需要和相关风险，保证了dYdX链上资产的安全。</p>
+<p>站在客观理性的立场上，我们认为dYdX v4将为$DYDX代币赋能并带来一系列好处。 然而，有必要承认，创建新链而不是在以太坊上构建的决定也带来了与安全相关的潜在风险：</p>
+<p>L2 Rollup仍然优于Cosmos，因为它依赖于以太坊的卓越安全性，而无需承担维护自身安全性的高成本。如果用户对基础的以太坊区块链有信心，他们很可能对在L2上的dYdX交易的安全性也有信心。然而，在v4中，用户需要信任dYdX链上的一组新验证者。此外，质押需要支付$DYDX代币，但$DYDX的价值共识并不像ETH那样坚定。</p>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/63240/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">如何赚周期的钱：认识和判断周期（一）</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/63269/">
+                <span class="next-text nav-default">数字资产经纪公司VersiFi获得1000万美元融资</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#tldr">TL;DR</a></li>
+    <li><a href="#1-协议概述">1. 协议概述</a></li>
+    <li><a href="#2-团队及资助情况">2. 团队及资助情况</a></li>
+    <li><a href="#3dydx的历史和发展现状">3.dYdX的历史和发展现状</a></li>
+    <li><a href="#4业务板块及交易成本改善情况">4、业务板块及交易成本改善情况</a></li>
+    <li><a href="#5-dydx-v4-的代币经济学">5. dYdX v4 的代币经济学</a>
+      <ul>
+        <li><a href="#51-代币分配和锁定时间表">5.1 代币分配和锁定时间表</a></li>
+        <li><a href="#52-代币效用和价值捕获">5.2 代币效用和价值捕获</a></li>
+      </ul>
+    </li>
+    <li><a href="#6dydx-v4的边际改进">6.dYdX v4的边际改进</a>
+      <ul>
+        <li><a href="#61-新版本的主要特点">6.1 新版本的主要特点</a></li>
+        <li><a href="#62-v3-和-v4-的比较">6.2 v3 和 v4 的比较</a></li>
+        <li><a href="#63-为什么选择-cosmos">6.3 为什么选择 Cosmos</a></li>
+      </ul>
+    </li>
+    <li><a href="#7dydx-v4的展望">7.dYdX v4的展望：</a></li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

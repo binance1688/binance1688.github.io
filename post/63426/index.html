@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          SevenX Ventures：模块化智能合约账户架构和挑战 - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="模块化账户抽象是广泛的AA发展中的一个细分领域，它设想将智能账户模块化，以定制化地为用户提供服务" />
+<meta name="keywords" content="模塊化區塊鏈" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/63426/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="SevenX Ventures：模块化智能合约账户架构和挑战" />
+<meta property="og:description" content="模块化账户抽象是广泛的AA发展中的一个细分领域，它设想将智能账户模块化，以定制化地为用户提供服务" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/63426/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-11-17T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-11-17T00:00:00+00:00" />
+
+<meta itemprop="name" content="SevenX Ventures：模块化智能合约账户架构和挑战">
+<meta itemprop="description" content="模块化账户抽象是广泛的AA发展中的一个细分领域，它设想将智能账户模块化，以定制化地为用户提供服务"><meta itemprop="datePublished" content="2023-11-17T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-11-17T00:00:00+00:00" />
+<meta itemprop="wordCount" content="6483">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="SevenX Ventures：模块化智能合约账户架构和挑战"/>
+<meta name="twitter:description" content="模块化账户抽象是广泛的AA发展中的一个细分领域，它设想将智能账户模块化，以定制化地为用户提供服务"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">SevenX Ventures：模块化智能合约账户架构和挑战</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-11-17">
+      2023-11-17
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 6483 字 -
+        预计阅读 13 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E5%85%B6%E5%AE%83%E6%96%87%E7%AB%A0/"> 其它文章 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>原文作者：SevenX Ventures 编译：BlockBeats</p>
+<p>从外部拥有账户（EOA）向智能合约账户（SCA）的转变势头强劲，并已经得到了包括 Vitalik 等许多核心创业者的支持。尽管如此，SCA 的采用却并不像 EOA 那样广泛。这其中的主要问题包括熊市带来的影响、eoa 到 sca 的迁移难度、签名问题、Gas 成本过高以及最为关键的开发难题。</p>
+<p>账户抽象（AA）的最显著优势是能够使用代码自定义功能。然而，AA 功能的非互操作性带来了主要挑战，这种分散性会阻碍 AA 集成，并且加强了供应商锁定。除此之外，在可升级与可组合同时保障安全性也是重要挑战。</p>
+<p>模块化账户抽象的出现是 AA 发展趋势中的一个细分领域，这种创新的方法可以将智能账户与其自定义功能分离。其目标是创建一个模块化结构，来开发具有多样功能、安全、无缝集成的钱包。未来，模块化账户抽象可以实现一个自由的智能合约账户「应用商店」，使钱包和 dApp 专注于改进用户体验，而不必在构建功能上花费太多精力。</p>
+<h1 id="简述账户抽象aa">简述账户抽象（AA）</h1>
+<p><img src="https://img.bibiqing.com/news/2023/1117/23_aw8sv9iujj.png" alt="SevenX Ventures：模块化智能合约账户架构和挑战"></p>
+<p>在人们接触区块链的过程中，传统的 EOA 带来了许多挑战，如助记词、Gas 费用、跨链操作和多发交易等。</p>
+<p>账户抽象利用智能合约账户，允许可编程验证（validation）和执行（execution）。这意味着用户将能够一次性批准一系列交易，而不再需要对每个交易都签名和广播。账户抽象还可以实现更多功能，如改进用户体验（如 Gas 抽象和会话密钥）、降低成本（如批量交易）和提高安全性（如社交恢复、多重签名）。目前，有两种实现账户抽象的方式：</p>
+<p><strong>· 协议层</strong> ：一些协议本身提供了本地账户抽象支持，ZKSync 交易使用单个内存池和交易流程来支持 AA；无论是来自 EOA 还是 SCA 都遵循相同的流程，而 Starknet 已经移除了 EOA，所有账户都是 SCA，并且他们有像 Argent 这样的本地智能合约钱包。</p>
+<p><strong>· 合约层</strong> ：对于以太坊及类似的 L2，ERC4337 引入了一个单独的 mempool，以在不改变共识层的情况下支持 AA。像 Stackup、Alchemy、Etherspot、Biconomy、Candide 和 Plimico 正在构建 bundler 基础设施，而像 Safe、Zerodev、Etherspot 和 Biconomy 正在构建 bundler 和 SDK。</p>
+<h1 id="采用-sca-面临的困境">采用 SCA 面临的困境</h1>
+<p>自 2015 年以来，账户抽象（AA）的话题一直被讨论，并在今年由 ERC 4337 进一步将其推进人们的视线中。然而，已部署的智能合约账户数量仍然远远不及 EOA。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1117/23_vcuwvsrecz.png" alt="SevenX Ventures：模块化智能合约账户架构和挑战"></p>
+<p>让我们深入研究这个困境：</p>
+<h2 id="1熊市的影响">1、熊市的影响</h2>
+<p>尽管 AA 拥有了诸如无缝登录和 Gas 抽象等优势，在当下的熊市，所有用户都是已被教育的 EOA 用户，而没有太多新用户，因此 dApp 和钱包并没有动力去采用 SCA。即便如此，一些领先的 dApp 在逐步采用 AA，例如 Cyberconnect 通过引入他们的 AA 系统和无 Gas 解决方案，仅一个月就带动了约 36 万次 UserOps（AA 交易）。</p>
+<h2 id="2迁移障碍">2、迁移障碍</h2>
+<p>对于已经积累了用户和资产的钱包和应用程序来说，安全、便捷地迁移资产仍然是一个挑战。不过，像 EIP-7377 这样的方案可允许 EOA 发起一次性迁移交易。</p>
+<h2 id="3签名问题">3、签名问题</h2>
+<p>智能合约本身无法签署消息，因为它没有像 EOA 那样的私钥。类似 ERC1271 的尝试使之成为可能，但消息签名在第一笔交易之前不起作用的，这又对于使用反事实部署的钱包提出了挑战。由 Ambire 提出的 ERC-6492 是 ERC-1271 向后兼容的继任者，也许能够解决之前的问题。</p>
+<h2 id="4gas-成本">4、Gas 成本</h2>
+<p>与标准 EOA 相比，部署、模拟和执行 SCA 会产生更高的成本，这也成为了采用障碍之一。不过，目前已经进行了一些测试，例如将账户创建与用户操作分离、消除与某个账户相关的 &ldquo;salt&rdquo; 等。</p>
+<h2 id="5工程难题">5、工程难题</h2>
+<p>ERC-4337 团队已经建立了 eth-infinitism repo，为开发人员提供了基础实现。然而，随着开发者针对不同的用例扩展到更细致和具体的功能时，集成和解码会面临更多挑战。在本文中，我们将深入探讨工程难题。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1117/23_uiwlhymp8m.png" alt="SevenX Ventures：模块化智能合约账户架构和挑战"></p>
+<h1 id="通过模块化智能合约账户来解决工程难题">通过模块化智能合约账户来解决工程难题</h1>
+<p>工程难题可进一步阐述为碎片化、安全性和可升级性三个方面。</p>
+<p><strong>· 碎片化</strong> ：现在可以通过多种方式启用功能，无论是通过特定的 SCA 还是通过独立的插件系统。每个平台和服务商都遵循自己的标准，促使开发者决定支持哪些平台和服务商。这可能导致潜在的平台（供应商）锁定或冗余工作。</p>
+<p><strong>· 安全性</strong> ：虽然账户和功能解耦带来了灵活性的优势，但也可能使安全问题更严重。因为所有功能可能会被一同审核，而缺乏独立评估可能会增加账户漏洞的风险。</p>
+<p><strong>· 可升级性</strong> ：随着账户的发展，保持添加、替换或删除功能的能力非常重要，重新部署现有功能的每次更新都会引入复杂性。</p>
+<p>为了应对这些问题，我们需要可升级的合约以确保安全高效的升级、可复用的核心以提高整体开发效率、以及标准化的接口来确保合约账户能够在不同的前端之间平稳过渡。</p>
+<p>这些术语汇聚于一个共同的概念：构建模块化账户抽象架构（模块化 AA）。</p>
+<p>模块化账户抽象是广泛的 AA 发展中的一个细分领域，它设想将智能账户模块化，以定制化地为用户提供服务，并使开发者能够在最小限制下无缝增强功能。</p>
+<p>然而，在任何行业中建立和推广新的标准都是一个巨大的挑战。在大家都接受同一标准之前，初始阶段可能会出现许多不同的解决方案。令人鼓舞的是看到那些致力于完善和推广账户抽象的人们，无论是 4337 SDK、钱包、基础设施团队还是协议层设计师，他们都在共同努力加快这一进程。</p>
+<h1 id="模块化结构主账户和模块">模块化结构：主账户和模块</h1>
+<p>账户如何调用模块实现功能</p>
+<h2 id="委托调用delegate-call和代理合约proxy-contract">委托调用（Delegate call）和代理合约（proxy contract）</h2>
+<p>外部调用和委托调用：</p>
+<p><img src="https://img.bibiqing.com/news/2023/1117/23_7dr2p2u28u.png" alt="SevenX Ventures：模块化智能合约账户架构和挑战"></p>
+<blockquote>
+<p>关于委托调用</p>
+</blockquote>
+<p>虽然「委托调用」与「调用」类似，但它不是在目标合约的 context 中执行，而是在调用合约的当前状态的 context 执行它。这意味着目标合约所做的任何状态更改都会更改调用合约的存储。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1117/23_2jqvd1olmu.png" alt="SevenX Ventures：模块化智能合约账户架构和挑战"></p>
+<blockquote>
+<p>代理合约和委托调用</p>
+</blockquote>
+<p><strong>要实现可组合、可升级的结构，需要引入一个基础概念「代理合约」。</strong></p>
+<p>代理合约：普通合约存储其逻辑和状态，部署后无法更新。而代理合约使用委托调用（delegate call）部署到另一个合约。通过引用实现函数，在代理合约的当前状态下执行它。</p>
+<p>使用案例：虽然代理合约保持不变，但您可以在代理后面部署新的实现。代理合约实现了可升级性，且在公共区块链上的部署和维护成本更低。</p>
+<h2 id="safe-架构">Safe 架构</h2>
+<blockquote>
+<p><img src="https://img.bibiqing.com/news/2023/1117/23_r7yzz9iv8a.png" alt="SevenX Ventures：模块化智能合约账户架构和挑战"></p>
+</blockquote>
+<blockquote>
+<p>Safe 架构</p>
+</blockquote>
+<p><strong>什么是 Safe</strong>  ：Safe 是领先的模块化智能账户基础设施，旨在提供经过实战考验的安全性和灵活性，它使开发人员能够创建多样化的应用程序和钱包。许多团队正在 Safe 基础上（或受 Safe 启发）构建应用。例如，Biconomy 在推出其智能合约账户时，使用原生 4337 和 1/1 多重签名来拓展 Safe。Safe 见证了超过 164,000 份合约的部署并锁定了超过 307 亿美元的价值，毫无疑问是该领域的佼佼者。</p>
+<p><strong>Safe 的结构包括安全账户合约、单例合约、模块合约。</strong></p>
+<p><strong>安全账户合约（proxy contract）：主代理合约（Stateful）</strong></p>
+<p>安全账户是一个代理合约，这是因为委托调用是一个单例合约。安全帐户包含所有者、阈值和实现地址都设置为代理的变量，基于这些定义其状态。</p>
+<p><strong>单例合约（singleton contract）：Integration Hub（无状态）</strong></p>
+<p>单例合约服务于 Safe 账户，并定义了不同的模块合约集成，包括 Plugin、Hook、Function Handler 和 Signature Validator。</p>
+<p><strong>模块合约（modules）：自定义逻辑和功能</strong></p>
+<p>模块合约功能强大。插件作为模块化类型可以定义不同的功能，例如支付流、恢复机制和会话密钥，并且可以通过获取链外数据作为 Web2 和 Web3 之间的桥梁。其他模块如作为安全防护的 Hook 和 Function Handler 可响应任何指令。</p>
+<p><strong>采用 Safe 后带来的改变：</strong></p>
+<p>可升级合约：每当引入新插件时都需要部署新的单例。用户保留将 Safe 升级到所需单例版本的自主权。</p>
+<p>可组合、可重用的模块：插件的模块化特性使开发人员能够独立地开发功能。他们可以根据自己的用例自由选择和组合这些插件，从而形成高度可定制的方法。</p>
+<h2 id="erc-2535-diamond-代理">ERC-2535 Diamond 代理</h2>
+<p><img src="https://img.bibiqing.com/news/2023/1117/23_515fyforq9.png" alt="SevenX Ventures：模块化智能合约账户架构和挑战"></p>
+<p><strong>关于 ERC2535、 Diamond 代理：</strong></p>
+<p>ERC2535 标准化的 Diamond 模型，这是一种模块化智能合约系统，可以在部署后升级/扩展，且几乎没有大小限制。目前，很多团队如 Zerodev 的 Kernel、Soul Wallet 的实验都受到了 Diamond 结构的启发。</p>
+<p><strong>什么是 Diamond 结构：</strong></p>
+<p><strong>Diamond 合约：主要代理合约（有状态）</strong> Diamond 是一种代理合约，它使用 委托调用方法从其实现中调用函数。</p>
+<p><strong>模块/插件/ Facet 合约：自定义逻辑和功能（无状态）</strong> 模块或所谓的 Facet 是一种无状态合约，可以将其功能部署到一个或多个 Diamond。它们是单独的、独立的合约，可以共享内部函数、库和状态变量。</p>
+<p><strong>采用 Diamond 后带来的改变：</strong></p>
+<p>可升级合约：Diamond 提供了一种系统的方法来隔离不同的插件并将它们连接在一起，在它们之间共享数据，还可以使用 diamondCut 功能直接添加/替换/删除任何插件。随着时间的推移，可以添加到 Diamond 的插件数量将没有限制。</p>
+<p>模块化且可复用的插件：已部署的插件可以被任意数量的 Diamond 使用，从而极大地降低部署成本。</p>
+<h2 id="safe-智能账户与-diamond-方式的区别">Safe 智能账户与 Diamond 方式的区别：</h2>
+<p>Safe 和 Diamond 架构之间存在很多相似之处，两者都依赖于其核心的代理合约并引用逻辑合约来实现可升级性和模块化。</p>
+<p>两者的主要区别在于逻辑契约的处理。具体来说：</p>
+<p>· 灵活性：在启用新插件的情况下，Safe 需要重新部署其单例合约（Singleton）以实现其代理中的更改。相比之下，Diamond 直接通过其代理合约中的 diamondCut 函数来实现这一点。这种方法上的差异意味着 Safe 保留了更高程度的控制，而 Diamond 则引入了增强的灵活性和模块化。</p>
+<p>· 安全：目前在两种结构中使用的，可以允许外部代码操纵主合约的存储。在 Safe 架构中，委托调用指向单个逻辑合约，而 Diamond 则在多个模块合约-插件中使用委托调用。因此，恶意插件有可能覆盖另一个插件，从而引入存储冲突的风险，损害代理的完整性。</p>
+<p>· 成本：Diamond 方法中，灵活性与安全隐患同时存在。这增加了成本，每次添加新插件都需要进行全面审核。关键是要确保这些插件不会干扰彼此的功能，这一目的具有挑战性，特别是对于努力维持高安全标准的中小型企业而言。</p>
+<p>「Safe 智能账户方法」和「Diamond 方法」是涉及代理和模块的不同结构的示例。如何平衡灵活性和安全性至关重要，这两种方法未来也将会不断演变、相互补充。</p>
+<h1 id="模块顺序验证器validator执行器-executor-和挂钩-hook">模块顺序：验证器（Validator)、执行器 (Executor) 和挂钩 (Hook)</h1>
+<p>让我们通过介绍 ERC6900 来进一步讨论，这是 Alchemy 团队提出的、受 Diamond 启发、专门为 ERC-4337 量身定制的标准。它通过提供通用接口来解决智能账户模块化的挑战，并协调插件和钱包开发人员之间的工作。</p>
+<p>说到 AA 的交易流程，主要有三个流程：验证、执行、挂钩。正如我们前面所讨论的，这些步骤都可以通过使用代理帐户调用模块来管理。虽然不同的项目可能使用不同的名称，但掌握相似的底层逻辑很重要。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1117/23_suz3pz59cc.png" alt="SevenX Ventures：模块化智能合约账户架构和挑战"></p>
+<blockquote>
+<p>不同设计中的函数名称</p>
+</blockquote>
+<p>验证 (Validator)：确保帐户调用者的真实性和权限。</p>
+<p>执行 (Executor)：执行帐户允许的任何自定义逻辑。</p>
+<p>挂钩 (Hook)：充当在另一个函数之前或之后运行的模块。它可以修改状态或撤销整个调用。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1117/23_wqkc4uhgzg.png" alt="SevenX Ventures：模块化智能合约账户架构和挑战"></p>
+<p>根据不同的逻辑来分离模块至关重要。标准化方法应该规定如何编写智能合约帐户的验证、执行和挂钩函数。无论是 Safe 还是 ERC6900，标准化都有助于减少特定于某些实施或生态系统的独特开发工作的需求，并防止供应商锁定。</p>
+<h1 id="模块发现和安全">模块发现和安全</h1>
+<p>如何以开放的方式查找和验证模块：一个正在推进的解决方案涉及创建一个允许用户发现可验证模块的区域，可以将其称为「注册表」。该注册表的功能类似于「应用程序商店」，旨在培育一个简化但蓬勃发展的模块化市场。</p>
+<h2 id="safecore-协议">Safe{Core} 协议</h2>
+<p><img src="https://img.bibiqing.com/news/2023/1117/23_98qi9c2swc.png" alt="SevenX Ventures：模块化智能合约账户架构和挑战"></p>
+<p>Safe{Core} 协议是一种针对智能合约账户的开源、可互操作的协议，旨在增强各种供应商和开发人员的可访问性，同时通过明确定义的标准和规则来保持强大的安全性。</p>
+<p>· 账户：在 Safe{Core} 协议中，账户的概念是灵活的，不受特定实现的约束。这使得不同的账户服务提供商能够参与其中。</p>
+<p>· 管理器：管理器充当帐户、注册表和模块之间的协调员。它还作为许可层负责安全性。</p>
+<p>· 注册中心：注册中心定义安全属性并执行 ERC6900 等模块标准，旨在创建一个开放的「应用程序商店」环境，以实现可发现性和安全性。</p>
+<p>· 模块：模块处理功能并具有各种初始类型，包括插件、挂钩、签名验证器和函数处理程序。只要符合既定标准，开发人员就可以参与其中。</p>
+<h2 id="rhinestone-设计">Rhinestone 设计</h2>
+<p><img src="https://img.bibiqing.com/news/2023/1117/23_5w14aeukws.png" alt="SevenX Ventures：模块化智能合约账户架构和挑战"></p>
+<p>该过程展开如下：</p>
+<p>· 创建架构定义（schema）：架构提供预定义数据结构。人们可以对其进行定制，以符合其特定的用例。</p>
+<p>· 基于架构创建模块（modules）：注册为模块的智能合约获取字节码并选择架构 ID，数据就会被存储在注册表中。</p>
+<p>· 获得模块的证明（attestation）：证明者/审核员可以基于架构为模块提供证明。这些证明可包括唯一标识符 (UID) 以及对用于链接的其他证明的引用。它们可以跨链传播并验证目标链是否满足特定阈值。</p>
+<p>· 使用解析器（resolver）实现复杂逻辑：解析器（可选设置）开始发挥作用。它们可以在模块创建、证明建立和撤销期间被调用。这些解析器允许开发人员整合复杂且多样化的逻辑，同时维护证明结构。</p>
+<p>用户友好的查询访问（query）：查询为用户提供了一种从前端访问安全信息的方法。</p>
+<p>虽然该模式还处于早期阶段，但它具有以分散和协作的方式建立标准的潜力。注册表使开发人员能够注册他们的模块，审计员能够验证其安全性，钱包能够进行集成，并使用户能够轻松找到模块并验证其证明信息。未来的几种用途可能是：</p>
+<p>· 证明者（attestor）：像 Safe 这样值得信赖的实体可以与 Rhinestone 合作，共同作为内部模块的证明者。同时，独立证明者也可以加入。</p>
+<p>· 模块开发人员（module developer）：随着开放市场的形成，模块开发人员有可能通过注册表将他们的工作货币化。</p>
+<p>· 用户：通过用户友好的界面（例如钱包或 dApp）进行参与，用户可以检查模块信息并将信任委托给不同的证明者。</p>
+<p>「模块注册表」的概念为插件和模块开发人员开辟了盈利途径。它可以进一步为「模块市场」铺平道路。某些方面可能由 Safe 团队监督，而其他方面可能表现为去中心化市场，邀请所有人做出贡献并提供透明的审计记录。整合这一点可以避免供应商锁定，并通过添加能够吸引更广泛受众的增强用户体验来支持 EVM 的扩展。</p>
+<p>虽然这些方法能保证单个模块的安全，但在更广泛的安全性方面，智能合约账户并不是万无一失的。与合规模块结合并证明它们没有存储冲突可能是一个挑战，这凸显了钱包或 AA 基础设施在解决此类问题方面的重要性。</p>
+<h1 id="总结">总结</h1>
+<p>通过利用模块化智能合约账户堆栈，钱包提供商和 dApp 可以从技术维护的复杂性中解放出来。同时，外部模块开发人员有机会提供个性化的专业服务。然而，需要解决的挑战包括在灵活性和安全性之间取得平衡，推动模块化标准，以及实施标准化接口，使用户能够轻松升级和修改其智能帐户。</p>
+<p>此外，模块化智能合约账户（SCA）只是采用难题的一小部分。为了充分发挥 SCA 的潜力，需要 Layer 2 解决方案提供额外的协议层支持，例如强壮的 bundler 基础设施和点对点内存池、更具成本效益和可行的 SCA 签名机制、跨链 SCA 同步和管理机制，以及开发用户友好的界面。</p>
+<p>未来，将会有更多人采用 SCA，但也会引发一些有趣的问题：一旦 SCA 订单流变得有足够利益可图，传统的矿工可提取价值 (MEV) 机制将如何进入该领域构建捆绑器并获取价值？当基础设施成熟后，账户抽象（AA）如何作为「基于意图」交易的基础层？让我们拭目以待。</p>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/61884/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">SEC主席拒绝讨论该机构关于现货比特币ETF的任何计划</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/63398/">
+                <span class="next-text nav-default">SignalPlus宏观研报（20231117）：美国经济放缓，资产价格仍坚挺</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1熊市的影响">1、熊市的影响</a></li>
+    <li><a href="#2迁移障碍">2、迁移障碍</a></li>
+    <li><a href="#3签名问题">3、签名问题</a></li>
+    <li><a href="#4gas-成本">4、Gas 成本</a></li>
+    <li><a href="#5工程难题">5、工程难题</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#委托调用delegate-call和代理合约proxy-contract">委托调用（Delegate call）和代理合约（proxy contract）</a></li>
+    <li><a href="#safe-架构">Safe 架构</a></li>
+    <li><a href="#erc-2535-diamond-代理">ERC-2535 Diamond 代理</a></li>
+    <li><a href="#safe-智能账户与-diamond-方式的区别">Safe 智能账户与 Diamond 方式的区别：</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#safecore-协议">Safe{Core} 协议</a></li>
+    <li><a href="#rhinestone-设计">Rhinestone 设计</a></li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

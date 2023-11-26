@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          ZK协处理器从0到1： 它究竟能做什么？ - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="揭示 ZK 协处理器的神秘面纱。" />
+<meta name="keywords" content="ZK-Rollup" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/62184/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="ZK协处理器从0到1： 它究竟能做什么？" />
+<meta property="og:description" content="揭示 ZK 协处理器的神秘面纱。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/62184/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-11-22T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-11-22T00:00:00+00:00" />
+
+<meta itemprop="name" content="ZK协处理器从0到1： 它究竟能做什么？">
+<meta itemprop="description" content="揭示 ZK 协处理器的神秘面纱。"><meta itemprop="datePublished" content="2023-11-22T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-11-22T00:00:00+00:00" />
+<meta itemprop="wordCount" content="10098">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="ZK协处理器从0到1： 它究竟能做什么？"/>
+<meta name="twitter:description" content="揭示 ZK 协处理器的神秘面纱。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">ZK协处理器从0到1： 它究竟能做什么？</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-11-22">
+      2023-11-22
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 10098 字 -
+        预计阅读 21 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E5%85%B6%E5%AE%83%E6%96%87%E7%AB%A0/"> 其它文章 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>_<strong>Part.1 Insight</strong> _</p>
+<p>**<strong>ZK协处理器从0到1：它究竟能做什么？</strong> **</p>
+<p>ZK 协处理器是区块链领域一项激动人心的创新。它由 Brevis、Axiom、Lagrange 和 Herodotus 等项目率先推出，有望彻底革新我们在区块链上开发应用的方式。有了 ZK 协处理器，开发人员可以创建数据驱动的 dApps，可以利用 omnichain 数据的历史记录来执行复杂的计算，而不需要依赖任何额外的信任假设。更为重要的是，它引领了一种新的开发模式：异步应用架构，这为 Web 3.0 软件框架带来了前所未有的效率和可扩展性。</p>
+<p>在本系列文章中，我们将揭示 ZK 协处理器的神秘面纱。无论您是对其理念、实际应用、基础机制、面临的挑战，还是市场策略感兴趣，或是想要比较不同的项目，我们希望这些文章都能给您带来新的启发。</p>
+<h2 id="dex-上缺少-vip-交易员计划的案例"><strong>DEX 上缺少 VIP 交易员计划的案例</strong></h2>
+<p>要理解 ZK 协处理器的基本思想，我们需要从现实世界中的激励性实例开始。</p>
+<p>中心化交易所（CEX）和去中心化交易所（DEX）之间的一个明显区别是存在基于交易量的收费标准，也就是通常所说的 &ldquo;VIP 交易员忠诚度计划&rdquo;。这些计划是留住交易者、提高流动性并最终增加交易所收入的有力工具。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1030/13_os17cpsggn.png" alt="ZK协处理器从0到1： 它究竟能做什么？"></p>
+<p>有趣的是，虽然每个 CEX 都拥有至少一个这样的项目，但 DEX 却完全没有。为什么呢？</p>
+<p>这是因为在 DEX 中实现这一功能要比在 CEX 中更具挑战性，成本也更高。</p>
+<p>在 CEX 中，实施忠诚度项目需要：</p>
+<ul>
+<li>
+<p>在中心化数据库中记录所有用户的交易历史——这是一项便于降低未来查询成本的任务。</p>
+</li>
+<li>
+<p>每月在高性能的中心化数据库中执行一次直接查询，根据历史数据确定每个用户的交易量和费用等级。</p>
+</li>
+</ul>
+<p>然而，DEX 在尝试遵循相同步骤时面临着重大挑战：</p>
+<ul>
+<li>
+<p>由于区块链的存储成本过高，在智能合约中直接存储每个用户的交易历史并不可行。实施这种逻辑意味着用户每笔交易的手续费要高出 4 倍。</p>
+</li>
+<li>
+<p>即使我们进行了交易记录的数据存储，但对这些数据进行统计查询和计算的成本更高。例如，计算单个用户 10K 笔交易的交易量数据将花费 156M Gas（对！我们计算过）。</p>
+</li>
+</ul>
+<p>你可能会说 &ldquo;等等，你到底在说什么？在区块链上，每个用户的每笔交易都已自动存储（因为它是区块链！）。在区块链上土生土长的智能合约，应该可以随时访问所有这些数据，对吧？</p>
+<p>很遗憾，不对！</p>
+<p>区块链存储的数据和区块链虚拟机内智能合约可访问的数据完全是两码事。</p>
+<p>对于区块链的完整/存档节点来说，它们存储了区块链历史上的大量数据。通过这些节点，您可以轻松访问：</p>
+<ul>
+<li>
+<p>历史上任何给定时间内整个区块链的状态（例如，谁是 Cryptopunk 的第一个所有者）。</p>
+</li>
+<li>
+<p>历史上任何给定时间内的交易和因交易而产生的事件（例如，Charlie 将 $1,000 兑换成 0.5 ETH）。</p>
+</li>
+</ul>
+<p>事实上，流行的链外数据索引或分析工具（如 Nansen 和 Dune Analytics）可利用这一广泛的数据集进行深入分析。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1030/13_ahe075rf61.png" alt="ZK协处理器从0到1： 它究竟能做什么？"></p>
+<p>然而，对于嵌入区块链虚拟机的智能合约来说，数据访问的限制要大得多。它们不能使用链外索引解决方案生成的数据，因为这会给这些外部且通常是中心化的索引解决方案带来额外的信任问题。</p>
+<p>事实上，智能合约只能轻松且无需信任地访问以下数据:</p>
+<ul>
+<li>
+<p>虚拟机状态中存储的数据（不包括交易或事件数据）。</p>
+</li>
+<li>
+<p>最新区块中的数据（历史数据访问是受限的）。</p>
+</li>
+<li>
+<p>通过 &ldquo;查看 &ldquo;功能公开的其他智能合约的数据（不包括私有或内部合约数据）。</p>
+</li>
+</ul>
+<p>上述说法的一个关键细微差别在于 &ldquo;轻松 &ldquo;一词。</p>
+<p>智能合约并非完全不知道区块链上的全部数据。在 EVM 中，智能合约可以访问最新 256 个区块的区块头哈希值。这些区块头囊括了区块链上截至当前区块的所有活动，并通过默克尔树和 Keccak 哈希值浓缩成 32 字节的哈希值。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1030/13_63vih2btr7.png" alt="ZK协处理器从0到1： 它究竟能做什么？"></p>
+<p>压缩过的东西可以解压缩&hellip;只是并不容易 ?</p>
+<p>试想一下，如果想利用最近的区块头，无需信任地访问上一个区块中的特定数据。这种方法包括从存档节点获取链外数据，然后构建默克尔树和区块有效性证明，以确定数据在区块链中的真实性。然后，EVM 对有效性证明进行处理，以进行验证和解释。这样的操作既繁琐又艰巨，仅仅为了检索过去的几个代币余额，就可能消耗数千万 Gas。</p>
+<p>这一挑战的根源在于，区块链虚拟机本身不具备处理数据量大和密集型计算（如上述解压缩任务）的能力。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1030/13_w1qs0l7du9.png" alt="ZK协处理器从0到1： 它究竟能做什么？"></p>
+<p>ZK 协处理器架构</p>
+<p>（资料来源: Brevis 在 ETHSG 的演示幻灯片）</p>
+<p>如果有一种魔法，能让区块链委托进行这种数据密集型的繁琐计算，并以低成本迅速获得结果，而且不需要任何额外的信任假设，那就再理想不过了。</p>
+<p>朋友，这正是 ZK 协处理器的用途所在。</p>
+<p>“协处理器”这一名称的灵感来源于计算机架构的发展史。例如，GPU 作为 CPU 的协处理器被引入，是因为 CPU 必须将某些昂贵且自身难以运行的重要计算任务（如图形计算或人工智能训练）下放给 &ldquo;辅助处理器&rdquo;，即 GPU。</p>
+<p>但是，ZK 协处理器中的 &ldquo;ZK &ldquo;又是什么意思呢？在深入探讨复杂的技术细节之前，让我们先来了解一下这项创新技术的广泛意义和潜力。</p>
+<h2 id="我们需在web-30中数据驱动的-dapps">我们需在Web 3.0中数据驱动的 dApps</h2>
+<p>交易费返还就是一个很好的例子。按照这一思路，有了 ZK 协处理器，就可以在众多 DeFi 协议中无缝引入各种忠诚度计划。</p>
+<p>然而，这远不止 DeFi 忠诚度计划。您现在也许可以看到，Web 3.0 的其他领域也存在同样的问题。仔细想想，所有现代 Web 2.0 应用程序都是数据驱动的，而 Web 3.0 应用程序却无一例外。要想打造 &ldquo;杀手级应用&rdquo;，让用户体验与传统互联网应用相媲美，这种数据驱动方法是不可或缺的。</p>
+<p>让我们看看 DeFi 领域的另一个例子：通过重新设计流动性挖矿奖励机制来提高流动性效率。</p>
+<p>目前，AMM DEX 上的流动性激励机制采用 &ldquo;现收现付 &ldquo;模式。在这种模式下，当 LP 贡献流动性时，Farming 奖励即刻分配给 LP。然而，这种模式远非最佳。专业 Farmer 在感觉到市场波动时，可以迅速撤回流动资金，以避免无常损失。这样一来，他们为协议提供的价值微乎其微，但仍能获得可观的回报。</p>
+<p>理想的 AMM 流动性激励机制会对 LP 的坚定性进行追溯评估，尤其是在市场大幅波动期间。那些在这种情况下始终支持资金池的人应该获得最高奖励。然而，获取对这一模型至关重要的 LP 历史行为数据，在今天仍然是不可行的。</p>
+<p>要做到这一点，你需要 ZK 协处理器。</p>
+<p>在 DeFi 领域，我们可以举出很多类似的例子，无论是使用预定算法和规则进行主动 LP 头寸管理，使用非代币流动性头寸建立信贷额度，还是根据过去的还款行为确定贷款的动态清算偏好。</p>
+<p>然而，ZK 协处理器的潜力不仅限于 DeFi。</p>
+<p>利用 ZK 协处理器打造具有出色用户体验的链上游戏</p>
+<p><img src="https://img.bibiqing.com/news/2023/1030/13_hsojbl3g60.png" alt="ZK协处理器从0到1： 它究竟能做什么？"></p>
+<p>Web 2.0 游戏实时操作功能示例</p>
+<p>当你进入一款新安装的 Web 2.0 游戏时，你的一举一动都会被详细记录下来。这些数据不会被闲置，而是会很大程度影响你的游戏之旅。它决定何时为你提供游戏内购买选项，何时推出奖励游戏，何时向你发送措辞经过精心设计的推送通知，以及与你匹配的对手等等。这些都是游戏行业所说的实时运营（LiveOps）的组成部分，是提高玩家参与度和收入流的基石。</p>
+<p>要使完全链上游戏的用户体验与 Web 2.0 经典游戏相媲美，就需要这些 LiveOps 功能。这些功能应基于玩家与游戏智能合约的历史互动和交易。</p>
+<p>遗憾的是，在区块链游戏中，这类功能要么完全缺失，要么仍由中心化解决方案驱动。原因与 DEX 的例子如出一辙：难以在区块链上挖掘和计算历史游戏数据。</p>
+<p>是的，同样，你需要 ZK 协处理器来实现这一点。<br>
+Web 3.0 社交和身份识别应用是另一个没有 ZK 协处理器支持就无法运行的领域。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1030/13_1eyki3owl3.png" alt="ZK协处理器从0到1： 它究竟能做什么？"></p>
+<p>在区块链世界中，您的数字身份是由您过去的行为编织而成的一张网。</p>
+<ul>
+<li>
+<p>想证明自己是 NFT OG？你得证明你是 Cryptopunk 的原始矿工之一。</p>
+</li>
+<li>
+<p>吹嘘自己是个大交易员？向我证明你在 DEX 上支付了超过 100 万美元的交易费。</p>
+</li>
+<li>
+<p>和 Vitalik 关系密切？向我证明他的地址向你的地址发送过资金。</p>
+</li>
+</ul>
+<p>链下系统，无论是人类还是 Web 2.0 应用程序，都可以轻松生成这种证明，因为就像交易量的例子一样，它们可以访问包含所有这些数据的存档节点。</p>
+<p>基于这种直接数据访问的身份证明需要强大的钱包地址关联，因此也需要承担其牺牲隐私的缺点，但它确是可行的。</p>
+<p>然而，就像在交易量的例子中一样，如果你想让智能合约相信你的 OG 身份，并在不引入额外信任证明的情况下抢先体验一些新玩意，其实根本就没有什么好办法。</p>
+<p>有了 ZK 协处理器，您就可以编织出一个可靠的身份证明，一个您过去行为的证明，一个任何智能合约都会毫无疑问地接受的证明。您在不同应用程序甚至不同区块链上的互动都可以巧妙地合并起来，形成这一证明。</p>
+<p>更吸引人的是 ZK 固有的隐私性。您的钱包地址不必与您的身份公开关联。例如，你可以证明自己拥有 Cryptopunk NFT，而无需透露具体的钱包地址。或者，你可以证明在 Uniswap 上执行过 10,000 次交易，但不透露具体数字。</p>
+<p>ZK 协处理器为数据驱动的 dApp 构建开辟了一个全新的领域，但它的意义远不止于此。</p>
+<p><strong>超越数据驱动范式：用 ZK 协处理器开创 Web 3.0 异步模式</strong></p>
+<p><img src="https://img.bibiqing.com/news/2023/1030/13_s0fr7cf35l.png" alt="ZK协处理器从0到1： 它究竟能做什么？"></p>
+<p>数据驱动的 dApp 模式虽然很吸引人，但只是冰山一角。</p>
+<p>ZK 协处理器的出现将彻底改变我们对区块链计算的看法，开创一个异步处理成为 Web 3.0 标准的时代。这种转变重新定义了任务的处理方式，专门的处理器可以独立运行，从而提高效率。</p>
+<p>让我们先来了解一下什么是异步处理。</p>
+<p>想象一下，在一家同步餐厅里，一个人同时扮演厨师和服务员的角色。你点了菜，他就开始准备，让你等着。他只能在为您上完菜后，再去招呼另一位客人。虽然这种设置可能会满足你的需求，但对其他人来说却很难提高效率。</p>
+<p>相比之下，在异步餐厅中，不同的厨师和不同的服务员协同工作。服务员在接受您的订单后，会迅速将订单转交给厨师，同时为其他顾客提供服务。菜肴完成后，厨师向服务员发出信号，服务员随即为您上菜。</p>
+<p>在计算机系统中：</p>
+<p>同步架构就像第一家餐厅一样，一个人等待每项任务完成后再继续。这种架构简单明了，但速度可能较慢，因为它一次只处理一项任务。而且，这个人可能是个好服务员，但不是个好厨师。</p>
+<p>异步架构就像第二家餐厅，其中有一些解耦和专门的系统组件，它们相互发送信息和任务，作为一种协调方式。这允许每个组件同时管理自己的任务线。虽然可能需要更复杂的管理方法，但这种架构速度更快，效率更高。</p>
+<p>每一个现代互联网应用程序都是基于异步架构构建的，以提高效率和可扩展性，我们认为 Web 3.0 也应如此。</p>
+<p>ZK 协处理器将成为这一变革的先驱。对于 dApp 开发者来说，区块链就像我们异步餐厅里的服务员。它主要处理直接改变区块链状态的计算，如或有资产所有权变更。所有其他计算都应交由稳健的 ZK 协处理器处理，它们就像精通厨艺的厨师一样，通过异步处理的强大功能，高效地烹饪出结果并发送给服务员。<br>
+具体来说，如果区块链应用中的计算符合以下两个 &ldquo;可行条件 &ldquo;之一，就应考虑使用 ZK 协处理器。</p>
+<p>ZK 协处理器可执行条件：</p>
+<ul>
+<li>
+<p>链上计算成本 &gt;（链外 ZK 协处理器计算（包括证明生成）+链上验证成本）</p>
+</li>
+<li>
+<p>链上计算延迟 &gt; （链外 ZK 协处理器计算（包括证明生成）+ 链上验证延迟）</p>
+</li>
+</ul>
+<p>即使它们只符合其中之一，也值得考虑！</p>
+<p>现在你就可以看到，它不仅仅是数据驱动的 dApps！它是一种将 ML 等高水准通用计算引入区块链的全新方式，但更重要的是，它引入了改变模式的异步架构来构建 dApp，这在以前是根本不可能实现的。</p>
+<h2 id="下一篇章"><strong>下一篇章….</strong></h2>
+<p>如果我们已经成功地让您相信 ZK 协处理器是一个将产生深远影响的想法，那么现在也许是时候谈谈它们是如何工作的了。在下一篇博客中，我们将探讨 ZK 协处理器的关键架构，并讨论该领域仍然存在的最大技术挑战。</p>
+<p><em>**Part.2 投融资</em><strong>事件</strong> _** _</p>
+<p><img src="https://img.bibiqing.com/news/2023/1030/13_diumd6nmpo.png" alt="ZK协处理器从0到1： 它究竟能做什么？"></p>
+<p>******<strong>Neon Machine完成2000万美元A轮融资，Polychain领投</strong> ** ** **</p>
+<p><em>* 游戏</em></p>
+<p>总部位于西雅图的Neon Machine 宣布已在 A 轮融资中筹集了 2000 万美元。Polychain Capital 领投，IOSG Ventures、Griffin Gaming Partners、Brevan Howard Digital、Franklin Templeton 和 Tess Ventures 也参与其中。这家Shrapnel 制造商目前已通过种子轮融资、A 轮融资和私募代币销售筹集了总计 3750 万美元的资金。</p>
+<p>****<strong>Moonveil Entertainment完成540万美元融资，Gumi Cryptos Capital和Arcane Group领投</strong> ** **</p>
+<p><em>* 游戏</em></p>
+<p>Moonveil Entertainment已完成540万美元种子轮融资，Gumi Cryptos Capital和Arcane Group领投，IOSG Ventures、Longhash和Infinity Venture Crypto等多家Web3基金和游戏产业基金参投。<br>
+Moonveil Entertainment团队成员由来自拳头、腾讯、网易等知名游戏企业的核心管理层及制作团队以及Web3资深开发人员共同组成。Moonveil Entertainment正在研发的项目包括Astrark和Project B。</p>
+<p>****<strong>Blockaid完成3300万美元融资，红杉资本、 Ribbit等参投</strong> ** **</p>
+<p><em>* Web3 安全</em></p>
+<p>由两名前以色列军事网络情报人员共同创立的 Web3 安全初创公司 Blockaid 已获得 3300 万美元的融资，该融资分为两轮——600 万美元的种子轮融资和 2700 万美元的 A 轮融资。种子轮投资者包括红杉资本、Greylock Partners 和 Cyberstarts。三位投资者以及共同领投的 Ribbit Capital 和 Variant 都参与了 A 轮融资。</p>
+<p>****<strong>Port3 Network获得DWF Labs投资</strong> ** **</p>
+<p><em>* 社交</em></p>
+<p>Port3 Network在X平台上宣布，已获得DWF Labs投资，该轮融资将用于推动其链上交互自动化语言BQL发展，增强即将推出的社交数据层。</p>
+<p>****<strong>HYTOPIA完成300万美元融资，Delphi Ventures领投</strong> ** **</p>
+<p><em>* 元宇宙</em></p>
+<p>HYTOPIA（原NFT Worlds）在X平台上宣布完成300万美元融资，Delphi Ventures领投，数个风投机构与天使投资人参投。</p>
+<p>HYTOPIA是是一个从头开始制作的游戏平台和引擎，融合了社交功能，并为开发者提供了受到 Minecraft启发的游戏创建工具包，目前正在构建HYTOPIA透明、开放的货币化层，该层由其L2区块链以及其TOPIA代币提供支持。此前10月20日，HYTOPIA主网已上线。</p>
+<p>****<strong>Noble完成300万美元种子轮融资，Polychain Capital领投</strong> ** **</p>
+<p><em>* 生态应用链</em></p>
+<p>Noble 宣布完成 300 万美元种子轮融资，Polychain Capital 领投，参投方包括 Circle Ventures、Borderless Capital、Wintermute Ventures、Hustle Fund、CMCC Global 和 Interop 等。Noble 还正在与 Circle 合作将原生 USDC 带入 Cosmos 链间通信协议 IBC 生态系统。</p>
+<p>****<strong>Cube.Exchange完成900万美元的种子轮融资</strong> ** **</p>
+<p><em>* 交易所</em></p>
+<p>Cube.Exchange已筹集 900 万美元的种子轮融资，投资者包括 Asymmetry Technologies 和 Susquehanna Private Equity Investments、LLLP、Everstake、Foundation Capital、Big Brain Holdings、Third Kind Venture Capital、Arche Fund、WW Ventures 和Cube.Exchange管理层成员。新资金将用于招聘开发、营销、合规和管理人员、获得许可证以及开设更多办事处。Cube.Exchange将作为现货交易所推出，然后在明年扩展到其他产品。</p>
+<p>****<strong>smlXL完成1340万美元种子轮融资，a16z等参投</strong> ** **</p>
+<p><em>* 基础设施</em></p>
+<p>smlXL宣布完成1340万美元种子轮融资，a16z crypto、Greylock等提供支持。筹集到的资金将用建立一个16人的团队和开发产品，包括EVM.code和evm.storage。smlXL去年推出了第一个产品（EVM 操作码的交互式指南）evm.codes，今天已正式推出其网站。smlXL的使命是使区块链更加透明、有用和可访问。目前正在将覆盖范围扩大到未经验证的 Solidity 合约，还正在推出交易页面。</p>
+<p>****<strong>Triple-A完成1000万美元A轮融资</strong> ** **</p>
+<p><em>* 加密支付</em></p>
+<p>Triple-A完成1000万美元A轮融资，Peak XV Partners（原红杉印度和东南亚部门）和Shorooq Partners领投。Triple-A将使用新资金进一步开发其产品套件。Triple-A由专注于金融科技的企业家Eric Barbier于2018年创立，提供基于稳定币和区块链的支付，支持的主要代币包括USDT、USDC、比特币和以太坊。Triple-A于2021年获得了新加坡金融管理局颁发的支付机构许可证。Triple-A拥有一支 70多名员工组成的团队，并在新加坡、迈阿密、香港、巴黎和巴塞罗那设有办事处。</p>
+<p>****<strong>Aera完成800万美元融资，Bain Capital Crypto领投</strong> ** **</p>
+<p><em>* 资金管理协议</em></p>
+<p>Aera 宣布完成 800 万美元融资，本轮投资由 Bain Capital Crypto 领投，Jump Trading 参投。Aera 是一个自主的、数据驱动的资金管理协议，旨在帮助去中心化自治组织（DAO）管理其财务。Chitra 表示，Aera 的目标是让 DAO 能够快速响应市场变化，同时不牺牲去中心化的原则，为他们提供众包投资组合管理建议。</p>
+<p>**</p>
+<p>_<strong>Part.3 IOSG投后项目进展</strong> _</p>
+<h2 id="heading">**</h2>
+<p><strong><strong><strong>Celestia</strong></strong></strong>  ****<strong>网络已准备好启动，将首先发布主网测试版</strong> ** **</p>
+<p><em>* Modular Blockchain</em></p>
+<p>Celestia在官方博客中宣布，Celestia网络已准备好启动，将首先发布主网测试版，引入数据可用性采样（DAS）、用于rollup的Celestia-node API等功能，接下来 Celestia基金会将与创世验证者协调，收集他们的创世交易，这些交易将被包含在由去中心化验证器集合共同创建的创世区块中，一旦通过共识机制由验证器集合最终确定了创世区块，Celestia的主网测试版网络将上线。</p>
+<p>另外，Celestia在官方博客中宣布成立Celestia基金会，这是一家位于列支敦士登的非盈利组织。该基金会旨在引导Celestia生态系统并维护其价值观，主要目标包括资助可扩展的去中心化系统、公共商品的开源研发以及支持基于Celestia的基础设施和应用的开发者。该基金会的管理层由四名初始成员组成，其中包括Celestia联合创始人兼Celestia Labs首席执行官Dr. Mustafa Al-Bassam、加密企业家和投资者Batuhan Dasgin、Celestia联合创始人兼 Celestia Labs首席技术官Ismail Khoffi、Revalier所有者兼董事总经理Reinhold Wohlwend。</p>
+<p><strong><strong>MakerDAO</strong></strong>  **<strong>再次增加5000万美元RWA资产，协议RWA总资产突破33亿美元</strong> **</p>
+<p><em>* DeFi</em></p>
+<p>MakerDAO于10月21日通过BlockTower Andromeda再次增加5000万美元RWA资产。此外，当前协议RWA总资产约33.27亿美元。</p>
+<p><strong><strong>Starknet</strong></strong>  **<strong>去中心化路线图发布：包含运营权力下放至质押者等两条路径</strong> **</p>
+<p><strong>* Scaling</strong></p>
+<p>StarkWare发布Starknet去中心化路线图，以确保Starknet协议过渡到去中心化的权益证明协议，包括两条路径：实现运行去中心化协议所需的各种组件；将逐步将运营权力下放给Starknet质押者的过渡过程。其中，将运营权力下放给Starknet质押者的过渡过程包含四个路径：过渡到去中心化网络架构，而排序器操作仍保持中心化；确保完全开源软件堆栈的可用性；开发日益广泛的测试和集成网络；在排序器最终过渡到权益证明之前，吸引质押者加入。</p>
+<p><strong><strong>Arbitrum</strong></strong>  **<strong>将其Orbit堆栈与Celestia集成以实现数据可用性。</strong> **</p>
+<p><em>* Layer 2</em></p>
+<p>Arbitrum基金会宣布，Celestia将成为首个集成到Arbitrum Orbit和整个Nitro堆栈的模块化数据可用性（DA）网络。此次整合将在Celestia主网启动后完成，除了现有的Arbitrum One和Nova区块链之外，开发人员还可以选择将数据发布到Celestia。此举意味着Celestia的数据可用性证明将被纳入Arbitrum当前的L2生态系统中，旨在提高基于以太坊的应用程序的吞吐量和效率。Arbitrum基金会还表示，Celestia的Blobstream将通过Orbit软件堆栈部署到基于Arbitrum的Layer 2。</p>
+<p>另外，Arbitrum已于10月24日0:00启动了第三周的奥德赛（Odyssey）活动。本周奥德赛的互动任务涉及了主流交易所Uniswap和衍生品交易所ApeX Pro，用户可通过完成任务获得Galxe徽章奖励。根据时间安排，本周活动的结束时间为北京时间10月29日0:00，徽章申领则将开放至北京时间10月30日0:00。</p>
+<p><strong><strong>Illuvium</strong></strong>  **<strong>将于2024年Q1发布公测版本</strong> **</p>
+<p><em>* 链游</em></p>
+<p>Illuvium将于2024年第一季度推出公测版本。游戏内交易所IlluviDex将演变为Illuvium Universe内的资产交易和购买的核心，旨在将IlluviDex不仅仅定位为一个市场，还是社区互动的核心。IlluviDex引入了新功能，包括协商价格的报价系统、资产按游戏组织的新结构布局，以及卡片堆叠功能，以简化浏览资产集合。</p>
+<p>**<strong>_<strong>Part.4 行业脉搏</strong> _</strong> **</p>
+<p>******<strong>Aleo预计今年底上线主网，目前处于推出测试网的最后阶段</strong> ** ** **</p>
+<p><em>* 基础设施</em></p>
+<p>可编程隐私网络Aleo正处于推出其测试网的最后阶段，预计主网将于2023年底推出。主网上线后，Aleo Systems将放弃对Aleo网络的所有控制权，该网络将独立于其创始公司运作，类似于以太坊等其他去中心化系统。</p>
+<p>****<strong>LayerZero引入可将wstETH跨Avalanche、BNB Chain和Scroll转移的新功能</strong> ** **</p>
+<p><em>* <em>全链互操作协议</em></em></p>
+<p>LayerZero引入了一项功能，可从流动质押协议Lido Finance跨以太坊、Avalanche、BNB Chain和Scroll转移wstETH代币。wstETH还被集成到 LayerZero的全链可替代代币标准（OFT标准）中，该标准旨在避免跨链原生代币传输中的打包资产风险。OFT通过其去中心化通信协议来移动代币，而不是铸造和销毁包装的代币。该代币尚未得到Lido的正式认可。</p>
+<p>******<strong>Horizen推出的兼容EVM的侧链Horizen EON正式启动主网</strong> ** ** **</p>
+<p><em>* 基础设施</em></p>
+<p>由 Horizen 开发和支持的完全兼容 EVM 的侧链和智能合约平台 Horizen EON 今日正式启动主网。Horizen EON（以太坊开放网络）是一个可扩展的区块链平台，针对简化和多样化的 dapp 开发进行了优化。它与以太坊虚拟机兼容，利用以太坊庞大的资源和社区，在 Horizen 上轻松无缝地部署 dapp。</p>
+<h2 id="circle跨链传输协议cctp已上线base主网--">****<strong>Circle跨链传输协议CCTP已上线Base主网</strong> ** **</h2>
+<h2 id="__-_跨链传输协议_"><em>*</em> <em>跨链传输协议</em></h2>
+<p>Circle跨链传输协议CCTP现已在Base主网上线。目前，CCTP可以通过超20条路线在以太坊、Avalanche、Base、Arbitrum和Optimism之间转移USDC。</p>
+<p>****<strong>Coinbase Cloud：Celestia主网上线后将为其链上质押服务提供支持</strong> ** **</p>
+<h2 id="_-基础设施_"><em>* 基础设施</em></h2>
+<h2 id="coinbase-cloud在社交媒体宣布模块化区块链celestia主网即将启动主网上线后将为其链上质押服务提供支持代币持有者和构建者将能够通过coinbase-cloud在celestia区块链上进行质押">Coinbase Cloud在社交媒体宣布，模块化区块链Celestia主网即将启动，主网上线后将为其链上质押服务提供支持，代币持有者和构建者将能够通过Coinbase Cloud在Celestia区块链上进行质押。</h2>
+<p>**<strong>Linear Finance：将重新开放协议并完全恢复矿池，并推出新网站和品</strong> **</p>
+<h2 id="_-defi_"><em>* DeFi</em></h2>
+<p>此前遭到攻击的DeFi协议Linear Finance在X平台上表示，即将重新开放协议Linear 2.0并完成恢复矿池，同时还将推出新网站和品牌，以及订单簿DEX和多抵押质押服务。此外，Linear Finance还将引入人工智能。</p>
+<p>**<strong>Merit Circle：游戏子网Beam已集成全链互操作协议LayerZero</strong> **</p>
+<p><em>*GameFi</em></p>
+<p>Merit Circle 发文表示，其游戏子网 Beam 已与全链互操作协议 LayerZero 集成，以增强 Beam 网络内的互操作性。用户可通过 Beam Bridge 将以太坊上的资产转移至 Beam 网络，包括 Merit Circle 代币 MC 与未来在 Beam 上发布的各种游戏代币。Beam SDK 将通过其可替代代币（OFT）和不可替代代币（ONFT）的全链合约集成 LayerZero 堆栈。</p>
+<p>**<strong>dYdX已开源其V4代码，dYdX Chain v1.0正式发布</strong> **</p>
+<p><em>*交易所</em></p>
+<p>dYdX周二宣布将开源其代码，这标志着该交易所 v4 升级的启动，以及备受关注的从以太坊上的第 2 层网络到 Cosmos 生态系统中独立区块链 dYdX Chain v1.0 的过渡。如果该提案被社区接受并通过由 dYdX 基金会领导的治理投票，那么区块链的新主网络或“主网”将上线。本月早些时候，dYdX创始人称：向Cosmos的过渡计划于本月进行，届时平台将“完全去中心化”。dYdX Trading Inc.也已更新其章程，转型为公众利益公司。</p>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/63809/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">Worldcoin是否需要重新评估？了解奥特曼的加密AI-UBI实验</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/63641/">
+                <span class="next-text nav-default">阿根廷大选真的能利好比特币吗？</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#dex-上缺少-vip-交易员计划的案例"><strong>DEX 上缺少 VIP 交易员计划的案例</strong></a></li>
+    <li><a href="#我们需在web-30中数据驱动的-dapps">我们需在Web 3.0中数据驱动的 dApps</a></li>
+    <li><a href="#下一篇章"><strong>下一篇章….</strong></a></li>
+    <li><a href="#heading">**</a></li>
+    <li><a href="#circle跨链传输协议cctp已上线base主网--">****<strong>Circle跨链传输协议CCTP已上线Base主网</strong> ** **</a></li>
+    <li><a href="#__-_跨链传输协议_"><em>*</em> <em>跨链传输协议</em></a></li>
+    <li><a href="#_-基础设施_"><em>* 基础设施</em></a></li>
+    <li><a href="#coinbase-cloud在社交媒体宣布模块化区块链celestia主网即将启动主网上线后将为其链上质押服务提供支持代币持有者和构建者将能够通过coinbase-cloud在celestia区块链上进行质押">Coinbase Cloud在社交媒体宣布，模块化区块链Celestia主网即将启动，主网上线后将为其链上质押服务提供支持，代币持有者和构建者将能够通过Coinbase Cloud在Celestia区块链上进行质押。</a></li>
+    <li><a href="#_-defi_"><em>* DeFi</em></a></li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

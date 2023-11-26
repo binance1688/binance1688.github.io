@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          账户抽象背后的EIP大盘点 - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="本文我们来快速了解一下不同的EIP，是它们为我们带来了如今的账户抽象。" />
+<meta name="keywords" content="賬戶抽象, Layer 2" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/61862/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="账户抽象背后的EIP大盘点" />
+<meta property="og:description" content="本文我们来快速了解一下不同的EIP，是它们为我们带来了如今的账户抽象。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/61862/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-10-25T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-10-25T00:00:00+00:00" />
+
+<meta itemprop="name" content="账户抽象背后的EIP大盘点">
+<meta itemprop="description" content="本文我们来快速了解一下不同的EIP，是它们为我们带来了如今的账户抽象。"><meta itemprop="datePublished" content="2023-10-25T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-10-25T00:00:00+00:00" />
+<meta itemprop="wordCount" content="3856">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="账户抽象背后的EIP大盘点"/>
+<meta name="twitter:description" content="本文我们来快速了解一下不同的EIP，是它们为我们带来了如今的账户抽象。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">账户抽象背后的EIP大盘点</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-10-25">
+      2023-10-25
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 3856 字 -
+        预计阅读 8 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E5%85%B6%E5%AE%83%E6%96%87%E7%AB%A0/"> 其它文章 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>作者：Vasa，OpenSea Pro联合创始人；翻译：金色财经xiaozou</p>
+<p>本文我们来快速了解一下不同的EIP，是它们为我们带来了如今的账户抽象。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1025/21_38kkosgcmv.png" alt="IBi1wWpT0680RWZaqv5DB56VCs7bGvDrkaHl3Wky.png" title="7122936"></p>
+<p><strong>1、为什么我们需要帐户抽象（AA）？</strong></p>
+<p>人们喜欢抛出这样的问题：“我们如何为web3带来下一批十亿用户？”有许多障碍需要克服，但其中最重要的就是用户体验。</p>
+<p>下图是对新用户来说典型的用户体验过程。还要注意，如果你丢失助记词，是没有办法找回你自己的资金的。这对新用户来说是一个巨大障碍。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1025/21_cecl6d35d3.png" alt="vvFxw94g95EIvo2NuFwxQX9g5mTtJo2EvxwLJO2y.png" title="7122937"></p>
+<p>下面是一些我们可以做的事情来改善用户体验。我们可以：</p>
+<p>- 创建无需助记词的钱包。</p>
+<p>-使用一个无需存储ETH、无需使用ETH支付gas费的钱包。</p>
+<p>-使用社交恢复找回钱包。</p>
+<p>-在一笔交易中进行批量操作。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1025/21_addd1qkulf.png" alt="dE8KCPMN0cVxJwYU2lm5yt5B9g3GLhSxilFQWvfW.png" title="7122938"></p>
+<p><strong>2、账户抽象类型</strong></p>
+<p>有两种账户：外部账户（EOA）和合约账户。EOA由私钥控制，合约账户由合约代码控制。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1025/21_swjs4nnwn2.png" alt="64lX5U5G6sNJZBjPvNiC827QJil9Zi8BpTNMeQ8Y.png" title="7122939"></p>
+<p>EOA可以向其他EOA或合约账户发起交易，然后这些账户可以执行它们的代码。合约账户也可以将交易发送给其他合约账户，后者可以执行自己的代码。</p>
+<p><strong>3、以太坊的早期：交易执行和验证</strong></p>
+<p>当一笔交易被发送到网络时，需要经过两个步骤：验证和执行。虽然执行的交易逻辑可以是任意的，但验证部分却是固定的。</p>
+<p>验证部分由EOA必用的单一固定算法完成，即ECDSA签名验证。但是为什么我们使用一个固定方法来验证交易的有效性呢？如果未来由于量子计算，ECDSA签名验证不再可靠了怎么办？</p>
+<p>如果我们让验证部分是开放的，那么你就可以创建一个具有非常复杂的验证算法的交易，那么，矿工/验证者将不得不花费大量的资源来检查该交易是否可以被包含进区块内。</p>
+<p>现在，请注意，矿工只获得执行并包含交易的报酬，不获得验证报酬。因此，如果在花费了大量资源之后，矿工发现他们无法添加交易，那么他们就浪费了资源，不会因此获得任何报酬。因此，这可以被用来对网络进行DDoS攻击。这就是为什么以太坊最开始使用的是固定的验证算法。</p>
+<p><strong>4、以太坊的早期：多签采用问题</strong></p>
+<p>多重签名钱包是一个有很多所有者带有阈值的合约。如果你想发送一笔交易，就必须从所有所有者那里获得签名，然后你才能发送该交易。</p>
+<p>这支持了社交恢复等功能的实现，一旦你丢失私钥，你可以有很多好友来帮助你恢复钱包。从以太坊的早期开始，多签钱包可以提供的价值就已经显而易见。因此，当时的以太坊开发团队希望以太坊用户使用多签钱包。然而，这并没有发生。</p>
+<p>由于以太坊开发团队设想用户会使用多签钱包，所以他们并没有为ETH转账添加自动日志，因为他们预计多签钱包会记录每一笔ETH转账。当时的交易所必须解析ETH转账交易，而不是解析日志。</p>
+<p>当有人试图使用带有ETH转账日志的多签钱包时，交易所是无法识别的，因为交易所并没有解析日志。因此，这个小小的假设最终让多签钱包的采用更难了。</p>
+<p><strong>5、EIP 86和1014：账户抽象第一步</strong></p>
+<p>EIP-86旨在引入智能合约钱包概念，称为“转发合约”。这些合约被设计为只接收来自“入口点”地址的交易，这些交易需要遵守特定格式。</p>
+<p>现在，要创建一个智能合约钱包，你需要事先有一些ETH来支付gas费。你可以去CEX弄来一些ETH，但是因为你的智能合约钱包还没有创建，所以你还不能向钱包发送ETH。</p>
+<p>如果我们可以在智能合约创建之前以某种方式确切地知道合约地址，我们就可以将ETH发送到该地址，然后使用地址上的ETH创建智能合约钱包。</p>
+<p>这就是EIP-1014引入的内容。它引入了CREATE2操作码，可以让你在创建智能合约之前确定合约地址。这是迈向帐户抽象的第一步。</p>
+<p>最初的EIP-86要求对协议进行重大改变，因为协议的更改需要节点开发团队之间的协作，并且需要经过大范围审查，因此从未实现。而EIP-1014是在Constantinople硬分叉中实现的。</p>
+<p><strong>6、社区发展：Gnosis Safe、Argent Wallet、Gas Station网络</strong></p>
+<p>在探讨研究EIP时，社区已经着手制定各自的解决方案。</p>
+<p>其中最引人注目的是2018年发布的Gnosis Safe。Safe是一个支持用户创建多签钱包的智能合约钱包，还支持用户将多个操作批处理到单个交易中。它还允许用户使用ERC20代币支付gas费。</p>
+<p>另一个值得注意的是2019年发布的Argent钱包。Argent智能钱包支持用户创建多签钱包，也支持用户使用ERC20代币支付gas费。另外，它还能让用户使用社交恢复来找回他们的钱包。</p>
+<p>2019年发布的Gas Station网络（GSN）是一个去中心化网络，支持用户使用ERC20代币支付gas费。GSN可以与任何智能合约钱包一起使用。</p>
+<p><strong>7、EIP 2938——一个巨大的飞跃</strong></p>
+<p>从2018年开始，以太坊团队将注意力转向了向PoS（权益证明）的迁移，这无意中导致了研究团队和节点开发团队对EIP的评估和实施的重视程度的降低。</p>
+<p>这一重心转移为2020年EIP-2938的提出铺平了道路，也就是在EIP-1014实施两年后。</p>
+<p>该提案背后的核心思想就是引入智能合约钱包，这些钱包被设计为专门接收特定类型的交易，它们可以通过编程确定交易的gas上限并制定任意验证方法。</p>
+<p>该提案引入了两个新的操作码来处理交易，并且正如前面强调的那样，包含这些核心更新是一个复杂的过程。</p>
+<p>此外，关于如何实现重放保护，以及节点如何检查这些新型交易的有效性，还有悬而未决的问题。虽然该提案没有获得太多的关注，但它确实为下个提案（EIP-3074）的到来铺平了道路。</p>
+<p><strong>8、EIP-3074——高度通用的解决方案</strong></p>
+<p>该提案引入了两个新的操作码：AUTH和AUTHCALL。这个提议的不同之处在于，它支持外部账户（EOA）将控制权委托给合约。这些操作码被指定用于“invoker”合约，这些合约有可能显著增强任何EOA的功能。</p>
+<p>该合约启动的交易结构完全是任意的，便于轻松实现多重签名、批处理和援助购买、密钥恢复以及更友好的CeFi存款等解决方案。由于其开放的性质，该提案作为一个高度通用的解决方案出现，能够满足广泛用例。</p>
+<p>另一方面，这一提案的中立立场也带来了一些安全挑战。更进一步的讨论提出了一种更固执己见的AUTHCALL方法，以减轻相关风险。这一讨论促使研究人员得出了一个更优化的解决方案，从而产生了EIP-4337。</p>
+<p><strong>9、EIP-4337——无需更改共识层协议的以太坊账户抽象</strong></p>
+<p><strong><img src="https://img.bibiqing.com/news/2023/1025/21_1qsqv2l9wh.png" alt="HQ5SxXOpxJLs0tzXo1IgTdGxAe5XHPNAIJiDKUMM.png" title="7122940"></strong></p>
+<p>EIP-4337提出了一种机制，在不需要更改共识层协议的情况下，将账户抽象引入以太坊。在此EIP下，用户与以太坊网络的交互方式有所不同；用户不发送交易，而是将UserOperation对象发送到一个单独的内存池。Sender是发起用户操作的账户合约。Bundler收集这些操作，将它们打包到一个交易中，该交易触发指定EntryPoint合约上的一个handleOps调用，以执行打包的操作。Paymaster是赞助交易的实体，其详细信息包含在UserOperation中，用于费用处理。</p>
+<p>Aggregator对聚合的签名进行验证，提高了安全性和效率。Bundler或客户端白名单支持入口点和Aggregator合约，控制交互并确保在以太坊网络上正确执行用户操作，在不改变共识层的情况下与账户抽象的目标保持一致。</p>
+<p>通过此过程部署的智能合约钱包自主管理随机数值和签名验证，提供了广泛的灵活性。这种设计有助于创建能够处理多重签名和打包交易、社交恢复甚至使用ERC20代币支付费用的智能合约钱包。</p>
+<p>像EIP-4337中提出的某种形式的账户抽象可能会在以太坊的中期未来实现，最初出现在新的L2解决方案中，最终进入以太坊L1，从而扩大用户与以太坊交互的范围。</p>
+<p><strong>10、L2——新前沿</strong></p>
+<p>在引入任何与账户抽象相关的EIP时，核心协议的更新是一个重大障碍。核心开发人员一直忙于ETH 2.0路线图，这在很长一段时间内一直都是最高优先级事项。</p>
+<p>但是L2呢？与带着技术债的以太坊L1不同，最近的L2链从一开始就拥有集成帐户抽象的架构。</p>
+<p>例如，StarkNet是一个ZK rollup，它创建了独特的帐户抽象。此外，以L1智能合约钱包而闻名的Argent在StarkNet上推出了ArgentX，嵌入了一个受EIP-4337影响很大的自定义账户抽象实现。这些举措强调了以太坊区块链账户抽象的重要性和适用性。</p>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/61866/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">游戏工作室Neon Machine融资2000万美元，Polychain Capital领投</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/61800/">
+                <span class="next-text nav-default">最高20倍！压缩ChatGPT等模型文本提示，极大节省AI算力</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

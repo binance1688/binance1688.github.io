@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          optimism sequencer背后的魔法：libp2p在op-stack中的使用 - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="在本节中，主要用于讲解optimism是如何使用libp2p来完成op-node中的p2p网络建立的。" />
+<meta name="keywords" content="Optimism, OP Stack" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/61958/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="optimism sequencer背后的魔法：libp2p在op-stack中的使用" />
+<meta property="og:description" content="在本节中，主要用于讲解optimism是如何使用libp2p来完成op-node中的p2p网络建立的。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/61958/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-10-26T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-10-26T00:00:00+00:00" />
+
+<meta itemprop="name" content="optimism sequencer背后的魔法：libp2p在op-stack中的使用">
+<meta itemprop="description" content="在本节中，主要用于讲解optimism是如何使用libp2p来完成op-node中的p2p网络建立的。"><meta itemprop="datePublished" content="2023-10-26T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-10-26T00:00:00+00:00" />
+<meta itemprop="wordCount" content="7499">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="optimism sequencer背后的魔法：libp2p在op-stack中的使用"/>
+<meta name="twitter:description" content="在本节中，主要用于讲解optimism是如何使用libp2p来完成op-node中的p2p网络建立的。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">optimism sequencer背后的魔法：libp2p在op-stack中的使用</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-10-26">
+      2023-10-26
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 7499 字 -
+        预计阅读 15 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E5%85%B6%E5%AE%83%E6%96%87%E7%AB%A0/"> 其它文章 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>作者：joohhnnn</p>
+<h1 id="optimism中的libp2p应用">optimism中的libp2p应用</h1>
+<p>在本节中，主要用于讲解optimism是如何使用libp2p来完成op-node中的p2p网络建立的。 p2p网络主要是用于在不同的node中传递信息，例如sequencer完成unsafe的区块构建后，通过p2p的gossiphub的pub/sub进行传播。libp2p还处理了其他，例如网络，寻址等在p2p网络中的基础件层。</p>
+<h2 id="了解libp2p">了解libp2p</h2>
+<p>libp2p（简称来自“库对等”或“library peer-to-peer”）是一个面向对等（P2P）网络的框架，能够帮助开发P2P应用程序。它包含了一套协议、规范和库，使网络参与者（也称为“对等体”或“peers”）之间的P2P通信变得更为简便 (source[2])。libp2p最初是作为IPFS（InterPlanetary File System，星际文件系统）项目的一部分，后来它演变成了一个独立的项目，成为了分布式网络的模块化网络堆栈 (source[3])。</p>
+<p>libp2p是IPFS社区的一个开源项目，欢迎广泛社区的贡献，包括帮助编写规范、编码实现以及创建示例和教程 (source[4])。libp2p是由多个构建模块组成的，每个模块都有非常明确、有文档记录且经过测试的接口，使得它们可组合、可替换，因此可升级 (source[5])。libp2p的模块化特性使得开发人员可以选择并使用仅对他们的应用程序必要的组件，从而在构建P2P网络应用程序时促进了灵活性和效率。</p>
+<h3 id="相关资源">相关资源</h3>
+<ul>
+<li>
+<p>libp2p的官方文档[6]</p>
+</li>
+<li>
+<p>libp2p的GitHub仓库[7]</p>
+</li>
+<li>
+<p>在ProtoSchool上的libp2p简介[8]</p>
+</li>
+</ul>
+<p>libp2p的模块化架构和开源特性为开发强大、可扩展和灵活的P2P应用程序提供了良好的环境，使其成为分布式网络和网络应用程序开发领域的重要参与者。</p>
+<h3 id="libp2p实现方式">libp2p实现方式</h3>
+<p>在使用libp2p时，你会需要实现和配置一些核心组件以构建你的P2P网络。以下是libp2p在应用中的一些主要实现方面：</p>
+<h4 id="1-节点创建与配置-">1. <strong>节点创建与配置</strong> :</h4>
+<ul>
+<li>
+<p>创建和配置libp2p节点是最基本的步骤，这包括设置节点的网络地址、身份和其他基本参数。 关键使用代码:</p>
+<p>libp2p.New()</p>
+</li>
+</ul>
+<h4 id="2-传输协议-">2. <strong>传输协议</strong> :</h4>
+<ul>
+<li>
+<p>选择和配置你的传输协议（例如TCP、WebSockets等）以确保节点之间的通信。 关键使用代码：</p>
+<p>tcpTransport := tcp.NewTCPTransport()</p>
+</li>
+</ul>
+<h4 id="3-多路复用和流控制-">3. <strong>多路复用和流控制</strong> :</h4>
+<ul>
+<li>
+<p>实现多路复用来允许在单一的连接上处理多个并发的数据流。</p>
+</li>
+<li>
+<p>实现流量控制来管理数据的传输速率和处理速率。 关键使用代码：</p>
+<p>yamuxTransport := yamux.New()</p>
+</li>
+</ul>
+<h4 id="4-安全和加密-">4. <strong>安全和加密</strong> :</h4>
+<ul>
+<li>
+<p>配置安全传输层以确保通信的安全性和隐私。</p>
+</li>
+<li>
+<p>实现加密和身份验证机制以保护数据和验证通信方。 关键使用代码：</p>
+<p>tlsTransport := tls.New()</p>
+</li>
+</ul>
+<h4 id="5-协议和消息处理-">5. <strong>协议和消息处理</strong> :</h4>
+<ul>
+<li>
+<p>定义和实现自定义协议来处理特定的网络操作和消息交换。</p>
+</li>
+<li>
+<p>处理接收到的消息并根据需要发送响应。 关键使用代码：</p>
+<p>host.SetStreamHandler(&quot;/my-protocol/1.0.0&quot;, myProtocolHandler)</p>
+</li>
+</ul>
+<h4 id="6-发现和路由-">6. <strong>发现和路由</strong> :</h4>
+<ul>
+<li>
+<p>实现节点发现机制来找到网络中的其他节点。</p>
+</li>
+<li>
+<p>实现路由逻辑以确定如何将消息路由到网络中的正确节点。 关键使用代码：</p>
+<p>dht := kaddht.NewDHT(ctx, host, datastore.NewMapDatastore())</p>
+</li>
+</ul>
+<h4 id="7-网络行为和策略-">7. <strong>网络行为和策略</strong> :</h4>
+<ul>
+<li>
+<p>定义和实现网络的行为和策略，例如连接管理、错误处理和重试逻辑。 关键使用代码：</p>
+<p>connManager := connmgr.NewConnManager(lowWater, highWater, gracePeriod)</p>
+</li>
+</ul>
+<h4 id="8-状态管理和存储-">8. <strong>状态管理和存储</strong> :</h4>
+<ul>
+<li>
+<p>管理节点和网络的状态，包括连接状态、节点列表和数据存储。 关键使用代码：</p>
+<p>peerstore := pstoremem.NewPeerstore()</p>
+</li>
+</ul>
+<h4 id="9-测试和调试-">9. <strong>测试和调试</strong> :</h4>
+<ul>
+<li>
+<p>为你的libp2p应用编写测试以确保其正确性和可靠性。</p>
+</li>
+<li>
+<p>使用调试工具和日志来诊断和解决网络问题。 关键使用代码：</p>
+<p>logging.SetLogLevel(&ldquo;libp2p&rdquo;, &ldquo;DEBUG&rdquo;)</p>
+</li>
+</ul>
+<h4 id="10-文档和社区支持-">10. <strong>文档和社区支持</strong> :</h4>
+<pre><code>- 查阅libp2p的文档以了解其各种组件和API。- 与libp2p社区交流以获取支持和解决问题。
+</code></pre>
+<p>}</p>
+<p>以上是使用libp2p时需要考虑和实现的一些主要方面。每个项目的具体实现可能会有所不同，但这些基本方面是构建和运行libp2p应用所必需的。在实现这些功能时，可以参考libp2p的官方文档[9]和GitHub仓库[10]中的示例代码和教程。</p>
+<h2 id="在op-node中libp2p的使用">在OP-node中libp2p的使用</h2>
+<p>为了弄清楚op-node和libp2p的关系，我们必须弄清楚几个问题</p>
+<pre><code>- 为什么选择libp2p？为什么不选择devp2p（geth使用devp2p）- OP-node有哪些数据或者流程和p2p网络紧密相关- 这些功能是如何在代码层实现的 
+</code></pre>
+<h3 id="op-node需要libp2p网络的原因">op-node需要libp2p网络的原因</h3>
+<p><strong>首先我们要了解为什么optimism需要p2p网络</strong> libp2p是一个模块化的网络协议，允许开发人员构建去中心化的点对点应用，适用于多种用例 (source[11])(source[12])。而devp2p主要用于以太坊生态系统，专为以太坊应用定制 (source[13])。libp2p的灵活性和广泛适用性可能使其成为开发人员的首选。</p>
+<h3 id="op-node主要使用libp2p的功能点">op-node主要使用libp2p的功能点</h3>
+<pre><code>- 用于sequencer将产生的unsafe的block传递到其他非sequencer节点- 用于非sequencer模式下的其他节点当出现gap时进行快速同步（反向链同步）- 用于采用积分声誉系统来规范整体节点的良好环境
+</code></pre>
+<h3 id="代码实现">代码实现</h3>
+<h4 id="host自定义初始化">host自定义初始化</h4>
+<p>host可以理解为是p2p的节点，当开启这个节点的时候，需要针对自己的项目进行一些特殊的初始化配置</p>
+<p>现在让我们看一下 <code>op-node/p2p/host.go</code>文件中的<code>Host</code>方法，</p>
+<p>该函数主要用于设置 libp2p 主机并进行各种配置。以下是该函数的关键部分以及各部分的简单中文描述：</p>
+<ol>
+<li>
+<p><strong>检查是否禁用 P2P</strong><br>
+如果 P2P 被禁用，函数会直接返回。</p>
+</li>
+<li>
+<p><strong>从公钥获取 Peer ID</strong><br>
+使用配置中的公钥来生成 Peer ID。</p>
+</li>
+<li>
+<p><strong>初始化 Peerstore</strong><br>
+创建一个基础的 Peerstore 存储。</p>
+</li>
+<li>
+<p><strong>初始化扩展 Peerstore</strong><br>
+在基础 Peerstore 的基础上，创建一个扩展的 Peerstore。</p>
+</li>
+<li>
+<p><strong>将私钥和公钥添加到 Peerstore</strong><br>
+在 Peerstore 中存储 Peer 的私钥和公钥。</p>
+</li>
+<li>
+<p><strong>初始化连接控制器（Connection Gater）</strong><br>
+用于控制网络连接。</p>
+</li>
+<li>
+<p><strong>初始化连接管理器（Connection Manager）</strong><br>
+用于管理网络连接。</p>
+</li>
+<li>
+<p><strong>设置传输和监听地址</strong><br>
+设置网络传输协议和主机的监听地址。</p>
+</li>
+<li>
+<p><strong>创建 libp2p 主机</strong><br>
+使用前面的所有设置来创建一个新的 libp2p 主机。</p>
+</li>
+<li>
+<p><strong>初始化静态 Peer</strong><br>
+如果有配置静态 Peer，进行初始化。</p>
+</li>
+<li>
+<p><strong>返回主机</strong><br>
+最后，函数返回创建好的 libp2p 主机。</p>
+</li>
+</ol>
+<p>这些关键部分负责 libp2p 主机的初始化和设置，每个部分都负责主机配置的一个特定方面。</p>
+<pre><code>    func (conf *Config) Host(log log.Logger, reporter metrics.Reporter, metrics HostMetrics) (host.Host, error) {        if conf.DisableP2P {            return nil, nil        }        pub := conf.Priv.GetPublic()        pid, err := peer.IDFromPublicKey(pub)        if err != nil {            return nil, fmt.Errorf(&quot;failed to derive pubkey from network priv key: %w&quot;, err)        }        basePs, err := pstoreds.NewPeerstore(context.Background(), conf.Store, pstoreds.DefaultOpts())        if err != nil {            return nil, fmt.Errorf(&quot;failed to open peerstore: %w&quot;, err)        }        peerScoreParams := conf.PeerScoringParams()        var scoreRetention time.Duration        if peerScoreParams != nil {            // Use the same retention period as gossip will if available            scoreRetention = peerScoreParams.PeerScoring.RetainScore        } else {            // Disable score GC if peer scoring is disabled            scoreRetention = 0        }        ps, err := store.NewExtendedPeerstore(context.Background(), log, clock.SystemClock, basePs, conf.Store, scoreRetention)        if err != nil {            return nil, fmt.Errorf(&quot;failed to open extended peerstore: %w&quot;, err)        }        if err := ps.AddPrivKey(pid, conf.Priv); err != nil {            return nil, fmt.Errorf(&quot;failed to set up peerstore with priv key: %w&quot;, err)        }        if err := ps.AddPubKey(pid, pub); err != nil {            return nil, fmt.Errorf(&quot;failed to set up peerstore with pub key: %w&quot;, err)        }        var connGtr gating.BlockingConnectionGater        connGtr, err = gating.NewBlockingConnectionGater(conf.Store)        if err != nil {            return nil, fmt.Errorf(&quot;failed to open connection gater: %w&quot;, err)        }        connGtr = gating.AddBanExpiry(connGtr, ps, log, clock.SystemClock, metrics)        connGtr = gating.AddMetering(connGtr, metrics)        connMngr, err := DefaultConnManager(conf)        if err != nil {            return nil, fmt.Errorf(&quot;failed to open connection manager: %w&quot;, err)        }        listenAddr, err := addrFromIPAndPort(conf.ListenIP, conf.ListenTCPPort)        if err != nil {            return nil, fmt.Errorf(&quot;failed to make listen addr: %w&quot;, err)        }        tcpTransport := libp2p.Transport(            tcp.NewTCPTransport,            tcp.WithConnectionTimeout(time.Minute*60)) // break unused connections        // TODO: technically we can also run the node on websocket and QUIC transports. Maybe in the future?        var nat lconf.NATManagerC // disabled if nil        if conf.NAT {            nat = basichost.NewNATManager        }        opts := []libp2p.Option{            libp2p.Identity(conf.Priv),            // Explicitly set the user-agent, so we can differentiate from other Go libp2p users.            libp2p.UserAgent(conf.UserAgent),            tcpTransport,            libp2p.WithDialTimeout(conf.TimeoutDial),            // No relay services, direct connections between peers only.            libp2p.DisableRelay(),            // host will start and listen to network directly after construction from config.            libp2p.ListenAddrs(listenAddr),            libp2p.ConnectionGater(connGtr),            libp2p.ConnectionManager(connMngr),            //libp2p.ResourceManager(nil), // TODO use resource manager interface to manage resources per peer better.            libp2p.NATManager(nat),            libp2p.Peerstore(ps),            libp2p.BandwidthReporter(reporter), // may be nil if disabled            libp2p.MultiaddrResolver(madns.DefaultResolver),            // Ping is a small built-in libp2p protocol that helps us check/debug latency between peers.            libp2p.Ping(true),            // Help peers with their NAT reachability status, but throttle to avoid too much work.            libp2p.EnableNATService(),            libp2p.AutoNATServiceRateLimit(10, 5, time.Second*60),        }        opts = append(opts, conf.HostMux...)        if conf.NoTransportSecurity {            opts = append(opts, libp2p.Security(insecure.ID, insecure.NewWithIdentity))        } else {            opts = append(opts, conf.HostSecurity...)        }        h, err := libp2p.New(opts...)        if err != nil {            return nil, err        }        staticPeers := make([]*peer.AddrInfo, len(conf.StaticPeers))        for i, peerAddr := range conf.StaticPeers {            addr, err := peer.AddrInfoFromP2pAddr(peerAddr)            if err != nil {                return nil, fmt.Errorf(&quot;bad peer address: %w&quot;, err)            }            staticPeers[i] = addr        }        out := &amp;extraHost{            Host:        h,            connMgr:     connMngr,            log:         log,            staticPeers: staticPeers,            quitC:       make(chan struct{}),        }        out.initStaticPeers()        if len(conf.StaticPeers) &gt; 0 {            go out.monitorStaticPeers()        }        out.gater = connGtr        return out, nil    }
+</code></pre>
+<h4 id="gossip下的区块传播">gossip下的区块传播</h4>
+<p>gossip在分布式系统中用于确保数据一致性，并修复由多播引起的问题。它是一种通信协议，其中信息从一个或多个节点发送到网络中的其他节点集，当网络中的一组客户端同时需要相同的数据时，这会很有用。当sequencer产生出unsafe状态的区块的时候，就是通过gossip网络传递给其他节点的。</p>
+<p>首先让我们来看看节点是在哪里加入gossip网络的，<code>op-node/p2p/node.go</code>中的<code>init</code>方法，在节点初始化的时候，调用JoinGossip方法加入了gossip网络</p>
+<pre><code>    func (n *NodeP2P) init(resourcesCtx context.Context, rollupCfg *rollup.Config, log log.Logger, setup SetupP2P, gossipIn GossipIn, l2Chain L2Chain, runCfg GossipRuntimeConfig, metrics metrics.Metricer) error {            …            // note: the IDDelta functionality was removed from libP2P, and no longer needs to be explicitly disabled.            n.gs, err = NewGossipSub(resourcesCtx, n.host, rollupCfg, setup, n.scorer, metrics, log)            if err != nil {                return fmt.Errorf(&quot;failed to start gossipsub router: %w&quot;, err)            }            n.gsOut, err = JoinGossip(resourcesCtx, n.host.ID(), n.gs, log, rollupCfg, runCfg, gossipIn)            …    }
+</code></pre>
+<p>接下来来到<code>op-node/p2p/gossip.go</code>中</p>
+<p>以下是 <code>JoinGossip</code> 函数中执行的主要操作的简单概述：</p>
+<ol>
+<li><strong>验证器创建</strong> ：</li>
+</ol>
+<ul>
+<li>
+<p><code>val</code> 被赋予 <code>guardGossipValidator</code> 函数调用的结果，目的是为八卦消息创建验证器，该验证器检查网络中传播的区块的有效性。</p>
+</li>
+<li>
+<p><strong>区块主题名称生成</strong> ：</p>
+</li>
+<li>
+<p>使用 <code>blocksTopicV1</code> 函数生成 <code>blocksTopicName</code>，该函数根据配置（<code>cfg</code>）中的 <code>L2ChainID</code> 格式化字符串。格式化的字符串遵循特定的结构：<code>/optimism/{L2ChainID}/0/blocks</code>。</p>
+</li>
+<li>
+<p><strong>主题验证器注册</strong> ：</p>
+</li>
+<li>
+<p>调用 <code>ps</code> 的 <code>RegisterTopicValidator</code> 方法，以将 <code>val</code> 注册为区块主题的验证器。还指定了一些验证器的配置选项，例如3秒的超时和4的并发级别。</p>
+</li>
+<li>
+<p><strong>加入主题</strong> ：</p>
+</li>
+<li>
+<p>函数通过调用 <code>ps.Join(blocksTopicName)</code> 尝试加入区块八卦主题。如果出现错误，它将返回一个错误消息，指示无法加入主题。</p>
+</li>
+<li>
+<p><strong>事件处理器创建</strong> ：</p>
+</li>
+<li>
+<p>通过调用 <code>blocksTopic.EventHandler()</code> 尝试为区块主题创建事件处理器。如果出现错误，它将返回一个错误消息，指示无法创建处理器。</p>
+</li>
+<li>
+<p><strong>记录主题事件</strong> ：</p>
+</li>
+<li>
+<p>生成了一个新的goroutine来使用 <code>LogTopicEvents</code> 函数记录主题事件。</p>
+</li>
+<li>
+<p><strong>主题订阅</strong> ：</p>
+</li>
+<li>
+<p>函数通过调用 <code>blocksTopic.Subscribe()</code> 尝试订阅区块八卦主题。如果出现错误，它将返回一个错误消息，指示无法订阅。</p>
+</li>
+<li>
+<p><strong>订阅者创建</strong> ：</p>
+</li>
+<li>
+<p>使用 <code>MakeSubscriber</code> 函数创建了一个 <code>subscriber</code>，该函数封装了一个 <code>BlocksHandler</code>，该处理器处理来自 <code>gossipIn</code> 的 <code>OnUnsafeL2Payload</code> 事件。生成了一个新的goroutine来运行提供的 <code>subscription</code>。</p>
+</li>
+<li>
+<p><strong>创建并返回发布者</strong> ：</p>
+</li>
+<li>
+<p>创建了一个 <code>publisher</code> 实例并返回，该实例配置为使用提供的配置和区块主题。</p>
+<p>    func JoinGossip(p2pCtx context.Context, self peer.ID, ps *pubsub.PubSub, log log.Logger, cfg <em>rollup.Config, runCfg GossipRuntimeConfig, gossipIn GossipIn) (GossipOut, error) {        val := guardGossipValidator(log, logValidationResult(self, &ldquo;validated block&rdquo;, log, BuildBlocksValidator(log, cfg, runCfg)))        blocksTopicName := blocksTopicV1(cfg) // return fmt.Sprintf(&quot;/optimism/%s/0/blocks&quot;, cfg.L2ChainID.String())        err := ps.RegisterTopicValidator(blocksTopicName,            val,            pubsub.WithValidatorTimeout(3</em>time.Second),            pubsub.WithValidatorConcurrency(4))        if err != nil {             return nil, fmt.Errorf(&ldquo;failed to register blocks gossip topic: %w&rdquo;, err)        }        blocksTopic, err := ps.Join(blocksTopicName)        if err != nil {            return nil, fmt.Errorf(&ldquo;failed to join blocks gossip topic: %w&rdquo;, err)        }        blocksTopicEvents, err := blocksTopic.EventHandler()        if err != nil {            return nil, fmt.Errorf(&ldquo;failed to create blocks gossip topic handler: %w&rdquo;, err)        }        go LogTopicEvents(p2pCtx, log.New(&ldquo;topic&rdquo;, &ldquo;blocks&rdquo;), blocksTopicEvents)        subscription, err := blocksTopic.Subscribe()        if err != nil {            return nil, fmt.Errorf(&ldquo;failed to subscribe to blocks gossip topic: %w&rdquo;, err)        }        subscriber := MakeSubscriber(log, BlocksHandler(gossipIn.OnUnsafeL2Payload))        go subscriber(p2pCtx, subscription)        return &amp;publisher{log: log, cfg: cfg, blocksTopic: blocksTopic, runCfg: runCfg}, nil    }</p>
+</li>
+</ul>
+<p>这样，一个非sequencer节点的订阅就已经建立了，接下来让我们把目光移到sequencer模式的节点当中，然后看看他是如果将区块广播出去的。</p>
+<p><code>op-node/rollup/driver/state.go</code></p>
+<p>在eventloop中通过循环来等待sequencer模式中新的payload的产生（unsafe区块），然后将这个payload通过PublishL2Payload传播到gossip网络中</p>
+<pre><code>    func (s *Driver) eventLoop() {        …        for(){            …            select {            case &lt;-sequencerCh:                payload, err := s.sequencer.RunNextSequencerAction(ctx)                if err != nil {                    s.log.Error(&quot;Sequencer critical error&quot;, &quot;err&quot;, err)                    return                }                if s.network != nil &amp;&amp; payload != nil {                    // Publishing of unsafe data via p2p is optional.                    // Errors are not severe enough to change/halt sequencing but should be logged and metered.                    if err := s.network.PublishL2Payload(ctx, payload); err != nil {                        s.log.Warn(&quot;failed to publish newly created block&quot;, &quot;id&quot;, payload.ID(), &quot;err&quot;, err)                        s.metrics.RecordPublishingError()                    }                }                planSequencerAction() // schedule the next sequencer action to keep the sequencing looping                …                }        …        }        …    }
+</code></pre>
+<p>这样，一个新的payload的就进入到gossip网络中了。</p>
+<p>在libp2p的pubsub系统中，节点首先从其他节点接收消息，然后检查消息的有效性。如果消息有效并且符合节点的订阅标准，节点会考虑将其转发给其他节点。基于某些策略，如网络拓扑和节点的订阅情况，节点会决定是否将消息转发给其它节点。如果决定转发，节点会将消息发送给与其连接并订阅了相同主题的所有节点。在转发过程中，为防止消息在网络中无限循环，通常会有机制来跟踪已转发的消息，并确保不会多次转发同一消息。同时，消息可能具有“生存时间”（TTL）属性，定义了消息可以在网络中转发的次数或时间，每当消息被转发时，TTL值都会递减，直到消息不再被转发为止。在验证方面，消息通常会通过一些验证过程，例如检查消息的签名和格式，以确保消息的完整性和真实性。在libp2p的pubsub模型中，这个过程确保了消息能够广泛传播到网络中的许多节点，同时避免了无限循环和网络拥塞，实现了有效的消息传递和处理。</p>
+<h4 id="当存在缺失区块通过p2p快速同步">当存在缺失区块，通过p2p快速同步</h4>
+<p>当节点因为特殊情况，比如宕机后重新链接，可能会产生一些没有同步上的区块（gaps），当遇到这种情况时，可以通过p2p网络的反向链的方式快速同步。</p>
+<p>我们来看一下<code>op-node/rollup/driver/state.go</code>中的<code>checkForGapInUnsafeQueue</code>函数</p>
+<p>该代码段定义了一个名为 <code>checkForGapInUnsafeQueue</code> 的方法，属于 <code>Driver</code> 结构体。它的目的是检查一个名为 &ldquo;unsafe queue&rdquo; 的队列中是否存在数据缺口，并尝试通过一个名为 <code>altSync</code> 的备用同步方法来检索缺失的负载。这里的关键点是，该方法是为了确保数据的连续性，并在检测到数据缺失时尝试从其他同步方法中检索缺失的数据。以下是函数的主要步骤：</p>
+<ol>
+<li>
+<p>函数首先从 <code>s.derivation</code> 中获取 <code>UnsafeL2Head</code> 和 <code>UnsafeL2SyncTarget</code> 作为检查范围的起始和结束点。</p>
+</li>
+<li>
+<p>函数检查在 <code>start</code> 和 <code>end</code> 之间是否存在缺失的数据块，这是通过比较 <code>end</code> 和 <code>start</code> 的 <code>Number</code> 值来完成的。</p>
+</li>
+<li>
+<p>如果检测到数据缺口，函数会通过调用 <code>s.altSync.RequestL2Range(ctx, start, end)</code> 来请求缺失的数据范围。如果 <code>end</code> 是一个空引用（即 <code>eth.L2BlockRef{}</code>），函数将请求一个开放结束范围的同步，从 <code>start</code> 开始。</p>
+</li>
+<li>
+<p>在请求数据时，函数会记录一个调试日志，说明它正在请求哪个范围的数据。</p>
+</li>
+<li>
+<p>函数最终返回一个错误值。如果没有错误，它会返回 <code>nil</code></p>
+<p>    // checkForGapInUnsafeQueue checks if there is a gap in the unsafe queue and attempts to retrieve the missing payloads from an alt-sync method.    // WARNING: This is only an outgoing signal, the blocks are not guaranteed to be retrieved.    // Results are received through OnUnsafeL2Payload.    func (s *Driver) checkForGapInUnsafeQueue(ctx context.Context) error {        start := s.derivation.UnsafeL2Head()        end := s.derivation.UnsafeL2SyncTarget()        // Check if we have missing blocks between the start and end. Request them if we do.        if end == (eth.L2BlockRef{}) {            s.log.Debug(&ldquo;requesting sync with open-end range&rdquo;, &ldquo;start&rdquo;, start)            return s.altSync.RequestL2Range(ctx, start, eth.L2BlockRef{})        } else if end.Number &gt; start.Number+1 {            s.log.Debug(&ldquo;requesting missing unsafe L2 block range&rdquo;, &ldquo;start&rdquo;, start, &ldquo;end&rdquo;, end, &ldquo;size&rdquo;, end.Number-start.Number)            return s.altSync.RequestL2Range(ctx, start, end)        }        return nil    }</p>
+</li>
+</ol>
+<p><code>RequestL2Range</code>函数向<code>requests</code>通道里传递请求区块的开始和结束信号。</p>
+<p>然后通过<code>onRangeRequest</code>方法来对请求向<code>peerRequests</code>通道分发，<code>peerRequests</code>通道会被多个peer开启的loop所等待，即每一次分发都只有一个peer会去处理这个request。</p>
+<pre><code>    func (s *SyncClient) onRangeRequest(ctx context.Context, req rangeRequest) {            …            for i := uint64(0); ; i++ {            num := req.end.Number - 1 - i            if num &lt;= req.start {                return            }            // check if we have something in quarantine already            if h, ok := s.quarantineByNum[num]; ok {                if s.trusted.Contains(h) { // if we trust it, try to promote it.                    s.tryPromote(h)                }                // Don't fetch things that we have a candidate for already.                // We'll evict it from quarantine by finding a conflict, or if we sync enough other blocks                continue            }            if _, ok := s.inFlight[num]; ok {                log.Debug(&quot;request still in-flight, not rescheduling sync request&quot;, &quot;num&quot;, num)                continue // request still in flight            }            pr := peerRequest{num: num, complete: new(atomic.Bool)}            log.Debug(&quot;Scheduling P2P block request&quot;, &quot;num&quot;, num)            // schedule number            select {            case s.peerRequests &lt;- pr:                s.inFlight[num] = pr.complete            case &lt;-ctx.Done():                log.Info(&quot;did not schedule full P2P sync range&quot;, &quot;current&quot;, num, &quot;err&quot;, ctx.Err())                return            default: // peers may all be busy processing requests already                log.Info(&quot;no peers ready to handle block requests for more P2P requests for L2 block history&quot;, &quot;current&quot;, num)                return            }        }    }
+</code></pre>
+<p>接下来我们看看，当peer收到这个request的时候会怎么处理。</p>
+<p>首先我们要知道的是，peer和请求节点之间的链接，或者消息传递是通过libp2p的stream来传递的。stream的处理方法由接收peer节点实现，stream的创建由发送节点来开启。</p>
+<p>我们可以在之前的init函数中看到这样的代码，这里<code>MakeStreamHandler</code>返回了一个处理函数，<code>SetStreamHandler</code>将协议id和这个处理函数绑定，因此，每当发送节点创建并使用这个stream的时候，都会触发返回的处理函数。</p>
+<pre><code>    n.syncSrv = NewReqRespServer(rollupCfg, l2Chain, metrics)    // register the sync protocol with libp2p host    payloadByNumber := MakeStreamHandler(resourcesCtx, log.New(&quot;serve&quot;, &quot;payloads_by_number&quot;), n.syncSrv.HandleSyncRequest)    n.host.SetStreamHandler(PayloadByNumberProtocolID(rollupCfg.L2ChainID), payloadByNumber)
+</code></pre>
+<p>接下来让我们看看处理函数里面是如何处理的 函数首先进行全局和个人的速率限制检查，以控制处理请求的速度。然后，它读取并验证了请求的区块号，确保它在合理的范围内。之后，函数从 L2 层获取请求的区块负载，并将其写入到响应流中。在写入响应数据时，它设置了写入截止时间，以避免在写入过程中被慢速的 peer 连接阻塞。最终，函数返回请求的区块号和可能的错误。</p>
+<pre><code>    func (srv *ReqRespServer) handleSyncRequest(ctx context.Context, stream network.Stream) (uint64, error) {        peerId := stream.Conn().RemotePeer()        // take a token from the global rate-limiter,        // to make sure there's not too much concurrent server work between different peers.        if err := srv.globalRequestsRL.Wait(ctx); err != nil {            return 0, fmt.Errorf(&quot;timed out waiting for global sync rate limit: %w&quot;, err)        }        // find rate limiting data of peer, or add otherwise        srv.peerStatsLock.Lock()        ps, _ := srv.peerRateLimits.Get(peerId)        if ps == nil {            ps = &amp;peerStat{                Requests: rate.NewLimiter(peerServerBlocksRateLimit, peerServerBlocksBurst),            }            srv.peerRateLimits.Add(peerId, ps)            ps.Requests.Reserve() // count the hit, but make it delay the next request rather than immediately waiting        } else {            // Only wait if it's an existing peer, otherwise the instant rate-limit Wait call always errors.            // If the requester thinks we're taking too long, then it's their problem and they can disconnect.            // We'll disconnect ourselves only when failing to read/write,            // if the work is invalid (range validation), or when individual sub tasks timeout.            if err := ps.Requests.Wait(ctx); err != nil {                return 0, fmt.Errorf(&quot;timed out waiting for global sync rate limit: %w&quot;, err)            }        }        srv.peerStatsLock.Unlock()        // Set read deadline, if available        _ = stream.SetReadDeadline(time.Now().Add(serverReadRequestTimeout))        // Read the request        var req uint64        if err := binary.Read(stream, binary.LittleEndian, &amp;req); err != nil {            return 0, fmt.Errorf(&quot;failed to read requested block number: %w&quot;, err)        }        if err := stream.CloseRead(); err != nil {            return req, fmt.Errorf(&quot;failed to close reading-side of a P2P sync request call: %w&quot;, err)        }        // Check the request is within the expected range of blocks        if req &lt; srv.cfg.Genesis.L2.Number {            return req, fmt.Errorf(&quot;cannot serve request for L2 block %d before genesis %d: %w&quot;, req, srv.cfg.Genesis.L2.Number, invalidRequestErr)        }        max, err := srv.cfg.TargetBlockNumber(uint64(time.Now().Unix()))        if err != nil {            return req, fmt.Errorf(&quot;cannot determine max target block number to verify request: %w&quot;, invalidRequestErr)        }        if req &gt; max {            return req, fmt.Errorf(&quot;cannot serve request for L2 block %d after max expected block (%v): %w&quot;, req, max, invalidRequestErr)        }        payload, err := srv.l2.PayloadByNumber(ctx, req)        if err != nil {            if errors.Is(err, ethereum.NotFound) {                return req, fmt.Errorf(&quot;peer requested unknown block by number: %w&quot;, err)            } else {                return req, fmt.Errorf(&quot;failed to retrieve payload to serve to peer: %w&quot;, err)            }        }        // We set write deadline, if available, to safely write without blocking on a throttling peer connection        _ = stream.SetWriteDeadline(time.Now().Add(serverWriteChunkTimeout))        // 0 - resultCode: success = 0        // 1:5 - version: 0        var tmp [5]byte        if _, err := stream.Write(tmp[:]); err != nil {            return req, fmt.Errorf(&quot;failed to write response header data: %w&quot;, err)        }        w := snappy.NewBufferedWriter(stream)        if _, err := payload.MarshalSSZ(w); err != nil {            return req, fmt.Errorf(&quot;failed to write payload to sync response: %w&quot;, err)        }        if err := w.Close(); err != nil {            return req, fmt.Errorf(&quot;failed to finishing writing payload to sync response: %w&quot;, err)        }        return req, nil    }
+</code></pre>
+<p>至此，反向链同步请求和处理的大致流程已经讲解完毕</p>
+<h4 id="p2p节点中的积分声誉系统">p2p节点中的积分声誉系统</h4>
+<p>为了防止某些节点进行恶意的请求与响应来破坏整个网络的安全性，optimism还使用了一套积分系统。</p>
+<p>例如在<code>op-node/p2p/app_scores.go</code> 中存在一系列函数对peer的分数进行设置</p>
+<pre><code>    func (s *peerApplicationScorer) onValidResponse(id peer.ID) {        _, err := s.scorebook.SetScore(id, store.IncrementValidResponses{Cap: s.params.ValidResponseCap})        if err != nil {            s.log.Error(&quot;Unable to update peer score&quot;, &quot;peer&quot;, id, &quot;err&quot;, err)            return        }    }    func (s *peerApplicationScorer) onResponseError(id peer.ID) {        _, err := s.scorebook.SetScore(id, store.IncrementErrorResponses{Cap: s.params.ErrorResponseCap})        if err != nil {            s.log.Error(&quot;Unable to update peer score&quot;, &quot;peer&quot;, id, &quot;err&quot;, err)            return        }    }    func (s *peerApplicationScorer) onRejectedPayload(id peer.ID) {        _, err := s.scorebook.SetScore(id, store.IncrementRejectedPayloads{Cap: s.params.RejectedPayloadCap})        if err != nil {            s.log.Error(&quot;Unable to update peer score&quot;, &quot;peer&quot;, id, &quot;err&quot;, err)            return        }    }
+</code></pre>
+<p>然后在添加新的节点前会检查其积分情况</p>
+<pre><code>    func AddScoring(gater BlockingConnectionGater, scores Scores, minScore float64) *ScoringConnectionGater {        return &amp;ScoringConnectionGater{BlockingConnectionGater: gater, scores: scores, minScore: minScore}    }    func (g *ScoringConnectionGater) checkScore(p peer.ID) (allow bool) {        score, err := g.scores.GetPeerScore(p)        if err != nil {            return false        }        return score &gt;= g.minScore    }    func (g *ScoringConnectionGater) InterceptPeerDial(p peer.ID) (allow bool) {        return g.BlockingConnectionGater.InterceptPeerDial(p) &amp;&amp; g.checkScore(p)    }    func (g *ScoringConnectionGater) InterceptAddrDial(id peer.ID, ma multiaddr.Multiaddr) (allow bool) {        return g.BlockingConnectionGater.InterceptAddrDial(id, ma) &amp;&amp; g.checkScore(id)    }    func (g *ScoringConnectionGater) InterceptSecured(dir network.Direction, id peer.ID, mas network.ConnMultiaddrs) (allow bool) {        return g.BlockingConnectionGater.InterceptSecured(dir, id, mas) &amp;&amp; g.checkScore(id)    }
+</code></pre>
+<h3 id="总结">总结</h3>
+<p>libp2p的高度可配置性使得整个项目的p2p具有高度的可自定义化和模块话，以上是optimsim对libp2p进行个性化实现的主要逻辑，还有其他细节可以在p2p目录下通过阅读源码的方式来详细学习。</p>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/61959/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">Friend.tech和TimeStore 在中国真的可以吗</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/61957/">
+                <span class="next-text nav-default">陈茂波：期望监管虚拟资产以及数字港元推动香港成为国际虚拟资产中心</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#了解libp2p">了解libp2p</a>
+      <ul>
+        <li><a href="#相关资源">相关资源</a></li>
+        <li><a href="#libp2p实现方式">libp2p实现方式</a></li>
+      </ul>
+    </li>
+    <li><a href="#在op-node中libp2p的使用">在OP-node中libp2p的使用</a>
+      <ul>
+        <li><a href="#op-node需要libp2p网络的原因">op-node需要libp2p网络的原因</a></li>
+        <li><a href="#op-node主要使用libp2p的功能点">op-node主要使用libp2p的功能点</a></li>
+        <li><a href="#代码实现">代码实现</a></li>
+        <li><a href="#总结">总结</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

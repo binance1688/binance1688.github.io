@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          Parity核心开发：关于波卡去中心化未来的9个想法 - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="针对Web3基金会提出的波卡的去中心化未来，Parity的核心开发者Shawn Tabrizi对于这样的未来的9个想法。" />
+<meta name="keywords" content="Polkadot" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/63985/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="Parity核心开发：关于波卡去中心化未来的9个想法" />
+<meta property="og:description" content="针对Web3基金会提出的波卡的去中心化未来，Parity的核心开发者Shawn Tabrizi对于这样的未来的9个想法。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/63985/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-11-25T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-11-25T00:00:00+00:00" />
+
+<meta itemprop="name" content="Parity核心开发：关于波卡去中心化未来的9个想法">
+<meta itemprop="description" content="针对Web3基金会提出的波卡的去中心化未来，Parity的核心开发者Shawn Tabrizi对于这样的未来的9个想法。"><meta itemprop="datePublished" content="2023-11-25T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-11-25T00:00:00+00:00" />
+<meta itemprop="wordCount" content="9447">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Parity核心开发：关于波卡去中心化未来的9个想法"/>
+<meta name="twitter:description" content="针对Web3基金会提出的波卡的去中心化未来，Parity的核心开发者Shawn Tabrizi对于这样的未来的9个想法。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">Parity核心开发：关于波卡去中心化未来的9个想法</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-11-25">
+      2023-11-25
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 9447 字 -
+        预计阅读 19 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E8%A7%82%E7%82%B9/"> 观点 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p><strong>“</strong> <strong>波卡知识图谱</strong> <strong>”</strong> 是我们针对波卡从零到一的入门级文章，我们尝试从波卡最基础的部分讲起，为大家提供全方位了解波卡的内容，当然这是一项巨大的工程，也充满了挑战，然而我们希望通过这样的努力让大家能够正确认知波卡，也让不了解波卡的人方便快速掌握波卡相关知识，<strong><strong>今</strong></strong>天是该栏目的第114期，本文主要介绍了针对Web3基金会提出的波卡的去中心化未来，Parity的核心开发者Shawn Tabrizi对于这样的未来的9个想法** ** ** 。**</p>
+<p>Web3基金会不久前宣布了针对波卡网络的去中心化未来（Decentralized Futures）（详情请参见：</p>
+<p><a href="https://futures.web3.foundation/">https://futures.web3.foundation/</a>）计划。</p>
+<p>在网站上，他们描述了对这些资金和发展至关重要的9个领域，以支持和发展波卡生态系统。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1124/2_amy2ztgl39.png" alt="Parity核心开发：关于波卡去中心化未来的9个想法"></p>
+<p>Parity的核心开发者Shawn Tabrizi在波卡论坛上详细的阐述了这九点。</p>
+<p>他想就每一个领域提出一个想法，也希望看到该倡议提供资金。</p>
+<p>事实上，如果能找到合适的工作伙伴，他愿意直接为其中的一个或多个想法做出贡献。</p>
+<p>显然，每个想法都需要花更多的时间来充实具体内容，但希望这些想法既足够简洁，让人们能够读完，又足够详细，让人们能够理解项目背后的基本理念和目标。</p>
+<p>最后，他先说声抱歉，因为这些想法很多都已经酝酿了一段时间（正如你在下文中看到的，他在适当的时候会链接到一些以前的文章），但这篇文章写得很快，而且是凭空想象出来的。欢迎大家提出任何反馈和意见，让他进一步修改和完善这些想法。</p>
+<p>下面是这篇文章的聊天摘要：波卡去中心化未来的9个想法。英文版的ChatGPT总结（详情请参见：</p>
+<p><a href="https://forum.polkadot.network/t/9-ideas-for-the-decentralized-future-of-polkadot/4731/2">https://forum.polkadot.network/t/9-ideas-for-the-decentralized-future-of-polkadot/4731/2</a>）</p>
+<p><strong>目录</strong></p>
+<p><strong>一、技术</strong></p>
+<p>1.开发者体验：FRAME的替代方案</p>
+<p>2.增长：FRAME+ink!（合并）</p>
+<p>3.互操作性：跨平行链读取状态</p>
+<p><strong>二、开发生态系统</strong></p>
+<p>4.开发服务：交互式且有意义的教程</p>
+<p>5.高价值合作伙伴：社区审计员和审计</p>
+<p>6.企业：竞争性研究</p>
+<p><strong>三、社区</strong></p>
+<p>7.链上治理：国库提案模板</p>
+<p>8.去中心化营销：模块化营销资源</p>
+<p>9.活动：熟悉面孔基金</p>
+<p><strong>技术</strong></p>
+<p>在技术部分，Web3基金会确定了以下领域：开发人员体验、增长和互操作性。以下是对每个领域的设想。</p>
+<p><strong>开发者体验：FRAME的替代方案</strong></p>
+<p>Substrate一直将自己定位为可以灵活地满足开发人员的需求。从一开始，他们就描述了至少三种使用SDK的方法：</p>
+<p><img src="https://img.bibiqing.com/news/2023/1124/2_ysistdbjf1.png" alt="Parity核心开发：关于波卡去中心化未来的9个想法"></p>
+<p>FRAME的灵活性和模块化程度，以及它如何真正用于开发完全定制的系统，对于FRAME专家来说是显而易见的。</p>
+<p>然而，对于许多刚刚进入生态系统的人来说，FRAME本身可能相当复杂，尤其是要正确且安全地使用。</p>
+<p>他认为，在Substrate提供的三个选项中，几乎没有人通过修改核心来构建系统，也几乎没有人通过简单配置节点模板的起源来构建系统。每个人都会使用FRAME进行构建，但这样一来，Substrate灵活性的目标就丧失了，因为只有一种产品可以满足每个人的需求。</p>
+<p>有鉴于此，他认为在使用节点模板和FRAME之间应该存在一种产品。一个更简单、更易用、更安全、更标准、更令人满意的框架&hellip;&hellip;</p>
+<p>或许像这样的一个框架：“这是Substrate的超级简单安全&hellip;STF SDK”，又名“Hissss…”（名字并不重要，不过他已经想了很久了）</p>
+<p>核心思想：</p>
+<ul>
+<li>可配置性低&hellip;&hellip;但开箱即用。</li>
+</ul>
+<p>你不能自定义运行时中的每一种类型&hellip;&hellip;但你也不必担心或承担运行时（Runtime）中每一种类型都是通用类型的成本。</p>
+<ul>
+<li>提供你期望的所有基元（primitives），导出为一个系统。</li>
+</ul>
+<p>例如，你不会觉得系统模块、平衡模块、实用模块、XCM模块、共识模块等都需要与你正在构建的系统协同工作。它已经打包好了，在更广泛的区块链生态系统中接受了标准，并且你可以根据这些标准构建。</p>
+<ul>
+<li>面向简化特定生态系统目标，如跨链转账、DeFi、多通证系统、智能合约等…</li>
+</ul>
+<p>构建框架的目的不是最大化灵活性，而是在当前加密生态系统关注的目标上表现最佳。</p>
+<ul>
+<li>与使用FRAME的链兼容。</li>
+</ul>
+<p>理想情况下，完善的用户故事允许人们从FRAME过渡到Hiss，再从Hiss过渡到FRAME。</p>
+<p>总之，FRAME是为波卡生态系统提供框架的正确决定。它的设计具有最大的灵活性。但既然它已经存在，他们就应该开始考虑降低那些希望获得更简单产品的开发人员的入门门槛，就像当初承诺的那样，只使用Node模板进行开发。</p>
+<p>他认为现在是时候让波卡开始获得其他运行时SDK了。</p>
+<p><strong>增长：FRAME+ink!（合并）</strong></p>
+<p>如果你只需要学习一种语言，就能加入波卡生态系统的任何部分，会怎么样？如果你想构建智能合约、一个按需的平行链或专用平行链，你可以使用完全相同的代码库，并在时间和条件合适时用它来启动这三种合约，会怎么样？</p>
+<p><img src="https://img.bibiqing.com/news/2023/1124/2_dtwjygwkaa.png" alt="Parity核心开发：关于波卡去中心化未来的9个想法"></p>
+<p>这是合并FRAME和ink!的主要愿景。他认为，运行时开发是智能合约开发的完整子集。由于历史原因，这两个框架是分开构建的，但随着时间的推移也找到了它们的融合方式。</p>
+<p>从FRAME v1到FRAME v2的转变实际上是由于ink!以及他们如何巧妙地使用属性宏来构建一个更好的Rust eDSL。然而，简单的语法（如声明调用、存储、事件、错误）并没有在两种语言中实现标准化，因此用户觉得他们需要学习两种语言，而不是一种。</p>
+<p>当前，在摸索波卡和启动平行链之间的跨度实在是太大了。如果没有一个庞大的团队以及大量的资金，单独的个体确实没有中间地带或叙事推出类似平行链的东西。</p>
+<p>相反，我们可以将构建平行链的第一步市场化为使用ink!构建合同，并将其部署到现有平行链。然后，由于在我们的世界里，ink!和运行时开发使用的是同一种语言，因此成功的产品只需将其合同转化为性能更高的按需平行链即可。最后，如果他们的按需平行链需要大量的区块空间，他们可以获取一个专用插槽，并有可能使用所有相同的代码库。</p>
+<p>当然，如果你为运行时编写代码，你将获得更多的API访问权限和对区块链更底层的访问权限，但主要的想法应该是，在波卡生态系统的开发过程中，你只是在编写新代码，而不是重写现有代码。</p>
+<p>在这个故事中，用户从个人摸索到在波卡上推出平行链的全面故事，这正是我们生态系统需要的增长。</p>
+<p>他关于合并的大部分的最初想法都记录在这里: The Merge-HackMD （详情请参见：</p>
+<p><a href="https://hackmd.io/6cxQYzb7RpqsnO9ZEyWRKw">https://hackmd.io/6cxQYzb7RpqsnO9ZEyWRKw</a>）</p>
+<p>也许他们的目标不是将FRAME合并到ink!中，但也许Hiss（上文建议）可以成为ink!的延伸，以提供这种端到端的故事。</p>
+<p><strong>互操作性：跨平行链读取状态</strong></p>
+<p>在这篇文章的9个想法中，这是经过具体思考最少的一个。不过，基本思路是这样的：</p>
+<p>多链互操作性的一个巨大弊端是在构建跨链消息时需要协调链的状态。在以太坊这样的单链上，检查系统中任何合约或应用程序的状态都很容易，而且完全同步。</p>
+<p>在波卡中，相对于基本的运行时功能，XCM已经是一个极其昂贵的协议，但它几乎完全从协议中删除了状态读取和报告，这其实是一种不太好的做法。</p>
+<p>目前为止，他认为还没有一套工具可以标准化两个希望通过XCM互相通信的平行链应该如何同步它们的状态，并根据另一个链的变化触发它们的逻辑。</p>
+<p>似乎可以使用某种形式的链外工作者与轻客户端证明来解决这个问题，但这可能不是一个容易创建的工具，而且肯定应该是在他们的生态系统中标准化的工具。</p>
+<p>他认为，这些工具是他们创建Oracle链所需的催化剂，这些链可以报告其他Crypto的最新价格，这是许多DeFi工具的基本要素。希望在未来，这些工具还能用于将稳健身份链中的数据传递到我们生态系统的其他部分。</p>
+<p>拥有允许我们描述资产从一个链转移到另一个链的协议固然重要，但他认为，要释放波卡互操作性的全部潜力，我们还需要开始思考如何让链专注于生成高质量的数据，并让其他链在需要时能够简单、经济地访问这些数据。</p>
+<p><strong>开发生态系统</strong></p>
+<p>在开发生态系统部分，Web3基金会确定了以下领域：开发服务、高价值合作伙伴和企业。以下是每个领域的构想。</p>
+<p><strong>开发服务：交互式且有意义的教程</strong></p>
+<p>在基础层面，他们需要继续开发新的方法，教授他人使用Polkadot SDK进行构建，并让他们实际使用这些信息推出有意义的产品。</p>
+<p>我们希望在生态系统中看到更多什么？</p>
+<ul>
+<li>
+<p>更多DeFi产品</p>
+</li>
+<li>
+<p>更多跨链互动</p>
+</li>
+<li>
+<p>NFT</p>
+</li>
+<li>
+<p>游戏</p>
+</li>
+</ul>
+<p>要实现这一目标，最好的办法之一就是编写教程，展示如何创建工作系统，从零到一百地构建这类产品，并在需要时提供定制空间。</p>
+<p>波卡开发者社区一直擅长生产高质量的代码，但却不擅长教育他人成为高质量的程序员。为此，我们需要投入资金和激励措施。</p>
+<ul>
+<li>创建并维护大量高质量的教程</li>
+</ul>
+<p>-这些教程应由专家编写，而不是让那些正在学习的人去尝试教其他人。他经常觉得我们在盲人摸象。</p>
+<p>-针对需要从编码中&quot;休息&quot;一下的开发人员。作为一名开发人员，他说，在大型项目结束后，有能力过渡到创建教程或其他文档是对开发工作的一种很好的逃脱。</p>
+<p>-对待这类工作和维护与编写核心代码一样重要。这包括奖励高质量的作者和维护者，就像奖励核心贡献者一样。</p>
+<p>-创建框架和工具，使核心知识持有者创建教程的工作量最小化。</p>
+<ul>
+<li>
+<p>使用真实的rust项目、git、基本markdown、VS Code编辑器和其他熟悉的工具作为创建和表达教程的基础。</p>
+</li>
+<li>
+<p>随时待命的撰稿人，帮助将&quot;原始&quot;内容塑造成富有表现力的故事。</p>
+</li>
+<li>
+<p>现场图形/网页艺术家，将教程转化为具有视觉吸引力和独特故事的内容。</p>
+</li>
+<li>
+<p>每个教程都应产生我们希望在生态系统中看到的可运行产品。</p>
+</li>
+</ul>
+<p>-教用户将&quot;name-pallet&quot;安装到他们的链中的教程没有任何价值。让用户使用无界向量、低效存储结构或其他反实践的教程也没有价值。教程的结果应该是有用的，可以使用的。</p>
+<p>-要做到这一点，一个简单的做法是专门编写创建波卡pallet的教程。不过，这可能也不是正确的方案。</p>
+<ul>
+<li>
+<p>教程应涵盖整个学习范围，从substrate的rust、pallet开发、到平行链/独立链部署，再到升级、迁移和其他长期维护。</p>
+</li>
+<li>
+<p>教程应游戏化，并为作者带来乐趣。他们应努力创造完整的端到端体验，让用户可以在空闲时间拿起、放下，并在用户完成某个教程时获得链上奖励，如NFT。</p>
+</li>
+</ul>
+<p>其中一些努力已经以不同的形式在进行中，但在他看来，愿景、激励措施和从事这项工作的人员从来都不是取得成功的正确组合。通过去中心化的未来计划和合适的人才，也许这种情况会有所改变。</p>
+<p>作为他在学术界、Web3基金会教育团队以及他在本地开展的个人教育活动的一部分，他已经在从事这方面的工作了。希望我们很快就能看到Substrate的复兴。</p>
+<p><strong>高价值合作伙伴：社区审计员和审计</strong></p>
+<p>审核是生态系统生存和信任发展的关键。然而，对于许多开发团队来说，审计费用非常昂贵，而对于许多潜在的审计团队来说，他们无法获得成为生态系统专家所需的信息或资源，也无法真正提供适当的审计。</p>
+<p>为此，我们需要将两个不同的倡议合并成一个完整的故事：</p>
+<ul>
+<li>
+<p>为波卡以外的成功审核团队提供成为波卡专家审核员的教育途径。</p>
+</li>
+<li>
+<p>从这些团队获得我们生态系统的免费/补贴审计的途径。</p>
+</li>
+</ul>
+<p>这首先需要资金和教育。我们需要通过支付费用吸引审核团队在我们的生态系统中完成审核，但也要将其作为学习经验。也许在这种情况下，他们将始终充当主要审计员的辅助审计。这些审计团队的时间将得到一定的资金保障（由国库/去中心化资金支付），他们将看到一大批团队正在为他们的工作寻求审计，这意味着未来会有更多的工作。</p>
+<p>应该有一个团队提交审计请求的过程，并提供一些社区/技术反馈，以便对这些请求进行优先处理和资助。还需要一些跟踪，以查看团队总共获得了多少支持，以及审计团队的历史和知识。</p>
+<p>从许多方面来说，这让他想起了我们世界中现有的系统，例如法院为无力聘请律师的被告指定律师，或者公开提出政府合同要求，让不同方面竞标来满足这些要求。</p>
+<p>归根结底，任何值得尊敬的审计都会对我们的生态系统产生长期影响。通过确保我们的产品不会受到攻击或出现错误，我们可以吸引甚至创造更多高价值的合作伙伴。</p>
+<p><strong>企业：竞争性研究</strong></p>
+<p>为了吸引现有的成功Web2公司加入波卡生态系统，我们需要让他们清楚地认识到，波卡是竞争对手和同行中的正确选择。</p>
+<p>事实上，许多最成功的区块链生态系统之所以取得成功，是因为通过叙述操纵和营销，而不是真正有效的或与理念相一致的技术。</p>
+<p>此外，其他团队已经找到了产品市场契合点，而波卡生态系统似乎还没有找到。这种问题是循环往复的。没有用户，就没有新产品。没有新产品，就没有用户。</p>
+<p>当然，改进我们自己的产品绝对是解决这个问题的第一步，而波卡已经做了很多。但他在此提出的建议有所不同，我们还应更多地采取攻势，将事实与虚构区分开来。</p>
+<p>关于竞争研究的很多建议已经写在这里了：波卡竞争性研究提案（详情请参见：</p>
+<p><a href="https://hackmd.io/YKFSyUkhT5yQagT2cJBG8A">https://hackmd.io/YKFSyUkhT5yQagT2cJBG8A</a>）</p>
+<p>他认为竞争性研究有两个关键成果：</p>
+<ul>
+<li>揭示其他生态系统中虚构的叙述和故事，其中大多数都是由波卡首创的。</li>
+</ul>
+<p>-某条链声称实现100万TPS？这意味着什么？这与其他协议相比究竟如何，而不是某个手工制作的基准。</p>
+<p>-“即时最终性”听起来很酷，但真的如此吗？</p>
+<p>-其他链声称具有“无分叉升级”或“共享安全性”，真的是这样吗？</p>
+<p>-模块化区块链是未来的趋势，但模块化在区块链栈中的哪些地方是有益的，哪些地方实际上是一个糟糕的设计决策？</p>
+<ul>
+<li>向竞争对手学习，更好地塑造我们的产品</li>
+</ul>
+<p>-波卡作为一种文化似乎非常深入我们自己的研究和思想中。许多最成功的团队使用了来自其他协议的想法和标准，以加速其产品的开发。</p>
+<p>-我们可以创造哪些产品，直接与企业和用户在其他生态系统中找到的激动的东西竞争。</p>
+<p>-我们如何才能创造出更多可直接比较的产品，并证明我们的技术堆栈确实更好。例如，将Polkadot SDK发展成开发最佳L2的平台，与Arbitrum和Optimism竞争，以及与平行链竞争。</p>
+<p>-遗憾的是，现有的各方似乎对直接资助这项工作不太感兴趣，然而去中心化的未来计划可能是推动这项工作的途径。</p>
+<p><strong>社区</strong></p>
+<p>在社区部分，Web3基金会确定了以下领域：链上治理、去中心化营销、活动。以下是每个领域的一个想法。</p>
+<p><strong>链上治理：国库提案模板</strong></p>
+<p>到目前为止，Open Gov是一个有趣的尝试。据他观察，现有的区块链级应用程序接口和机制相当不错，但社区试图直接与之对接是错误的。</p>
+<p>即使是现在已有的用户界面，如Polkassembly和Subsquare，似乎也只是低级区块链API的封装器，其本身并不是一个应用程序，而我们的生态系统中的休闲构建者和新面孔首先要使用的就是这个应用程序。</p>
+<p>很多这个想法已经在这个帖子中写下：更好的国库体系（详情请参见：</p>
+<p><a href="https://gov.pokadot.network/t/a-better-treasury-system/9845">https://gov.pokadot.network/t/a-better-treasury-system/9845</a>）</p>
+<p>但总体上，我们可以利用我们的社会标准来推动超越区块链规则的行为。</p>
+<p>作为最初的MVP，他希望我们能尝试将以下内容标准化：</p>
+<ul>
+<li>在线表单：用户可以轻松填写在线表格，描述他们想要的资金。这不是一个需要填写的word文档，而是真正基于网络的用户体验，可以自行修改并帮助用户完成整个过程。</li>
+</ul>
+<p>-这些表格甚至可以根据赛道的不同而有所不同。</p>
+<ul>
+<li>
+<p>首先发布到公共平台：在链上发布任何内容之前，应首先向公众发布。提案的讨论应该在任何东西出现在链上之前进行。是否有可能设计一种系统，让人们在链上发布提案之前就知道提案的结果？或者尽可能接近这个目标。</p>
+</li>
+<li>
+<p>国库支出游戏化：没有人希望骗子或其他人利用国库资金。没有人会在没有任何成功案例的情况下，向投资者索要数百万美元。我们应该通过分级制度来引导人们，让他们的第一份提案范围小、成本低。甚至可以花钱让用户为大型创意制定一个更正式的路线图。然后，随着用户成功完成提案，他们要求更多提案的能力就会提高，直至他们获得大笔资金和大型项目，我们期望这些资金和项目能够支持成熟的团队。</p>
+</li>
+<li>
+<p>通过游戏化，我们还将能够建立链下声誉系统。我们应该有一个以个人贡献者和团队为中心的中心。当有人申请资金时，应该很容易就能看到他们过去交付了哪些产品，以及这些产品在生态系统中的评价如何。你永远不会在网上向一个没有信誉的卖家购买产品。你为什么要给一个陌生人钱，让他在没有任何背景信息的情况下建立一个东西呢？</p>
+</li>
+<li>
+<p>提案过程不会因为投票通过而结束。对于每个提案，都应有完整的中心和讨论区。想象一下，用户可以在论坛上询问建造者的进展情况，提供反馈意见，甚至让建造者对他们收到的资金负责。这一切都希望找到这样的团队：他们不仅能很好地营销和推销自己的想法，还能很好地执行，并努力融入我们的社区。</p>
+</li>
+</ul>
+<p>当然，所有这些都不是链上制定的规则。任何人都可以直接在链上提出提案，要求任意金额的资金。但作为一个社区，我们可以引导用户进入我们的社会认可流程，并鼓励用户通过在我们的社区中成长来表达他们的善意，而不是凭空要求数百万美元。</p>
+<p>在这种情况下，他认为在国库方面有更多的“中心化”思维和流程无可厚非，因为这往往能提供更高效的流程，从而找到高质量的团队和产出。最重要的是，这并不会损害底层协议的去中心化性。</p>
+<p><strong>去中心化营销：模块化营销资源</strong></p>
+<p>正在阅读这篇文章的人可能是关注波卡生态系统的前1%。那么，他想问问你们：</p>
+<p>如果让你做一次演讲，向全世界介绍和推销波卡，你会如何入手？你会使用哪些资源？</p>
+<p>作为一个做过无数次演讲的人，他觉得不存在这样的资源，事实上，他的大部分内容都是从零开始的。从他创建的演示文稿中，他看到生态系统中的许多人都在询问演示文稿的链接，他还看到他的图片、文字甚至想法出现在twitter、博客文章、其他演示文稿等等。</p>
+<p>在考虑去中心化营销时，这就是我们需要的东西。我们需要的不是创建更大的扩音器来传播我们的想法，而是创建可重复使用的脚本，由更小的声音来传播，并根据所接触社区的需求进行定制。</p>
+<p>有鉴于此，他设想建立一个以营销为导向的资源网站，以多种形式提供有关我们领域内许多不同关键主题的内容。</p>
+<p>例如，想象一下每个主题都提供以下格式：</p>
+<ul>
+<li>
+<p>一句话摘要。</p>
+</li>
+<li>
+<p>一段摘要。</p>
+</li>
+<li>
+<p>一篇文章摘要。</p>
+</li>
+<li>
+<p>一张（或多张）图片。</p>
+</li>
+<li>
+<p>一张Powerpoint幻灯片。</p>
+</li>
+<li>
+<p>一条Twitter帖子。</p>
+</li>
+<li>
+<p>一条Twitter Threads。</p>
+</li>
+<li>
+<p>一个（或多个）竞争比较。</p>
+</li>
+<li>
+<p>等等&hellip;&hellip;</p>
+</li>
+</ul>
+<p>然后想象一下，我们为波卡生态系统现在和未来的所有关键主题和区分因素都提供了这些：</p>
+<ul>
+<li>
+<p>开放式治理</p>
+</li>
+<li>
+<p>数据可用性</p>
+</li>
+<li>
+<p>执行分片</p>
+</li>
+<li>
+<p>国库</p>
+</li>
+<li>
+<p>XCM</p>
+</li>
+<li>
+<p>FRAME</p>
+</li>
+<li>
+<p>Polkadot SDK</p>
+</li>
+<li>
+<p>无分叉升级</p>
+</li>
+<li>
+<p>等等&hellip;</p>
+</li>
+</ul>
+<p>这些文字可以被复制、可以被改变，或者只是被他人阅读。但这些资源本身都是高质量的，来自该领域的专家，并经过他们的审核。为每一个能上网的人提供弹药，并让他们相信我们正在建设的事业。</p>
+<p>此外，他认为我们还应该提供许多其他资源，使波卡的内容开发更加容易。</p>
+<ul>
+<li>访问可在整个生态系统中使用的图形和主题：</li>
+</ul>
+<p>-DOT通证的多种视觉效果</p>
+<p>-多个版本的波卡logo</p>
+<p>-多个主题（例如最近的太空人spacemen主题）</p>
+<p>-自定义平行链/xcm视觉效果生成器</p>
+<p>-波卡口号和理念的最佳图像表现形式</p>
+<ul>
+<li>
+<p>更多竞争研究，以及反驳虚假叙事的具体论点。</p>
+</li>
+<li>
+<p>从各种演示、见面会、采访中提取的带字幕的可重用短视频剪辑。</p>
+</li>
+<li>
+<p>我们充满活力的生态系统、人员、公司、会议、开发、研讨会等的照片&hellip;</p>
+</li>
+<li>
+<p>以及更多</p>
+</li>
+</ul>
+<p>所有内容都将完全开源，零版权，公众可自由使用。</p>
+<p>他认为，如果非要对这一领域的营销工作提出批评的话，那就是我们有些人没有足够有力的声音来有效传播这个领域的成功信息。如果我们想真正采用去中心化营销，我们就需要让每个人都拥有强大的话语权，并能轻松获取有说服力的数据和信息。</p>
+<p><strong>活动：熟人基金</strong></p>
+<p>当他思考波卡未来的去中心化活动时，他担心我们无法适当地策划——用来代表我们使命和方向的声音。Web3峰会、Polkadot Decoded和Sub0等大型活动似乎是公众了解我们的建设和发展方向的唯一途径。</p>
+<p>随着波卡变得更加去中心化，个别的推动者和领导者将不太容易能够各地差旅行，并代表出席他们的工作。让适合的人参与我们的活动并围绕波卡展开讨论，与让适合的开发人员构建我们的代码库一样重要。</p>
+<p>在看过这类大型活动的幕后筹备过程后，他知道我们是根据要求出席的人员来制定议程的，而不是通过实际联系并策划我们想要讲述的故事。他认为这不是为波卡争取最佳代表权的正确方式。</p>
+<p>我们需要牢记，许多优秀的演讲者和代表已经忙得不可开交。如果没有这样的支持计划，这些发言人就需要自己协调和支付所有这些差旅费。这通常只对那些想要推销他们产品的领导者有经济上的好处，但这并不能为整个生态系统带来最有利的内容。对于那些期望从国库得到支持的人来说，目前的开支是巨大的，并且在当时的政治局势是一个巨大的阻碍。</p>
+<p>我们可以通过一个团队和一套基金来支持关键演讲者，我们需要与他们一起想办法，如何让他们更容易地参与这些活动，如何更好地利用他们的时间。</p>
+<p>从管理酒店预订、机票和其他基本行政事务等简单的事情，到更复杂的事情，比如制定我们希望公众从波卡看到和听到的内容，并找到合适的人来呈现这些内容。</p>
+<p>我们甚至应该考虑到波卡生态系统之外的问题，确保他们在EthCC、EthDenver、Devcon、Devconnect等大型多生态系统活动中拥有适当的代表&hellip;&hellip;</p>
+<p>如果我们在这方面做得很好，我们就能在Parity和最初的波卡创始人之外创造有名的、熟悉的面孔，他们代表着我们的使命和对这个生态系统的贡献，其他人也会向他们寻求方向和灵感。</p>
+<p>因此，他真的希望看到：</p>
+<ul>
+<li>
+<p>改变方向，从那些请求演讲的人中挑选代表，主动联系关键演讲者，并邀请他们在重要活动中发言。</p>
+</li>
+<li>
+<p>从活动方面更加主动，尽可能将工作推给活动协调人，减轻演讲者的负担。</p>
+</li>
+<li>
+<p>支持演讲者参加这些活动，为他们的旅行提供资金和基本的行政帮助。</p>
+</li>
+<li>
+<p>协同叙述：利用这些主要发言人的优势，提前形成一套演示文稿，捕捉我们希望观众了解波卡的关键要点。</p>
+</li>
+</ul>
+<p>-我们绝不能让两位发言人谈论同一个话题。</p>
+<p>-我们绝不能让两位发言人的演讲内容相互矛盾。</p>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/63995/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">Pacman：Paradigm对Blast的参与为零</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/63998/">
+                <span class="next-text nav-default">Placeholder合伙人：模块化将带来Web3创新的黄金时代</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

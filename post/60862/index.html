@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          初探全同态加密之四：Bootstrapping的原理与实现 - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="Bootstrapping是FHE界的开山鼻祖Craig Gentry在2009年提出的一个idea。我们这里就基于Gentry在原文中的表述方法来尝试深入了解一下。" />
+<meta name="keywords" content="全同態加密" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/60862/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="初探全同态加密之四：Bootstrapping的原理与实现" />
+<meta property="og:description" content="Bootstrapping是FHE界的开山鼻祖Craig Gentry在2009年提出的一个idea。我们这里就基于Gentry在原文中的表述方法来尝试深入了解一下。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/60862/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-10-11T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-10-11T00:00:00+00:00" />
+
+<meta itemprop="name" content="初探全同态加密之四：Bootstrapping的原理与实现">
+<meta itemprop="description" content="Bootstrapping是FHE界的开山鼻祖Craig Gentry在2009年提出的一个idea。我们这里就基于Gentry在原文中的表述方法来尝试深入了解一下。"><meta itemprop="datePublished" content="2023-10-11T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-10-11T00:00:00+00:00" />
+<meta itemprop="wordCount" content="6502">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="初探全同态加密之四：Bootstrapping的原理与实现"/>
+<meta name="twitter:description" content="Bootstrapping是FHE界的开山鼻祖Craig Gentry在2009年提出的一个idea。我们这里就基于Gentry在原文中的表述方法来尝试深入了解一下。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">初探全同态加密之四：Bootstrapping的原理与实现</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-10-11">
+      2023-10-11
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 6502 字 -
+        预计阅读 13 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/"> 区块链 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>作者：Steven Yue，原刊于作者知乎</p>
+<p>在上一期的文章中，我们学习并且深入了解了GSW全同态加密系统的具体构造。通过这一构造，我们可以对加密的密文进行相加和相乘的操作，并且通过二进制分解的方法，把密文中噪声的增加速度控制在一个可控的区间之内。<a href="https://www.jinse.cn/blockchain/3661510.html">（详情点击《初探全同态加密之三：构建GSW全同态加密系统》）</a></p>
+<h3 id="gsw的有限级数限制">GSW的有限级数限制</h3>
+<p><img src="https://img.bibiqing.com/news/2023/1011/19_asb4oe2da4.png" alt="NpvPnEZkGFIKHfA4sENrLqgZ8cFnRbTrJloCFp32.png" title="7113752"></p>
+<p><img src="https://img.bibiqing.com/news/2023/1011/19_gdbmjijtdn.png" alt="QrN0qwZhZRRFRFhukctOUYQdIOeDIqlLFdd52Qhv.png" title="7113757"></p>
+<h3 id="alice的珠宝店">Alice的珠宝店</h3>
+<p>Alice开了一家珠宝店，每天她需要把不同的珠宝（钻石、黄金）加工拼接起来，然后把完成的首饰卖给顾客。</p>
+<p>过了一阵子后，Alice觉得自己忙不过来，于是决定雇佣Bob作为她的员工。然而，Alice担心Bob会趁着她不注意，偷偷的把加工完剩余的边角料藏起来，或者是加工的时候偷工减料为自己牟利，所以一直放不下心来。</p>
+<p>直到有一天，Alice突然想到了一个idea。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1011/19_76mf8o46hs.png" alt="5x5LlUhGKwr0qVuml3e8IgppANWESQFFuJFLPAzw.png" title="7113765"></p>
+<p>Alice买来了一个手套箱（Glove Box），就是那种做实验用的密封的箱子，中间有两个带有手套的洞，手可以伸进去碰到箱子里面。她的想法很简单：只需要把所有的原材料全部锁在箱子里，然后Alice保管着可以开锁的钥匙，Bob就偷不走了。Bob想要加工这些原材料也很简单，只需要把手伸进去隔着手套加工珠宝，就可以完成工作了。</p>
+<p>这个手套箱还有一个巧妙的小设计，有一个单向的进口，外面的人可以投任何东西进来。Bob可以通过这个进口把部分的原材料从外面投入手套箱内，但是无法打开手套箱把它们取出来。</p>
+<p>整个idea一切都很完美，正当Alice买回来了一个手套箱，准备进行实践的时候，她突然发现了这个箱子的几个问题：</p>
+<ol>
+<li>
+<p>首先，套上手套的Bob的加工手艺并没有以前那么精湛了。也许原本只需要半天的活，现在可能要磨蹭两三天才能干完。</p>
+</li>
+<li>
+<p>其次，虽然手套箱上了锁之后，Alice就可以放心Bob不会偷走珠宝了。但是这样的代价就是，当Bob加工完了之后，他并没有办法直接把加工完的珠宝拿出来给顾客，而是得等Alice过来了才能打开来。这样一来如果Alice很忙的话，可能顾客得Alice忙完了才能拿到自己买的商品。</p>
+</li>
+<li>
+<p>以上的两点问题，Alice勉强都可以接受，但是接下来的第三点是最致命的。Alice发现，这个手套箱具有一定的使用寿命，也就是说Bob只能在这个箱子里加工珠宝L次，然后这个箱子就会坏掉，变得无法再继续加工。如果已经达到了损耗的临界值，然后Bob继续尝试使用的话，那么里面的珠宝就有可能会彻底的被搞坏，变得无法修复。</p>
+</li>
+</ol>
+<p>当Alice发现手套箱的这三个特点之后，她开始思考如何有效的让Bob使用这一新发明。</p>
+<h3 id="alice的平行世界fhe">Alice的平行世界：FHE</h3>
+<p>看到这里，想必熟悉FHE构造的读者们一定会对Gentry举的这个Alice的珠宝店例子非常亲切。Alice发明的手套箱其实就是暗指FHE系统！我们来比较一下这两者之间的共同性：</p>
+<ol>
+<li>
+<p>Alice拥有手套箱的钥匙，所以可以打开盒中的东西。这代表了FHE加密系统的解密正确性。</p>
+</li>
+<li>
+<p>Bob可以通过单向的入口把东西投入手套箱中，但是无法取出任何东西。这代表了我们讨论的FHE加密系统是一个安全的public key（公钥）的加密系统，即任意第三方都可以创造密文但不能解开密文。</p>
+</li>
+<li>
+<p>Bob可以通过两个手套口，任意的加工放在手套箱中的物品，但是效率比起直接加工要慢上许多。这一步对应了FHE中的同态计算（Eval）。</p>
+</li>
+<li>
+<p>最后，手套箱的使用寿命，以及使用了若干次之后就会坏掉这一设定，完美的吻合了Lattice结构的FHE系统中的噪声以及上限。想要增加使用寿命，一种方法是把盒子做的更大、更昂贵，这对应着在FHE中把对应的parameters增大。</p>
+</li>
+</ol>
+<p>那么现在问题来了，Alice可以如何不改进手套箱，但是增加它的使用寿命呢？我们继续回到Alice的世界中来看看Gentry是怎么描述的。</p>
+<h3 id="手套箱中的奥秘">手套箱中的奥秘</h3>
+<p>一筹莫展的Alice看着一个只能用有限次的手套箱，非常的失望。这一有限的加工次数决定了Bob可以加工的珠宝的复杂程度。按照现在这个样子，Bob只能加工一些半成品出来，然后需要Alice去开锁，再把半成品放到一个新的手套箱中，继续让Bob加工。</p>
+<p>这样一来，Alice基本上得全程在旁边看着。原本雇Bob来是为了减少负担的，没想到现在反而还更加加重了工作压力。</p>
+<p>直到有一天，Alice在看Bob加工珠宝的过程中，突然灵机一动：假如我事先知道了Bob加工一个珠宝需要两个手套箱，我能不能想办法可以让Bob在没有钥匙的情况下把未加工完的半成品从第一个手套箱中转移到第二个手套箱中呢？</p>
+<p>Alice回去之后想了半天，终于想出了一个绝妙的想法：</p>
+<p>第二天，Alice准备了两个手套箱，分别标号为A与B。Alice把A、B两个手套箱都交给Bob，并且自己留下手套箱B的钥匙。她唯独做了一件不一样的事情：把A的钥匙丢入了B当中。</p>
+<p>这样一来，当Bob在手套箱A中加工珠宝达到损耗的临界值的时候，他接下来需要做的事情就是：把手套箱A一整个塞入手套箱B中！然后，Bob就可以直接在手套箱B中拿着实现放进去的钥匙解开里面的A箱的锁，然后把半成品的珠宝拿出来继续加工了。</p>
+<p>整个想法瞬间震惊了所有珠宝店的人，通过这样的构造，Bob就可以不用Alice帮忙加工任意复杂度的珠宝了，两个不够就串三个，三个不够就四个。唯一需要做的就是Alice需要在开始之前把对应的钥匙丢入对应的箱子中。</p>
+<p>为什么这样的方案可行呢？因为一开始说到了，手套箱上安装的单向入口可以放入任何东西，包括另一个手套箱，所以就可以层层嵌套啦。唯一需要注意的一点是，在手套箱B中解开箱A的锁这个步骤，也会给箱B带来一定的损耗。所以在选取锁的时候，Alice特意选择了不需要太大力气可以几步解开的锁。</p>
+<h3 id="bootstrapping初见端倪">Bootstrapping初见端倪</h3>
+<p>Alice所想到的这个技巧，正是我们这一期想要讨论的Bootstrapping的概念！如果拿到FHE的世界中简单的概括的话，那就是：把一个满噪音的FHE的密文加密进另一个FHE密文中，并且同态计算FHE的解密算法，把里层的密文解密还原为原文，就能获得一个全新的低噪音FHE密文。</p>
+<p>如果乍一看有点一头雾水，不要急，我们一步一步的来看在FHE中Bootstrapping是如何实现的。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1011/19_bwl0gmlte1.png" alt="iGqLDlEOtj4KDDIPn10XEqMom2nzz9fEbYB2kvRb.png" title="7113766"></p>
+<p><img src="https://img.bibiqing.com/news/2023/1011/19_fl00n2py34.png" alt="u9GD77fysoobaley4gXVkeqS6UBp67v3whYUMkDz.png" title="7113767"></p>
+<p><img src="https://img.bibiqing.com/news/2023/1011/19_2tq9mejfib.png" alt="JALzoWFJdfDbpK5mY1uDonnO3pCGwneYNT9IISoC.png" title="7113768"></p>
+<p><img src="https://img.bibiqing.com/news/2023/1011/19_osrlj3q1w9.png" alt="Fq1dq4blkShcOM1LwA2kmtfAn0J8nLJmPHGrrpee.png" title="7113769"></p>
+<p><img src="https://img.bibiqing.com/news/2023/1011/19_okqhmcmbh1.png" alt="VX5hFv2OTrqCBpKwS9VHdDJ7Qhz6BC0ghNgdllqW.png" title="7113770"></p>
+<p>目前来说，我们还没能找到一个非常好的模型来研究Circular Security假设真正的安全性。这是因为在设计公钥加密算法的时候，我们并不会考虑到公开了密钥的密文之后会带来什么后果。有一派的看法是，因为公钥加密系统是Semantic Secure（语义安全的）的，所以密钥的密文应该看起来和其他的密文没有任何区别，所以循环安全这一假设应该很容易成立。</p>
+<p>但是，我们近几年已经找到了很多反例，即找到了一些一定不满足Circular Security的加密系统。比如说我们手动的在某个加密系统中塞入一个后门，使得一旦拥有了循环密钥，即加密了密钥的密文之后，就可以通过这个后门来获得密钥的原文。但是这些加密系统都是人为的构造的，由于我们目前还没有在现有的公钥加密体系找到一个很自然的反例，所以我们相信Circular Security仍然是个安全的假设。</p>
+<h3 id="bootstrapping的策略">Bootstrapping的策略</h3>
+<p>看到这里，想必大家已经对Bootstrapping的概念有了一个大概的了解。</p>
+<p>和之前介绍FHE系统不同的是，Bootstrapping其实是一个很广义、宽泛的概念。我们并没有用一系列公式来展示Bootstrapping的过程，而只是介绍了这一种思路，即同态验证解密函数。这种思路可以用于任何FHE的系统，包括BGV与GSW系统。</p>
+<p>在深入理解Bootstrapping在GSW中到底是什么原理之前，我们先来看看，到底什么时候才需要Bootstrapping。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1011/19_0oo6c1zda5.png" alt="STKPJM3H1XigKPqThe8S4EIrKiMc1bKGk1MsQlZ2.png" title="7113771"></p>
+<p>Bootstrapping的策略分为两种：Gate Bootstrapping与Circuit Bootstrapping。</p>
+<h3 id="gate-bootstrapping">Gate Bootstrapping</h3>
+<p>第一种Bootstrapping的策略，就是每当我们进行一次最简单的同态计算，我们就进行一轮的Bootstrapping把噪声值还原到进行计算前的量。因为我们可以把计算的函数用电路表示，而电路的最基本构成元素是逻辑门（Gate），所以这种方案又被称作Gate Bootstrapping。</p>
+<p>熟悉逻辑电路的读者可能会知道，所有的逻辑门都可以用一个逻辑门NAND来表示。这也就是说，只要我们可以构造出一个同态计算NAND并且再进行一轮Bootstrapping的构造，我们就可以把这个构造作为一个逻辑计算模块，然后用这个模块构造出任何电路。因为Bootstrapping确保了噪声不会超过临界值，所以我们可以用这种方法来进行任何深度的电路的同态计算。</p>
+<p>基于Gate来构造的Bootstrapping较为简单，我们在同态计算一个程序的时候，只需要写一个编译器，把这个程序转换成电路，再把电路分解为单个的逻辑门，然后把每个逻辑门再拆分成NAND，就搞定了。这样的结构等于是在应用层隐藏了Bootstrapping这件事情，因为每次进行NAND计算的时候，噪音值就已经被重新刷新了。</p>
+<h3 id="circuit-bootstrapping">Circuit Bootstrapping</h3>
+<p>第二种Bootstrapping的思路和我们之前讨论的思路比较相似。我们首先使用原本的FHE系统同态计算我们想要计算的电路，直到达到了噪音临界值。然后我们再进行一轮Bootstrapping来“刷新”噪声值，以便进行后续的同态计算。</p>
+<p>这种结构和Gate的思路相反，把Bootstrapping的概念直接暴露在了应用层。我们在进行计算的时候可以根据目前的噪声值来选择是否要进行Bootstrapping。这样的好处在于，如果我们需要同态验证的电路的复杂度不是很高的话，我们就可以很快速的进行Leveled同态计算，而不需要花额外的时间来通过Bootstrapping来刷新噪声。</p>
+<h3 id="bootstrapping的实现">Bootstrapping的实现</h3>
+<p>了解完Bootstrapping的原理与策略之后，接下来我们终于可以来结合之前所学的看一看，如何在我们之前看到的GSW同态体系中运用Bootstrapping的概念了。</p>
+<p>我们先重新回顾一下GSW的加密与解密结构。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1011/19_6wlhumqtmh.png" alt="opNJlywH47DaPzN6N5yzHZexyFBuwhIpbjhg4SZg.png" title="7113772"></p>
+<p><img src="https://img.bibiqing.com/news/2023/1011/19_tna7ovooll.png" alt="2ud7bG87s94rNacRlacG8C12ywnsycCQiNBum8XD.png" title="7113773"></p>
+<p><img src="https://img.bibiqing.com/news/2023/1011/19_d9eqq05ldm.png" alt="DHocdMbQR3jQkCB7sySQqN9wmcvJEt3OCWFRYCm8.png" title="7113774"></p>
+<p><img src="https://img.bibiqing.com/news/2023/1011/19_qd73asa76l.png" alt="duQQbTXPl3ScOnurcjJXwwlepaW9wWZavF5LXK76.png" title="7113775"></p>
+<p><img src="https://img.bibiqing.com/news/2023/1011/19_3lotkggnup.png" alt="ZneE0Ro2OklWMFdWxJKB1XyC6oigY62LEwKtzJAn.png" title="7113776"></p>
+<p><img src="https://img.bibiqing.com/news/2023/1011/19_zuos8m2nim.png" alt="OvbEUPUCuR5DFw4mLu4pQReofptLBUrcUBxUyODb.png" title="7113777"></p>
+<p>这个问题解决了之后，剩下来的就是把Dec转换成MBP然后进行同态计算了，这一部分我们就不多说了。</p>
+<p>当BV二人根据这个结构提出Bootstrapping的方案之后，大家逐渐找到了一条可以真正实现Bootstrapping的路，并且开始用代码来实现。到2014年，Halevi与Shoup在HElib（IBM的FHE库）中使用类似的概念进行Bootstrapping计算，并且可以在半个小时左右的时间内进行一次Bootstrapping，使用的参数的存储空间达到了几十个GB左右。</p>
+<h3 id="实际的bootstrapping方案practical-bootstrapping">实际的Bootstrapping方案（Practical Bootstrapping）</h3>
+<p>看到这里的朋友们可能会不禁吐槽到，Bootstrapping这么简单的概念，居然需要在电脑上花上半个小时的时间，并且占用这么大的空间才能完成。没错，早期的FHE之所以不能投入应用，就是因为Bootstrapping的开销实在是太大了。并且抛开Bootstrapping不说，我们光是用GSW这样庞大的LWE矩阵来加密一个bit，就基本上代表已经没有什么效率可言了。</p>
+<p>然而，这一切在2014年后开始发生了改变。</p>
+<p>2015年的时候，Ducas与Micciancio提出了全新的【DM15】构造，属于Gate Bootstrapping的方案（即提供了一个NAND+Bootstrapping的实现），并且基于GSW系统。这一构造被称作为FHEW，标准参数下只需要0.69秒就可以完成一轮Bootstrapping！</p>
+<p>在DM15中，作者发现GSW的解密过程中最令人头疼的第二步，其实并不需要实现完整的Comparator Circuit，可以通过一个更加简单的Accumulator（累加器）来实现。这一发现直接就大大简化了第二步所需要的计算量。主要的思路在于，如果我们合理的选择模组q的值，那么第二步比较判断的过程，就完全可以通过观察密文二进制分解之后的最高位是1还是0来完成，而不需要与q/4来进行比较了。</p>
+<p>紧接着，在2016年的【CGGI16】中，TFHE诞生了，继承了FHEW的特点，不过进行了一系列更加优化的操作，把Bootstrapping的时间压缩到了0.05秒之内。在2017年的follow up 【CGGI17】中，又把这一下限压到了0.013秒！</p>
+<p>TFHE所用到的技巧也非常巧妙，它的核心也是观察到FHEW所用的Accumulator的构造，发现如果把密文映射到Torus </p>
+<p>T（环面空间）中，那么构成这个Accumulator的构造更加简单。因为整个计算空间是一个环形的，只需要通过一个盲旋转（blind rotation）的操作，就可以提取出密文的最高位的值。</p>
+<p>至于FHEW与TFHE的具体实现与证明，我们在这里就不多说了，以后有时间的话可以再开一篇，详细讨论一下这两种方案。</p>
+<h3 id="fhe库的比较">FHE库的比较</h3>
+<p>到这里，我们大概已经知道了FHE的大致发展了。从09年Gentry提出了这一概念之后，学术界和业界都在争相在计算机上实现FHE。除了我们这期提到的FHEW与TFHE之外，还有HElib，SEAL，cuFHE等等非常有名的开源库。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1011/19_3s6th3l39j.png" alt="rNmljQqia7Krx6yZrySlcpY6i7BmrXFPSTJt8Lnn.png" title="7113778"></p>
+<p><img src="https://img.bibiqing.com/news/2023/1011/19_ng1h16g20r.png" alt="FN5r17zNadIO3Xnabfxyx6GRa0ghU7DpqOWL0Un2.png" title="7113779"></p>
+<p>这些库之间并没有特别多的好坏比较，更多的只是他们适应于不同的使用需求。比如说有的库会使用很多浮点操作，有的库会使用CUDA加速，有的库会使用GPL License下的其他插件（比如FFTW），所以不能用来闭源开发等等。由于时间关系，笔者就没有一一去测试了，把这个机会留给大家去尝试一下。</p>
+<h3 id="写在最后">写在最后</h3>
+<p>到这里，我们【初探全同态加密】这一专题就到此结束啦。我们来快速回顾一下这4期覆盖的内容：</p>
+<ol>
+<li>
+<p>什么是加密系统，与什么是加密系统的同态性质。</p>
+</li>
+<li>
+<p>同态加密的分类与特性。</p>
+</li>
+<li>
+<p>全同态加密的定义的历史。</p>
+</li>
+<li>
+<p>格密码学入门以及LWE问题的介绍。</p>
+</li>
+<li>
+<p>基于LWE问题的Regev加密系统。</p>
+</li>
+<li>
+<p>GSW全同态加密体系的三次尝试：矩阵特征值，加入噪音，二进制分解。</p>
+</li>
+<li>
+<p>Bootstrapping是什么，以及具体实现策略。</p>
+</li>
+<li>
+<p>如何基于GSW进行Bootstrapping，以及现有的实现方案。</p>
+</li>
+<li>
+<p>FHE库的大致一览。</p>
+</li>
+</ol>
+<p>这么一看，这四期已经涵盖了非常多的内容了！如果看到这里大家觉得对之前的概念有点生疏的话，不妨回去再看一遍，巩固一下知识。</p>
+<p>距离上一篇FHE文章已经过去了很久，这段时间笔者都在努力的补更多关于格密码学的知识，在过程中重新学习一遍这些讲过的概念。每次重新学这些概念的时候，都会发现每次的理解都会变得不一样，也会发现很多见过的构造其实都有非常巧妙的相似之处。</p>
+<p>如果看完了FHE之后，还想了解一下基于格密码学的更多高级的构造，比如ABE，NIZK，iO等等，希望大家也可以关注一波笔者在更新的【格密码学进阶】专题～</p>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/60852/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">蔡文胜：香港重点应该放眼于RWA的数字化和代币化</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/60866/">
+                <span class="next-text nav-default">从货币机制角度分析：PoS没有未来</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#gsw的有限级数限制">GSW的有限级数限制</a></li>
+        <li><a href="#alice的珠宝店">Alice的珠宝店</a></li>
+        <li><a href="#alice的平行世界fhe">Alice的平行世界：FHE</a></li>
+        <li><a href="#手套箱中的奥秘">手套箱中的奥秘</a></li>
+        <li><a href="#bootstrapping初见端倪">Bootstrapping初见端倪</a></li>
+        <li><a href="#bootstrapping的策略">Bootstrapping的策略</a></li>
+        <li><a href="#gate-bootstrapping">Gate Bootstrapping</a></li>
+        <li><a href="#circuit-bootstrapping">Circuit Bootstrapping</a></li>
+        <li><a href="#bootstrapping的实现">Bootstrapping的实现</a></li>
+        <li><a href="#实际的bootstrapping方案practical-bootstrapping">实际的Bootstrapping方案（Practical Bootstrapping）</a></li>
+        <li><a href="#fhe库的比较">FHE库的比较</a></li>
+        <li><a href="#写在最后">写在最后</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

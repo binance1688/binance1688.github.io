@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          详解sFRAX运作模式：能否帮助FRAX开启「稳定币终局」？ - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="FRAX 要借助 sFRAX，逐步摆脱对 USDC 等其它主流稳定币的依赖，最终实现完全锚定美债（美元）。" />
+
+  <meta name="keywords" content="区块大全, 区块链, 区块链资讯, 区块链快讯, 区块链新闻, 比特币行情" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/61894/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="详解sFRAX运作模式：能否帮助FRAX开启「稳定币终局」？" />
+<meta property="og:description" content="FRAX 要借助 sFRAX，逐步摆脱对 USDC 等其它主流稳定币的依赖，最终实现完全锚定美债（美元）。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/61894/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-11-17T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-11-17T00:00:00+00:00" />
+
+<meta itemprop="name" content="详解sFRAX运作模式：能否帮助FRAX开启「稳定币终局」？">
+<meta itemprop="description" content="FRAX 要借助 sFRAX，逐步摆脱对 USDC 等其它主流稳定币的依赖，最终实现完全锚定美债（美元）。"><meta itemprop="datePublished" content="2023-11-17T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-11-17T00:00:00+00:00" />
+<meta itemprop="wordCount" content="2567">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="详解sFRAX运作模式：能否帮助FRAX开启「稳定币终局」？"/>
+<meta name="twitter:description" content="FRAX 要借助 sFRAX，逐步摆脱对 USDC 等其它主流稳定币的依赖，最终实现完全锚定美债（美元）。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">详解sFRAX运作模式：能否帮助FRAX开启「稳定币终局」？</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-11-17">
+      2023-11-17
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 2567 字 -
+        预计阅读 6 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E5%85%B6%E5%AE%83%E6%96%87%E7%AB%A0/"> 其它文章 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>原文作者：Frank，Foresight News</p>
+<p>稳定币、年化 10% ？先别走，这不是 UST/Terra。</p>
+<p>曾与 Terra 齐名的「算稳巨擘」Frax Finance，推出了引入美国国债收益率的质押金库 sFRAX，允许用户将 FRAX 存入金库质押为 sFRAX，并获得最高 10% 的年化收益率。</p>
+<h2 id="sfrax最高年化-10追踪-iorb-利率">sFRAX：最高年化 10% ，追踪 IORB 利率</h2>
+<p>sFRAX 主要是与堪萨斯城的 Lead Bank 合作开设经纪账户购买美国国债等资产，最终目标是追踪美联储 IORB 利率（目前 5.4% 左右）。</p>
+<p>IORB，是美联储对商业银行在联邦储备系统主账户中的隔夜存放资金支付的利息，sFRAX 通过 IORB 预言机进行跟踪，这本质上也契合 FRAX 一直以来的发展思路，要知道 Frax Finance 一直是 DeFi 项目中最积极向美联储靠拢的项目：</p>
+<p>主动申请美联储主账户（FMA）（Foresight News 注，美联储主账户允许持有美元并直接与美联储进行交易），从而摆脱将 USDC 作为抵押品的局限以及银行倒闭的风险，「使 FRAX 成为最接近无风险美元的东西」。</p>
+<p>其中 sFRAX 使用金库资金，授权其链下合作伙伴 FinresPBC 将金库资金投资于短期国债、回购协议、美联储主账户中的美元存款以及精选货币市场共同基金等「短期资产」。</p>
+<p>且由于 sFRAX 的收益率随 IORB 利率和市场情况而波动，因此制定了 AMO 合约来动态管理 sFRAX 金库的资产配置情况：</p>
+<ul>
+<li>
+<p>如果 IORB 增加，AMO 策略将大量抵押 FRAX 来获得 RWA 资产（短期美国国债、逆回购合约或将美元存入支付 IORB 利率的联邦储备银行）；</p>
+</li>
+<li>
+<p>如果 IORB 降低，RWA 资产将被重新兑换为链上去中心化资产和 Fraxlend 中的超额抵押贷款，以尽可能获得更高的收益；</p>
+</li>
+</ul>
+<p><img src="https://img.bibiqing.com/news/2023/1026/23_mwehhp66v7.png" alt="详解sFRAX运作模式：能否帮助FRAX开启「稳定币终局」？"></p>
+<p>而最初 10% 的高利率是初始设置（按社区提案描述，是类似于 sDAI 的初始设置，从 AMO 和 RWA 策略的资产负债表部署中获得的部分收入进行补贴分配），伴随着金库规模的增长，对应收益率会逐步下降，向美联储 IORB 利率靠拢。</p>
+<p>截至发文时，推出半个月左右的 sFRAX 质押总量近 4000 万枚，年化利率下降至 6.86% 。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1026/f3ehoru7maauj3c" alt="详解sFRAX运作模式：能否帮助FRAX开启「稳定币终局」？"></p>
+<p>当然这也意味着如果有用户解除质押，那所有参与者的收益率都会增加，并有可能再次升至 10% 。</p>
+<h2 id="sfrax-的运作模式">sFRAX 的运作模式</h2>
+<p>Frax 会每周根据 sFRAX 中抵押的 FRAX 数量和 IORB 利率，使用 FinResPBC 作为中介转移必要的 RWA 金额。每周一次，Finres 获得的收益会转回 DAO 控制，然后排队进入 sFRAX 合约，以便在下周的周期中进行线性部署。</p>
+<p>用户只需将 FRAX 存入 sFRAX 合约即可赚取稳定币收益，该收益也是每周分配一次（北京时间每周三 8: 00）。</p>
+<p>总的来看，sFRAX 的运作模式和其他美债「代币化」的收益类稳定币项目类似，都是从用户那里筹集美元，再买入美国国债，并将产生的（部分）利息分享给用户。</p>
+<p>只不过 sFRAX 的处理流程中多了一个 FRAX-USDC/USDP 的转换过程：</p>
+<p>当用户将 FRAX 存入 sFRAX 的 ERC-4626 金库合约时，DAO 会授权将金库中同等数量的 USDC 或 USDP 转出至 FinresPBC 的 Circle 或 Paxos 账户，然后 FinresPBC 将稳定币兑换成现金，并投资于经批准的「短期资产」。</p>
+<p>而这里的「短期资产」，短期国债、回购协议、美联储主账户中的美元存款以及精选货币市场共同基金。</p>
+<p>随着 sFRAX 中 TVL 的增长，较高的初始收益率会逐渐下降至最终收益率，也即稳定在 IORB 利率附近。</p>
+<h2 id="sfraxfrax-的新救赎">sFRAX，FRAX 的新救赎？</h2>
+<p>我们有必要回顾下去年以来稳定币市场的巨变与 Frax 的多次转向。</p>
+<p>2022 年 5 月，UST 的崩溃导致了整个算稳赛道的覆灭，FRAX 受到严重波及，短短一个月总流通市值便从 30 亿美元腰斩至 15 亿美元，随后逐步下跌至 10 亿美元左右，一度处于生死边缘。</p>
+<p>因此 Frax v2 在战略上进行了两方面的业务调整：</p>
+<p>一方面，选择抛弃算法稳定币属性，逐步将自身的抵押比率（CR）回升至 100% ，向 MakerDAO 与 DAI 的足额抵押乃至超额抵押模式靠近。</p>
+<p>截至发文时（2023 年 10 月 25 日），FRAX 的 CR 已经逐步回升并稳定在 91.85% 左右（不过抵押资产），开始转向足额抵押稳定币。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1026/23_ryer7i9z44.png" alt="详解sFRAX运作模式：能否帮助FRAX开启「稳定币终局」？"></p>
+<p>另一方面，Frax 也将重心从稳定币扩展至流动性质押（LSD）赛道，并借助此前因为扶持稳定币 FRAX 而积累的 CVX、CRV 等投票权重倾斜至自身的 LSD 产品 frxETH，成果颇丰。</p>
+<p>截至发文时（2023 年 10 月 25 日），frxETH 已发行总量近 28 万枚，DefiLlama 数据显示，目前体量仅次于 Lido、Rocket Pool、币安，市场份额 2.47% 。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1026/23_bdnou69z6b.png" alt="详解sFRAX运作模式：能否帮助FRAX开启「稳定币终局」？"></p>
+<p>如今在 v2 基本达到甚至超出预期目标的背景下，Frax 最新的 v3 版本也把目光转向 RWA 资产，旨在引入现实世界资产 RWA，继续使用 AMO 贯穿链上链下流动性。</p>
+<p>而 sFRAX 就是 Frax v3 实现这一愿景的核心组件，而它选中的现实世界资产，也是目前最优质的传统金融资产——美债。</p>
+<p>所以 sFRAX 金库规模的不断扩张，本质上也可以理解为是将 FRAX 的储备资产逐步从 USDC 等替换为美债的过程。</p>
+<p>一言以蔽之，Frax 不想再重蹈今年 3 月硅谷银行事件中因 USDC 脱锚而被动脱锚的覆辙：</p>
+<p>它想要借助 sFRAX，让 FRAX 逐步摆脱对 USDC 等其它主流稳定币的依赖，最终实现完全锚定美债（美元）。</p>
+<h2 id="小结">小结</h2>
+<p>Frax 创始人 Sam Kazemian 曾表示，Frax v3 的 FRAX 将是「最终的稳定币」（The Final Stablecoin）。</p>
+<p>客观上看，如果 FRAX 最终能够凭借 sFRAX 等抓手，再度膨胀到数十亿美元的体量，且背后的储备资产绝大部分转换为美债，完全锚定美元，那无疑会成为 DeFi 领域的稳定币项目中走得最远的一个。</p>
+<p>不过涉及美债「代币化」的收益稳定币类项目，都面临着一样的隐忧，短期可期，至于长期来看，sFRAX 与 FRAX 能否真正开启「稳定币终局」，尚需持续观察。</p>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/61936/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">详解Nocturne：走在V神设想的隐私必经之路</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/63411/">
+                <span class="next-text nav-default">详细描述一下这张图片包含的内容，具体到每一个细节，元素之间的位置关系，颜色等，用英文自然语言回答</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#sfrax最高年化-10追踪-iorb-利率">sFRAX：最高年化 10% ，追踪 IORB 利率</a></li>
+    <li><a href="#sfrax-的运作模式">sFRAX 的运作模式</a></li>
+    <li><a href="#sfraxfrax-的新救赎">sFRAX，FRAX 的新救赎？</a></li>
+    <li><a href="#小结">小结</a></li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

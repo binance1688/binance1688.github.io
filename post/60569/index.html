@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          初探全同态加密：FHE的定义与历史回顾 - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="我们来讲一讲最近很火的全同态加密（FHE）与伴随而来的格加密（Lattice-based Encryption）技术。" />
+<meta name="keywords" content="全同態加密" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/60569/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="初探全同态加密：FHE的定义与历史回顾" />
+<meta property="og:description" content="我们来讲一讲最近很火的全同态加密（FHE）与伴随而来的格加密（Lattice-based Encryption）技术。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/60569/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-10-08T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-10-08T00:00:00+00:00" />
+
+<meta itemprop="name" content="初探全同态加密：FHE的定义与历史回顾">
+<meta itemprop="description" content="我们来讲一讲最近很火的全同态加密（FHE）与伴随而来的格加密（Lattice-based Encryption）技术。"><meta itemprop="datePublished" content="2023-10-08T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-10-08T00:00:00+00:00" />
+<meta itemprop="wordCount" content="6606">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="初探全同态加密：FHE的定义与历史回顾"/>
+<meta name="twitter:description" content="我们来讲一讲最近很火的全同态加密（FHE）与伴随而来的格加密（Lattice-based Encryption）技术。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">初探全同态加密：FHE的定义与历史回顾</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-10-08">
+      2023-10-08
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 6606 字 -
+        预计阅读 14 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/"> 区块链 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>作者：Steven Yue</p>
+<p>前一阵子在斯坦福学习了CS355（高阶密码学）的课程。给我们上课的是Dan的三个PhD学生Dima Kogan，Florian Tramer和Saba Eskandarian。三个PhD讲师各有特色，研究的方向也非常不同。Dima主攻隐私保护技术PIR（Private Information Retrieval），Florian主攻ML和区块链方面的研究，而Saba主攻零知识证明。</p>
+<p>CS355这一门课几乎涵盖了从古至今密码学领域的所有内容。从最早的单向函数（One-way Function），到椭圆方程（ECC）和Pairing，最后到一些近几年比较热的MPC、零知识、私有信息检索（PIR）、全同态算法等等。由于前两天刚刚结课，趁着知识内容还在浅层记忆中没有忘掉，整理了一波笔记。课程内容非常有趣，其余的内容以后有时间跟大家慢慢分享～</p>
+<p>这一期，我们来讲一讲最近很火的全同态加密（FHE）与伴随而来的格加密（Lattice-based Encryption）技术。</p>
+<h2 id="全同态加密是什么">全同态加密是什么</h2>
+<p>相信很多朋友已经多少听说过全同态加密（Fully Homomorphic Encryption/FHE）的大名了。近几年对于个人隐私保护的话题越来越多，包括同态加密在内的一系列密码学应用技术也得到了很广泛的普及。</p>
+<p>为了更好的了解这个话题，我想要再对全同态加密这个定义稍作介绍一下。</p>
+<h3 id="加密体系回顾">加密体系回顾</h3>
+<p>在开始之前，我们先温习一下最最传统的加密体系。</p>
+<p>我们都知道，如果要构建一个加密系统，往往都需要一个密钥（Key）。通过这个密钥，我们可以一头把明文的信息加密成密文，然后在另一头通过密钥再把密文变回原来的样子。如果没有这个Key的话，其他的人很难知道我们到底传递了什么信息。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1008/20_g74f4is1zz.png" alt="初探全同态加密：FHE的定义与历史回顾"></p>
+<p>上文的图例基本展示了所有常见加密体系的全貌。所有的加密体系，如果用比较正式的描述方法，无疑是做了三件事：</p>
+<p><img src="https://img.bibiqing.com/news/2023/1008/20_rlg45qbmu1.png" alt="wFPu2NAgxAMjFDBuCMJAv8E1OA4mMINnrkCjZnq7.png" title="7111559"> 对加密算法有所了解的朋友，肯定会知道常见的一些加密算法，比如说AES，RSA等等。大家肯定也会知道一般来说加密体系分为两种：对称加密体系和非对称加密体系。我们这里描述的这三个步骤，其实通用于任何加密体系。如果是对称的，那么加密和解密用的密钥就是一样的。如果是非对称的体系的话，那么加密用的就是公钥（Public Key），然后解密用的是不一样的私钥（Private Key）。</p>
+<p>在密码学研究中，每当我们看到一个新的系统的定义之后，接下来往往都要陈述这个系统所应具有的属性（Properties）。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1008/20_1329f86kem.png" alt="fO7JxUOZ3Zht6WdFjAq707ujysOoGIFgg5q9MpLT.png" title="7111560"></p>
+<p>语义安全的主要意义在于旁观者无法区分两条加密的消息。那么如果有入侵者窃听网络，看到了我发出的加密信息，只要我使用的加密体系是语义安全的，那么我就可以确信入侵者无法从密文中得到关于加密内容的任何信息。</p>
+<p>满足了上述两条属性之后，一个加密体系就变得健全啦。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1008/20_pwklrajw87.png" alt="初探全同态加密：FHE的定义与历史回顾"></p>
+<h3 id="同态加密偶然的特殊性质">同态加密：偶然的特殊性质</h3>
+<p>了解完加密体系是怎么一回事之后，我们可以来关注一下这个看似像随机生成的乱码一样的密文。我们都知道，光看密文本身，我们什么信息都不会得到。但是这是不是就代表，如果没有密钥只有密文，我们什么都不能做了呢？</p>
+<p>答案我们都知道：其实并不是。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1008/20_dwgubw10fj.png" alt="Fj2EndoBiFhIsValMYML9ECLXNVNvICrViCZKuXf.png" title="7111561"></p>
+<p>对于这种属性，我们称之为加法同态。意思就是说，加密过后的密文与以前的原文保持着一种微妙的代数关系。如果我们把密文累加起来，我们就可以获得把原文相加起来加密过后的新密文。同理可得，加法同态至于，还存在着乘法同态的加密算法。一个乘法同态的算法生成的密文，我们可以相乘起来，然后获得原文之间相乘之后的结果所对应的密文。整个过程中，我们不需要知道任何和密钥有关的信息，纯粹只是把看似像随机乱码的密文组合起来。</p>
+<h3 id="举个例子匿名投票系统">举个例子：匿名投票系统</h3>
+<p>下面，我们来举一个例子，生动的描述一下同态加密的实用性。</p>
+<p>我们都知道在线投票是怎样的——假如一个公司的老板想要发起一波投票，选择公司是否要采取996的制度。那么老板可以让IT设置一个服务器，让员工提交自己的选择：投0代表不想，投1代表想。最后投票阶段结束之后，老板就可以把所有的投票加在一起。如果最后所有票的总和超过了员工人数的一半，那么公司就会开始996。</p>
+<p>这个投票机制看起来很简单，但是有一个很大的隐私问题：假如老板心中就想让全员996，然而只是故意发起了这个投票来钓鱼执法，看看哪个员工不愿意加班，那么老板可以悄悄委托自己的小弟在网络上偷听，把每一个员工提交的选择都记录下来，最后看到底是谁投了0。这样一来，员工都十分害怕，不敢吐露自己的心声。</p>
+<p>如果我们可以使用加法同态的加密算法的话，那么这个问题就很好解决了。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1008/20_ko1f05kqi5.png" alt="YKZWhKQkSoD8PE9zPwyFyhseiVBmcCydmrgxR3KV.png" title="7111563"></p>
+<p>当然，这个系统还非常的不完整，比如IT部门可以直接帮助老板把每个人的投票解密开来，然后记录成一个文档。对于这个问题还有别的密码学工具可以帮我们来解决。由于篇幅原因就在这里不多说明啦。</p>
+<p>不过到这里，我们应该可以感受到同态加密算法的强大了。我们可以这样理解：通过同态加密算法，用户可以与一个不可信的远程服务器（云端）进行某种安全代理计算（Secure Delegated Computation）。用户可以通过同态加密的技术来把自己敏感的隐私输入加密后托付给云端，然后云端可以在加密过后的数据上进行一定程度的计算，最后得到加密过后的用户想要的结果，并且返还给用户。最后用户就可以用解密密钥来打开得到的结果了。整个协议中，被代理方（云端）始终都无法看到任何和私密输入有关的有用信息。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1008/20_d7oulftesl.png" alt="初探全同态加密：FHE的定义与历史回顾"></p>
+<h3 id="同态加密体系的分类">同态加密体系的分类</h3>
+<p>大致了解了两种最基础的同态性质之后，其他的概念就变得非常容易理解了。如果系统性的来看，同态加密体系大致上被分为四类：部分同态、近似同态、有限级数全同态与完全同态。</p>
+<p>下面，我们就来依次看一下每一个类别的具体定义。</p>
+<h3 id="部分同态加密partially-homomorphic-encryption">部分同态加密（Partially Homomorphic Encryption)</h3>
+<p>同态加密最初级的阶段被称为部分同态加密，定义就是密文只有一种同态特性。这一阶段就包括了我们上文所描述的加法同态与乘法同态两种模式。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1008/20_l2s0uo9jfp.png" alt="p7lpcrDyd7aW65Y7Ml4fsEonTmdU1YXBOeMxArVm.png" title="7111564"></p>
+<p><img src="https://img.bibiqing.com/news/2023/1008/20_4bwbpu2yur.png" alt="UgXzAmhq1SIpMnSeB547iLTlcb9DPX1Hg6tyyVoS.png" title="7111565"></p>
+<p><img src="https://img.bibiqing.com/news/2023/1008/20_3shseslhr9.png" alt="ShHPzmYUSKbxX6nQLOfEE2WuPQ0OrMQkmqBtn7ka.png" title="7111567"></p>
+<p><img src="https://img.bibiqing.com/news/2023/1008/20_788zslb6br.png" alt="T6UlPMEcjBgcQOFKJNrDvhj6qHqNKmu5ol7aljpd.png" title="7111568"></p>
+<p>我们就得到了这两条消息相乘之后所对应的密文！这就是乘法同态性质了，我们可以接着这条密文继续往上叠加新的密文，这样一来我们就可以得到密文之间任意的相乘。</p>
+<p><strong>近似同态加密（Somewhat Homomorphic Encryption）</strong></p>
+<p>就如同我们在上一段所说，如果我们又想让私密输入相乘，又想得到它们之间的线性组合的话，单纯的部分同态加密算法（RSA，ElGamal）是无法完成的。所以我们就需要来到下一阶段。</p>
+<p>部分同态加密的下一阶段是近似同态加密，这一阶段距离我们想要实现的全同态更近了一步。如果我们有近似同态加密算法的话，那么我们就可以在密文上同时计算加法与乘法了。但是需要注意的是，正因为这一阶段是近似同态（Somewhat Homomorphic）的，所以可以做的加法和乘法次数非常有限，可以计算的函数 F  也在一个有限的范围内。</p>
+<p>近似同态加密这一阶段常见的例子并不多，如果说最好理解的例子的话，那就应该是基于配对（Pairing）的循环群加密算法了。</p>
+<p>上文我们简单的讨论过基于普通循环群的ElGamal加密算法。我们都知道这一算法是加法同态的，也就是说可以得到任意密文之间的线性组合。事实上，在某些特殊的循环群中，我们还可以找到一些薄弱的乘法同态性质。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1008/20_rysm6oen33.png" alt="gqJcO2PUzQo6WkoQd9BOEIVNPY8Tza9nEQK80OaQ.png" title="7111569"></p>
+<p>这一局限性证明了这个系统是近似同态的，因为我们不能计算任意逻辑和深度的函数F。</p>
+<h3 id="有限级数全同态加密fully-leveled-homomorphic-encryption">有限级数全同态加密（Fully Leveled Homomorphic Encryption）</h3>
+<p>来到下一个阶段之后，我们距离全同态的目标更进一步了。</p>
+<p>这一阶段被称之为有限级数全同态加密。在这一阶段的话，我们已经可以对密文进行任意的加法乘法组合了，没有任何对于次数的局限性。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1008/20_bzjt02njkw.png" alt="mNPmvciurNb8FEvqoCrj7eNFoEhuqDVPKjX0tz1i.png" title="7111570"></p>
+<p><strong>全同态加密（Fully Homomorphic Encryption，FHE）</strong></p>
+<p>千呼万唤使出来，最后就到我们拭目以待的全同态加密（FHE）了。</p>
+<p>就像名字所说的一样，一个全同态加密的系统没有任何计算方法的限制，我们可以在没有密钥的情况下，把密文任意的组合起来，形成新的密文，并且新的密文，无论计算的复杂度，都可以完美的被还原成原文。</p>
+<p>当我们达到这一阶段的时候，之前提到的安全代理计算就变得可行了。如果可以找到一个效率比较高的全同态加密体系的话，我们可以安全的把所有本地的计算全部代理到云端，并且不会泄露任何一丁点数据！</p>
+<h3 id="全同态加密体系的定义">全同态加密体系的定义</h3>
+<p>在开始下文对于全同态历史的讨论之前，我们可以系统性的定义一下全同态系统的正式定义。一个全同态加密系统，一共拥有四个算法：</p>
+<p><img src="https://img.bibiqing.com/news/2023/1008/20_86lhnaht9z.png" alt="DvDXf81yZmyRQmyezLQWir7IQDX0unUyIbliRqH8.png" title="7111574"></p>
+<p><img src="https://img.bibiqing.com/news/2023/1008/20_m7fnr2fwnw.png" alt="TsJed4GXWhn1UB5RvP6LRiWzZdkAGy0cCOB0N53f.png" title="7111575"></p>
+<p><img src="https://img.bibiqing.com/news/2023/1008/20_48v9sklds4.png" alt="0YcdqVZhD3w1iTajX3SQFxuPsCgZDebkkm08ViRK.png" title="7111576"></p>
+<p><img src="https://img.bibiqing.com/news/2023/1008/20_ddbd4ppow3.png" alt="R00RmzMDQTIXnncS5LGyiekR1K78zRfx9QtiY9q1.png" title="7111577"></p>
+<p><img src="https://img.bibiqing.com/news/2023/1008/20_rn01qua6gy.png" alt="初探全同态加密：FHE的定义与历史回顾"></p>
+<h2 id="全同态加密的历史回顾">全同态加密的历史回顾</h2>
+<p>在开始学习全同态加密算法到底是怎么实现的之前，我们不妨来看看全同态加密这个概念到底是怎么来的。</p>
+<p>FHE（全同态）的概念其实在上世纪70年代末就已经被提出了。1978年，密码学界的几个大牛Rivest，Adleman和Dertouzos在他们的论文On Data Banks and Privacy Homomorphisms中第一次提到了对于密文进行一定的计算，可以间接地对原文进行操作的系统构想。到后来这一想法就被重新总结命名为全同态加密了。</p>
+<p>由此可见，全同态加密这一概念已经被提出了很久了。令人惊讶的是，1976年，也就是论文发表的两年前，Diffle-Hellman密钥交换协议才刚刚被提出！由此可见密码届大牛的想象力还是非常丰富的。</p>
+<p>当FHE的概念被提出来之后，整个学术界都为之所动，开始了长达几十年的搜索，试图找到一个拥有全同态性质的完美算法。但是这几十年下来，人们试遍了所有可以想到的选择，但是找不到一个又能满足全同态所有条件，并且安全性可以被轻易证实的选项。</p>
+<p>直到2009年，在斯坦福读书的PhD Craig Gentry突然灵光一现，攻破了FHE算法的难关。在他的博士毕业论文中，他第一次给出了一个合理并且安全的全同态加密系统！这一系统基于理想格（ideal lattice）的假设。Gentry09提出来的全同态系统，我们往往称之为第一代全同态加密系统。</p>
+<p>在Gentry的论文中，他还提到了一个至关重要的概念叫做Bootstrapping。Bootstrapping是一种对于密文的特殊处理技巧，处理过后竟然可以把一个噪音接近临界值的密文“重新刷新”成一个噪音很低的新密文。通过Bootstrapping，一个有限级数的系统的噪音可以永远不超过临界值，从而变成了全同态的系统。这样一来，我们就可以同态计算任意大小的F 了。</p>
+<p>在Gentry的重大突破之后，整个密码圈又一次陷入了疯狂，大家都开始争相基于Gentry提出的想法寻找更加高效率和全能的全同态体系。</p>
+<p>在2011年的时候，两位大佬Brakerski和Vaikuntanathan提出了一个新的全同态加密体系，这一体系基于格（lattice）加密的另一种假设Learning With Errors（LWE）。在同一年，Brakerski，Gentry与Vaikuntanathan这三人一起把这个体系做完了，并且正式发表出来。他们发明的全同态系统简称为BGV系统。BGV系统是一个有限级数的同态加密系统，但是可以通过Bootstrapping的方式来变成全同态系统。BGV系统相比起Gentry09提出的系统，使用了更加实际一点的LWE假设。一般来说我们都把BGV系统称之为第二代全同态加密系统。</p>
+<p>2013年，Gentry又卷土重来了。Gentry，Sahai和Waters三个大佬推出了新的GSW全同态加密系统。GSW系统和BGV相似，本身具有有限级数全同态性质，基于更加简单的LWE假设，并且通过Bootstrapping可以达到全同态。我们一般把GSW系统称为第三代全同态加密系统。</p>
+<p>2013年之后，密码圈基本上就百花齐放了。基于原来的三代全同态系统之上，出现了各种各样新的设计，致力于优化和加速BGV与GSW系统的运行效率。IBM基于BGV系统开发了一个开源的全同态运算库HElib，并且成功的移植到各大移动平台上。与此同时，还有另外一个开源项目TFHE也非常值得注意。TFHE是基于GSW系统，又加以了各种优化与加速，现在也非常的有名。</p>
+<p>在开发传统的全同态库之外，也有很多团队在研究如何通过GPU，FPGA，ASIC等异构硬件来更好的加速全同态加密算法的计算。比如cuFHE就是一个比较有名的基于CUDA的GPU加速全同态加密系统。</p>
+<p>站在今天的角度上，一路看来，全同态体系的大门被Gentry大神敲开已经过去了11年了。现在业界对于FHE的研究百花齐放，不少人都在不同的角度和应用需求上在研究全同态系统。直到今天，我们已经拥有了多种可行的FHE实现方法，但是现在大家还在不断追求的是FHE系统运转的效率。拿现在最前沿的FHE库来说，在移动平台上同态计算一些比较简单的逻辑可能要少则花上几十毫秒，多则花费几十秒的时间。这些时间单位对于计算机系统来说是极其缓慢的。</p>
+<p>如何可以让FHE系统更加高效率的在异构平台上运行，仍然是一个未解之谜。如果这道难题一旦被解决了，那么把所有的电脑运算都转为全同态，代理在第三方的云端上进行计算，都是伸手可得的未来。</p>
+<h2 id="fhe与mpc的关系">FHE与MPC的关系</h2>
+<p>在结束文章之前，我还想补充说明一下FHE与MPC之间的关系。MPC即Secure Multi-Party Computation，就是可信多方计算。通常代表的是有多方拥有自己的私密输入，不想泄露给别人，但是他们想使用自己的输入一起计算一个函数 F 并分享计算的结果。</p>
+<p>MPC其实已经是一个非常广为人知，并且被研究了很久的一个领域了。自从上个世纪密码学家姚期智推出了他的Garbled Circuits之后，MPC领域获得了非常广的认可，并且也有很多突破。现在我们已经拥有很多可以使用的MPC库，并且也具有一定的运行效率了。</p>
+<p>如果了解MPC的朋友，看到全同态加密系统的艰辛历史之后，也许会有很多疑问：为什么不可以直接通过一个MPC协议来代替全同态加密呢？</p>
+<p>的确，一个MPC协议可以完全代替一个FHE协议。我们只需要把用户和私密输入作为一个协议中的一个Party，再把远程的代理计算服务器作为另一个Party，就满足了MPC协议执行的条件，只需要通过一定的交互，就可以实现代理计算，并且服务器也看不到私密输入。</p>
+<p>但是有很重要的一点我们忽略了：由于MPC是有交互性的，所以需要用户和服务器共同进行计算与交流才可以完成协议。这也就和FHE代理计算最根本的需求冲突了。如果用户需要一直保持在线完成协议，并且也要付出一部分算力的话，那其实计算根本就没有被“代理”出去，双方只是为了信息的安全性而在做更多的计算。这也说明了为什么MPC领域已经得到重大突破了，但是FHE的领域仍然是一片未知，因为他们两个系统解决的是完全不同的问题。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1008/20_idw3vw1en8.png" alt="初探全同态加密：FHE的定义与历史回顾"></p>
+<h2 id="下一站gsw全同态加密系统">下一站：GSW全同态加密系统</h2>
+<p>看到这里，想必大家已经对于全同态加密系统有了非常透彻的理解。</p>
+<p>下一站，我们可以一起来学习一下前文提到的GSW全同态加密系统。虽然说这是全同态系统的第三代，但是我认为Gentry09，BGV，GSW这三套系统中用到假设最少，构造最简单，并且最容易理解的就是GSW了。并且现在也有很多开源库（如TFHE）就是基于GSW系统构建的。</p>
+<p>由于篇幅原因，我们就在这里结束这一篇文章吧。下一篇文章，我们可以首先学习一下GSW系统的基础：基于格（lattice）的加密体系与LWE问题。一旦了解了LWE问题之后，GSW解决的问题就变得非常清晰了。</p>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/60557/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">比特币能主宰世界吗？ 著名播客这么说</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/60577/">
+                <span class="next-text nav-default">此前杠杆做多ETH的巨鲸卖出15,240枚wstETH并买入超45万枚LINK</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#全同态加密是什么">全同态加密是什么</a>
+      <ul>
+        <li><a href="#加密体系回顾">加密体系回顾</a></li>
+        <li><a href="#同态加密偶然的特殊性质">同态加密：偶然的特殊性质</a></li>
+        <li><a href="#举个例子匿名投票系统">举个例子：匿名投票系统</a></li>
+        <li><a href="#同态加密体系的分类">同态加密体系的分类</a></li>
+        <li><a href="#部分同态加密partially-homomorphic-encryption">部分同态加密（Partially Homomorphic Encryption)</a></li>
+        <li><a href="#有限级数全同态加密fully-leveled-homomorphic-encryption">有限级数全同态加密（Fully Leveled Homomorphic Encryption）</a></li>
+        <li><a href="#全同态加密体系的定义">全同态加密体系的定义</a></li>
+      </ul>
+    </li>
+    <li><a href="#全同态加密的历史回顾">全同态加密的历史回顾</a></li>
+    <li><a href="#fhe与mpc的关系">FHE与MPC的关系</a></li>
+    <li><a href="#下一站gsw全同态加密系统">下一站：GSW全同态加密系统</a></li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

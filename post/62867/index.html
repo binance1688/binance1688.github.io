@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          聊聊搞RWA项目的那些坑 - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="本文以RWA项目方的角度，科普一下搞RWA项目真实踩过的坑，另外关于行业切入点选择可参考关于RWA的6点不靠谱观察。" />
+<meta name="keywords" content="RWA" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/62867/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="聊聊搞RWA项目的那些坑" />
+<meta property="og:description" content="本文以RWA项目方的角度，科普一下搞RWA项目真实踩过的坑，另外关于行业切入点选择可参考关于RWA的6点不靠谱观察。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/62867/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-11-09T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-11-09T00:00:00+00:00" />
+
+<meta itemprop="name" content="聊聊搞RWA项目的那些坑">
+<meta itemprop="description" content="本文以RWA项目方的角度，科普一下搞RWA项目真实踩过的坑，另外关于行业切入点选择可参考关于RWA的6点不靠谱观察。"><meta itemprop="datePublished" content="2023-11-09T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-11-09T00:00:00+00:00" />
+<meta itemprop="wordCount" content="3549">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="聊聊搞RWA项目的那些坑"/>
+<meta name="twitter:description" content="本文以RWA项目方的角度，科普一下搞RWA项目真实踩过的坑，另外关于行业切入点选择可参考关于RWA的6点不靠谱观察。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">聊聊搞RWA项目的那些坑</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-11-09">
+      2023-11-09
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 3549 字 -
+        预计阅读 8 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/"> 区块链 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>RWA是通过区块链技术将真实世界资产（Real World Assets)代币化。</p>
+<p>本文以RWA项目方的角度，科普一下搞RWA项目真实踩过的坑，另外关于行业切入点选择可参考关于RWA的6点不靠谱观察。</p>
+<p>欢迎各位讨论交流，如果觉得有道理请关注/点赞/转发~</p>
+<p>现实资产代币化的风，其实已经吹了好多年了。</p>
+<p>今年又吹起来了。</p>
+<p>理论上RWA资产类型可以有很多，可以是实物资产如房产、艺术品等，可以是金融资产如股票、债券、现金等，还可以是IP或者版权等知识产权类资产。</p>
+<p>上一轮周期除了稳定币（勉强算RWA吧），其他RWA项目都没怎么出过圈。</p>
+<p>今年的行情是随着美国加息周期，通过国债带动的。</p>
+<p>香港本地的政策其实也是更偏向香港金融资产上链，不仅在DLT发债上动作频频，昨天还发放了STO牌照。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1109/2_q6nphq2wkm.png" alt="聊聊搞RWA项目的那些坑"></p>
+<p>笔者认识不少上一个周期的项目方（不少还活着），和大家探讨一下他们碰到了哪些坑？</p>
+<p>更重要的可能是：<strong>这个周期已经发生或需要关注哪些变化？</strong></p>
+<h3 id="rwa不变的几个基本步骤">RWA不变的几个基本步骤</h3>
+<p>在关于RWA的6点不靠谱观察提到过一个观点，引起过一些共鸣：</p>
+<p><strong>RWA=法律+代码</strong></p>
+<p>所有的资产，要么是法律支持的，要么是代码支持的。</p>
+<p>而RWA资产，可能法律和代码都要支持。</p>
+<p>既然是这样，RWA项目可能有几个基本步骤是怎么都绕不开的：</p>
+<p><img src="https://img.bibiqing.com/news/2023/1109/2_onsntd9wgz.png" alt="聊聊搞RWA项目的那些坑"></p>
+<ul>
+<li><strong>资产采购</strong></li>
+</ul>
+<p>既然是RWA真实世界资产，那至少肯定还是要有资产的嘛。</p>
+<p>无论是现金、股票、还是房产，至少资产类型要在代币发行前确定好。</p>
+<p>采购的时间，有的良心项目会提前采购，有的项目则是在投资者购买代币后再去采购。</p>
+<p>总之，资产采购是必须的。</p>
+<p>如果不涉及资产采购（例如defi的合成资产），那就不算RWA项目。</p>
+<ul>
+<li><strong>资产托管</strong></li>
+</ul>
+<p>托管是很多项目方或者投资者比较容易忽视的一点。</p>
+<p>但从合规角度看，可能所有的RWA项目方和监管最后都需要在托管方案上达成某种程度的一致。</p>
+<p>毕竟如果完全没有托管方案，很容易出现项目方跑路的情况。这也是西方资本主义发展几百年下来血淋淋的教训。</p>
+<p>如果是实物资产可能要涉及在某个物理场所的储存，非实物资产（IP/金融资产等）也会需要托管或信托公司。</p>
+<p>底层资产跑路，在传统金融行业也是时有发生。我国獐子岛的扇贝，就会经常根据上市公司主体的市值关系需要频繁活动。这种事情在RWA初期会只多不少。</p>
+<ul>
+<li><strong>代币分发</strong></li>
+</ul>
+<p>无论是传统金融资产，还是RWA，甚至包括各种土狗币，分发都是项目方十分重视的环节。</p>
+<p>在传统金融领域，资产的分发主要通过各个券商和基金经理。</p>
+<p>在加密货币领域，交易所和空投可能是代币分发的主要场景。</p>
+<p>RWA资产代币现在会比较尴尬，加密货币的用户看不上这类资产没什么想象力，传统金融领域的客户又因为监管和底层资产的不确定性常常处于观望状态。</p>
+<ul>
+<li><strong>后续服务</strong></li>
+</ul>
+<p>和其他传统金融资产一样，RWA的底层资产也是需要后续维护的。</p>
+<p>如果是实物资产，可能需要涉及到仓储甚至物流，就算是房子这种不动产也要经常打理。</p>
+<p>如果是非实物资产，也要有定期的净值计算/合规成本等。</p>
+<p>我们根据这些基本步骤，稍微深入探讨一下里面的坑和机会</p>
+<h3 id="链上基建是个坑">链上基建是个坑</h3>
+<p>虽然区块链的技术发展日新月异，但是资产上链后，链上基建对资产的通流性还是会产生很大影响。</p>
+<p>目前流动性最好的公链应该算是以太坊了吧？</p>
+<p>但是以太坊的可支持的交易吞吐量实在有限，而且交易手续费还贼贵。不太客气的说可能只适用于概念或者玩具型项目，相对于传统金融的性能和成本，完全没法比较。</p>
+<p>如果采用以太L2或者其他公链呢？</p>
+<p>那就会碰到资产上链另一个恶心的问题：跨链。</p>
+<p>在手续费低且性能高的L2链或者其他公链上，通常会发现用户在这条链上不一定有钱。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1109/2_kvm7omcbl2.png" alt="聊聊搞RWA项目的那些坑"></p>
+<p><strong>所以我们要么期待未来会有一条链，既便宜、性能好、还用户多；要么就期待有些牛逼的项目方，可以解决好跨链的问题。</strong></p>
+<h3 id="传统金融中间服务也是坑">传统金融中间服务也是坑</h3>
+<p>RWA和传统金融在资产证券化，在本质上区别其实不大。</p>
+<p>只不过一个是把资产变成代币，另一个是变成证券。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1109/2_yjj2q5epso.png" alt="聊聊搞RWA项目的那些坑"></p>
+<p>理论上代币化是可以简化传统金融服务的中间环节，详见RWA未来天王山之战：革资产证券化的命。</p>
+<p>但正如RWA骨灰级先行者，汇力基金的大佬叶开所说：</p>
+<p>按SFC的通函来看香港认为RWA/STO就是代币化的传统证券，数字债、数字ABS和数字REIT</p>
+<p><strong>所有的(RWA）产品设计都要加一层传统金融（基金/Fund）的壳，然后把壳代币化。</strong></p>
+<p><strong>保守的一塌糊涂，而且到处都需要钱，要求聘请SFC所认可的 DLT平台商，钱包，持牌交易所，托管商，做市商，审计、律所，外部顾问等。。。</strong></p>
+<p>这样不仅没有节约任何环节，而且还会在原有基础上增加链上步骤。</p>
+<p>所谓脱裤子放屁，就是这样了吧。</p>
+<h3 id="监管政策不明确的坑最大">监管政策不明确的坑最大</h3>
+<p>之前谈到香港发放了STO牌照，对RWA算是利好；但仔细看内容对RWA产品的限制也很大。</p>
+<p>无论如何，这也算是比较明确的监管态度了。</p>
+<p>有的地区（如美帝）的态度现在则更加暧昧，SEC对比特币现货ETF的申请也是犹豫不决。</p>
+<p>主要是这里面未来牵扯的利益可能实在太多。</p>
+<p>当今世界的金融体系，Swift和美联储是核心节点，基本上所有涉及到美元的交易他们都有办法进行制裁和限制。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1109/2_e1jlis3tdf.png" alt="聊聊搞RWA项目的那些坑"></p>
+<p>因此在新的技术方案出来的时候，直接放弃现成的利益是很难的。</p>
+<p>好在目前从技术上是能够在保障美帝原有利益基础上，实现代币化的（详见美帝的阳谋？详解美联储和Swift的代币化方案），但目前这个方案还在概念阶段，等到实施还不知道是猴年马月呢。</p>
+<p>在此期间，如果美帝还是坚持要求在原来的中心化节点体系内进行结算（如DTCC/Swift/Fedwire)，那相当于RWA在全球都要脱裤子放屁了。</p>
+<h3 id="市场认可度不够">市场认可度不够</h3>
+<p>对于RWA项目来说，优点是有底层资产加持，价值稳健；缺点则是缺乏像其他加密货币那样的想象空间。</p>
+<p>如果监管政策明确，那大量传统的分发渠道（如银行/财富管理公司等）都会很乐于加入。</p>
+<p>如果代币标准统一，购买限制少，那相信上交易所也是可能的。</p>
+<p>然而现在银行巨头自己发行的存款为底层资产的代币，也只能限制在自家银行内流通（详见除了贝莱德，其他金融巨头有哪些布局？），那银行更不敢卖别家的资产了。</p>
+<p>至于RWA资产的标准之争，DTCC可能还会有自己的想法。</p>
+<p>另外当下meme和各种生态玩法项目满天飞，<strong>不少人都选择放弃偏见，拥抱泡沫了。</strong></p>
+<h3 id="增长飞轮悄然开启">增长飞轮悄然开启？</h3>
+<p>RWA虽然面临这么多问题，但毕竟未来可是一个百万亿美元市场呀。</p>
+<p>目前稳定币单一赛道的TLV就超千亿美元。</p>
+<p>如果RWA在下一轮牛市中破圈，可能需要哪些变化呢？</p>
+<p>我自己编了一个增长飞轮供各位拍砖参考哈：</p>
+<p><img src="https://img.bibiqing.com/news/2023/1109/2_qvi1bs2fa2.png" alt="聊聊搞RWA项目的那些坑"></p>
+<p>和上一轮牛市相比，目前的链上基建应该说成熟很多了。</p>
+<p>尤其是各种以太坊L2链，可能是不少RWA项目方的上链首选。另外如果类似chainlink这种项目方，能更好的解决跨链问题，也是对市场的长期支持。</p>
+<p><strong>链上基建的成熟，会降低链上成本，有助于实现金融中间服务链上化。</strong></p>
+<p>类似于Centrifuge这样的项目，正在努力把各种原来的链下中间服务搬到线上。当然还有更多服务于KYC/反洗钱/财务/审计相关的专业性链上项目方，已经在服务各种链上生态了。</p>
+<p>相信未来监管原则是“同样的行为，同样的监管”，就是说中间服务无论是通过链上还是链下提供的，对于监管而言应该地位一致。</p>
+<p>在很多地方，DLT(分布式账本技术）已经获得了立法层面的认可，甚至Swift和美联储都提出了自己的概念方案。</p>
+<p><strong>链上中间服务的成熟，会助推监管按照</strong>“同样的行为，同样的监管”的原则，为全行业正名。** **</p>
+<p>在监管层面的态度明确后，相信行业标准的制定、传统渠道的接纳也就是时间问题。</p>
+<p>RWA资产借助渠道的力量，如果资管规模和交易量达到和证券化差不多的量级，则会为链上基建带来新的业务生态和盈利点，而进一步促进基建成熟。</p>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/62855/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">开发者「第二大脑」来袭，GitHub Copilot更新，人类开发参与进一步减少</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/62883/">
+                <span class="next-text nav-default">美股加密货币板块盘前普涨，Marathon Digital涨超8%</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#rwa不变的几个基本步骤">RWA不变的几个基本步骤</a></li>
+        <li><a href="#链上基建是个坑">链上基建是个坑</a></li>
+        <li><a href="#传统金融中间服务也是坑">传统金融中间服务也是坑</a></li>
+        <li><a href="#监管政策不明确的坑最大">监管政策不明确的坑最大</a></li>
+        <li><a href="#市场认可度不够">市场认可度不够</a></li>
+        <li><a href="#增长飞轮悄然开启">增长飞轮悄然开启？</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

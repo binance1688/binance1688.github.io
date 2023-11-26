@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          以太坊合并后的 MEV - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="在阅读本文前，需要对 MEV 有基本的认识，知道 Flashbot 的角色及 Flashbot 对 MEV 的影响。" />
+<meta name="keywords" content="MEV, ETH" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/62512/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="以太坊合并后的 MEV" />
+<meta property="og:description" content="在阅读本文前，需要对 MEV 有基本的认识，知道 Flashbot 的角色及 Flashbot 对 MEV 的影响。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/62512/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-11-24T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-11-24T00:00:00+00:00" />
+
+<meta itemprop="name" content="以太坊合并后的 MEV">
+<meta itemprop="description" content="在阅读本文前，需要对 MEV 有基本的认识，知道 Flashbot 的角色及 Flashbot 对 MEV 的影响。"><meta itemprop="datePublished" content="2023-11-24T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-11-24T00:00:00+00:00" />
+<meta itemprop="wordCount" content="5470">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="以太坊合并后的 MEV"/>
+<meta name="twitter:description" content="在阅读本文前，需要对 MEV 有基本的认识，知道 Flashbot 的角色及 Flashbot 对 MEV 的影响。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">以太坊合并后的 MEV</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-11-24">
+      2023-11-24
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 5470 字 -
+        预计阅读 11 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E5%85%B6%E5%AE%83%E6%96%87%E7%AB%A0/"> 其它文章 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>作者：Nic @ imToken Labs</p>
+<p><strong>阅读提示</strong></p>
+<ul>
+<li>
+<p>在阅读本文前，需要对 MEV 有基本的认识，知道 Flashbot 的角色及 Flashbot 对 MEV 的影响。</p>
+</li>
+<li>
+<p>还需要知道 PoS 机制的基本认识以及以太坊合并（ The Merge） 带来的改变。</p>
+</li>
+</ul>
+<p><strong>MEV</strong></p>
+<p>首先复习一下什么是 MEV。</p>
+<p>Miner Extractable Value 如字面上所述，指的是「区块开发者可以榨取出的价值」。</p>
+<p>这个价值指的不是用户付给区块开发者请他打包用户交易到区块里的手续费。给予手续费这个动作是经过使用者同意的，使用者可以把手续费调得很低，那他的交易就会很久才会被收入，但至少区块开发者不能对交易收取任意手续费。</p>
+<p><em>阅读提示：现在 MEV 又改称 Maximal Extractable Value，因为目前的发展 MEV 已不再是区块开发者所独占。</em></p>
+<p>「区块开发者可以榨取出的价值」指的是区块开发者透过改变交易排序、插入自己的交易在被榨取的交易前（或后）来获得利益。那区块开发者可以榨取什么样的利益？</p>
+<p>例如当有某个火热的 NFT 提供 mint 的名额，只有最快的 100 个人可以 mint 成功，这时和区块开发者是朋友或是链下和区块开发者达成某种协议的 Carol 就可以确保区块开发者透过安排交易顺序，将她的 mint 交易安插其他人的 mint 交易之前。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1103/4_1y5e7lrkiv.png" alt="以太坊合并后的 MEV"></p>
+<p>△  区块开发者会把 Carol 的 mint 交易排在其他人的 mint 交易之前。</p>
+<p>另外常见的 MEV 是夹击用户的 AMM 交易，迫使用户收到（可接受范围里）最差的价格，用户预期的价格与最差价格的价差就是区块开发者榨取的利益。</p>
+<p>底下的例子中 Alice 预期用 1 WBTC 换到 21500 USDT，但她知道去中心化世界里她的交易不一定能第一个被执行，当有其他人在她之前也去进行 WBTC/USDT 的交易，AMM 价格就被改变，1 WBTC 就不一定能换到 21500 USDT，所以她设定了可接受范围内的一个最差价格 20500 USDT：</p>
+<p><img src="https://img.bibiqing.com/news/2023/1103/4_0ytt1jtks7.png" alt="以太坊合并后的 MEV"></p>
+<p>△Alice 预期用 1 WBTC 换到 21500 USDT，但最差可以接受 20500 USDT。</p>
+<p>这时 Eve 发现了 Alice 的交易，并决定抢先在 Alice 的交易之前去卖 WBTC，导致 WBTC 价格跌到剩 20500 USDT，接着再执行 Alice 的交易，Alice 就被迫只能用 20500 USDT 的价格成交。</p>
+<p>最后 Eve 再将一开始卖 WBTC 所获得的 USDT 拿去买回 WBTC，此时 WBTC 价格会小于 20500 USDT，也就表示 Eve 完成了一次低买高卖（&lt;20500 买，21500 卖），赚得价差。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1103/4_ic04t0gsb9.png" alt="以太坊合并后的 MEV"></p>
+<p>△ 区块开发者 Eve 发现有利可图，在 Alice 的交易前抢先卖 WBTC，等到 Alice 交易执行完再买回 WBTC 赚价差。</p>
+<p><strong>去中心化系统一定会有 MEV</strong></p>
+<p>在中心化系统里你可以选择相信负责排序交易的角色（Operator、Sequencer），相信他们会为了声誉所以不做会伤害使用者的坏事，或是你可以选择离开那个系统。这也是目前 L2 的现况，L2 项目方不太可能会自砸招牌去榨取 MEV。</p>
+<p>但在去中心化系统里任何人都可以成为区块开发者，而且我们没办法简单客观地证明一个区块开发者的行为是「不好」的，也就表示我们没办法有效禁止区块开发者榨取利益。</p>
+<p>我们不<strong>该期待区块开发者都会是「好人」</strong> ，而是要担心如果一个区块开发者因为 MEV 越赚越多，并用来投资更多区块开发设备让他规模越来越大，导致他能淘汰掉其他竞争者，结果就会是在一个去中心化系统只有一个区块开发者的困境，最终他将能任意施加个人的喜好规则到用户的交易上。而这也是 Flashbot 出现的原因。</p>
+<p><strong>Flashbot</strong></p>
+<p>为了避免 MEV 影响区块开发者去中心化的程度，Flashbot 将 MEV 打造成一个公开的市场，区块开发者和专业的 MEV searcher 合作并分享 MEV，同时区块开发者和 MEV searcher 各自之间又有着高度的竞争。</p>
+<p>透过这样的竞争和合作关系，区块开发者和 MEV searcher 都能各自专注在自己的专业，MEV searcher 也不需担心区块开发者有可能抢走自己的套利机会或是故意不收自己的交易。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1103/4_5zn6wqbs2d.png" alt="以太坊合并后的 MEV"></p>
+<p>△ Searcher 从公开交易池中找交易套利并为自己的 Bundle 竞标收入权，送给 Flashbot 后再由区块开发者挑选。</p>
+<p><strong>中心化风险</strong></p>
+<p>不过 Flashbot 仍然有缺点在，所有 MEV searcher 的套利交易都要经由中心化的 Flashbot 服务器，Flashbot 服务器可以抢走套利机会或审查套利交易。</p>
+<p>除了 Flashbot，市场上也出现了像是 Eden Network 的项目。它和 Flashbot 架构基本上一样，除了自己搞无谓的 Staking 、区块内交易优先等级及额外的竞标机制等。不过至少当 Flashbot 开始作恶时，区块开发者和 searcher 还有其他选项。</p>
+<p><strong>MEV 是一个必须接受的既定事实</strong></p>
+<p>不管是协议设计者或用户都必须要保持对 MEV 的警觉。可以的话将 MEV 纳入协议设计中，让 MEV 变成一个有利的工具是协议设计者接下来在设计机制时必须要好好思考的。后面的文章也会介绍善加利用 MEV 的设计和想法。</p>
+<p><strong>The Merge</strong></p>
+<p>Ethereum 在 The Merge 后共识切换为 PoS 机制，从用矿机算力竞争的区块开发者变成质押 ETH 就能成为 Validator 来获得 propose 区块的机会，这表示在 PoS 中获得出块的门槛降低许多。而获得出块机会的门槛降低后其实也影响了 Flashbot 不同角色间竞争合作的关系。</p>
+<p><em>阅读提示：这里 propose 维持用英文，避免 propose block 和 build block 的中文因为意思太接近而看错。</em></p>
+<p><strong>信任关系的改变</strong></p>
+<p>在 PoS 之前，Searcher 是需要相信区块开发者不会把他的 bundle 内容抢走的，区块开发者即便抢了，Searcher 也只能透过链下的机制去反制，例如提出证据请 Flashbot 将该区块开发者加入黑名单或是在 Twitter 上发文取关。</p>
+<p>不过区块开发者基本上都非常配合，这是因为区块开发者和 Searcher 间是属于长期合作的关系，如果区块开发者今天为了某一笔 MEV 利益而抢了 Searcher 导致区块开发者未来收不到任何 MEV 机会，其实是划不来的。</p>
+<p>但在 PoS 之后，透过质押 ETH 就能获得出块机会，出块的门槛降低。也因此许多一般人加入成为 Validator，导致获得出块的机会也就慢慢被稀释。</p>
+<p>相比于 PoW 中投入许多成本成为为数不多且长期经营的矿池，PoS 中 Validator 偶尔才能获得出块机会，且其区块奖赏加上 MEV 的平均年化即便以 10% 计算的情况下，Validator 仍然有非常足够的动机去抢 Searcher 的 MEV。</p>
+<p><em>阅读提示：可以参考 Flashbot 统计的 MEV leader board，复制下方链接到浏览器跳转查阅相关内容：https://explore.flashbots.net/leaderboard</em></p>
+<p><img src="https://img.bibiqing.com/news/2023/1103/4_n93jwscyb7.png" alt="以太坊合并后的 MEV"></p>
+<p>△ 只要抓住机会抢超过 3.2 ETH 的 MEV 即超过 10% 年化。</p>
+<p>因此 Flashbot 的架构需要配合这个信任关系的改变及 PoS 机制进行调整，变成了现在的 mev-boost。</p>
+<p><strong>mev-boost</strong></p>
+<p>在 mev-boost 中，原本 Flashbot 介于 Searcher 及区块开发者之间的 Relay 角色被拆分成两个，一个是 Builder，一个一样叫做 Relay 但职责不同。</p>
+<p>Searcher 将 bundle 交给 Builder，Builder 从多个 bundle 中选出数个 bundle 组成一个区块，并将区块交给 Relay，Validator 再从多个 Relay 提交的区块中选出一个。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1103/4_1zgmpaa5i4.png" alt="以太坊合并后的 MEV"></p>
+<p>△ Searcher 和 Searcher 竞争，Builder 和 Builder 竞争，Validator 从中挑出最有利的区块。</p>
+<p>Builder 负责在一个区块的有限容量中找出最有利的 bundle 组合，希望 Validator 能选中自己的区块。</p>
+<p>那 Relay 有什么用呢？上面提到信任关系已经改变，因此 Searcher/Builder 不能相信 Validator，所以 mev-boost 中 Validator 需要先做出「我会 propose 你的区块」的承诺才会收到真正的区块内容。</p>
+<p>而 Relay 就是作为 Builder 和 Validator 之间的中间人角色帮忙协调：Relay 先保管区块内容，直到拿到 Validator 的承诺才把 Builder 制作的区块交给 Validator。</p>
+<p>实际的 Ethereum Beacon Chain 术语中 Builder 制作的区块内容称做 Execution Payload，Validator 会从 Relay 那收到称为 Execution Payload Header 的数据，Header 可以视为是 Payload 的 commitment，对 Header 签名就代表对 Payload 签名。</p>
+<p>当 Validator 选好要 propose 哪个 Relay 送来的区块时，他就会把该区块的 Execution Payload Header 放进 Beacon 区块中并签名，接着把签名内容交给 Relay 当作证明，最后 Relay 就可以放心将区块内容给 Validator，让他 propose 区块。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1103/4_ion1y5mp4s.png" alt="以太坊合并后的 MEV"></p>
+<p>△ Builder 将区块交给 Relay，Relay 将 Header 交给 Validator</p>
+<p><img src="https://img.bibiqing.com/news/2023/1103/4_ss6swttyqm.png" alt="以太坊合并后的 MEV"></p>
+<p>△ 如果 Validator 选择该区块，就会将 Header 放进 Beacon Block 里并签名，交给 Relay。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1103/4_qlr2tcpvq1.png" alt="以太坊合并后的 MEV"></p>
+<p>△ Relay 接着将完整区块内容交给 Validator。</p>
+<p>如果 Validator 最后背叛 Relay，选择 propose 另一个区块，此时 Relay 就可以将当初 Validator 给他的签名内容公布出去，当作证据证明该 Validator propose 了两个不一样的区块，接着 Validator 就会因为违反 Ethereum Beacon Chain 的规则而被惩罚。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1103/4_3pjmc9skf6.png" alt="以太坊合并后的 MEV"></p>
+<p>△ Eve 因为 propose 不一样的区块导致他被 slash（一部分质押的 ETH 被没收）。</p>
+<p><strong>信任假设</strong></p>
+<p>在 mev-boost 中 Validator 反而必须相信 Relay，如果 Relay 最终揭露的区块内容不合法或是实际 Validator 收到的钱不符预期，或甚至 Relay 直接不公布区块内容导致 Validator 没办法 propose 区块，此时 Validator 只能透过链下的机制去反制，例如让其他 Validator 知道该 Relay 的恶意行为。</p>
+<p><strong>Circuit Breaker</strong></p>
+<p>Validator 没办法 24 小时都有人监控并介入，所以当 Validator 软件发现（同一个或多个）Relay 不断破坏信任时，必须要能做出反应，避免一直因为没有 propose 区块而损失收益。</p>
+<p>例如当发现自己超过五个 Slot 都没 propose 区块时，要退回使用自己的节点来制作区块内容。</p>
+<p>相关文件可以参考：</p>
+<ul>
+<li><a href="https://hackmd.io/@ralexstokes/BJn9N6Thc">https://hackmd.io/@ralexstokes/BJn9N6Thc</a></li>
+</ul>
+<p><strong>Relay Monitor</strong></p>
+<p>为了降低 Relay 这个角色作恶产生的影响，Flashbot 社群也在思考设计针对 Relay 行为的监控。</p>
+<p>相关文件可以参考：</p>
+<ul>
+<li>
+<p><a href="https://hackmd.io/@ralexstokes/SynPJN">https://hackmd.io/@ralexstokes/SynPJN</a>_pq?</p>
+</li>
+<li>
+<p><a href="https://github.com/flashbots/mev-boost/issues/142">https://github.com/flashbots/mev-boost/issues/142</a></p>
+</li>
+</ul>
+<p><strong>Data Availability C</strong> <strong>ommittee</strong></p>
+<p>一个防止 Relay 不公布区块内容的方式是将区块数据交给一群节点所组成的 Committee，他们负责保管、确保区块内容可取得，也就是将区块内容保管的职责去中心化。</p>
+<p><strong>目前有哪些 Builder 和 Relay？</strong></p>
+<p>这里可以看到目前的 Builder 及 Relay：</p>
+<ul>
+<li>
+<p><strong>MEV-Boost</strong></p>
+<p>查阅网址：https://mevboost.pics</p>
+</li>
+</ul>
+<p>可以看到虽然身为 mev-boost 的主要开发团队，Flashbot 并未拥有主宰的 Relay 地位，这是因为 Flashbot 从一开始便开源开发 mev-boost 且未在 mev-boost 软件中将自己设为默认 Relay。</p>
+<p><em>阅读提示：了解更多请查阅https://twitter.com/bertcmiller/status/1577482319140913153</em></p>
+<p><strong>2023–04–02 针对 mev-boost Relay 的攻击</strong></p>
+<p>一个恶意 Validator 发现 Relay 的漏洞：Relay 只要 Validator 有签出合法的签名（不论内容是否合法）就会回传 Bundle 内容给该 Validator。</p>
+<p>因此恶意 Validator 签了一个不合法的内容（Header 某些字段的值不合法），Relay 回传 Bundle 内容后 Validator 再偷走 Bundle 里的套利交易，然后 propose 另一个合法的区块。</p>
+<p>Relay 尝试广播 Validator 签的 Header，但因为内容不合法所以被其他节点拒绝，所以大家只看到 Validator 自己 propose 的合法区块。事后 Validator 因为签了两个不同的 Header（给 Relay 的和自己 propose 的）而被 Slash 且被踢出 Validator 名单，但伤害已经造成。</p>
+<p>更新后的 Relay 现在会先尝试广播 Validator 签的 Header，如果成功被其他节点收入就表示 Validator 签的内容是合法的，而且其他节点会先看到 Relay 广播的区块，如果 Validator 尝试偷 Bundle 内容自己 propose 的话，要赢过 Relay 广播的区块会更难（因为已经有很多节点看到 Relay 广播的区块）。</p>
+<p><em>阅读提示 1：解释这个攻击的 thread 及相关证据和 Relay 补丁可以参考这个 thread，详情请查阅：https://twitter.com/samczsun/status/1642848556590723075</em></p>
+<p><em>阅读提示 2：恶意 Validator 除了可以偷走 Bundle 里的套利交易，还可以攻击进行三明治夹击的套利者：进行三明治夹击的套利者会在受害者交易前后插入自己的交易 — 抢先受害者买入，并在受害者买入后再卖出，赚取价差，但夹击要能成功必须要前后两笔交易都有执行，否则只有前笔交易被执行的话套利者不但赚不到利差，还会因此赔上自己的资金。</em></p>
+<p>但针对这个攻击所做的补丁会增加区块产出的延迟时间，因此在攻击发生后的数天内 PoS 链的 re-org 发生次数明显上升，目前有数个方案正在设计及实作当中，来避免 MEV-Boost 的出块延迟反而造成 PoS 网络的不稳定。</p>
+<p><em>阅读提示：详细介绍可以复制下方链接到浏览器查阅https://www.paradigm.xyz/2023/04/mev-boost-ethereum-consensus</em></p>
+<p><strong>Flashbot/mev-boost 的影响</strong></p>
+<p><strong>影响 Validator 投票效率</strong></p>
+<p>因为 Flashbot/mev-boost，区块从生产到真正被 propose 的过程经过了更多的关卡，这导致 Validator propose 区块的时间延迟，其他负责投票的 Validator 就会更晚收到区块，也因此他们投票的时间也就被压缩，这会影响整体 PoS 网络的安全性。</p>
+<p>虽然看起来影响不太大：估计投票率减少约 2%、正确投票的 Validator 减少约 1%，不过这是 2022 年 10 月统计的数据，当时只有 1/3 的 Validator 接上 MEV Relay。</p>
+<p><em>阅读提示：相关信息可参考下方链接文章__<a href="https://www.attestant.io/posts/exploring-the-impact-of-mev-relays">https://www.attestant.io/posts/exploring-the-impact-of-mev-relays</a></em></p>
+<p><strong>总结与重点</strong></p>
+<ul>
+<li>
+<p>MEV 的产生无可避免，而区块开发者拥有开采 MEV 最大的优势。Flashbot 让 MEV 的开采变成一个公开市场，避免矿工中心化影响整个链的安全。</p>
+</li>
+<li>
+<p>mev-boost 因应 PoS 带来的改变而诞生，mev-boost 反转 Searcher/Builder 与 Validator 间的信任关系，且让竞争更为开放：有多个 Builder 彼此竞争，有多个 Relay 彼此竞争，进一步降低 Flashbot 的中心化风险。</p>
+</li>
+</ul>
+<p><strong>下一篇</strong> 将介绍 Proposer-Builder Separation（PBS），将 mev-boost 架构直接整合进 Ethereum 本身的协议里，而不再是 Validator、Builder 和 Searcher 之间私底下的合作，这会让整个 MEV 生态变得更加去中心化及安全。</p>
+<p><strong>参考数据与推荐延伸阅读</strong></p>
+<ul>
+<li>
+<p><a href="https://docs.flashbots.net/">https://docs.flashbots.net/</a></p>
+</li>
+<li>
+<p><a href="https://blog.bitmex.com/flashbots/">https://blog.bitmex.com/flashbots/</a></p>
+</li>
+<li>
+<p><a href="https://ethresear.ch/t/mev-boost-merge-ready-flashbots-architecture/11177">https://ethresear.ch/t/mev-boost-merge-ready-flashbots-architecture/11177</a></p>
+</li>
+<li>
+<p><a href="https://writings.flashbots.net/searching-post-merge/">https://writings.flashbots.net/searching-post-merge/</a></p>
+</li>
+<li>
+<p><a href="https://writings.flashbots.net/why-run-mevboost">https://writings.flashbots.net/why-run-mevboost</a></p>
+</li>
+<li>
+<p><a href="https://writings.flashbots.net/beginners-guide-mevboost">https://writings.flashbots.net/beginners-guide-mevboost</a></p>
+</li>
+<li>
+<p>数据统计：https://www.mevboost.org</p>
+</li>
+<li>
+<p>数据统计：https://dune.com/ChainsightAnalytics/mev-after-ethereum-merge</p>
+</li>
+<li>
+<p><a href="https://www.youtube.com/watch?v=mXGA-u-sH">https://www.youtube.com/watch?v=mXGA-u-sH</a>_w</p>
+</li>
+</ul>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/63877/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">以太坊L2生态现状与技术发展趋势浅析</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/62471/">
+                <span class="next-text nav-default">意图桥梁：跨链价值转移和互操作性的未来</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

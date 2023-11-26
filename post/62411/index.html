@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          研究报告：Aztec账户抽象介绍 - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="本文主要介绍Aztec Layer2解决方案中Account Abstraction（AA）的发展及相关内容。" />
+<meta name="keywords" content="AZTEC" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/62411/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="研究报告：Aztec账户抽象介绍" />
+<meta property="og:description" content="本文主要介绍Aztec Layer2解决方案中Account Abstraction（AA）的发展及相关内容。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/62411/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-11-23T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-11-23T00:00:00+00:00" />
+
+<meta itemprop="name" content="研究报告：Aztec账户抽象介绍">
+<meta itemprop="description" content="本文主要介绍Aztec Layer2解决方案中Account Abstraction（AA）的发展及相关内容。"><meta itemprop="datePublished" content="2023-11-23T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-11-23T00:00:00+00:00" />
+<meta itemprop="wordCount" content="7874">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="研究报告：Aztec账户抽象介绍"/>
+<meta name="twitter:description" content="本文主要介绍Aztec Layer2解决方案中Account Abstraction（AA）的发展及相关内容。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">研究报告：Aztec账户抽象介绍</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-11-23">
+      2023-11-23
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 7874 字 -
+        预计阅读 16 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E6%8A%A5%E5%91%8A/"> 报告 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>作者：ChiHaoLu ( chihaolu.eth ) 来源：medium 翻译：善欧巴，金色财经</p>
+<p>本文主要介绍Aztec Layer2解决方案中Account Abstraction（AA）的发展及相关内容。我引用了大量Aztec的官方资源，包括官方文档、博客和教程。请在文章末尾的参考文献部分找到这些优秀的资源！</p>
+<h2 id="背景">背景</h2>
+<p>由于与 ZK-Rollups 中的其他 Native AA 实现相比，Aztec 的复杂性有所增加，读者可能会受益于拥有一定的背景，以便更好地理解本文。</p>
+<ul>
+<li>
+<p>熟悉智能合约钱包及其功能</p>
+</li>
+<li>
+<p>熟悉 EIP-4337</p>
+</li>
+<li>
+<p>熟悉 ZK-Rollups 中的本机帐户抽象</p>
+</li>
+<li>
+<p>UTXO基本概念</p>
+</li>
+<li>
+<p>ZK-Rollups 的基本概念</p>
+</li>
+<li>
+<p>零知识证明程序的基本概念</p>
+</li>
+</ul>
+<h1 id="介绍">介绍</h1>
+<h2 id="快速浏览aztec">快速浏览Aztec</h2>
+<p>Aztec 是一个开源第 2 层网络，旨在为以太坊提供可扩展性和隐私保护。Aztec 利用 zkSNARK 证明通过 ZK-Rollup 服务提供隐私保护和可扩展性。Aztec 的用户不需要任何受信任的第三方或额外的共识机制来访问隐私交易。</p>
+<p>我们都知道，在传统的 ZK-Rollups 中，“ZK”并不一定意味着隐私；它意味着使用零知识证明（ZKP）来证明某些计算已在链下正确执行。然而，在 Aztec 中，除了可扩展性之外，ZK-Rollup 中还实现了隐私性。深究一下，在过去，每笔交易的细节在链上都是公开可见的，但在Aztec，每笔交易的输入和输出都是加密的。这些交易通过ZKP进行验证，以证明加密信息是准确的并且源自明文。只有构建这些私人交易的用户才知道实际的明文信息。</p>
+<blockquote>
+<p>即使是 ZK-Rollup 中的重要角色，例如 Sequencer 和 Prover，也无法确定明文内容。有关交易的所有信息，包括发送者、接收者、交易数据和转移的价值，都是隐藏的。虽然只有用户自己知道交易细节，但他们仍然可以相信交易的正确性。这种信心源于这样一个事实：只有合法的交易才能生成有效的零知识证明来证明其准确性。</p>
+</blockquote>
+<p>如何实现私密交易以及如何验证它们的基本原理是一个很大的话题，超出了本文的范围。简单来说，我们需要的是一个“用于零知识证明验证的附加层”来验证 ZKP 列表，每个 ZKP 都验证一个私人交易。这也是它们被称为“ZK-ZK-Rollups”的原因。</p>
+<h2 id="什么是noir">什么是Noir？</h2>
+<blockquote>
+<p>在 Aztec 中，使用本机帐户抽象，这意味着外部拥有的帐户 (EOA) 和合约帐户之间没有区别。所有账户都是智能合约。因此，我们将简要介绍 Aztec 的合约开发生态系统，因为了解合约开发至关重要。但是，如果您不打算亲自开发账户合约，那么阅读和理解本文并不需要您打开计算机并编写合约。您只需要了解帐户合约代码中的逻辑即可。您可以自行决定探索该主题的深度！</p>
+</blockquote>
+<p>Noir是一种用于编写 SNARK 程序的语言，类似于 Circcom 和 ZoKrates。它不仅允许您在电路创建后自动生成 Solidity Verifier 合约，还可以用于编写您自己的协议甚至区块链。由于 Noir 并不完全依赖于 Aztec（它不会编译成特定的证明系统），因此只要为证明系统实现后端服务器和智能合约接口，您就可以实现您的目标。</p>
+<p>在 Aztec，Noir 用于编写智能合约，其中变量（状态）和函数可以受到隐私保护。</p>
+<h2 id="什么是私人状态和私人笔记">什么是私人状态和私人笔记</h2>
+<p>根据我们对公共区块链的理解，通常所有状态都是公共的。在Aztec语中，掌握私有状态的概念以及如何管理它（添加、修改、删除）至关重要。私有状态被加密并由其持有者拥有。例如，如果我是合约的所有者，则该合约中的特定变量可以是加密和隐藏的私有状态。只有我作为这个私有状态的所有者，才能解密密文以获得明文。</p>
+<p>私有状态通过仅附加数据库树存储。这样做是因为直接更改状态值可能会从事务图中泄漏大量信息。然而，该数据库并不直接存储私有状态的值。相反，它以加密形式将它们记录为私人笔记（例如，，<code>x=0 -&gt; x=1</code>）<code>addr=0x00 -&gt; addr=0x01</code>。所以，实际上，这些私有变量虽然看起来是变量，但实际上是由一堆不可变的私有票据组成的。这是变量的抽象概念。如果还不清楚，让我们继续前进。</p>
+<p>当您需要删除私有状态时，您可以将与该私有状态相关的无效符添加到另一个无效符数据库中以使其无效。当您需要更改私有状态时，首先将其无效，然后向其添加新的私有注释。</p>
+<blockquote>
+<p>我们很快就会介绍无效器的概念。您可以将其视为将私人注释链接到其无效符所需的密钥。只有无效密钥的所有者才能识别并使用与其关联的私人注释。</p>
+</blockquote>
+<p>此时，精明的读者可能已经注意到，这种结构非常类似于 UTXO（未花费的交易输出），我们可以遍历 UTXO 来确定私有状态的当前状态（尽管重要的是要记住是用户签署交易，而不是 UTXO；我们稍后会解释这一点）。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1102/21_btfylae1jp.png" alt="TEg3TOpeZXF82AgjnmG7in3uwiZp3ZtIpGsNQvxc.png" title="7128680"></p>
+<p>什么是私人笔记？一个UTXO被称为Note，我们通过遍历这个Note Tree来获取相关私有状态的信息。当我们想要改变私有状态时，步骤如下：</p>
+<ol>
+<li>
+<p>用户从笔记数据库中检索与该私有状态相关的所有私有笔记。</p>
+</li>
+<li>
+<p>用户（实际上是用户运行的 Aztec 节点）在本地证明每个检索到的注释在此 DB 树中的存在。</p>
+</li>
+<li>
+<p>用户添加一个无效符以防止其他人再次读取同一片叶子。</p>
+</li>
+<li>
+<p>用户插入一个新的叶子（一个新的注释）来更新这个私有状态的值。</p>
+</li>
+</ol>
+<h1 id="aztec的-aa-机制">Aztec的 AA 机制</h1>
+<h2 id="什么是协议层什么是应用层">什么是协议层，什么是应用层？</h2>
+<p>众所周知，EIP-4337旨在将整个交易流程移至应用层，实现开放中继系统，并通过智能合约的可编程特性抽象出签名（验证机制）和支付模型。然而，对于 Native Account Abstraction，无论是在 StarkNet、zkSync 时代，还是本文重点的 Aztec，都需要将某些元素蚀刻到 Layer2 的协议中才能正常运行。例如，在 Aztec 中，加密密钥和无效密钥需要在协议级别实现。</p>
+<p>了解本机帐户抽象需要更深入地了解整个链的运作方式（假设它被称为“本机”，AA 的执行逻辑自然链接到特定 Layer2 的协议）。例如，在 zkSync 时代，需要理解系统合约，在 StarkNet 中，需要理解序列器如何运行，而在 Aztec 中，理解这些“密钥及其底层私有状态”的作用至关重要。</p>
+<h2 id="账户入口点和验证阶段">账户入口点和验证阶段</h2>
+<p>在 Aztec 中，与账户抽象的其他实现不同，没有严格定义的函数名称（函数签名）作为账户合约的入口点（例如，<code>validateUserOp</code>在 EIP-4337、<code>validateTransaction</code>zkSync Era 和<code>__validate__</code>StarkNet 中）。用户可以自由选择账户合约中的任意函数作为入口点，并发送带有相关参数的交易。</p>
+<p>用户选择的函数（我们称之为<code>entrypoint()</code>）必须是私有的（在用户的私有执行环境中执行）。只能从账户合约所有者的客户端（用户的钱包）调用。当用户的钱包<code>entrypoint()</code>在本地执行时，它同时生成零知识证明。该证明通知Aztec协议的验证阶段，链下执行已经发生并且已经成功。</p>
+<h2 id="验证阶段的限制">验证阶段的限制</h2>
+<p>这也延伸到是否在验证阶段对可执行操作施加限制的问题。众所周知，由于验证交易没有成本限制（本质上，验证交易是调用函数<code>view</code>），攻击者可以对内存池执行拒绝服务（DOS）攻击，以破坏捆绑器（EIP-4337）或操作员/排序器（原生AA）。EIP-4337 定义了禁止哪些操作码以及如何限制存储访问。zkSync Era放宽了一些OpCode的使用，而StarkNet根本不允许外部合约调用。</p>
+<p>由于 Aztec 协议涉及客户端对附加的零知识证明进行验证，而不是实际调用验证函数来确定结果为 或 ，因此<code>true</code>Aztec<code>false</code>与其他协议不同，在验证阶段不会施加任何限制。账户内的合约<code>entrypoint</code>可以自由调用其他合约、访问任何存储、执行任何计算。</p>
+<h2 id="交互流程">交互流程</h2>
+<p>更详细地说，在 zkSync Era 和 StarkNet 中，只有“账户合约”才能发起交易，因为协议调用指定函数作为入口点，施加了这种限制。然而，在 Aztec 中，“所有合约”都可以发起交易，因为协议调用哪个函数作为入口点没有限制。这意味着在 Aztec 上，不再是用户将交易发送到特定角色（例如 EIP-4337 中的 EntryPoint 合约或 Native AA 中的定序器/操作符），然后调用目标合约的固定交互流程。用户可以通过钱包发送交易，直接让目标合约完成相关交互，大大增强了灵活性。</p>
+<blockquote>
+<p>如果您熟悉EIP-2938（AA 的另一种实现），您会发现 Aztec 更类似于其中的多租户方法。然而，这是一个更深层次的话题，你可以自己探索。</p>
+</blockquote>
+<h2 id="aztec-帐户中的密钥">Aztec 帐户中的密钥</h2>
+<p>在 Aztec 中，每个帐户通常有两个主密钥：签名密钥和隐私主密钥。</p>
+<h2 id="签名密钥">签名密钥</h2>
+<p>签名密钥用于表示用户对使用私钥执行特定操作的授权。一个简单的例子是用户在帐户合约中记录从签名密钥派生的公钥。然后，通过使用此签名密钥对交易或消息进行签名，可以在合约内恢复生成的签名，以检查其是否与合约中记录的公钥（也称为所有者控制密钥，以密钥形式存储）相匹配。<code>address</code>Solidity 钱包合约中的变量）。</p>
+<p>关于数字签名椭圆曲线算法的选择，由用户决定。例如，以太坊使用<code>secp256k1</code>，而 Aztec 提供了使用 的示例<code>schnorr</code>。在账户合约中，该<code>entrypoint()</code>函数作为入口点（调用的来源），验证逻辑（<code>is_valid_impl()</code>）使用 来检查 Schnorr 签名是否与记录的公钥匹配<code>std::schnorr::verify_signature(...)</code>。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1102/21_sojstt5kk5.png" alt="eWwFvxmMF7pNt0axLcucSvjcig6QHMXl2HKH3luz.png" title="7128683"></p>
+<p>签名密钥本质上和我们熟悉的智能合约钱包中的所有者控制密钥相同，所以应该比较容易理解。事实上，签名密钥并不是绝对必要的。如果帐户开发者实施了其他验证机制，则帐户可能没有签名密钥。</p>
+<h2 id="隐私主密钥">隐私主密钥</h2>
+<p>Aztec账户中的隐私主密钥是不可转让的；每个 Aztec 帐户都绑定到一个隐私主密钥。隐私主密钥衍生出公共主密钥，然后与合约代码进行哈希运算，生成账户合约的地址。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1102/21_tz2iwsifar.png" alt="9WujRrvfd8YccfQkh9kbCtz0O1GVAKvNVJI7kXtm.png" title="7128684"></p>
+<blockquote>
+<p>我们将用户的<code>account_address</code>、<code>partial_address</code>、 和统称<code>public_master_key</code>为帐户的完整地址。在处理私有状态时，用户需要提供这三项信息，以便任何人都可以验证公钥是否对应于预期的地址。</p>
+<p>但是，如果它是一个不打算处理私有状态并且缺少 的应用程序（例如 DeFi）<code>public_master_key</code>，您可以简单地填写该<code>public_master_key</code>字段<code>0</code>以表明它不希望收到私有票据。</p>
+</blockquote>
+<p>所以，尽管Aztec允许我们在账户合约中实现验证机制甚至一些恢复机制来增强账户安全性，但与隐私主密钥相关的机制却被印在协议中并与地址绑定。因此，它不可互换。</p>
+<blockquote>
+<p>这里的含义是，该密钥与以太坊中 EOA（外部拥有帐户）的私钥一样重要，使其成为帐户的单点故障（SPoF）。如果用户丢失或账户的隐私主密钥被盗，毫无疑问该账户将无法恢复。</p>
+</blockquote>
+<p>隐私主密钥还使用类似于 BIP-32 的过程导出加密密钥和无效密钥。用户可以在不同的应用程序或操作中使用不同的加密密钥和无效密钥，以确保隐私和安全。</p>
+<h2 id="加密密钥">加密密钥</h2>
+<p>加密密钥的公钥用于加密私人票据，而私钥用于解密它。例如，在代币转账场景中，如果我（代币发送者）想要将代币转账给我的朋友（代币接收者），我需要对私人票据进行加密（代币的转账，涉及到改变变量，本质上<code>balance</code>是使用我朋友的加密公钥更改私有状态变量 UTXO）并发送它。</p>
+<p>从局外人的角度来看，如果不知道令牌接收者的加密私钥，他们就无法破译这个私人票据，也无法知道令牌接收者是谁。</p>
+<h2 id="无效符">无效符</h2>
+<p>每次使用私人注释时，都会生成从该私人注释派生的无效符（使用无效密钥加密）。该机制用于防止双花（避免其他人使用相同的方法确定纸币的位置或两次扣除资金），因为 Aztec 协议会检查无效符是否唯一。为了将该无效符与私人票据相匹配，需要无效私钥对其进行解密，因此只有其所有者才能建立两者之间的关系。</p>
+<h1 id="aztec交易">Aztec交易</h1>
+<p>描述 Aztec 中交易的概念可能具有挑战性，因为它很容易与 UTXO（私人票据）混淆，而且 EVM 和 Aztec 中交易的执行模式完全不同。</p>
+<p>在Aztec中，每笔交易都以零知识证明的形式广播（显然是出于隐私原因）。用户必须在其节点（钱包应用程序或客户端）本地执行计算，以生成与交易相对应的证明，而不是像我们过去那样通过 RPC API 简单地将交易对象发送到矿工的内存池或任何第 2 层操作员。</p>
+<h2 id="交易哈希和随机数">交易哈希和随机数</h2>
+<p>当用户在本地创建交易时，有两个重要要素：</p>
+<ol>
+<li>
+<p>发件人地址：这代表处理交易的账户合约的地址。在这个账户合约里面，有我们前面提到的入口点，它作为外部各方验证这个行为（交易）是否得到账户所有者授权的验证功能。</p>
+</li>
+<li>
+<p>有效负载数据：这包括有关交易的信息，例如签名、目标合约地址、价值、数据等。</p>
+</li>
+</ol>
+<p><img src="https://img.bibiqing.com/news/2023/1102/21_43tilwvsf0.png" alt="xReWU4p6VrxP45q5EYNXZGAziaZhIG1DTrjeO4yD.png" title="7128688"></p>
+<p>在 Aztec 的协议级别，每个有效交易的哈希值被用作防止同一交易被多次执行的手段。账户合约开发者可以决定账户合约中是否应该有nonce以及相关逻辑。例如，他们可以设置诸如确保交易中的nonce字段严格增加或交易可以按任何顺序处理等要求。</p>
+<p>由于协议层面没有严格的随机数要求，Aztec 无法通过提交具有相同随机数和更高 Gas 费用的新交易来取消待处理的交易。</p>
+<h2 id="执行请求">执行请求</h2>
+<p>正如前面提到的，用户可以根据不同情况指定账户合约中的任意函数作为入口点，而 Aztec 中的操作并不是由一个简单的交易对象来控制的。实际上，告诉合约账户做什么的是一个称为“执行请求”的对象。该对象代表用户的行为，例如“使用<code>0x1234</code>以下参数调用合约上的传输函数”。</p>
+<p>用户在钱包本地发起交易，其中<code>sender_address</code>是账户合约的地址，包含<code>payload</code>调用目标合约中函数的相关编码数据<code>transfer()</code>，以及账户合约可以验证的签名。钱包将这两个元素转换为执行请求。</p>
+<p>然后，钱包将私人票据、加密密钥或无效秘密输入到本地虚拟机以模拟此执行请求。模拟过程中会产生执行轨迹，交给证明者生成零知识证明。这个证明表明这些计算（私有函数的执行）确实是由用户在本地完成的。</p>
+<p>通过这个过程，我们获得两条信息：<code>proof</code>和<code>private_data</code>（本次交易的私有内核电路的输出）。然后钱包将包含这两条信息的交易对象发送到 Aztec 的 Sequencer mempool 并完成交易。</p>
+<h2 id="基于客户端的-zkp-代替-evm-的类型执行环境">基于客户端的 ZKP 代替 EVM 的类型执行环境</h2>
+<p>在 Aztec 中，我们不会简单地将所有信息输入到像 EVM 这样的图灵机中来生成更新的状态。相反，它依赖每个 Dapp 内的电路来确定隐私信息应如何工作。这意味着Dapp开发者需要有一种方法来证明合约变量的状态。例如，让我们考虑 ERC-20 代币合约中用户的余额。如果我们想转账 10 个 DAI 代币，合约可能有以下逻辑：</p>
+<ol>
+<li>
+<p>检查发送者的余额是否大于 10 DAI（即<code>&gt; 10 DAI</code>）。</p>
+</li>
+<li>
+<p>如果发送者有足够的余额，则创建一个无效符来表示发送者的 10 DAI 的销毁（该无效符可以抵消发送者对 10 DAI 私人票据的占有）。</p>
+</li>
+<li>
+<p>为收件人创建新的私人注释。</p>
+</li>
+<li>
+<p>广播并加密包含 10 DAI 传输的所有消息。</p>
+</li>
+</ol>
+<p>从外人的角度来看，他们只能看到新的无效符和注释出现，而且它们都是加密的。所以，每个人都知道发生了一笔新的交易，但里面到底发生了什么只有参与的参与者知道。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1102/21_5gzbi59ykb.png" alt="B2NwqMIhntBOllrlchIWeaetEbkSSdoTARJiM27A.png" title="7128690"></p>
+<h1 id="深入了解aztec账户合约">深入了解Aztec账户合约</h1>
+<h2 id="钱包">钱包</h2>
+<p>Aztec 中的钱包是管理用户与区块链及其私人数据交互的重要组成部分。以下是 Aztec 钱包必须处理的任务的摘要：</p>
+<ol>
+<li>
+<p>创建账户：钱包应该允许用户创建新的账户合约，这本质上意味着在区块链上部署新的账户合约。</p>
+</li>
+<li>
+<p>私钥管理：钱包负责管理用户种子短语和私钥，其中包括隐私主密钥和签名密钥（取决于账户合约的设计）。这种管理还可以扩展到硬件钱包集成。</p>
+</li>
+<li>
+<p>查看帐户：用户应该能够查看他们的帐户和相关状态，包括余额和其他私人状态。这意味着钱包需要维护一个本地数据库，其中包含所有与用户相关的私人笔记。</p>
+</li>
+<li>
+<p>与 Dapp 交互：钱包需要促进用户和 Dapp 之间的交互。当用户与 Dapp 交互时，Dapp 可能会请求从用户帐户发送交易。</p>
+</li>
+<li>
+<p>用户同意： Dapp 可能需要用户同意才能显示某些合约状态，例如代币合约中的余额。要公开这些状态，钱包必须能够接收用户请求（因为公开余额需要用户密钥同意）。</p>
+</li>
+<li>
+<p>生成证明：要代表用户发送交易，钱包必须能够在本地生成证明。这涉及创建和处理交易有效性的零知识证明。</p>
+</li>
+</ol>
+<p>需要注意的一个关键点是，钱包需要扫描从创世区块开始的所有区块，使用用户的密钥来发现和解密相关的私人笔记，然后将其存储在本地数据库中以供将来使用。这对于促进用户交互并确保私有状态数据能够得到有效管理至关重要。</p>
+<blockquote>
+<p>您提到了 Aztec 的另一个重要方面，即需要用户广播完整的地址。当钱包为目标交易的接收者创建加密票据时，它还需要能够获取接收者的完整地址。这可以通过手动输入或维护收件人地址的本地数据库来实现。关于这方面的更多细节，可以参考Aztec官方文档。</p>
+</blockquote>
+<h2 id="账户合约">账户合约</h2>
+<p>在 Aztec 中，账户合约的主要任务是验证签名（确认交易是由账户所有者授权的，因此更广泛的是授权，而不一定是“通过特定的数字签名算法进行验证”）、管理 Gas 消耗、并调用其他合约。</p>
+<p>这是使用 Schnorr 签名算法的 Aztec 帐户合约的官方示例。所有事务的入口点是<code>entrypoint()</code>函数（您可以自由选择函数或名称作为起点，但在本例中<code>entrypoint()</code>使用）。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1102/21_toeol1sod4.png" alt="LahY9kfNGKkYkSm5ULPlReKATiTA3K5bjFGIClh0.png" title="7128692"></p>
+<p>当我们调用<code>entrypoint()</code>带有附件的帐户时<code>payload</code>，帐户合约<code>entrypoint()</code>将调用Aztec AA 帐户库<code>entrypoint()</code>中的。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1102/21_tbuqkmdcti.png" alt="vAROskBKScb0LqWpcTMIuhBMjeSB151sFvSWbwXl.png" title="7128697"></p>
+<p>Aztec不需要我们的账户合约导入EntrypointPayload和Aztec AA账户库；你可以自由设计自己的账户合约逻辑。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1102/21_i6ik22sgmv.png" alt="HNskT1CkOOPiZZaAVvqlJNf7L5VxU39Fz9ir2Ica.png" title="7128698"></p>
+<p>是context一个在 中的每个函数中都可用的对象Aztec.nr。包含context应用程序执行所需的所有内核信息。引自Aztec 官方文档。- 背景是什么</p>
+<p>以上是Aztec AA账户库的代码entrypoint()。它负责根据账户is_valid_impl合约上定义的验证函数（）来确定该操作是否得到账户所有者的授权，并通过 进行必要的调用以实现交易所需的操作execute_calls。</p>
+<p>这意味着，如果您想引用此 Aztec AA 库，并且您的账户合约没有is_valid_impl使用相同的函数签名实现，则此步骤将失败。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1102/21_p7vpyqrdfk.png" alt="QZuhkG4BTiKMQF4hFZKGw0gi9MBlU5VGcDjyQyU9.png" title="7128699"></p>
+<p>另一个关键的实现细节是使用get_auth_witness()检索signature. 您可以参考下面参考资料中的介绍来了解见证人的详细工作原理。简单来说，见证人是“对用户想要执行的操作的授权”。</p>
+<p>身份验证见证是一种在 Aztec 上验证操作的方案，因此用户可以允许第三方（例如协议或其他用户）代表他们执行操作。引自Aztec 官方文档。— 认证见证人</p>
+<p>之所以称为“见证人”而不是简单地称为“签名”，是因为账户合约的验证方式并不一定涉及验证签名。</p>
+<p>例如，假设有一个操作，将 1000 个代币从 Alice 的账户转移到 DeFi 平台。在这种情况下，代币合约需要查询Alice的账户合约，看看她是否批准这个“行动”。此“操作”需要在 Alice 的钱包（本地）中生成一个身份验证见证，然后可以通过她的帐户合约进行验证。如果账户合约验证成功，代币合约就能知道这个“动作”已经被授权。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1102/21_qns5bv8flo.png" alt="WJkuu8NWicgcHvCyH08YpHhjYtTtYiP8GbRxwwKs.png" title="7128700"></p>
+<h2 id="结论">结论</h2>
+<p>截至目前，Aztec还没有实现费用机制，他们的目标也是抽象化费用的支付。这意味着，要使一笔交易被视为有效，它必须证明它已经锁定了足够的资金来支付自己的费用。然而，它没有具体说明这些资金必须来自哪里，从而可以通过即时交换轻松实现付款或实物支付。</p>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/63766/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">刑事指控&#43;罚43亿 币圈最大案件靴子落地</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/62438/">
+                <span class="next-text nav-default">一个关于Curve和Uniswap的数学巧合以及它仅仅是个巧合</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#背景">背景</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#快速浏览aztec">快速浏览Aztec</a></li>
+    <li><a href="#什么是noir">什么是Noir？</a></li>
+    <li><a href="#什么是私人状态和私人笔记">什么是私人状态和私人笔记</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#什么是协议层什么是应用层">什么是协议层，什么是应用层？</a></li>
+    <li><a href="#账户入口点和验证阶段">账户入口点和验证阶段</a></li>
+    <li><a href="#验证阶段的限制">验证阶段的限制</a></li>
+    <li><a href="#交互流程">交互流程</a></li>
+    <li><a href="#aztec-帐户中的密钥">Aztec 帐户中的密钥</a></li>
+    <li><a href="#签名密钥">签名密钥</a></li>
+    <li><a href="#隐私主密钥">隐私主密钥</a></li>
+    <li><a href="#加密密钥">加密密钥</a></li>
+    <li><a href="#无效符">无效符</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#交易哈希和随机数">交易哈希和随机数</a></li>
+    <li><a href="#执行请求">执行请求</a></li>
+    <li><a href="#基于客户端的-zkp-代替-evm-的类型执行环境">基于客户端的 ZKP 代替 EVM 的类型执行环境</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#钱包">钱包</a></li>
+    <li><a href="#账户合约">账户合约</a></li>
+    <li><a href="#结论">结论</a></li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

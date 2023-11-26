@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          Vitalik：以太坊应该将哪些功能固化到协议层 - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="最近一些人对将更多功能正式写入以太坊核心协议的兴趣正在增加。" />
+<meta name="keywords" content="Vitalik Buterin, 以太坊2.0" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/60300/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="Vitalik：以太坊应该将哪些功能固化到协议层" />
+<meta property="og:description" content="最近一些人对将更多功能正式写入以太坊核心协议的兴趣正在增加。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/60300/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-10-03T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-10-03T00:00:00+00:00" />
+
+<meta itemprop="name" content="Vitalik：以太坊应该将哪些功能固化到协议层">
+<meta itemprop="description" content="最近一些人对将更多功能正式写入以太坊核心协议的兴趣正在增加。"><meta itemprop="datePublished" content="2023-10-03T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-10-03T00:00:00+00:00" />
+<meta itemprop="wordCount" content="12430">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Vitalik：以太坊应该将哪些功能固化到协议层"/>
+<meta name="twitter:description" content="最近一些人对将更多功能正式写入以太坊核心协议的兴趣正在增加。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">Vitalik：以太坊应该将哪些功能固化到协议层</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-10-03">
+      2023-10-03
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 12430 字 -
+        预计阅读 25 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E5%85%B6%E5%AE%83%E6%96%87%E7%AB%A0/"> 其它文章 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>作者：Vitalik，以太坊创始人；翻译：金色财经0xjs</p>
+<p>以太坊项目一开始，就存在一种强烈的理念，即尽量使以太坊核心尽可能简单，并通过在其上构建协议来完成尽可能多的工作。在区块链领域，“在L1上执行”与“专注于L2”之争通常被认为主要涉及扩展，但实际上，类似的问题存在于为许多种以太坊用户需求提供服务的情况下：数字资产交换、隐私、用户名、高级密码学、账户安全、抗审查、抢跑保护等等。然而，最近一些人对谨慎将更多这些功能正式写入以太坊核心协议的兴趣正在增加。</p>
+<p>本文将探讨早期的以太坊协议最小化理念背后的一些哲学推理，以及我对这些思想的更为近期的一些看法。目标是逐渐建立一个更好地识别在协议中形成某些功能可能值得考虑的目标的框架。</p>
+<h2 id="早期的协议最小化哲学">早期的协议最小化哲学</h2>
+<p>在“以太坊2.0”（当时称为）历史的早期，有一种强烈的愿望，即创建一个干净、简单且美观的协议，尽量少地完成自己的工作，几乎一切都留给用户在其上构建。理想情况下，该协议将只是一个虚拟机，验证一个区块只需调用一次虚拟机。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1003/28_39j09efrrj.png" alt="Hiv6lMrLPhmPq48w2TuvWGHJJPf8XLakmUf2Mk5a.png" title="7109887"></p>
+<p>2015年初，我和Gavin Wood制作的一个白板图的非常粗略的重建，当时我们讨论了以太坊2.0将会是什么样子。</p>
+<p>“状态转换函数”（处理区块的函数）将只是一个虚拟机调用，所有其他逻辑都将通过合约实现：一些系统级别的合约，但主要是用户提供的合约。这个模型的一个非常好的特性是，即使整个硬分叉也可以描述为对区块处理合约的单个交易，该交易将通过链下或链上治理获得批准，然后以升级的权限运行。</p>
+<p>这些2015年的讨论特别适用于我们关心的两个领域：账户抽象和扩容。在扩容的情况下，想法是尝试创建一种最大程度抽象的扩容形式，使其感觉像上述图表的自然延伸。合约可以调用大多数以太坊节点未存储的某些数据，协议将检测到这一点，并通过某种非常通用的扩容计算功能解决该调用。从虚拟机的角度来看，调用将进入某个单独的子系统，然后在一段时间后以正确的答案神奇地返回。</p>
+<p>这种思考方式曾经短暂地被探讨过，但很快被放弃，因为我们过于关注验证任何形式的区块链扩容是否可能。然而，正如我们后来将看到的，数据可用性采样和ZK-EVM的结合意味着以太坊扩容的一个可能未来实际上可能看起来令人惊讶地接近这个愿景！对于账户抽象，另一方面，我们从一开始就知道某种实现是可能的，因此立即开始研究如何使“交易只是调用”的纯粹起点尽可能接近现实。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1003/28_o136fmrspj.png" alt="wdFzrdV2V5uKtqj7v9fjZukvzNNZKxKDeIpKPt0e.png" title="7109888"></p>
+<p>在这里，存在很多在处理交易并使发送地址的底层EVM调用之前的代码之间以及之后发生的代码。我们如何将此代码减少到尽可能接近零的程度？</p>
+<p>其中一段代码中的一项主要工作是validate_transaction(state, tx)，其中包括检查交易的nonce和签名是否正确。账户抽象的实际目标从一开始就是允许用户用他们自己的验证逻辑替换基本的nonce递增和ECDSA验证，以便用户更容易使用诸如社交恢复和多重签名钱包之类的东西。因此，重塑apply_transaction，使其成为简单的EVM调用，不仅仅是为了“使代码干净而使代码干净”的任务；相反，它是为了将逻辑移动到用户的账户代码中，以给予需要灵活性的用户。</p>
+<p>然而，对尽量使apply_transaction包含尽可能少的正式逻辑的坚持最终引入了许多挑战。为了了解原因，让我们深入研究早期的账户抽象提案之一，即EIP 86：</p>
+<blockquote>
+<p>规范</p>
+<p>如果block.number &gt;= METROPOLIS_FORK_BLKNUM，则：1、如果交易的签名为(0, 0, 0)（即v = r = s = 0），则将其视为有效，并将发件人地址设置为2 ** 160 - 1。2、将通过创建交易创建的任何合约的地址设置为sha3(0 +初始化代码)％2 ** 160，其中+表示连接，替换先前的地址公式sha3(rlp.encode([sender, nonce]))3、创建一个新的opcode，为0xfb，CREATE_P2SH，该opcode将创建地址设置为sha3(sender + init code)％2 ** 160。如果该地址处已经存在合约，则失败并返回0，就像初始化代码用尽了Gas一样。</p>
+</blockquote>
+<p>基本上，如果将签名设置为(0, 0, 0)，那么交易实际上就变成了“只是一个调用”。账户本身将负责具有解析交易、提取和验证签名和nonce以及支付费用的代码，点击此处查看此代码的早期版本，点击此处查看此账户代码将要替换的validate_transaction代码，一度简单地将apply_transaction缩减为仅是一个EVM调用的过程。换句话说，以太坊的协议会执行交易验证，将具体的交易逻辑留给用户自己的账户代码，以提供灵活性。</p>
+<p>然而，尝试使apply_transaction包含尽可能少的正式逻辑最终引入了许多挑战。要了解为什么，让我们详细查看早期的账户抽象提案之一，即EIP 86。</p>
+<blockquote>
+<p>请注意，矿工需要制定一种接受这些交易的策略。这种策略需要非常具有辨别力，否则他们可能会接受不支付任何费用的交易（对于将被替换为预账户代码的validate_transaction代码），甚至可能是没有效果的交易（例如，因为交易已经被包含，所以nonce不再有效）。一种简单的方法是对它们接受交易发送到的账户代码的codehash设定白名单；经过批准的代码将包括支付矿工交易费用的逻辑。然而，这可能过于限制；一种更宽松但仍然有效的策略是接受任何符合上述相同一般格式的代码，仅消耗有限数量的gas执行nonce和签名检查，并保证交易费用将支付给矿工。另一种策略是在其他方法之外，尝试处理任何请求少于250,000 gas的交易，并仅在执行交易后矿工的余额适当地增加时包含它。</p>
+</blockquote>
+<p>如果EIP-86按原样被纳入，它将减少EVM的复杂性，但以极大的代价增加以太坊堆栈的其他部分的复杂性，要求基本上在其他地方编写完全相同的代码，同时引入了完全新的奇怪可能性，例如相同的交易具有相同的哈希可能会多次出现在链上，更不用说多次失效问题了。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1003/28_n7brl0sesb.png" alt="mWQgprfSIkslW7AfciiR4DVLd4fco1l5yx6jmwuS.png" title="7109889">账户抽象中的多次失效问题。链上包含的一个交易可能会使内存池中的数千个其他交易失效，使内存池易于被廉价地淹没。</p>
+<p>账户抽象是从那里逐渐演变的。EIP-86成为EIP-208，后来成为ethresear.ch上关于“账户抽象提案中的权衡”的帖子，然后在半年后成为ethresear.ch上的这篇帖子。最终，所有这一切产生了实际上相当可行的EIP-2938。</p>
+<p>然而，EIP-2938并不是最小化的。该EIP包括：</p>
+<ul>
+<li>
+<p>一个新的交易类型</p>
+</li>
+<li>
+<p>三个新的交易范围全局变量</p>
+</li>
+<li>
+<p>两个新的操作码，包括非常笨重的PAYGAS操作码，处理gas价格和gas限制检查，作为EVM执行断点，并同时暂时存储ETH以用于费用支付。</p>
+</li>
+<li>
+<p>一套复杂的挖矿和重播策略，包括验证交易的阶段的一系列禁止的操作码</p>
+</li>
+</ul>
+<p>为了在不牵涉到正在忙于优化以太坊客户端并实施合并的以太坊核心开发人员的情况下推动账户抽象，EIP-2938最终被重新设计为完全协议外的ERC-4337。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1003/28_puzz5404b0.png" alt="SmDioIHg7VbGXbFoyHwkptmG6RDPiCk6xPjIf0uc.png" title="7109891"><em>ERC-4337。它确实完全依赖 EVM 调用来完成所有事情！</em></p>
+<p>因为它是一个ERC，它不需要硬分叉，从技术上讲“在以太坊协议之外”。所以…问题解决了吗？嗯，事实证明，还没有完全解决。 ERC-4337的当前中期路线图实际上涉及最终将ERC-4337的大部分内容转变为一系列协议功能，这是一个有用的示例，可以了解为什么正在考虑采用这种路径的原因。</p>
+<h2 id="协议层固化erc-4337">协议层固化ERC-4337</h2>
+<p>对于最终将ERC-4337引入协议中，已经讨论了一些关键原因：</p>
+<ul>
+<li>
+<p><strong>Gas效率：</strong> 在EVM内部执行的任何操作都会产生一定程度的虚拟机开销，包括在使用诸如存储槽等昂贵的gas功能时的效率低下。目前，这些额外的低效性至少会增加到~20,000 gas，而且通常更多。将这些组件推入协议中是消除这些问题最简单的方法。</p>
+</li>
+<li>
+<p><strong>代码错误风险：</strong> 如果ERC-4337的“entry point合约”存在足够可怕的错误，所有兼容ERC-4337的钱包可能会看到其所有资金被清空。通过将合约替换为协议功能，可以创建修复代码错误的暗含责任，并消除用户资金风险。</p>
+</li>
+<li>
+<p><strong>支持EVM操作码</strong> ，如tx.origin。 ERC-4337本身使tx.origin返回将一组用户操作打包成交易的“捆绑程序”发送的地址。原生账户抽象可以通过使tx.origin指向实际发送交易的帐户来解决此问题，使其与EOA的工作方式相同。</p>
+</li>
+<li>
+<p><strong>抗审查：</strong> 在PBS的情况下，一个挑战是更容易审查个别交易。在每个交易对以太坊协议可见的世界中，通过包含列表（ inclusion lists），可以大大减轻此问题，该列表允许提议者在几乎所有情况下指定必须在接下来的两个插槽中包含的交易列表。但是，协议外ERC-4337将“用户操作”包装在单个交易内，使用户操作对以太坊协议不可见；因此，以太坊协议提供的包含列表将无法为ERC-4337用户操作提供抗审查性。正式化ERC-4337并将用户操作作为“正式”交易类型将解决此问题。</p>
+</li>
+</ul>
+<p>值得进一步深入研究gas效率问题。在其当前形式中，ERC-4337比“基本”以太坊交易显着更昂贵：交易成本为21,000 gas，而ERC-4337成本约为42,000 gas。该文档列出了其中一些原因：</p>
+<blockquote>
+<ul>
+<li>
+<p>需要支付许多单独的存储读取/写入成本，对于EOA而言，这些成本被捆绑成单个21000 gas的支付：</p>
+</li>
+<li>
+<p>编辑包含pubkey+nonce的存储槽（〜5000）</p>
+</li>
+<li>
+<p>UserOperation calldata成本（〜4500，通过压缩可减少到〜2500）</p>
+</li>
+<li>
+<p>ECRECOVER（〜3000）</p>
+</li>
+<li>
+<p>预热钱包本身（〜2600）</p>
+</li>
+<li>
+<p>预热接收方账户（〜2600）</p>
+</li>
+<li>
+<p>将ETH转移到接收方账户（〜9000）</p>
+</li>
+<li>
+<p>编辑存储以支付费用（〜5000）</p>
+</li>
+<li>
+<p>访问包含代理的存储槽（〜2100），然后是代理本身（〜2600）</p>
+</li>
+<li>
+<p>除了上述存储读取/写入成本之外，合同还需要执行“业务逻辑”（解压缩UserOperation，对其进行哈希处理，洗牌变量等），而EOA交易则由以太坊协议“免费”处理。</p>
+</li>
+<li>
+<p>需要花费燃气来支付日志费用（EOA不发出日志）</p>
+</li>
+<li>
+<p>一次性合约创建成本（基础成本为〜32000，代理中的代码每字节增加200个gas，加上设置代理地址的20000 gas）</p>
+</li>
+</ul>
+</blockquote>
+<p>理论上，应该可以通过操纵EVM gas成本系统，使协议内成本和额外协议成本的存储访问匹配；转移ETH为何需要花费9000 gas，而其他存储编辑操作要便宜得多，没有理由。事实上，与即将推出的Verkle树过渡相关的两个EIP 实际上尝试做到这一点。但即使我们这样做，有一个巨大的原因导致正式协议特性不可避免地会比EVM代码便宜得多，无论EVM变得多么高效：正式化的代码不需要为预加载而支付gas。</p>
+<p>完全功能的ERC-4337钱包很大。此实现，编译并放在链上，占用约12800字节。当然，你可以部署该庞大的代码一次，并使用DELEGATECALL允许每个单独的钱包调用它，但该代码仍然需要在每个使用它的区块中访问。根据即将推出的Verkle树gas成本EIP，12800字节将占据413个chunk，访问这些chunk将需要支付2x WITNESS_BRANCH_COST（3,800 gas总计）和413x WITNESS_CHUNK_COST（82,600 gas总计）。这甚至没有提及ERC-4337入口点本身，版本0.6.0中在链上有23689字节（根据Verkle树EIP规则，加载需要~158700 gas）。</p>
+<p>这导致了一个问题：实际上访问此代码的gas成本必须以某种方式在交易之间分配。ERC-4337目前使用的方法不太好：捆绑中的第一笔交易吸收了一次性存储/代码读取成本，使其比其余交易显然更昂贵。在协议中使这些常用的共享库成为协议的一部分，可供所有人访问而无需支付费用，是解决此问题的方法。</p>
+<h2 id="关于何时更普遍地固化进协议我们可以从这个例子中学到什么">关于何时更普遍地固化进协议，我们可以从这个例子中学到什么？</h2>
+<p>在这个例子中，我们可以学到一些有关何时总结事物的更普遍原则的经验。</p>
+<ul>
+<li>
+<p><strong>将复杂性移到边缘是个好主意，尤其是当存在高固化成本时。</strong> 这在“去中心化账户抽象”路线图中变得明显，因为加载标准化钱包代码需要244,100 gas，而聚合（查看我今年夏天的演讲以获取更多细节）可能需要数十万gas进行ZK-SNARK验证，再加上证明验证的链上成本。对用户付出这些成本几乎是不可能的，因为这会引入许多市场效率低下的问题，而将某些功能作为协议功能，无需费用地为所有用户提供访问，可以清晰地解决这个问题。</p>
+</li>
+<li>
+<p><strong>社区对代码错误的共同响应。</strong> 如果一组代码片段被所有用户或广泛的用户类使用，通常更合理的做法是由区块链社区承担通过硬分叉修复可能出现的错误的责任。ERC-4337引入了大量全球共享的代码，从长远来看，修复该代码中的错误最好通过硬分叉，而不是导致用户损失大量ETH。</p>
+</li>
+<li>
+<p><strong>有时，直接利用协议的权力可以实现更强大形式的功能。</strong> 例如，协议内的审查制度可以更好地保证抗审查，而使用户级操作真正从协议中受益，个体用户级操作需要对协议“可读”。另一个较少为人知的例子是2017年的以太坊权益证明设计具有权威抽象的权威，而这被放弃，采用BLS进行总结，因为BLS支持“聚合”机制，必须在协议和网络级别实施，可以使处理大量签名更加高效。</p>
+</li>
+</ul>
+<p>但是重要的是要记住，即使在协议中确立的账户抽象，相对于现状而言仍然是一种巨大的“反确立”。今天，以太坊的顶层交易只能由外部拥有账户（EOA）发起，这些账户使用单个secp256k1椭圆曲线签名进行验证。账户抽象反映了这一点，并且为用户定义验证条件提供了开放性。因此，在这个关于账户抽象的故事中，我们也看到了反对封存的最大论据：满足不同用户需求的灵活性。</p>
+<p>让我们尝试通过查看最近考虑确立的一些功能来进一步完善这个故事。我们将特别关注：ZK-EVMs、提议者-构建者分离、私有mempools、流动权益和新的预编译。</p>
+<h2 id="固化zk-evms">固化ZK-EVMs</h2>
+<p>让我们把注意力转向以太坊协议中另一个可能的确立目标：ZK-EVMs。目前，我们有大量ZK-rollup，它们都必须编写相当相似的代码来验证ZK-SNARK中执行类似以太坊的区块。有一个相当多样化的独立实现生态系统：PSE ZK-EVM、Kakarot、Polygon ZK-EVM、Linea、Zeth等等。</p>
+<p>在EVM ZK-rollup领域的最近争议之一涉及如何处理ZK代码中存在错误的可能性。目前，所有正在运行的系统都有某种形式的“安全理事会”机制，可以在发生错误时覆盖证明系统。在去年的一篇文章中，我尝试创建一个标准化框架，以鼓励项目明确他们在证明系统和安全理事会之间的信任级别，并朝着随时间减少对安全理事会的权力的方向发展。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1003/28_e65cf43s3d.png" alt="hUg4vh0pWQvWzUMqPUDFzBx1A5wPUS2WqNOgAZdS.jpeg" title="7109896"></p>
+<p>中期来看，rollups可以依赖多个证明系统，而安全理事会在两个不同的证明系统彼此不同意的极端情况下才会有任何权力。</p>
+<p>然而，有一种感觉，觉得有些工作是多余的。我们已经有了以太坊基础层，其中有一个EVM，而且我们已经有了处理实现中的错误的工作机制：如果有错误，具有错误的客户端将更新以修复错误，链将继续进行。从有错误的客户端的角度来看，从以太坊社区的多个实现和链下社会共识的角度来看，区块似乎最终确定了，但至少我们不会看到用户失去资金。同样，如果一个rollup只想成为并保持等同于EVM，那么当他们内部的ZK-EVM规则需要匹配以太坊基础层的升级时，他们不应该实现自己的治理，而应该直接构建在以太坊基础层上，这一层基础层知道何时进行升级以及升级到什么新规则。</p>
+<p>由于这些L2 ZK-EVM基本上使用与以太坊相同的EVM，我们不能以某种方式将“在ZK中验证EVM执行”变成协议功能吗？在出现错误和升级的情况下，我们是否可以通过应用以太坊的社交共识，与我们已经为基础层EVM执行本身做的一样，来处理这个问题？</p>
+<p>这是一个重要而具有挑战性的主题。有一些微妙之处：</p>
+<p><strong>1、我们希望与以太坊的多客户端哲学保持兼容。</strong> 这意味着我们要允许不同的客户端使用不同的证明系统。这反过来意味着对于任何使用一个ZK-SNARK系统进行证明的EVM执行，我们希望保证底层数据可用，以便可以为其他ZK-SNARK系统生成证明。</p>
+<p><strong>2、虽然技术还不成熟，我们可能希望进行审计。</strong> 实际上，这意味着完全相同的事情：如果任何执行得到证明，我们希望底层数据可用，以便如果出现问题，用户和开发人员可以检查它。</p>
+<p><strong>3、我们需要更快的证明时间</strong> ，以便如果生成了一种证明，其他类型的证明可以迅速生成，以便其他客户端可以验证它们。可以通过创建一个在某个时间窗口内（例如3小时）之后具有异步响应的预编译来解决此问题，但这会增加复杂性。</p>
+<p><strong>4、我们希望不仅支持EVM的副本，还支持“几乎-EVMs”。</strong> 在执行层面进行创新并对EVM进行扩展是L2的吸引力的一部分。如果给定L2的VM与EVM只有很小的不同，那么如果L2的VM在与EVM相同的部分使用本地的协议ZK-EVM，而仅依赖自己的代码来处理不同的部分，这将是很好的。这可以通过设计ZK-EVM预编译，以使其允许调用者指定由外部提供的表处理的一组操作码或地址的位字段或列表，而不是EVM本身。我们还可以在有限程度上使gas成本可自定义。</p>
+<p>在使用原生ZK-EVM时，与数据可用性的一个可能的争议主题是状态性。如果ZK-EVMs无需携带“见证”数据，它们将更加数据高效。也就是说，如果在某个先前区块中已读取或写入了特定数据，我们可以简单地假设证明者可以访问它，我们不必再次将其提供出来。这不仅限于不重新加载存储和代码；事实证明，如果一个rollup正确地压缩数据，使压缩是有状态的，相比于无状态的压缩，这将节省多达3倍的数据。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1003/28_g0hno83mvd.png" alt="BDmmqX9yzZLKewbrFIv8rjEXR8AN4WbKftMCM8N7.png" title="7109897">这意味着对于ZK-EVM预编译，我们有两个选择：</p>
+<p><strong>1、预编译要求所有数据在同一个区块中可用。</strong> 这意味着证明者可以是无状态的，但也意味着使用这样的预编译的ZK-rollup比使用自定义代码的rollup更昂贵。</p>
+<p><strong>2、预编译允许指向以前执行中使用或生成的数据的指针。</strong> 这允许ZK-rollup几乎是最优的，但这更加复杂，并引入了必须由证明者存储的新类型状态。</p>
+<p>从这中我们可以得出什么教训？有一个相当好的争论，可以以某种方式确立ZK-EVM验证：rollup已经在构建自己的自定义版本了，而且感觉不对的是以太坊愿意将其多个实现和链下社交共识的重量放在L1上的EVM执行后，而做完全相同的工作的L2却必须实现涉及安全理事会的复杂小工具。但另一方面，细节中存在一个大的麻烦：有不同版本的确立的ZK-EVM，具有不同的成本和收益。有状态与无状态只是冰山一角；尝试支持具有其他系统证明的自定义代码的“几乎-EVMs”可能会显示出更大的设计空间。因此，确立ZK-EVMs既有希望也有挑战。</p>
+<h2 id="固化提案者-构建者分离epbs">固化提案者-构建者分离（ePBS）</h2>
+<p>MEV的崛起使区块生产成为一项规模经济活动，精明的参与者能够生成比默认算法更多收入的区块，这些算法只是监视内存池中的交易并包括它们。以太坊社区迄今尝试通过使用类似MEV-Boost的协议外的提议者-构建者分离方案来处理这个问题，该方案允许常规验证者（“提议者”）将区块构建外包给专门的参与者（“构建者”）。</p>
+<p>然而，MEV-Boost对一个新类别的参与者，称为中继，提出了信任假设。在过去的两年里，有很多提案创建“固化PBS”。这样做的好处是什么？在这种情况下，答案非常简单：通过直接使用协议的权力构建的PBS在信任假设方面更强大（以信任假设较弱的意义而言），而不是在没有它们的情况下构建的PBS。这与在协议中确立价格预言机的情况类似，尽管在那种情况下，还有一个强有力的反论。</p>
+<h2 id="确立私有内存池">确立私有内存池</h2>
+<p>当用户发送交易时，该交易立即变为公共并对所有人可见，即使在被包含在链上之前也是如此。这使得许多应用程序的用户容易受到经济攻击，如抢跑：如果用户在Uniswap上进行大额交易，攻击者可能会在他们之前放入一个交易，增加他们购买的价格，并收取套汇利润。</p>
+<p>最近，有一些专门创建“私有内存池”（或“加密内存池”）的项目，这些内存池使用户的交易在被不可逆地接受到区块之前一直保持加密状态。</p>
+<p>然而，这种方案需要一种特定类型的加密：为了防止用户淹没系统并在交易实际上被不可逆地接受时进行前运行解密过程本身，必须使加密能够在交易实际上被不可逆地接受时自动解密。</p>
+<p>要实施这种形式的加密，有各种不同的技术，具有不同的权衡，由Jon Charbonneau在一篇文章（以及这个视频和幻灯片中）中很好地描述：</p>
+<ul>
+<li>
+<p><strong>加密到中心化运营商</strong> ，例如Flashbots Protect。</p>
+</li>
+<li>
+<p><strong>时间锁加密</strong> ，一种可以在一定数量的顺序计算步骤之后由任何人解密的加密形式，这不能被并行化。</p>
+</li>
+<li>
+<p><strong>阈值加密</strong> ，信任大多数委员会以解密数据。请参见shutterized信标链概念，以获取一个具体的提案。</p>
+</li>
+<li>
+<p><strong>受信任的硬件</strong> ，如SGX。</p>
+</li>
+</ul>
+<p>不幸的是，这些都具有各种不同的弱点。出于明显的原因，中心运营商不可接受用于包含在协议中。传统的时间锁加密运行成千上万的交易的公共内存池太昂贵。一种更强大的称为延迟加密的原语允许在一定数量的消息上进行有效解密，但在实践中构建它很难，现有构建的攻击有时仍然会被发现。与哈希函数一样，我们可能需要进行更多年的研究和分析，然后延迟加密才能足够成熟。阈值加密要求信任大多数委员会不串通，在可以不可检测地串通的设置中（不同于51％的攻击，其中立即可以知道谁参与了），这是不可接受的。SGX为单个受信任制造商引入了一个依赖性。</p>
+<p>尽管对于每种解决方案，都有一些用户子集愿意信任它，但目前尚无一种解决方案足够值得信赖，可以实际上被接受到第1层。因此，在至少等到/除非延迟加密技术得到改进或者有其他技术突破之前，将抢跑纳入第1层看起来是一个困难的建议，即使它是一个非常有价值的功能，许多应用解决方案已经出现。</p>
+<h2 id="固化流动抵押">固化流动抵押</h2>
+<p>以太坊DeFi用户的一个共同需求是能够将他们的ETH同时用于抵押和在其他应用程序中作为抵押品。另一个常见的需求只是为了方便：用户希望能够在不运行节点并且始终在线的复杂性的情况下抵押，（以及保护他们现在在线的抵押密钥）。</p>
+<p>到目前为止，满足这两种需求的最简单的质押“界面”就是一个 ERC20 代币：将你的 ETH 转换为“质押的 ETH”，持有它，然后再转换回来。事实上，像Lido和Rocketpool这样的流动性质押提供商已经出现来做到这一点。然而，流动性质押有一些自然的中心化机制在发挥作用：人们自然而然地进入最大版本的质押 ETH，因为它是最熟悉和最具流动性的（并且得到应用程序的最良好支持，而应用程序反过来又支持它，因为它更熟悉，因为它是大多数用户都听说过的一种）。</p>
+<p>每个版本的质押ETH都需要有一种机制来确定谁可以成为基础节点运营商。它不能是不受限制的，因为攻击者将加入并用用户的资金放大他们的攻击。目前，排名前两位的是Lido，它有一个DAO白名单节点运营商，并且Rocket Pool，它允许任何人在放下8 ETH（即1/4的资本）作为存款的情况下运行节点。这两种方法都有不同的风险：Rocket Pool方法允许攻击者发起51%攻击网络，并迫使用户支付大部分成本。通过DAO方法，如果一个单一的质押代币占主导地位，那将导致一个单一的，潜在的可攻击的治理小工具控制所有以太坊验证者的很大一部分。对于诸如Lido的协议，他们已经实施了防范措施，但一层防御可能不足够。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1003/28_fepvy8agen.png" alt="Ra8ooyyYibeHcvJokjff9p0lN6yRaoVOMboQxKzY.png" title="7109898">在短期内，一种选择是社会上鼓励生态系统参与者使用多样化的流动抵押提供者，以减少任何一个变得过大以至于成为系统风险的机会。然而，从长远来看，这是一个不稳定的平衡，过于依赖道德压力来解决问题也存在危险。一个自然的问题出现了：是否有意义在协议中固化某种功能以减少流动抵押的集中？</p>
+<p>在这里，关键问题是：固化哪种协议功能？仅创建一个协议中的可替换“抵押ETH”代币的问题是，它要么必须具有固化的以太坊全球治理来选择谁运行节点，要么是开放的，将其变成攻击者的工具。</p>
+<p>一个有趣的想法是Dankrad Feist关于流动性抵押极端主义的文章。首先，我们得接受的事实是，如果以太坊遭到51%攻击，只有可能有5%的攻击ETH会被惩罚。这是一个合理的权衡；现在有超过2600万ETH被抵押，而攻击成本的1/3（约800万ETH）完全过剩，特别是考虑到有多少种用更少成本实施的“超出模型”攻击。实际上，类似的权衡已经在“超级委员会”提案中探讨过，该提案用于实施单插槽最终确定性。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1003/28_526ds2j8mm.png" alt="upBPMOfXquEbYbsM2QUu8A2sRxPRyux5cIuwl3P9.png" title="7109899">如果我们接受只有5%的攻击ETH会被罚没，那么超过90%的抵押ETH将免受罚没，因此90%的抵押ETH可以放入一个协议中的可替换的流动抵押代币中，然后可以被其他应用程序使用。</p>
+<p>这条道路很有趣。但它仍然留下一个问题：什么是具体的东西会被固化？Rocket Pool的运作方式与此非常相似：每个节点运营商都要投入一些资本，而流动抵押者则投入其余的资本。我们可以简单地调整一些常数，将最大的惩罚限制为2 ETH，Rocket Pool现有的rETH将变成无风险。</p>
+<p>通过简单的协议调整，我们可以做一些聪明的事情。例如，想象我们想要一个系统，其中有两个“层次”抵押：节点运营商（高抵押品要求）和存款人（没有最低要求，可以随时加入和退出），但我们仍然想要通过给存款人的随机抽样委员会授予权力，如建议必须包括的交易列表（出于反审查原因）、在不活动泄漏期间控制分叉选择，或需要签署区块。这可以通过在协议中调整每个验证者必须提供（i）一个常规抵押密钥和（ii）每个插槽都可以调用以输出次要抵押密钥的ETH地址的机制。协议将授予这两个密钥权力，但每个插槽中选择第二个密钥的机制可能留给抵押池协议。直接固化某些东西可能仍然是更好的选择，但值得注意的是这种“固化一些东西，将其他东西留给用户”的设计空间是存在的。</p>
+<h2 id="固化更多的预编译">固化更多的预编译</h2>
+<p>预编译（或“预编译合约”）是以太坊合约，实现了在客户端代码中原生实现的复杂的加密操作，而不是在EVM智能合约代码中。预编译是以太坊发展初期采用的一种妥协：由于VM的开销对于某些类型的非常复杂和高度专业化的代码来说太大，我们可以在原生代码中实现一些对于重要类型的应用程序有价值的关键操作，以使它们更快。今天，这基本上包括了一些特定的哈希函数和椭圆曲线操作。</p>
+<p>目前正在推动添加secp256r1的预编译，这是一个与用于基本以太坊账户的secp256k1稍有不同的椭圆曲线，因为它得到了受信任的硬件模块的广泛支持，因此广泛使用它可能提高钱包安全性。近年来，还有推动添加BLS-12-377、BW6-761、广义配对等功能的预编译的努力。</p>
+<p>对于增加更多预编译的这些请求的反驳是，以前添加的许多预编译（例如RIPEMD和BLAKE）最终被使用得比预期的要少，我们应该从中吸取教训。与其为特定的操作添加更多的预编译，我们可能应该专注于基于EVM-MAX和休眠但始终可唤醒的SIMD提案之类的想法的更温和的方法，这将允许EVM实现更便宜地执行广泛类别的代码。甚至可能删除并用同一功能的EVM代码实现替换现有但很少使用的预编译。也就是说，仍然可能存在一些特定的加密操作非常有价值以加速，从而有理由将它们作为预编译添加。</p>
+<h2 id="从所有这些中我们可以学到什么">从所有这些中我们可以学到什么？</h2>
+<p>希望尽量少地固化是可以理解和好的；它源于Unix哲学传统，即创建最小化的软件，用户可以轻松地通过其用户进行不同的需求适应，避免软件膨胀的诅咒。然而，区块链不是个人计算操作系统；它们是社会系统。这意味着存在将某些功能在协议中固化的原因，这些原因超出了纯粹的我个人考虑的上述原因。</p>
+<p>在许多情况下，这些其他例子重新介绍了在账户抽象中看到的相似的教训。但也有一些新的教训已经学到：</p>
+<ul>
+<li>
+<p><strong>在堆栈的其他区域帮助避免中心化风险。</strong> 通常，保持基础协议简单和简单将复杂性推到协议之外的生态系统。从Unix哲学的角度来看，这是好的。然而，有时，协议之外的生态系统的风险是它可能会中心化，通常（但不仅仅）是由于高固定成本。固化有时可能减少实际上的中心化。</p>
+</li>
+<li>
+<p><strong>过多固化会过度增加协议的信任和治理负担。</strong> 这是有关“不要以太坊共识过载”的早期文章的主题：如果固化了某个特定功能会削弱信任模型，并使以太坊整体变得更加“主观”，从而削弱了以太坊的可信中立性。在这些情况下，最好将该特定功能保留为以太坊之上的机制，而不要尝试将其带入以太坊本身。在这里，加密内存池是可能过于难以固化的最好的例子，至少在/除非延迟加密技术改进。</p>
+</li>
+<li>
+<p><strong>过多固化会过于复杂化协议。</strong> 协议复杂性是系统风险，过多地在协议中添加功能会增加该风险。预编译是这一点的最佳例子。</p>
+</li>
+<li>
+<p><strong>固化可能会在长期内适得其反，因为用户的需求是不可预测的。</strong> 许多人认为重要并将被许多用户使用的功能实际上可能在实践中使用得不多。</p>
+</li>
+</ul>
+<p>此外，流动性抵押、ZK-EVM和预编译案例显示了一种中庸的可能性：最小可行的固化。与其固化整个功能，不如固化解决实现该功能的关键挑战的特定部分，而不过于主观或狭隘。这包括：</p>
+<ul>
+<li>
+<p>与其固化整个流动性抵押系统，不如更改惩罚规则以使无信任的流动性抵押更为可行。</p>
+</li>
+<li>
+<p>与其固化更多的预编译，不如固化EVM-MAX和/或SIMD以使更宽类别的操作更简单地有效实施。</p>
+</li>
+<li>
+<p>与其固化Rollups的整个概念，我们可以简单地固化EVM验证。</p>
+</li>
+</ul>
+<p>我们可以将本文前面的图表扩展如下：</p>
+<p>有时甚至可能有道理去除一些东西的固化。去除很少使用的预编译是一个例子。作为前向兼容现有用户的支持，该机制实际上可能与去除预编译的机制惊人地相似：其中之一是EIP-5003，它将允许EOA将其帐户就地转换为具有相同（或更好）功能的合约。</p>
+<p>应该将哪些功能带入协议，哪些功能留给生态系统的其他层面是一种复杂的权衡，并且我们应该期望这种权衡随着我们对用户需求的理解以及我们的可用思想和技术套件的不断改进而随时间演变。</p>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/60298/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">veDAO：合并一年后，以太坊现在的处境如何？</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/60320/">
+                <span class="next-text nav-default">Web3 社交再起波澜 friend.tech、Telegram 等谁能成为下个现象级应用</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#早期的协议最小化哲学">早期的协议最小化哲学</a></li>
+    <li><a href="#协议层固化erc-4337">协议层固化ERC-4337</a></li>
+    <li><a href="#关于何时更普遍地固化进协议我们可以从这个例子中学到什么">关于何时更普遍地固化进协议，我们可以从这个例子中学到什么？</a></li>
+    <li><a href="#固化zk-evms">固化ZK-EVMs</a></li>
+    <li><a href="#固化提案者-构建者分离epbs">固化提案者-构建者分离（ePBS）</a></li>
+    <li><a href="#确立私有内存池">确立私有内存池</a></li>
+    <li><a href="#固化流动抵押">固化流动抵押</a></li>
+    <li><a href="#固化更多的预编译">固化更多的预编译</a></li>
+    <li><a href="#从所有这些中我们可以学到什么">从所有这些中我们可以学到什么？</a></li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

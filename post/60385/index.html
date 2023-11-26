@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          从 LayerZero 和 Google Cloud 谈起 跨链应依靠预言机还是 ZK - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="区块链的跨链安全性最终可能需要依赖中心化的互联网巨头，这是一个值得深思的话题。" />
+<meta name="keywords" content="跨鏈" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/60385/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="从 LayerZero 和 Google Cloud 谈起 跨链应依靠预言机还是 ZK" />
+<meta property="og:description" content="区块链的跨链安全性最终可能需要依赖中心化的互联网巨头，这是一个值得深思的话题。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/60385/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-10-05T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-10-05T00:00:00+00:00" />
+
+<meta itemprop="name" content="从 LayerZero 和 Google Cloud 谈起 跨链应依靠预言机还是 ZK">
+<meta itemprop="description" content="区块链的跨链安全性最终可能需要依赖中心化的互联网巨头，这是一个值得深思的话题。"><meta itemprop="datePublished" content="2023-10-05T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-10-05T00:00:00+00:00" />
+<meta itemprop="wordCount" content="3075">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="从 LayerZero 和 Google Cloud 谈起 跨链应依靠预言机还是 ZK"/>
+<meta name="twitter:description" content="区块链的跨链安全性最终可能需要依赖中心化的互联网巨头，这是一个值得深思的话题。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">从 LayerZero 和 Google Cloud 谈起 跨链应依靠预言机还是 ZK</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-10-05">
+      2023-10-05
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 3075 字 -
+        预计阅读 7 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E5%85%B6%E5%AE%83%E6%96%87%E7%AB%A0/"> 其它文章 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>作者：Joey 吴说区块链</p>
+<p>LayerZero 和 Google Cloud 已宣布将 Google Cloud 集成为 LayerZero 上的新跨链预言机选项。在 LayerZero 的跨链实施中，预言机的角色是验证消息是否已经由源链处理了跨链消息请求。现在，在 LayerZero 上构建的应用程序可以从四个不同的预言机选项中进行选择，包括 Chainlink、Polyhedra 的 zkLightClient 以及由 Polygon 和 Sequoia 管理的预言机。</p>
+<p>最新的变化是，Google Cloud 将替代 Polygon/Sequoia 管理的预言机，成为 LayerZero 跨链解决方案的应用程序的默认配置。这是自 2022 年 3 月以来 LayerZero 首次更改默认配置，因此对 LayerZero 而言是一次重大变革。此举也可能对 Solana 产生影响，考虑到 Google Cloud 仅在几个月前加入 Solana 生态系统，成为验证者和核心基础设施提供商。这也引发了有趣的思考，即区块链的跨链安全性最终可能需要依赖中心化的互联网巨头，这是一个值得深思的话题。</p>
+<p>与此同时，ZK 跨链互操作协议 Polyhedra 最近刚刚完成与 BNB 二层网络 opBNB 的集成。该协议与 LayerZero 成为 BNB Chain 生态系统催化剂奖（BNB Chain Ecosystem Catalyst Awards）榜单上仅有的两个跨链桥协议。考虑到 Multichain 的失败，目前似乎只有两种主流跨链路线可供选择：预言机（Oracle）跨链和零知识证明（ZK）跨链。而 LayerZero 和 Polyhedra 分别代表了这两种路线的领先者。</p>
+<p>LayerZero 本质上利用了轻节点技术原理，设计了超轻节点机制，通过中继器和预言机将中间的信任环节分成两部分，从而以更低的成本换取更高的安全性。</p>
+<p>轻节点仅保存历史所有区块头，不存储区块内的具体交易信息。多个 Merkle Root 的区块头足以使用默克尔树验证交易是否真实存在于该区块中。通过在轻节点上运行验证，完全排除了公证人等外部角色的干扰，实现了更高度的去中心化，从而提高了安全性。然而，这也意味着跨链成本将分摊给跨链需求的用户，可能会变得较高。</p>
+<p>超轻节点（Ultra-Light Node，ULN）相对于轻节点，执行与链上轻节点相同的验证，但不会按顺序保留所有块头，而是由分散的预言机根据需要流式传输。它的优点是不需要依赖轻节点来获取区块头数据流。然而，它的代价是缺乏历史顺序数据流，这意味着如果预言机和中继者同时作恶，就可能通过验证导致执行恶意信息，从而降低了一定程度的安全性，但降低了成本。</p>
+<p>在这个过程中，中继器的作用是将跨链消息中的 Receipt 和 Merkle Proof 所需的路径信息传递给目标链上的智能合约以进行验证。Receipt 包含了交易执行结果、交易哈希和交易事件日志等信息。而 Oracle 在 LayerZero 跨链中扮演公证人的角色，它将源链上的跨链请求所在的 Blockhash 和 Block Receiptsroot 传递到目标链上。Blockhash 用于告知目标链上的智能合约哪个区块包含了用户的跨链请求，而 Block Receiptsroot 用于验证中继器传递的消息。因此，出于利益考虑，预言机必须极其可信，因为它的可信度决定了资产的安全性。</p>
+<p>如果只有一个预言机，存在极大的风险。为了防范这种情况，LayerZero 实施了任何应用都可以自定义预言机来支持其系统的策略。即使一些预言机宕机或作恶，跨链工作仍然可以继续进行。市场竞争逐渐演化出多种选择，形成了多对多的选择格局，各方之间将建立去中心化的相互监督体系。即使某一预言机和某一中继器合谋，也只会对使用了这两者的特定应用产生一定影响。</p>
+<p>除了安全性因素之外，LayerZero 还具有更强的通用性和极低的协议接入成本，这是一个隐形的优势。</p>
+<p>通用性更强。在当前的跨链协议中，包括 Cosmos 生态的 IBC 协议和 Polkadot 生态的 XCMP 跨链协议，要验证其他公链上的交易，必须在以太坊上部署相应的轻节点。高昂的 Gas 成本使得许多 EVM 兼容链（如 ETH/BSC/Polygon/L2 等）难以支持 IBC 协议，从而限制了 IBC 协议的通用性，目前它仅能在相对小众的 Cosmos 生态链之间运行。</p>
+<p>更低的开发者接入复杂度。从一开始，LayerZero 协议的工作重心就放在了极简的合约接入设计上，而跨链消息的需求潜力巨大，涵盖跨链借贷、收益聚合和交易等方面。由于易于使用和开发，该协议已经在 30 多个链上传递了数百万条消息。</p>
+<p>至于 ZK 跨链技术，它应对了预言机跨链的信任问题。通过引入零知识证明技术，ZK 跨链不是消除中继器，而是将中继器的证明过程交由密码学来处理，从信任第三方转变为信任密码学。这使得可以在链下验证新区块头，并将新区块头及其有效性证明（Zk Proof）提交到链上，链上可以直接验证ZK Proof，等效于验证新区块头。ZKBridge 采用模块化设计，将验证智能合约的程序与核心桥分开。核心桥包括中继器和更新合约，中继器接收上一个区块的区块头并验证其正确性，由更新合约检查并接受这些证明。应用程序合约由发送方和接收方合约组成，分别部署在两条链上，这些合约与 ZKBridge 交互，执行跨链操作。</p>
+<p>在跨链时，区块头中继节点生成零知识证明，证明中继的区块头正确，并将其发送给更新合约。更新合约维护发送方区块链的状态，并允许接收方合约查询区块头。应用程序合约定义要桥接的信息。</p>
+<p>为此，PolyHedra 开发了名为 deVirgo 的证明系统，它是 Virgo 协议的分布式版本，旨在通过将计算分散在多台机器上来并行化 GKR 协议。虽然与 Starkware 和 Polygon Zero 使用的密码假设相同，即ZK-SNARK，但其创新之处在于使用分布式方法生成 SNARK 证明，即链下生成 ZK-SNARK 证明的工作分拆成多台机器的并行计算。根据 Polyhedra 公布的测试数据，使用两个 AMD EPYC ™ 7763 CPU 生成以太坊全节点证明并递归验证的时间不到 12 秒，远低于以太坊的区块时间。</p>
+<p>然而，这并不意味着 ZKbridge 在性能方面一定优于中继器跨链。即使不考虑 Polyhedra 的测试数据，验证成本仍然是一个值得担忧的问题。以 EVM 为例，验证一个 ZK 证明需要超过 500k 的 Gas 费，而中继器验证一个签名的 Gas 费不到 30k，这意味着最终的跨链费用可能会非常高。目前，Polyhedra只推出了NFT的跨链功能，费用仍然在可接受范围内，但 NFT 跨链与 FT 跨链的本质逻辑有所不同，因此 Polyhedra 的实际跨链成本仍需进一步测试。</p>
+<p>此外，Polyhedra 还设计了一种名为 paraPlonk 的证明系统，据称可以加速现有的 zkRollup 系统。它通过让分布式节点之间传递极少量的数据以实现协同验证工作。然而，我们还未在产品上体验到这一功能。</p>
+<p>在 ZK 技术的发展过程中，可能的实现路径之一是让 ZK 证明成为其中一个预言机选项。用户可以根据需求选择不同的预言机，如果涉及较大金额，可以选择 ZK 验证，如果金额较小，可以选择像 Google Cloud、Chainlink 这样的预言机。</p>
+<p>从行业发展的角度来看，这对于 LayerZero 和 Polyhedra 等 ZK 跨链协议以及整个行业都是一种双赢的路线。流动性割裂问题已经蔓延到跨链领域，如果 ZK 证明能够充当预言机，有望实现现在分散的流动性的大整合。</p>
+<p>参考：</p>
+<p><a href="https://m.freebuf.com/articles/blockchain-articles/363739.html">https://m.freebuf.com/articles/blockchain-articles/363739.html</a></p>
+<p><a href="https://foresightnews.pro/article/detail/38691">https://foresightnews.pro/article/detail/38691</a></p>
+<p><a href="https://www.binance.com/zh-CN/feed/post/889904">https://www.binance.com/zh-CN/feed/post/889904</a></p>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/60379/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">背靠8亿月活社交巨头 TON生态将&#34;昙花一现&#34;还是&#34;高歌猛进&#34;？</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/60377/">
+                <span class="next-text nav-default">合并周年记：以太坊及其生态的变化与挑战</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

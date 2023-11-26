@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          BOLT：Solana生态的ECS全链游戏引擎 - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="BOLT是一款由Magicblock团队开发的针对Solana生态的全链游戏引擎。" />
+<meta name="keywords" content="SOLANA, Gamefi" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/62967/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="BOLT：Solana生态的ECS全链游戏引擎" />
+<meta property="og:description" content="BOLT是一款由Magicblock团队开发的针对Solana生态的全链游戏引擎。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/62967/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-11-10T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-11-10T00:00:00+00:00" />
+
+<meta itemprop="name" content="BOLT：Solana生态的ECS全链游戏引擎">
+<meta itemprop="description" content="BOLT是一款由Magicblock团队开发的针对Solana生态的全链游戏引擎。"><meta itemprop="datePublished" content="2023-11-10T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-11-10T00:00:00+00:00" />
+<meta itemprop="wordCount" content="5716">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="BOLT：Solana生态的ECS全链游戏引擎"/>
+<meta name="twitter:description" content="BOLT是一款由Magicblock团队开发的针对Solana生态的全链游戏引擎。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">BOLT：Solana生态的ECS全链游戏引擎</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-11-10">
+      2023-11-10
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 5716 字 -
+        预计阅读 12 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E5%85%B6%E5%AE%83%E6%96%87%E7%AB%A0/"> 其它文章 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>视频链接：https://www.youtube.com/watch?v=LQOpP8-EBkg</p>
+<p>演讲者：Andrea、Gabriele，Magicblock联合创始人</p>
+<p>演讲标题：A FRAMEWORK FOR ON-CHAIN GAMING</p>
+<p><strong>译者序：“BOLT是一款由Magicblock团队开发的针对Solana生态的全链游戏引擎。本文整理自Magicblock两位创始人在</strong> <strong>Breakpoint</strong>  <strong>2023活动上的演讲。”</strong></p>
+<p><img src="https://img.bibiqing.com/news/2023/1110/27_fl2wz1s049.png" alt="BOLT：Solana生态的ECS全链游戏引擎"></p>
+<p>大家好，这是万圣节前的最后一次演讲，希望演讲的内容会让大家感兴趣。我叫Andrea，我身边是我的联合创始人Gabriele。今天，我们将介绍一个新的全链游戏框架（引擎）。</p>
+<h1 id="01为什么需要全链游戏"><strong>01.为什么需要全链游戏</strong></h1>
+<p>我将从最基础的开始谈起，那就是为什么要费心构建全链上游戏，并将状态和逻辑都放在链上，还要处理随之而来的所有复杂性。原因很简单，就是要获得传统游戏基础架构所没有的特性。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1110/27_y2lb3aaqci.png" alt="BOLT：Solana生态的ECS全链游戏引擎"></p>
+<p>第一个特性是无许可的可组合性（Permissionless mods）。这意味着所有的玩家和开发人员都可以从高级客户端开始自定义游戏中的任何组件，包括引入插件或mod。甚至是游戏的底层逻辑，都可以通过智能合约来扩展游戏的玩法。本质上，这是一种新的模式，在游戏中，每个游戏默认都是一个新的平台，而且无论你的团队多么小，你都可以成为内容巨头（Content Powerhouse）。</p>
+<p>第二个特性是持久性（Persistency）。自主世界和这些虚拟体验可以永远存在的特性引起了很大的反响。因为没有服务器可以被审查或关闭，这些体验实际上引入了一个全新的意义。游戏成为了玩家玩耍、参与社交、进行全球商务的平台，比传统游戏平台更具普适性。</p>
+<p>最后一个特性是开放经济（Open economies）。游戏可以利用区块链开放的全球无摩擦支付系统，尤其是在我们生态系统中的小额支付，并重用链上现有的基础设施，如DEX或NFT交易市场。</p>
+<h1 id="02现有的解决方案"><strong>02.现有的解决方案</strong></h1>
+<p>全链游戏目前的问题是开发体验非常糟糕，我们观察市场上的解决方案，发现有一些开发框架试图简化开发人员的体验。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1110/27_gfk39ng2g2.png" alt="BOLT：Solana生态的ECS全链游戏引擎"></p>
+<p>其中一些非常有趣，他们试图在可证明的会话（provable session）上进行迭代，你可以在链下进行计算并在链上证明计算的完整性。或引入更适合区块链游戏引擎的基于事件驱动的运行时（runtime），而不是基于循环驱动（Loop based）的运行时（runtime）。</p>
+<p>但所有这些框架都需要在性能和可组合性之间进行权衡，以实现更高的性能和更高的TPS。通常，你会通过创建隔离，或者引入带有分片的不同runtime。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1110/27_b6vpk1jm6y.png" alt="BOLT：Solana生态的ECS全链游戏引擎"></p>
+<p>但我们对这种权衡并不满意。我们问自己，如果有一个框架可以支持我们所需的 TPS，那么会怎么样？在你的游戏取得成功时，即使有数百万玩家，你也不必牺牲他们的用户体验，因为不会发生gas war。并且该框架不需要进行分片进而导致碎片化，因此你可以使用可证明的游戏会话（provable game session ），甚至可以模拟时间的流逝，而无需支付gas费用。完全无需将系统碎片化或使用 Layer 3。</p>
+<h1 id="03solana上的全链游戏开发引擎bolt"><strong>03.Solana上的全链游戏开发引擎：BOLT</strong></h1>
+<p><img src="https://img.bibiqing.com/news/2023/1110/27_25bm8ag4fy.png" alt="BOLT：Solana生态的ECS全链游戏引擎"></p>
+<p>因此，我们非常兴奋地介绍 BOLT，一个基于SVM的高性能、可组合的全链游戏开发框架。</p>
+<p>BOLT 是模块化与可组合的，他可以使用 Solana 上所有现有的基础架构。他与我们在链上的现有设施如链上身份、gasless API、session key，以及现有的Anchor开发框架和 Solana 上的所有现有的程序一起使用。两者都可以实现更高数量级规模的扩容，这要归功于Ephemeral Rollup，这些rollup是随用户需求打开和关闭的游戏会话（game session），并根据需求进行扩展。</p>
+<p>BOLT 快如闪电，我们可以达到与传统游戏引擎相同的性能水平，然后再使用这些专用的runtime来加速某些操作。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1110/27_ohqiavjvz9.png" alt="BOLT：Solana生态的ECS全链游戏引擎"></p>
+<p>这是 BOLT 框架的全景展示。他显然是为 Solana 构建的，但他可以在任何兼容 SVM 的平台使用，如兼容SVM的Layer 2上。BOLT 有两个主要目标，一是做到可组合性，二是扩容。</p>
+<p>ECS（Entity Component System）系统是我们简化链上组件使用的方法之一。另一个是Ephemeral Rollup，刚才已经简单提到过，我会在一会儿深入探讨这两个技术。</p>
+<p>BOLT 已与最常用的传统游戏引擎（如 Unity）集成，这些引擎通常作为游戏的前端。当然也包括其他开源并深受喜爱的游戏引擎，如 Godot 和 Phaser。我们甚至正在与更新的游戏客户端 turbo 进行合作，该客户端专注于改善独立开发者的体验，并促进快速的游戏创作。将来的合作方可能会更多。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1110/27_q7s82uhp47.png" alt="BOLT：Solana生态的ECS全链游戏引擎"></p>
+<p>我将从这里开始，继续解释为什么我们需要一个 ECS 实体组件系统。答案很简单，因为他允许最大程度地可组合性，这意味着我们可以创建和重新使用现成的组件。</p>
+<p>如其名称所示，ECS 由三个主要元素构建：实体（entity），他们本质上只是注册到独立的游戏世界（World Instance）的标识符；组件（component），他定义了数据结构，所以基本上是与实体关联的数据；最后是系统（system），他是操作附在实体上的组件的逻辑。</p>
+<p>这种架构的优势在于所有系统和组件都是可重用的。他们可以发布在公共注册表中，开发人员可以轻松地贡献、构建、发现和集成任何类型的组件，因此你无需再从头开始编写任何代码，而是可以重用所有现有的组件，并最终为其做出贡献。例如，我们可以有一个网格的数据结构（例如迷宫或战场），一个移动系统，或用于战争迷雾的零知识证明系统。</p>
+<h1 id="04bolt引擎ecs编程实战"><strong>04.BOLT引擎ECS编程实战</strong></h1>
+<p><strong>（译者注：此部分建议开发者观看原视频，非开发者可跳过此部分）</strong></p>
+<p>现在，我将切换到我的 IDE，并向你展示使用 BOLT ECS 引擎的简单游戏示例。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1110/27_zyu81yddo7.png" alt="BOLT：Solana生态的ECS全链游戏引擎"></p>
+<p>我们将定义几个实体、一个位置组件和两个系统，他们会操作并更改此位置组件的数据。因此，第一个入口点是与World Program交互。World Program是 BOLT 框架的一部分，并公开了一些提取，允许你注册新的World Instance。</p>
+<p>你可以将实体添加到你的World Instance，并可以向你刚刚定义的实体注册组件，而组件本质上是由组件程序定义的。其中组件程序包含两个指令，第一个指令是初始化，创建并分配空间来存储将在你的组件中使用的行数据。在此简单示例中，我们正在定义一个位置组件，如果我们查看初始化指令的上下文，我们可以看到我们有组件数据，而组件数据只是定义了一个具有 XYZ 坐标的结构，该坐标可以存储例如玩家位置。</p>
+<p>现在，第二个指令可能最有趣，他是一个允许我们执行任何逻辑的入口点。他将作为输入接收我们的组件和任意系统，并通过跨编程位置执行内部定义在系统中的逻辑。现在，如果你查看第 15 行，我们有我们的 CPI（Common Programming Interface，通用编程接口） 调用，他将通过 CPI 执行内部定义的逻辑。他将执行系统定义的所有计算，然后返回我们的位置，组件程序将检索并将其设置回我们的数据中。</p>
+<p>现在，让我们尝试查看我们的 apply 函数的上下文，在这里我们可以看到我们基本上只有两个帐户。第一个是包含我们组件数据的帐户，第二个是系统程序。因此，系统程序现在是一个接口，而不是单个程序。因此，任何遵守我们的 BOLT 系统接口的程序都可以通过此应用执行。</p>
+<h1 id="05ecs系统的意义"><strong>05.ECS系统的意义</strong></h1>
+<p>本质上，这改变了你设计游戏逻辑的方式，并颠覆了传统的流程。之前，如果你想在程序中创建或封装一些逻辑，通常会先添加功能，每个功能都是程序中的指令，然后最终在某个时候，你会锁定你开发的游戏程序。</p>
+<p>然而通过ECS模式，我们反而可以从一开始就拥有一个不可更改的程序，然后通过这种代理机制，我们可以添加由内部构建或任何人构建的系统，从而拥有一个可以永远运行、可扩展且任何人都可以真正改变游戏逻辑的游戏。</p>
+<p>他们可以部署新的系统，这些系统将对那些组件进行操作。现在，接口还可以允许你进行一些检查，因此我们可以设计出一种游戏机制，使得新添加系统是无需许可的，这些系统都可以修改组件数据。</p>
+<p>或者我们可以设置一个接口来检查系统是否允许在组件上执行。例如，你可以设计一个治理系统，如果某人正在提出一个新的逻辑，并且该逻辑得到批准，那么所有玩家都可以在游戏中使用该逻辑。</p>
+<p>这甚至可以导致游戏的世界（World合约）出现分叉。在一个世界中，你拥有飞行系统。而在另一个世界，如果该系统没有得到批准，则可以拥有不同的规则，并且每个人仍然能够为各自版本的世界做出贡献。</p>
+<p>现在让我们来研究一下如何构建一个可以修改该组件的系统。系统本质上只是 Solana 上的一个程序，该程序定义了一个执行指令，而执行指令是我们在 CPI（通用编程接口）中从组件程序中调用的那个指令。在这里，他只封装了一个非常简单的逻辑，其中他接收输入方向，计算增量，然后更改组件的 X 和 Y 位置。</p>
+<p>因此，让我们来看一看另一个系统，即使在我们发布游戏后，也可能由其他人部署。这是另一个实现 execute 的系统的一个例子。在这里，Z 位置增加了 1，所以有人试图添加一个侧翼系统，该系统可能是一个接口，在你的游戏上有一个不同的层。</p>
+<p>所以，现在的想法是，所有这些系统、所有这些组件都是真正可组合的，游戏的用户不再是简单的用户，游戏已经成为一个开放的、可扩展的和持久化的平台。因此，我将尝试执行我在此示例中准备的单元测试，并将使用 BOLT CLI，他构建在 Anchor（一个 Solana 的智能合约框架）之上，因此如果你已经熟悉 Solana，则无需学习任何新知识。</p>
+<p>现在，你可以在 Solana 上开发程序，只需开发程序、测试程序，所以在这里我运行 bolt build 和 bolt test，这里正在部署我们的程序，然后执行我在这里准备的 typescript 测试。</p>
+<p>所以，这里测试正在发送交易以初始化一个新世界。我们正在注册几个实体，我们正在将位置组件附加到其中一些实体，然后也许有趣的部分是在这里执行一些系统。所以，在这里我们正在调用 apply 函数，然后我们正在使用其中一个系统。所以，这里只是一个默认系统。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1110/27_vlyosebteu.png" alt="BOLT：Solana生态的ECS全链游戏引擎"></p>
+<p>在这里，我们正在调用简单的移动，然后我们在这里有飞行移动。嗯，现在，如果我们查看测试的日志，在第一个交易中，这里我们使用具有向上方向的移动系统，将 Y 位置增加 1。在第二个交易中，我们使用相同的系统向右移动，然后最后，我们执行飞行系统，该系统正在执行相反的操作，将我们的 Z 位置增加 1。这只是一个简单的例子，但他提供了一种非常强大的机制，允许任何人开发、扩展并可能使你的游戏变得有趣。</p>
+<h1 id="06ephemeral-rollup"><strong>06.Ephemeral  Rollup</strong></h1>
+<p><img src="https://img.bibiqing.com/news/2023/1110/27_is4wbiic94.png" alt="BOLT：Solana生态的ECS全链游戏引擎"></p>
+<p>现在我们将回到幻灯片，我将描述BOLT框架的第二个有趣方面，他是我们的可扩展性解决方案，我们称之为 Ephemeral  Rollup。</p>
+<p>人们一般觉得 Solana 已经非常快速且便宜，他目前每 400 毫秒生成一个块，可以处理数千笔交易，因此他实际上已经适合构建全链游戏。但是，如果你有一个多人游戏的旧逻辑链，则位置更新将太慢。</p>
+<p>因此，我们可以构建一个短暂的加速层，他与 Solana 的run time完全兼容。使用的时间是可选的，他可以作为对特定操作的真正加速，而大部分逻辑仍然在主链执行，因此他依赖于 Solana 上所有状态都存储在帐户中的特征。</p>
+<p>通常，你将拥有定义逻辑的游戏程序，然后所有状态都将存储在此帐户中，因此我们可以将其中一些帐户委派给使用 BOLT 引擎的这个临时层。</p>
+<p>在这个例子中，有两个授权的帐户存储玩家的位置，并且提供者正在积极监听委派请求和调配请求。他将根据需要启动一个新的run time，该run time速度很快，可以进行自定义，可以具有无 gas 交易或滴答机制，并允许我们真正进行低于 50 毫秒的交易，并可能通过拥有多个专门的运行时来扩展。</p>
+<p>现在，另一个有趣的部分是，所有这些复杂性都可以从用户那里抽象出来。我们有一个 RPC 路由器，他本质上类似于传统 RPC 路由器。RPC 客户端可以直接与 RPC 交互，发送交易。因为在 Solana 上，所有交易都会预先声明所有可变和可读帐户，RPC 路由器基本上可以将交易、数据查询和检索路由到正确的层。</p>
+<p>然后在某个时候，Ephemeral层（如其名称所示）将关闭，所有状态都将在 Solana 基础层进行结算，这是排序器的职责，他会跟踪所有帐户。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1110/27_p0e3i9h2p1.png" alt="BOLT：Solana生态的ECS全链游戏引擎"></p>
+<p>另一种看待这种机制的方法是，我们有两个层，他们并行执行交易。我们有委托帐户（delegated account），可以不占用主链吞吐量并以更低的延迟进行更新。然后我们还有其他帐户，他们没有被委托，并且是在主链执行的。</p>
+<p>现在，一件非常有趣的事情是，程序、工具、框架和基础设施都在主链。你不需要在 Rollup 中部署你的程序，虽然这在许多其他架构中很常见。一切都处于同一层，一切都是可组合的，正如我们提到的，这种专门的runtime也可以扩展，并且可以真正地进行自定义。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1110/27_lyqhzop5vu.png" alt="BOLT：Solana生态的ECS全链游戏引擎"></p>
+<p>现在，这解锁了一个全新的游戏类别，他建立在区块链上，并且是低延迟的。就像你使用传统的多人游戏服务器一样，但仍然能够与在 Layer 1 生态系统上所有可用内容进行组合。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1110/27_m2v1qpaoww.png" alt="BOLT：Solana生态的ECS全链游戏引擎"></p>
+<p>你可以访问现有的流动性，你可以通过协议发送消息，铸造 NFT，使用帐户抽象、会话密钥、排行榜和统一的生态系统，每个人都在丰富同一个生态。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1110/27_0bgjpws51g.png" alt="BOLT：Solana生态的ECS全链游戏引擎"></p>
+<p>非常感谢你的聆听。你可以使用 QR 码注册我们的框架的早期访问，并请查看存储库。你已经可以找到健全的文档和白皮书，其中详细描述了我们刚刚介绍的框架。非常感谢。</p>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/62975/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">Bitget研究院每周要闻：比特币生态持续火热，贝莱德注册以太坊信托</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/62928/">
+                <span class="next-text nav-default">BTC生态 | 币安上线ORDI，探寻BTC生态新的财富机遇</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

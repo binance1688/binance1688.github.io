@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          预判攻击者的预判，CertiK发起移动端保卫战 - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="Web3安全巨头的新思考。" />
+
+  <meta name="keywords" content="区块大全, 区块链, 区块链资讯, 区块链快讯, 区块链新闻, 比特币行情" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/61356/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="预判攻击者的预判，CertiK发起移动端保卫战" />
+<meta property="og:description" content="Web3安全巨头的新思考。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/61356/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-10-18T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-10-18T00:00:00+00:00" />
+
+<meta itemprop="name" content="预判攻击者的预判，CertiK发起移动端保卫战">
+<meta itemprop="description" content="Web3安全巨头的新思考。"><meta itemprop="datePublished" content="2023-10-18T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-10-18T00:00:00+00:00" />
+<meta itemprop="wordCount" content="3614">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="预判攻击者的预判，CertiK发起移动端保卫战"/>
+<meta name="twitter:description" content="Web3安全巨头的新思考。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">预判攻击者的预判，CertiK发起移动端保卫战</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-10-18">
+      2023-10-18
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 3614 字 -
+        预计阅读 8 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E5%85%B6%E5%AE%83%E6%96%87%E7%AB%A0/"> 其它文章 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p><em>原创 | Odaily星球日报</em></p>
+<p><em>作者 | 夫如何</em></p>
+<p><em>编辑 | 郝方舟</em></p>
+<p><img src="https://img.bibiqing.com/news/2023/1018/23_h3pe5fey0r.jpg" alt="预判攻击者的预判，CertiK发起移动端保卫战"></p>
+<p>近日，一则新闻在Web3行业内引起了关注：一家名为<a href="https://www.certik.com/">CertiK</a>的安全审计公司发现了苹果公司在移动端的安全漏洞，并因此获得苹果公司公开致谢。</p>
+<p>据苹果公司官方安全更新页面信息显示，CertiK 所发现的这些漏洞，会影响内核、GPU 驱动程序和 ProRes 驱动程序，并允许“一个应用程序以内核权限执行任意代码”。换言之，用户或许会丢失保存在手机里的钱包私钥，这对web3用户意味着什么，令人细思恐极。</p>
+<p>苹果公司随即表示，已通过改进内存处理来解决这些漏洞。</p>
+<p>据悉，此前 CertiK 也曾发现过韩国三星集团移动端的安全漏洞。</p>
+<p>CertiK 是Web3行业内颇具口碑的头部安全机构，但在Web2世界则鲜有人知，苹果、三星这样的Web2巨头忽然与 CertiK 的名字一起出现，令人不免好奇，这是否预言Web2与Web3两个世界间的“破壁”，共同提升系统安全的新场景？</p>
+<p>从科技应用发展史来看，用户操作习惯必将从电脑端向移动端迁移。Web2时代如是，Web3未来亦遵从这样的规律。</p>
+<p>而从安全审计角度来讲，网络安全无界限，Web2和Web3的安全是相通。虽然两者在细分领域的关注点不同，但去中心化产品服务的用户、背后的协议依然重度依赖中心化的设备及系统。Web2的风险防控同样构成了Web3应用的安全底线。</p>
+<p>正如 CertiK 创始人兼 CEO 顾荣辉所说：“如果预期未来Web3用户出现巨量增长，那么用户的Web3应用一定会从移动端 Dapp 接入。”</p>
+<h2 id="攻防复杂风险蔓延">攻防复杂，风险蔓延</h2>
+<p>随着Web3高速发展，恶意攻击也愈加频繁。根据<a href="https://twitter.com/DefiLlama/status/1703128969103474736?s=20">DefiLlama 数据显示</a>，加密货币被盗总价值以超过 70 亿美元。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1018/23_gkcl1se582.jpg" alt="预判攻击者的预判，CertiK发起移动端保卫战"></p>
+<p><strong>按事故对象，Web3风险可粗略分为以下三种：</strong></p>
+<p>● <strong>项目自身机制安全问题</strong> ：如智能合约、 51% 攻击、交易延展性攻击、双花攻击和垃圾交易攻击等自身机制漏洞造成的安全风险。圈内人记忆犹新的严重案例就有：Curve Vyper 编译器中的潜在漏洞导致多个 Curve 流动性池被攻击，叠加创始人不健康的借贷仓位，从而引发一连串的清算危机。</p>
+<p>● <strong>生态系统安全问题</strong> ：如交易所被盗、暴雷跑路、网站数据泄露、场外操纵、拒绝服务攻击、交易地址篡改和矿池被攻击等外在因素攻击行为。近期案例有： 9 月份的加密交易所 CoinEx 热钱包被盗 7000 万美元等。</p>
+<p>● <strong>用户端安全问题</strong> ：如帐号失窃、钱包失窃、欺诈，也包含用户被钓鱼和私钥保管问题等自身产生的问题。10 月 12 日，前 Alameda 工程师 Adi (e/acc)在 X 平台披露，某 Alameda 交易员因进行 DeFi 操作时点击了钓鱼链接，使 Alameda 损失超 1 亿美元。</p>
+<p><strong>在上述案例，我们会发现，Web2中的安全隐患极易对Web3造成重大影响，且无法完全拆分讨论。</strong></p>
+<p>实际上，大家常用的 Chrome 浏览器的历次升级中，就包含排查各项漏洞的工作，Web3钱包等扩展程序一旦没跟上“母体”的迭代，很容易遭受攻击。</p>
+<p>文初，CertiK 发现关于苹果系统的多个移动端漏洞；MacStealer、ShadowVault、AMOS 和 Realst 等恶意软件攻击热门加密钱包并窃取密钥串数据库；SeaFlower 则会分发带有后门的加密钱包应用版本，以窃取助记词；CookieMiner 恶意软件可以访问包含短信的 iTunes 备份，获取绕过双因素身份验证所需的信息，进而访问受害者的加密钱包并窃取加密货币。</p>
+<h2 id="魔高一尺道高一丈">魔高一尺，道高一丈</h2>
+<p>由于Web3安全风险日益严重，安全也成为了项目方可持续发展的基石，除了自身提高风险意识，选择靠谱的安全审计公司也成为了做项目的标配。来自外部的审计报告既将项目安保交予“市场上更专精的角色”，顶级安全审计公司的背书也构成了项目面向用户宣传的一块金牌。</p>
+<p>在这样的背景下，Web3安全审计公司从上一轮牛市开始快速发展，像 CertiK、派盾和慢雾等公司逐渐走入大家视野。<strong>Web3安全审计公司的业务也逐渐延展，从合约开发到后期监控全流程对项目方把控风险。</strong></p>
+<p>以 CertiK 为例，其为项目方和个人提供全流程的安全防护组件，包括Web3.0 安全审计和渗透测试，以发现和解决风险隐患；Skylnsights、KYC 尽调、紧急事件响应和漏洞赏金计划等措施，维护加密生态系统安全；以及 Skynet 天网系统和咨询服务等服务，搭建一体化的Web3安全分析平台，帮助使用者规避风险并提升安全风险意识。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1018/23_2ofjl6205j.jpg" alt="预判攻击者的预判，CertiK发起移动端保卫战"></p>
+<p><strong>面对移动端日益猖獗的恶意活动，CertiK 针对 IOS 系统对Web3钱包的开发也做出一定的举措。</strong> 在 iOS 上，开发人员可以采取以下安全实践来保护钱包应用程序：利用 iOS 的安全功能、基于硬件的安全机制和 App Attestation 等框架；遵循安全编码准则，包括加密存储和传输、输入验证和防御性编程；实施双因素身份验证和生物识别技术；定期更新和修补应用程序；进行安全审计和漏洞扫描。</p>
+<p>可见，CertiK 正与时俱进，不断提前发觉Web3安全隐患，以应对尚未发生的Web3恶意事件。</p>
+<h2 id="安全江湖静修内功">安全江湖，静修内功</h2>
+<p>Web3作为新兴行业，面对众多豺狼虎豹的侵扰，对安全审计公司的能力要求也越来越高。上一轮牛市间，项目数量井喷式增长，能够肩负起Web3安全重任的第三方公司凤毛麟角。</p>
+<p>信任度是项目方和加密企业选择Web3安全审计公司最重要的考量。</p>
+<p><strong>拆解信任的来源，自离不开第三方安全机构的业务实力、产品覆盖全面性、服务深度、业内长期口碑等。</strong></p>
+<p>据官网，CertiK 从 2018 年成立至今，共计合作 4100 多家企业客户，发现了近 7 万个区块链代码相关漏洞，直接或间接保护了超过 3600 亿美元的数字资产。</p>
+<p>自 2021 年起，CertiK 业务飞速发展，实现了近 13 倍的收入增长、 3320 倍的利润增长，以及 4 倍的员工人数增长。虽然历经熊市，但公司业务在剧烈动荡的市场环境中展现了极强的抗周期性。</p>
+<p>反映到市场占有率上，CoinMarketCap 数据显示，在使用第三方安全审计的区块链项目中，CertiK 的市占率超过 70% 。</p>
+<p>从团队背景来讲，两位创始人是耶鲁大学和哥伦比亚大学的教授，其中顾荣辉因在系统安全领域的贡献，获得了亚马逊研究奖、OSDI Jay Lepreau 最佳论文奖、SOSP 最佳论文奖、 CACM（国际计算机协会）Research Highlights 奖、VMware 系统研究奖等众多奖项。同时，顾荣辉也是新加坡金管局国际技术咨询委员会委员和香港 Web 3.0 发展专责小组成员。</p>
+<p>从融资背景来讲，CertiK 受到币安、Coinbase 等Web3“大厂”的认可，也得到高盛、软银等传统机构的支持，一跃成为估值 20 亿美元的Web3安全审计公司。</p>
+<p><img src="https://img.youtocoin.com/news/2023/1018/0_fmq5wt3sio.jpg" alt="预判攻击者的预判，CertiK发起移动端保卫战"></p>
+<p>到了今年，CertiK 不仅仅满足于在存量市场中占据鳌头，还频繁帮助苹果和三星等科技巨头提升终端系统的安全性。CertiK 凭借对未来发展的眼界，将自身业务覆盖到Web3大规模采用的突破口——移动端。</p>
+<h2 id="守护行业抢先布局">守护行业，抢先布局</h2>
+<p>当行业巨头 CertiK 开始布局移动端安全防护时，这其中不仅仅是业务的扩展，更是创始人对Web3新风向的判断。<strong>顾荣辉向Odaily星球日报表示，安全审计行业的竞争日益激烈，CertiK 需要推出有差异化竞争优势的产品，以便占据先机，服务未来更为广阔的市场。</strong></p>
+<p>经历上一轮牛市后，Web3的基础配套愈加完善，从而这一轮熊市涌现出更多的 builder，他们将目光更多的瞄向应用层。<strong>Web3的主基调也从存量市场的生态之争转向以大规模采用为核心的应用之争。</strong></p>
+<p><img src="https://img.bibiqing.com/news/2023/1018/23_83smyne1f1.jpg" alt="预判攻击者的预判，CertiK发起移动端保卫战"></p>
+<p>从Web3自身来讲，大规模采用的 Dapp 是产品内部的可组合和复杂化，更多跨生态、跨协议、跨层、跨域带来更难防范的风险。</p>
+<p>从Web2角度来讲，移动端目前依托于苹果、安卓等系统服务商，Web2系统性风险对移动端的Web3项目和使用者容易造成更大的风险。</p>
+<p>而光明与黑暗的较量正在此处，无论是Web2终端的系统风险、Web3应用的黑盒都是安全风险的隐患。<strong>但秉承着“守护Web3世界”的 CertiK 蓄力Web3移动应用端已非一日，移动端的安全警戒线已抢先布控，并赢得了主流市场认可，这或将为web3领域的安全审计公司揭开发展与竞争的序章。</strong></p>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/61368/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">以太坊的统治地位会一直持续下去吗？从华为小米操作系统分析EVM兼容的垄断地位</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/61279/">
+                <span class="next-text nav-default">“流亡”的Telegram创始人及其加密野心</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#攻防复杂风险蔓延">攻防复杂，风险蔓延</a></li>
+    <li><a href="#魔高一尺道高一丈">魔高一尺，道高一丈</a></li>
+    <li><a href="#安全江湖静修内功">安全江湖，静修内功</a></li>
+    <li><a href="#守护行业抢先布局">守护行业，抢先布局</a></li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

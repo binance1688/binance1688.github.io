@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          深度：潜入暗池，透明区块链上的隐私研究 - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="本文详细介绍了不同类型的暗池的工作原理、隐私架构、订单匹配、流动性来源、MEV 和抗审查等多个方面内容。" />
+<meta name="keywords" content="交易者, 暗池, 訂單" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/62210/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="深度：潜入暗池，透明区块链上的隐私研究" />
+<meta property="og:description" content="本文详细介绍了不同类型的暗池的工作原理、隐私架构、订单匹配、流动性来源、MEV 和抗审查等多个方面内容。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/62210/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-11-23T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-11-23T00:00:00+00:00" />
+
+<meta itemprop="name" content="深度：潜入暗池，透明区块链上的隐私研究">
+<meta itemprop="description" content="本文详细介绍了不同类型的暗池的工作原理、隐私架构、订单匹配、流动性来源、MEV 和抗审查等多个方面内容。"><meta itemprop="datePublished" content="2023-11-23T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-11-23T00:00:00+00:00" />
+<meta itemprop="wordCount" content="9716">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="深度：潜入暗池，透明区块链上的隐私研究"/>
+<meta name="twitter:description" content="本文详细介绍了不同类型的暗池的工作原理、隐私架构、订单匹配、流动性来源、MEV 和抗审查等多个方面内容。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">深度：潜入暗池，透明区块链上的隐私研究</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-11-23">
+      2023-11-23
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 9716 字 -
+        预计阅读 20 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E5%8C%BA%E5%9D%97%E9%93%BE/"> 区块链 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p><strong>作者</strong> <strong>|</strong> <strong>MuhammadYusuf，DelphiDigital</strong></p>
+<p><strong>编译</strong> <strong>|</strong> <strong>吴说区块链</strong></p>
+<p><img src="https://img.bibiqing.com/news/2023/1031/jdcqe0bh1tomtjm" alt="深度：潜入暗池，透明区块链上的隐私研究"></p>
+<p>原文链接：</p>
+<p><a href="https://distributedresearch.substack.com/p/diving-into-dark-pools">https://distributedresearch.substack.com/p/diving-into-dark-pools</a></p>
+<p>译者注：本文详细介绍了不同类型的暗池的工作原理、隐私架构、订单匹配、流动性来源、MEV 和抗审查等多个方面内容。通过引入零知识证明等隐私增强技术，暗池试图在保护交易隐私的同时提供高度的安全性。此外，本文还提到了与监管合规性和交易可见性相关的问题，以及探讨了在暗池中不同的商业模式。</p>
+<p>在深入了解基于区块链的暗池内部运作之前，让我们先了解一下暗池的来龙去脉，它们是如何出现的，为什么能持续运作，以及它们在多大程度上改变了游戏规则。</p>
+<p><strong>20世纪60年代的暗池</strong></p>
+<p>1969 年，当时的计算机体积仍足以占用一两个房间，交易者在交易大厅里大声喊着指令，机构投资者需要一种更好的方式来买卖股票，而不会在市场上引发连锁反应。Jerome Pustilnik 创立了 Instinet，开创了华尔街电子交易的先河。机构投资者可以下订单，Instinet 将匹配买卖订单并执行它们。要让 Instinet 这样的平台发挥作用，需要大量的供需双方订单。那么，是什么让机构投资者尝到了甜头？保密性。Instinet 允许大公司通过隐藏其身份和订单免受其他参与者和更广泛市场的监视，以匿名方式运作。这一方面可以防止他们的交易影响市场，另一方面也意味着降低了被其他交易者抢先交易的风险。</p>
+<p>截至 2022 年，已经有 60多个暗池在 SEC 注册。其中一些是由交易所运营的，如纽约证券交易所（NYSE）和纳斯达克（NASDAQ）；一些是由经纪商运营的，如摩根士丹利的 MS Pool 和高盛的 SigmaX；还有一些是独立运营的，如 Liquidnet 和 MatchNow。</p>
+<p>由运营商运营暗池的问题在于，运营商可能更有动机采取不正当行为，而不是以合规的方式运作。等式很简单：腐败利润&gt;腐败成本。运营商可以获得比他们必须支付的罚款更多的利润。2018 年，SEC 对花旗集团处以 1,200万美元的罚款，原因是花旗集团在运营暗池时误导投资者，同时将机密订单信息泄露给高频交易商，后者针对花旗集团的客户执行了价值超过 90 亿美元的订单，从中获利。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1031/u47f30gdlwgwcj0" alt="深度：潜入暗池，透明区块链上的隐私研究"></p>
+<p>传统暗池的用户面临被运营商操纵的风险。这是他们参与一个破碎的信任系统所不得不付出的沉重代价。自 2011 年以来，暗池运营商已支付了超过 3.4 亿美元的罚款以解决指控。与他们可能积累的利润相比，付出的代价相对较小。基于区块链的暗池试图摆脱对那些有潜在恶意行为的运营商的信任需求，但仍然存在问题。</p>
+<p><strong>混币器，池子，以及介于两者之间的一切</strong></p>
+<p>区块链的设计初衷是完全透明。虽然它促进了问责制，但也是一把双刃剑。如果你在链上收到了工资，那么任何拥有你钱包地址的人都可以看到你多年来的工资以及未来的工资。</p>
+<p>DEX（去中心化交易所）和钱包会受到钱包追踪平台和跟单交易平台的追踪，后者甚至允许匿名者狙击表现良好的交易者，使他们的交易策略更加复杂。大额订单还有可能被公共内存池中的搜索者抢跑的风险。</p>
+<p>在我们深入探讨暗池之前，让我们区分一下混币器和暗池。混币器是暗池的一个子集。像 Tornado Cash 这样的混币器将代币混合在一起，以切断钱包和资产之间的联系，使资金来源难以追踪。另一方面，暗池不仅切断了钱包和代币之间的联系，还帮助用户在不透露有关其他交易方的任何信息的情况下进行交易。</p>
+<p>既然我们已经了解了传统暗池背后的起源和动机，并区分了混币器和暗池，那么让我们深入探讨基于区块链的暗池，这些暗池通过账户/余额模型（Account/Balance models）和 PETs（隐私增强技术），如零知识证明、多方计算（MPC）和全同态加密（FHE），将隐私注入其基础架构中。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1031/twvh5non79j3qgd" alt="深度：潜入暗池，透明区块链上的隐私研究"></p>
+<p>截止到撰写本文时，像 Portal Gate、Renegade 和 Tristero 等暗池仍在开发中。而像 Panther 和 Railgun 等隐私协议已经在运行，可以促进隐私 DeFi（去中心化金融）交易，不仅包括交换，还包括质押、提供流动性和借贷等操作。</p>
+<p><strong>隐私架构</strong></p>
+<p><strong>余额模型</strong></p>
+<p>区块链是状态机。状态由账户和交易组成。随着账户的交易，每一次状态转换都会向链上添加一组新的更新。账户余额也会随之更新。账户余额模型是区块链跟踪和管理用户账户余额的不同方式。以太坊、Solana 和 Polygon 等区块链使用账户模型，而比特币、Zcash 和 Monero 等区块链使用 UTXO 模型。这些模型在管理和呈现区块链状态的方式上有所不同。</p>
+<p>账户模型，类似于银行账户，将当前状态显示为一组地址及其余额。每当你进行付款时，你发送的是确切金额，没有剩余在任何一方，也没有创建新的余额。但 UTXO（未花费交易输出）模型并不那么简单。当你进行付款时，你的整个余额被转移，燃烧了你现有的余额。你所拥有的剩余部分被添加到新的余额中。UTXO 模型将当前状态显示为所有交易的已花费和未花费输出的图表。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1031/sy9y7ypg36r0m2r" alt="深度：潜入暗池，透明区块链上的隐私研究"></p>
+<p>为了说明这一点，考虑以下情景：</p>
+<p>Alice 的钱包中包含两个 UTXO，一个有 6 个 coins，另一个有5个 coins，而 Bob 的钱包中则只有一个包含 5 个 coins 的 UTXO。当 Alice 向 Bob 发送 5 个 coins 时，她将她的两个 UTXO 合并成一个单一的交易，这使得观察者难以确定她发送给 Bob 的 5 个 coins 的来源，以及她的 UTXO 中剩余余额的去向。这种保护隐私的机制有效地掩盖了资金的流动，并保证了交易参与者的隐私。</p>
+<p>新生成的 UTXO 没有已知的所有者，需要更高级的链上分析才能将其与单个用户关联起来。账户模型则具有可替代性。它鼓励地址重复使用，因此很容易跟踪单个用户的历史记录。</p>
+<p>在 UTXO 模型中，双重花费（双花，double-spend）是相当困难的。每个 UTXO 都有一个独特的“nullifier”，由它本身生成。当验证交易时，也就是当 UTXO 被花费时，其 nullifier 也会被花费，这可以防止交易被再次花费。</p>
+<p>UTXO 模型的几个版本已在注重隐私的 L1 和 L2 中使用。Aleo 使用的 Record 模型是 UTXO 模型的变体。Aztec 和 Polygon Miden 混合使用了UTXO 模型和账户模型。</p>
+<p>Zcash 使用的 UTXO 模型在很大程度上启发了暗池中使用的 UTXO 模型。一些协议对其进行了修改，以支持多种资产和账户。像 Portal Gate、Penumbra、Railgun 和 Renegade 等协议使用了一种基于“note”的机制，其中每个 UTXO 就是一个 note。这些 notes，就像 UTXO 一样，包含了关于资产、订单和价值的信息，但只对所有者/用户可见。这些 notes 存储在存储链状态的 Merkle 树内，称为状态承诺树（State Commitment Tree）。这些 notes 可能是由暗池内部的转账或结算而产生的，也可能是由于向中继器付费而产生的。Renegade 使用内嵌封装的多方计算（MPC）来匹配 UTXO（订单）并更新私有状态。多个 notes 也可以存储在一个单个 note 中。</p>
+<p>在 Panther 协议中，每个资产或账户都表示为 zAsset（隐私资产）或 zNFT（隐私非同质化代币），而 UTXO 模型通过一个名为“Bus”的 Merkle 树进行操作，批量处理 UTXO，每批最多包含 64 个 UTXO，优化了用户的成本效率。&ldquo;Bus 操作员&quot;负责流程处理，而用户通过以$ZKP 计价的奖励来激励他们。在执行单个 UTXO 时，Panther 使用了所谓的“Taxi” Merkle 树。为了支持跨多条链的 UTXO，还有一个名为“Ferry” Merkle 树。</p>
+<p><strong>证明系统</strong></p>
+<p>这是隐私增强技术（PETs，Privacy Enhancing Technologies）中的一个主要组成部分。零知识证明（ZKPs）用于证明拥有正确信息的能力，而不必将信息泄露出去。在暗池的背景下，ZKPs 可以用来证明用户具有足够的资金和权限来下订单，使它们匹配和结算，同时将这些详细信息隐藏不被暗池运营商、其他交易者和外部第三方看到。</p>
+<p>证明系统是为生成这些证明而设计的密码学构造。它们有各种类型，每种类型产生不同大小的证明，需要不同的时间框架，并且在生成和验证过程中消耗不同的计算资源。在这里，我们将深入探讨两个重要的证明系统：Groth16 和 UltraPlonk，它们在我们讨论过的暗池中已经得到了应用。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1031/6szwvekdirl6bwc" alt="深度：潜入暗池，透明区块链上的隐私研究"></p>
+<p>Panther、Penumbra 和 Railgun 利用 Groth16 证明系统生成它们的证明。Groth16以生成一致大小的证明而著称，这使其成为首选选择，因为证明大小可能对交易规模、Gas 成本和吞吐量产生影响。另一方面，Portal Gate 和 Renegade 使用 UltraPlonk 证明系统。</p>
+<p>无论是 Groth16 还是 UltraPlonK，都需要一个可信设置（trusted set-up）。在这个设置中，一组受信任的各方合作建立一套通用的参数集。这些参数用于以一种使验证者不必信任证明者，证明者也不必信任验证者的方式来验证证明。值得注意的是，可信设置意味着对相关方的信任假设。安全多方计算可用于防止任何一方获得对底层设置结构的访问权。Groth16 依赖于多方的输入来建立其可信的设置，而 UltraPlonk 只需要一方的参与。</p>
+<p><strong>暗池的内部运作</strong></p>
+<p>现在，让我们来了解一下暗池的内部运作，它们如何在进行交易时保护隐私、提供流动性、防止 MEV 提取、抵制审查的特性以及合规性。</p>
+<p><strong>钱包设置</strong></p>
+<p>在大多数情况下，需要创建新的专用钱包来与暗池进行交互。Railgun 有一个名为 Railway Wallet 的第三方钱包提供商，它允许创建一个加密的 EOA，使你可以在不暴露数量和种类的情况下持有代币/NFTs，并且还可以通过 Relay Adapt 机制私下调用任何公共智能合约。</p>
+<p>在 Renegade 中，钱包等同于拥有私钥并能签署交易的 UTXO。你需要生成一个新的 UTXO，并使用 ZK 证明提交给它。该证明可证明新的 UTXO 实际上是新的，而且你尚未使用其中的资金。大多数操作（如存款、下单和交易）都会使钱包失效，因此你需要创建一个新钱包，以确保不会发生双重花费。用户体验与其他以太坊钱包相同。</p>
+<p>要使用 Penumbra，你需要像使用其他 Cosmos 链一样创建一个新钱包。之后，可以通过另一笔 IBC 转账为钱包注资。</p>
+<p>对于 Panther 和 Portal Gate，均已建立了一套 KYC 流程。可以使用以太坊钱包，但连接的钱包用户必须验证其护照以获得与协议交互的凭证。商业实体需要进行 KYB 过程，在其中分享他们的业务详细信息。验证是在链外由注册的合规性提供者进行的。这些凭证会定期过期，之后必须重新进行验证。</p>
+<p><strong>订单发现与匹配</strong></p>
+<p>在订单发现和匹配方面，像Uniswap和Curve等常见的 DEX 采用自动做市商方法，其中订单与流动性池匹配。这种方法对于隐私来说不是最佳选择，因为当订单与公开流动性池匹配时，订单详细信息在区块链上是公开可见的。这对于进行大额交易的交易者来说并不理想，因为它可能会将他们的意图透露给市场中的其他参与者，这些参与者可能会利用这些信息。一些暗池最终会匹配流动性池或使用其他外部公共合约进行订单匹配，它们使用中继作为交易者隐私必须被保护的隔离墙，将交易者和外部流动性源分开。接下来，我们将探讨暗池如何在保护隐私的同时获取流动性。</p>
+<p>现在，请记住，交易者已经将资金存入暗池中的钱包。现在我们将讨论当提交订单时会发生什么。一些暗池采取点对点的订单匹配方法，而一些采取点对池的方法，使用诸如零知识或多方计算等 PETs，同时它们的内部合约与外部公共合约进行交互。采用点对点方法或交叉交易者之间的订单可以帮助更好地执行而无需滑点。因为如果订单与流动性池匹配，那么在提交订单和执行订单之间，流动性池的价格可能会发生变化。当订单在交易者之间交叉时，订单将以他们之间协商的价格执行。</p>
+<p>对于采用点对点方法的 Renegade，当交易者提交订单时，他们还会选择一个可以代表他们进行竞拍（匹配订单）的中继，并支付一定费用。交易者生成一个名为“VALID COMMITMENT”的 ZK 证明，证明他们拥有自己的钱包和其订单。然后向网络发送一个“握手（handshake）”以与其他交易者的握手进行匹配。握手本质上是一个不可变列表，包含 VALID COMMITMENT ZK 证明、散列订单详细信息、nullifier 和密钥对。当交易者的握手与另一位交易者的握手匹配时，它们进行多方计算。Renegade 使用协同 ZK-SNARKs 来证明交易者的订单确实与对手的订单匹配。这确保了在进行订单匹配时，订单详细信息对其他方保持隐藏。一旦订单与所有所需的证明匹配，就会创建一个新的钱包，用于存放交换的代币，之后通过验证确保该钱包确实是新的，以防止双重花费。用户体验与使用任何以太坊钱包相同。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1031/2pzc87a7uizdoc4" alt="深度：潜入暗池，透明区块链上的隐私研究"></p>
+<p>对于 Portal Gate，当交易者提交订单时，一个 API 节点会接收订单，对其进行加密，生成 ZK 证明，然后将订单中继到 Book。Book 是一组链下节点，它们收集订单并在 FHE（全同态加密）环境中运行订单匹配算法。这意味着加密的订单无需解密即可进行匹配。一旦订单匹配成功，将显示所有订单匹配的总结果，而不会透露单个订单匹配的详细信息。这也有助于保护隐私。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1031/c3a73czofzkukld" alt="深度：潜入暗池，透明区块链上的隐私研究"></p>
+<p>对于 Railgun，当交易者通过 Railgun 下达交换订单时，一个名为&quot;Adapt Module&quot;的智能合约执行多个操作，即获取交易者在其钱包中指定的要交换的私有余额并解除其隐私屏蔽。Adapt Module 还将验证订单（UTXO）是否已经作废/花费。然后，0x API 会在聚合的 DEX 流动性之间进行资产交换，寻找最佳汇率。Adapt Module 将已交换的资产重新隐私屏蔽到私有余额中，以确保其活动或地址不被泄露。这个工作流程也可以应用于其他 DeFi 交易类型。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1031/nk3t5s65vcoi0ed" alt="深度：潜入暗池，透明区块链上的隐私研究"></p>
+<p>Panther 协议运行方式也类似，其中它使用一个名为 Zswap 的模块，将 Panther 的 MASP（多资产隐私池）与其他 DeFi 协议连接起来。与其说是一个“池”，MASP 更像是一组“只能添加属性（append-only）”的 Merkle 树，其中每个叶子是对存入 MASP 的资产的 UTXO 的承诺。当交易者创建订单时，Zswap 从其他 DeFi 协议中聚合报价供交易者选择。一旦下达订单，Zswap 创建一个加密的基于时间的托管合约，可以在不透露任何细节的情况下私下促进用户之间的交换。一旦资产被交换，用户将从 Panther 的 MASP 以 ZAsset（ZNFT）的形式收到代币的 IOU（欠条）。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1031/wcawgussokkag0r" alt="深度：潜入暗池，透明区块链上的隐私研究"></p>
+<p>Penumbra 的交换模块也被称为 Zswap，但其工作原理截然不同。当交易者创建订单时，交易者私人余额中的资产会被烧毁，加密的订单价值会发送给验证者。处理订单还需要支付一定的费用。用户将获得一个“swap”NFT，以保存事件记录。NFT 由各种参数组合而成，包括交易资产、费用、输入金额和加密密钥。验证者将多个交易者的订单输入汇总到一个批次中，然后针对集中的流动性头寸执行这些输入。一旦执行，输出将按每个交易者的输入比例交付给交易者。在这种情况下，个体数据仍然是保密的，但当验证者汇总订单针对集中的流动性头寸执行时，聚合数据就会暴露出来。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1031/sbgn6pbht235fi1" alt="深度：潜入暗池，透明区块链上的隐私研究"></p>
+<p><strong>寻找流动性</strong></p>
+<p>像 Renegade 和 Portal Gate 等暗池通过匿名方式直接在用户之间交叉买卖订单运营，但并不总是有足够的流动性来满足订单的需求。在一般的 DEX 中，你几乎可以确保你的订单会有足够的流动性，但需要放弃隐私和价格影响。隐私——任何人都可以查看你正在出售或购买的标的。价格影响——因为保证的流动性伴随着一个溢价，你需要与订单一起支付。在暗池中，订单信息在交易前后都保持隐藏。</p>
+<p>Renegade 遵循这种设计理念，通过匹配订单流与反向订单流而不经过任何中介提供流动性。在流动性不足的情况下，有一种称为“利益指示（Indication of Interests）”的机制，交易者可以向匹配订单的中继透露他们订单的某些细节。通过零知识有效地证明细节，如价格、规模、资产和订单类型。如果交易者选择透露这些细节，其他交易者将能够查看这些挂在订单簿上的订单，从而可能导致这些订单被更快地执行。</p>
+<p>Panther 协议不仅是一个暗池。它还提供一系列其他可以隐私执行的 DeFi 活动。用户首先将资金存入多资产隐私池，将存入的资产表示为 ZkAsset（ZkNFT）。ZkAsset 本质上是一种 IOU 代币，类似于在以太坊上质押时获得的 stETH。名为 DeFi Adaptors 的插件可以将 MASP 与现有的 DeFi 协议私下连接起来。Zswap 和 Ztrade 是连接MASP 与 Uniswap、Quickswap、Curve 等 DEX 的适配器。</p>
+<p>与 Panther 或 Railgun 一样，Penumbra 也是进行多种 DeFi 活动的途径。在 Penumbra 中，当用户开设 LP 头寸时，实际上创建了自己的小型 AMM。这样，就会有数以万计的集中流动性头寸，这些头寸都是由用户创建，设定了自己想要的费用。不过，这可能会导致流动性分散，但 Zswap / DEX 引擎将考虑并将所有这些个体流动性头寸合成为单个 AMM。这将使得可以在整个流动性图中对进入的交易进行路由。</p>
+<p>Portal Gate 使用了一个匿名的 AMM DEX，称为 Automaton，用于作为 Book 的备份，即中继器运行的订单簿用于将用户的交易交叉对接。如果由于缺乏流动性而导致订单簿无法促成交易，那么订单将被路由到 Automaton。流动性将在 Automaton 中引导，就像在任何其他 AMM 中一样。</p>
+<p>Railgun 的 Railway DEX 使用了0x 创建的0xAPI。这意味着 Railway DEX 的订单被路由以寻找0xAPI DEX 聚合器中执行的最佳价格。一旦找到交易路线，钱包会生成证明，以使用交易者余额中的资金进行交换，并将来自0xAPI 的流入代币在交易者的余额中屏蔽。</p>
+<p><strong>商业模式</strong></p>
+<p>传统金融（Tradfi）暗池在很大程度上被视为一个精英俱乐部，只有拥有丰厚资金的人才能进行交易。他们支付会员费用以能够匿名下订单，同时也能够获得来自另一方的相关反向订单流。交易费用通常低于传统金融交易所。传统金融暗池也可以充当经纪商，从卖方以较低价格购买证券，然后以较高价格将其出售给另一买方。</p>
+<p>加密领域的暗池更多地摒弃了“运营商”为中心的设计，更多地扮演“促进者”的角色。它们旨在通过两个主要组成部分产生收入：成功匹配的订单上的协议费用，以及交易者支付给中继处理交易的中继器的费用的一部分。中继费用的一部分也可以归中继运营商所有。交易者也可以选择运行自己的中继器，以获得更好的隐私并避免支付中继费用。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1031/f374w0e6pjgdab6" alt="深度：潜入暗池，透明区块链上的隐私研究"></p>
+<p>加密领域中的去中心化暗池可能面临“冷启动”问题。与针对流动性池进行交易的 DEX 不同，大多数暗池通过匹配买单和卖单让用户彼此交易。对于这样的系统来说，有交易者在市场的两侧下单非常重要。还需要注意的是，传统金融领域的暗池由像高盛这样的市值数十亿美元的银行和像纽约证券交易所这样的交易所托管。这样，为其用户提供订单流就相对容易。还有一些独立的暗池，比如 Liquidnet，他们曾估计需要至少 100家买方公司从当天起在其平台上运行，才能达到临界质量，但最终只有 38 家公司上线。Liquidnet 现在已跻身全球三大暗池之列。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1031/oisav2100uwo6mf" alt="深度：潜入暗池，透明区块链上的隐私研究"></p>
+<p>中心化交易所平均比去中心化交易所多 10倍的交易量，因为它们吸引了更广泛的用户群体，提供更好的用户体验和合规性，从而增加了供应以满足需求。OTC交易（场外交易）的流动性相对较难获得。</p>
+<p>加密领域中的大多数 OTC 交易是通过OTC desks（场外交易平台）和托管智能合约进行的，有时甚至是通过 Telegram 群组进行的。这是一个震惊的现象。人们经常受到诈骗。对于诈骗者来说，在 Telegram 上冒充他人、编辑消息和交易细节非常方便。使用暗池，你可能无法保证非流动代币或 NFT 的即时结算，但它确保了更高级别的安全性和隐私性。通过暗池进行的 OTC 交易，OTC desks 的客户也无需支付经纪人费用。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1031/3cetfoauoq7p12h" alt="深度：潜入暗池，透明区块链上的隐私研究"></p>
+<p>交易量对于暗池的有效运行至关重要。它有助于有效匹配订单并保护交易者的匿名性。池中匿名资金越多，订单簿中的订单越多，将存款人和交易者与其资产关联起来就越困难。这是因为有更多的潜在存款人可以尝试将资产与之关联起来。在保护资产时，考虑代币的类型也很重要。保护像 USDC 或 DAI 这样的常见稳定币将比保护知名度较低的模因代币，而且只有很少存款人的代币能提供更高的匿名性。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1031/m3igospmipdgwq7" alt="深度：潜入暗池，透明区块链上的隐私研究"></p>
+<p><strong>MEV与抗审查</strong></p>
+<p>大多数在公链上运行的 DEX，由于是公开透明的账本，允许 MEV 存在。像 Uniswap 或 Curve 这样的 DEX 上的订单详情不是保密的，这使得搜索者和构建者可以相应地重新安排捆绑和区块中的交易，以提取 MEV。</p>
+<p>隐私很重要，但它是一个主观的问题。Tornado Cash 在允许人们在链上匿名进行金融活动方面表现出色。由于它是开源的并且任何人都可以免费使用，也有犯罪分子使用它来洗劫窃取的资金。朝鲜的黑客组织 Lazarus 迄今已窃取了近 10亿美元（9.58亿美元）。OFAC（外国资产控制办公室）有一份特别指定的国民和被封锁的个人名单。恶意个人和实体，如 Lazarus，甚至 Tornado Cash 的智能合约地址，都因不合规而被列入 OFAC 名单。不符合 OFAC 规定的协议有很高的可能性会导致它们的交易被排除在链上的区块之外。这是一个严重的抗审查问题吗？是的。问题不仅限于区块生成者。验证者和中继器也可以选择忽略交易或区块。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1031/43m78efe662m13c" alt="深度：潜入暗池，透明区块链上的隐私研究"></p>
+<p>在暗池中，由于每笔订单都会生成 ZKPs，因此订单详情对包括验证者在内的所有第三方而言大多是隐秘的，从而消除了披露订单匹配甚至结算细节的需要。这种架构可以抵御 MEV 和抗审查，或者至少在交易工作流保持在暗池加密前提下的情况下是如此。在调用公共合约或使用共享定序器的情况下，可能会再次出现捕获 MEV 的机会。</p>
+<p><strong>合规</strong></p>
+<p>无论你是在协议内操作还是作为个人用户，最不希望看到的是交易挂起不处理，在区块内得不到处理，从而危及了你的状态转换的成功，或者让 SEC 前来开茶话会。对于 Tornado Cash 的创始人和开发者来说，这些担忧变成了可怕的现实，他们因洗钱指控被逮捕。在许多国家， TC 前端也是非法/已停用，并且不被一些中心化交易所支持。但 TC 智能合约本身仍然可以由具有一定技术知识的人使用。</p>
+<p>为了尽量避免这种情况，暗池和其他侧重隐私的协议已经找到了让用户自行决定是否合规的方法。</p>
+<p>Renegade 允许每个交易者选择一组交易对手。个体交易者可能只希望对他们的交易对手进行一些基本的 AML/制裁检查，而机构可能希望对他们的交易对手进行 KYB/KYC 检查。这种使用 ZKPs 进行合规性检查的交易对手选择逻辑可在 MPC 开始前进行设置。</p>
+<p>Portal Gate 和 Panther Protocol 与合规 Oracle（预言机）合作，这些 Oracle 又与传统合规服务提供商合作，以在链下进行用户账户的 KYC/KYB 验证。一旦验证通过，用户将获得合规性的 ZK 证明。这个证明允许他们的钱包与暗池协议一起使用，但验证需要定期进行。</p>
+<p>在 Penumbra 中，用户可以使用“交易视角”在链下展示其合规性，有选择地披露其活动，包括资金来源。同样，在 Railgun 中，用户拥有“查看密钥”，允许用户查看从 X 到 Y 区块时间的交易和余额。</p>
+<p>Railgun 使用了由 Chainway 开发的“Proof of Innocence（无罪证明）”，该算法在 Privacy Pools 2.0论文中有讨论。Proof of Innocence 帮助你证明你的交易是合法的，而不需要透露任何交易细节。Merkel 树充当了所有先前 UTXO（交易、余额）的集合。借助这个功能，可以确定特定的余额是某个交易集合的一部分。但要证明特定的余额不是某个交易集合的一部分，需要使用记录 NULL 值的 Sparse Merkle 树。通过这个证明可以验证该余额不是某个交易集合的一部分。在这种情况下，递归 SNARKs 用于证明从初始存款到最终取款的证明链计算准确，以此作为证明用户的余额不是某个交易集合的一部分。</p>
+<p><strong>挥之不去的想法</strong></p>
+<p>暗池用户依赖公共价格作为其交易者的基准，但公共交易所上资产的价格可能无法反映在暗池内发生的波动。在 2014 年之前，暗池和公共交易所之间的价格发现是一种单边关系。美国金融业监管局（FINRA）和美国证券交易委员会（SEC）实施了一项举措，规定结算后的暗池交易信息应按证券在延迟 2-4 周后逐一公开发布。目前尚不清楚未来是否会对加密暗池应用类似的公开披露标准，以促进所有市场参与者的更好的价格发现。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1031/564l57iz299iaww" alt="深度：潜入暗池，透明区块链上的隐私研究"></p>
+<p>纯粹的暗池必须在市场的双方都积累订单流，以达到临界点。我们可能会看到许多场外交易转移到暗池，因为它们将比 OTC desks 和 Telegram 群组更安全、更私密和更经济高效。在私有 DEX 与公共流动性池或外部智能合约互动的情况下，对泄露信息进行模拟可能会导致某些交易和交易者的暴露。</p>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/63822/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">社交热潮过后 谁能接棒 Friend.tech？</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/63741/">
+                <span class="next-text nav-default">神鱼：美司法部与币安的和解为ETF扫平了道路</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

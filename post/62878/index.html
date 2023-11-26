@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          一文读懂比特币RGB协议 - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="本文将重点介绍RGB，全面概述其工作原理及价值主张。" />
+<meta name="keywords" content="BTC RGB, 協議" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/62878/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="一文读懂比特币RGB协议" />
+<meta property="og:description" content="本文将重点介绍RGB，全面概述其工作原理及价值主张。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/62878/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-11-09T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-11-09T00:00:00+00:00" />
+
+<meta itemprop="name" content="一文读懂比特币RGB协议">
+<meta itemprop="description" content="本文将重点介绍RGB，全面概述其工作原理及价值主张。"><meta itemprop="datePublished" content="2023-11-09T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-11-09T00:00:00+00:00" />
+<meta itemprop="wordCount" content="4068">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="一文读懂比特币RGB协议"/>
+<meta name="twitter:description" content="本文将重点介绍RGB，全面概述其工作原理及价值主张。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">一文读懂比特币RGB协议</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-11-09">
+      2023-11-09
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 4068 字 -
+        预计阅读 9 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E6%AF%94%E7%89%B9%E5%B8%81/"> 比特币 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>作者：Federico Tenga，Bitfinex RGB团队成员、Iris Wallet开发者；翻译：金色财经xiaozou</p>
+<p>最近，人们对比基于特币和闪电网络的代币越来越感兴趣。创建代币来代表资产的想法并不新鲜，这些代币资产可以安全便捷地转移和存储，同比特币一样。确实，2013年，Counterparty和OmniLayer（以前的Mastercoin）等协议已经开创了这一想法，后来被以太坊和其他山寨币采用。然而，使用山寨币来保障金融资产并不理想，因为它们无法提供与比特币同等的安全性和去中心化水平。出于这个原因，多年来也出现了一些项目，试图使比特币网络上的代币协议现代化，并使其与闪电网络兼容，特别是RGB、OmniBolt和最近的Taro。本文将重点介绍RGB，全面概述其工作原理及价值主张。</p>
+<h2 id="1-比特币协议上的代币遗产"><strong>1</strong> 、比特币协议上的代币遗产</h2>
+<p>老的基于比特币的代币协议，如Counterparty和OmniLayer，通过将元数据置入比特币交易中为它“着色”，并信号示意它应该被视为代币转移。这种信号通常发生在OP_RETURN输出中，正常的比特币节点会忽略它，但可以由代币协议感知节点解释，然后强制执行代币协议验证规则。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1109/5_wgot3s7l7i.png" alt="mWMQA4cCFyxXoXu0rU5vn5oBWdvOm88zGE9uQMCV.png" title="7133079"></p>
+<p>虽然这种设计是有效的，但也存在一些缺点：</p>
+<p>· 与代币转移相关的信息数量受到OP_RETURN输出字节的限制，根据标准规则是80字节，足以用于基本的交易数据编码，但还不足以支撑更复杂的用例。</p>
+<p>· 代币协议节点需要扫描整个区块链，寻找可能与OP_RETURN输出中的用户相关的代币转移，随着区块链规模的增长，这个过程变得更耗资源。</p>
+<p>· 对用户的隐私保护非常糟糕，因为所有交易数据对链上的任何人都是可见的，并且你使用的代币的匿名程度可能比你通常使用的比特币弱几个数量级。</p>
+<h2 id="2-链下转移"><strong>2</strong> 、链下转移</h2>
+<p>为了改进这一设计，RGB项目提出了一种更可扩展、更具隐私意识和更加面向未来的解决方案，该解决方案基于客户端验证和一次性密封（single-use seals）的概念，一次性密封概念最初是由Peter Todd在2017年提出的。</p>
+<p>这个想法的核心是将比特币区块链只用于非它不可的情况下，即利用其工作量证明和网络去中心化特性来实现双花保护和抗审查性。所有代币转移验证工作都可以移出全域共识层，并维持链下形式，仅将其委托给接收付款的客户端。</p>
+<p>这一切是如何运作的呢？在RGB中，基本上代币总是需要分配给比特币UTXO（已经存在或特别创建的），并且为了转移代币，你需要花费这样的UTXO。在花费UTXO时，比特币交易必须包含一个消息承诺，承诺该消息包含了RGB支付信息、定义输入、代币将发往的比特币UTXO、资产id、金额、支出条件及其他你可能想要附加的额外数据。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1109/5_wdqfwotlam.png" alt="LnBQoqrWgI47Ivmp7lSrEoRoyGV4VefYNgqG3gR6.png" title="7133083"></p>
+<p>因此，要转移分配给比特币UTXO的RGB代币，一定需要比特币交易。然而，RGB转移的输出并不需要与比特币交易的输出相同！正如我们在上面的例子中看到的，RGB交易可以输出一个与提交给它的比特币交易完全无关的UTXO。这意味着RGB代币可以从一个UTXO“传送”到另一个UTXO，而不会在比特币交易图谱中留下任何痕迹。这对隐私保护很有好处！</p>
+<p>在这种设计中，比特币UTXO被用作包含RGB资产的一次性密封，并且想要转移资产，你基本上需要开启旧封印，盖上新封印。</p>
+<p>RGB特定的支付数据通过专用的通信通道从支付方的客户端传输到接收方客户端，该通道将验证RGB协议规则是否被遵守。这样，区块链观察者将无法提取有关RGB用户活动的任何信息。</p>
+<p>不幸的是，验证收到的付款不足以确保发送方是刚刚发送给你的资产的真正所有者，因此，要将收到的付款视为最终付款，你必须从付款方那里收到与刚刚发送的代币相关的所有交易历史记录，一直到最初的发行。通过验证所有交易历史记录，你可以确保资产没有通胀，并且与资产相关的所有支出条件均被遵守。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1109/5_87fejza3ss.png" alt="zZVf5MlHozml9TA3HMdyWavHbBD9OISh9cWrjsEz.png" title="7133084"></p>
+<p>这种设计有助于可扩展性，因为你不必验证资产的整个历史，只需验证与你相关的那些交易。此外，交易不会广播到全域账本，提高了隐私性，因为知道你交易存在的人更少了。</p>
+<h2 id="3-盲化密钥blinding-secrets-"><strong>3</strong> 、盲化密钥（<strong>Blinding secrets</strong> ）</h2>
+<p>为了进一步提高隐私性，RGB支持输出的盲化，这意味着在你向需要向你付款的人发送的支付请求中，你不会披露你想要接收代币的UTXO，你只是要求付款人将代币发送到一个哈希值，这个哈希值是你通过将UTXO与随机盲化密钥连接起来生成的。这样，支付方不会知晓接收代币的UTXO，因此，交易所或其他服务提供商不可能知道他们是否在帮助某个监管机构“黑名单”的UTXO提现，也不可能监控代币将来会在何时被花费。</p>
+<p>请注意，当支付代币时，必须向接收方透露盲化密钥，以便接收方可以验证交易历史中的所有比特币交易。这意味着使用RGB，你当前是具有完全的隐私性，但未来的代币持有者将能够看到转移所涉及的全部UTXO。因此，虽然用户在接收和持有代币时享有完美的隐私保护，但随着代币在人群之间不断转移，用户过去金融活动的保密性会随着时间的推移而降低，接近我们过去比特币交易历史的隐私水平。</p>
+<h2 id="4-闪电网络兼容性"><strong>4</strong> 、闪电网络兼容性</h2>
+<p>由于RGB是基于比特币建设的，因此也可以将RGB代币转移动到闪电网络上，并且已经有人在研究这个问题了。闪电网络是一个基于支付渠道的可扩展性解决方案，实际上需要一些工作来引导各资产良好的渠道流动性，这可以通过资产的广泛采用来实现，也可以通过渠道管理软件直接连接到支持用户感兴趣的资产的节点，创建某种特定于资产的子网络。</p>
+<p>另一个让不太受欢迎的资产在闪电网络上可行的解决方案是引入节点，在特定资产和比特币之间提供交换服务。这样，一旦用比特币兑换，价值就可以通过比特币的流动性在网络上传递开来，当到达路径的另一端时，另一个交换节点将比特币转换回原始资产。这将消除对特定流动资产网络的需求。然而，为了使其成为现实，各资产与比特币的交易量需要足够大，以激励做市商在网络多处运营交易节点，提供足够低的买卖价差，以避免从两笔交易之间的支付中损失太多价值。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1109/5_w1yv6y289q.png" alt="fhtSwIHlaPktkY8QF0YxwdPwpVowif3GioSbk6ev.png" title="7133085"></p>
+<h2 id="5-高级智能合约"><strong>5</strong> 、高级智能合约</h2>
+<p>通过使用比特币交易，RGB自动继承了比特币的所有智能合约功能，但不仅限于此！当你将代币转移给交易对手方时，可以在支付中定义该交易对手方将来必须满足的额外支出条件。这种额外的支出条件不会由区块链全域共识强制执行，而是由RGB节点验证过程强制执行。这意味着，如果有人试图在不遵守RGB特定支出条件规则的情况下支出代币，则接收方的节点将无法成功验证，并认为支付不是最终支付，这对发送方来说特别糟糕。事实上，虽然RGB支付失败了，但花费了UTXO（代币被分配给UTXO）的比特币交易可能已经在区块链上得到确认，这意味着这些代币将不再分配给任何UTXO，也可以认为它们被销毁（burnt）了，这是在编写RGB智能合约时需要考虑的动态因素。</p>
+<p>另一个需要注意的利弊权衡是，虽然RGB合约可以提供比任何替代方案更多的隐私性和可扩展性，但它们的状态不是全域可访问的，并且它们不能是无主的（就像在其他区块链中发生的那样），对某些用例来说，这也代表了一定程度的限制。</p>
+<p>由于RGB的客户端特性，可以以无需许可方式提出和实施多个智能合约框架。在撰写本文时，已有一个名为AluVM的项目在这个方向上埋头努力。</p>
+<h2 id="6-rgb-与替代方案"><strong>6</strong> 、<strong>RGB</strong> 与替代方案</h2>
+<p>任何对采用RGB感兴趣的人都会发现自己想知道它与其他代币协议相比如何。让我们具体分析几个例子：</p>
+<ul>
+<li><strong>基于山寨币的代币</strong></li>
+</ul>
+<p>大多数基于山寨币的代币协议（例如ERC-20）提供具有全域无主状态的智能合约，这使得部署DEX和其他金融应用程序变得相当容易，但却难以扩展，毫无隐私性并且继承了这些山寨币的所有缺点，例如运行节点成本高、去中心化程度较低以及抗审查性较弱。</p>
+<ul>
+<li><strong>Liquid资产</strong></li>
+</ul>
+<p>Liquid是一个比特币联邦侧链，提供了一些有趣的功能，比如本地资产支持和秘密交易，可以向区块链观察者隐藏支付金额和被转移资产的ID。然而，联邦模型再次提出了相同的问题：去中心化程度低、抗审查性弱。</p>
+<ul>
+<li><strong>OmniBolt</strong></li>
+</ul>
+<p>OmniBolt是OmniLayer的闪电网络兼容版本，在本文开头有简要介绍。它与RGB有非常相似的利弊权衡，但它提供的隐私保护和可扩展性更低，因为所有与代币相关的数据都保存在链上。</p>
+<ul>
+<li><strong>Taro</strong></li>
+</ul>
+<p>比特币2022迈阿密会议上宣布，Taro是一个由Lightning Labs支持的项目，其目标是将资产置于闪电网络之上。根据发布的规范说明，该设计与RGB非常相似，具有基本相同的功能和利弊权衡。在撰写本文时，RGB和Taro之间的主要区别似乎是RGB已经发布了一些可审查的代码，而Taro只发布了规范，但另一方面，你可以说Taro是由闪电生态中最好的一个团队支持的，让未来的实现大有可期。考虑到两种设计的相似之处，如果Taro和RGB最终能够互操作，那就太好了，但只有时间才能证明这种情况是否会发生。</p>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/62842/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">一文读懂Dmail信息聚合与分发平台Subscription Hub</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/62865/">
+                <span class="next-text nav-default">一文看懂BTC Layer2 六年演化历程</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-比特币协议上的代币遗产"><strong>1</strong> 、比特币协议上的代币遗产</a></li>
+    <li><a href="#2-链下转移"><strong>2</strong> 、链下转移</a></li>
+    <li><a href="#3-盲化密钥blinding-secrets-"><strong>3</strong> 、盲化密钥（<strong>Blinding secrets</strong> ）</a></li>
+    <li><a href="#4-闪电网络兼容性"><strong>4</strong> 、闪电网络兼容性</a></li>
+    <li><a href="#5-高级智能合约"><strong>5</strong> 、高级智能合约</a></li>
+    <li><a href="#6-rgb-与替代方案"><strong>6</strong> 、<strong>RGB</strong> 与替代方案</a></li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

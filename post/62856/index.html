@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          Rollups（二层网络）去中心化交易排序器的选择之路：Shared sequencer network还是Based Rollup？ - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="基于 based rollup 是 Rollup 实现去中心化交易排序的适当选择。" />
+
+  <meta name="keywords" content="区块大全, 区块链, 区块链资讯, 区块链快讯, 区块链新闻, 比特币行情" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/62856/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="Rollups（二层网络）去中心化交易排序器的选择之路：Shared sequencer network还是Based Rollup？" />
+<meta property="og:description" content="基于 based rollup 是 Rollup 实现去中心化交易排序的适当选择。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/62856/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-11-09T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-11-09T00:00:00+00:00" />
+
+<meta itemprop="name" content="Rollups（二层网络）去中心化交易排序器的选择之路：Shared sequencer network还是Based Rollup？">
+<meta itemprop="description" content="基于 based rollup 是 Rollup 实现去中心化交易排序的适当选择。"><meta itemprop="datePublished" content="2023-11-09T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-11-09T00:00:00+00:00" />
+<meta itemprop="wordCount" content="3752">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Rollups（二层网络）去中心化交易排序器的选择之路：Shared sequencer network还是Based Rollup？"/>
+<meta name="twitter:description" content="基于 based rollup 是 Rollup 实现去中心化交易排序的适当选择。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">Rollups（二层网络）去中心化交易排序器的选择之路：Shared sequencer network还是Based Rollup？</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-11-09">
+      2023-11-09
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 3752 字 -
+        预计阅读 8 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E5%85%B6%E5%AE%83%E6%96%87%E7%AB%A0/"> 其它文章 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>原文作者：James@PangaCapital</p>
+<p><em>PangaCapital 是一家立足全球，专注于发现、投资和培育亚裔优质Web3创业团队的早期投资基金。其创始团队拥有顶尖交易所、麦肯锡、摩根斯坦利和普华永道等知名机构的背景。基金致力于为亚裔创业者提供接触全球资源的机会，基金投资人和合作伙伴包括交易所、海外头部基金和做市商、海内外知名高校和头部互联网公司。</em></p>
+<p>随着众多 Rollup（二层网络）已经启动或即将启动其主网，他们现在面临一个关键问题：如何在二层网络的技术迭代过程中，选择一个有意义的去中心化定序器的解决方案来替代现在中心化的交易排序器的方案。目前，实现去中心化排序器主要有两种方法。 SS(Shared sequencer network) 网络（外部共享排序器网络）和让一层 Validator 来排序二层交易的 based rollup。我们将介绍市场每种技术方案，比较每种方案的优点和缺点。我们将得出结论，基于 based rollup（利用第 1 层的 Validator 来对第 2 层的交易进行排序）是 Rollup 实现去中心化交易排序的适当选择。</p>
+<h2 id="1外部共享定序器网络shared-sequencer-network方案"> 1.外部共享定序器网络（Shared sequencer network）方案</h2>
+<p>外部共享定序器网络是一个独立的有定序器节点组成的网络。网络的建立目的是位各类 Rollups 提供去中心化交易定序的解决方案。网络包含自己的共识层，P2P网络传输层的 DA 层，网络允许交易排序节点无需许可地加入和离开网络。</p>
+<p><strong>使用该技术方案的好处有：</strong></p>
+<p><strong>a. 增加总 MEV 回报：</strong> 如果外部共享定序器网络可以同时运用于多个 Rollup（二层网络），此网络可以通过同时对多个二层上交易安一定规则进行排序来捕获跨二层 MEV。从而有能力发现和获取比只排序单个二层更加多的 MEV 利润。并且可以通过代币经济的设计将增加的 MEV 利润分配给各个二层网络。 （当总蛋糕变大时，每个人似乎都会受益）</p>
+<p><strong>b. 防止潜在的违规行为：</strong> 发起二层网络(Rollu-ups)的交易是无需许可时，二层网络无法判断交易是否由某些受制裁的实体发起或者交易本身是非法交易的一部分。如果二层网络自己搭建 sequencer，无论是自建的去中心化的还是中心化的定序集，都有可能被政府认定二层网络在非法交易发生的过程中发挥着促进作用。为了避免这种情况，roll - up（二层网络）需要一个外部去中心化共定序器网络作为缓冲区。</p>
+<p><strong>c. 提高系统在可靠性（Liveness）和抗审查性的增强：</strong> 所有的二层网络为了追求更高的系统在线率和抗审查的政治正确性都会让交易排序器去中心化。并且去中心化也是加密货币行业的重要叙事特性之一。因此使用外部共享去中心化排序器网络能同时满足以上各类目的/利益的需求。</p>
+<p>尽管有上述优点，共享定序器网络（SSN）有许多缺点超过了上面提到的优点：</p>
+<p><strong>1) 外部信任模型的不确定性：</strong> 对于 Rollup（二层网络）而言，外部共享定序器网是一种基于外部信任模型的网络。外部信任模型无法保证拥有以太坊一样的去中心化程度，导致二层网络的（liveness）可靠性及抗审查程度并不能达到期待的效果。并且依赖于第三方信任模型的方案本身于 Rollup 的设计初衷有背离。理想的状态下，二层网络应不基于任何的外部第三方信任模型，只依靠一层网络（layer 1）来确保二层网络的安全性，在线稳定性一集抗审查性。</p>
+<p><strong>2) SS 网络的性能仍然值得怀疑。</strong></p>
+<p><strong>a. 共识开销：</strong> 即使 SS 网络上的节点只需要对交易进行排序而不需要执行，网络仍需处理共识开销（一些 SSN 使用 Hotstuff 2 作为共识来改善延迟。但是这种共识仍然具有 O(n 2 ) 最坏情况复杂度和 O(n) 通信开销。在高度去中心化的网络中，共识层/P2P通信层的开销会对 SS 网络的性能产生负面影响。 SSN 的延迟导致二层网络（Rollups）无法快速获得交易排序结果。这将影响二层网络执行交易获取交易的 Soft Finality 的实效。用户侧体验差，无法快速完成基于 soft finality 的交易。</p>
+<p><strong>b. 数据有效负载 SS 网络内的通信开销：</strong> 在传统的共识协议中，节点需要在节点投票最终确定区块之前查看该区块的数据。节点之间的这种数据有效负载通信会给协议增加 O(n(D)) 延迟，如果节点数量 N 很大，这会严重降低用户体验。</p>
+<p><strong>3) 激励不一致：</strong> SS 网络节点和二层网络执行交易及其他角色的节点之间存在潜在的利益不一致。SS 网络节点专门为 SS 网络工作并仅从 SS 网络接收激励。这引起了人们的担忧，即某些二层网络可能会贿赂 SS 节点，以拒绝为其他二层网络交易提供服务或在为多个二层网络服务过程中有歧视性的服务顺序的区别。 。</p>
+<p><strong>4) 获取 Cross Rollup MEV 的技术挑战：</strong>  Cross Rollup MEV 在技术上很难获取。 SS 网络要求在极短的时间内确定二层网络的交易顺序。在如此短的时间窗口内，搜索者需要找到垮二层网络的 MEV 机会，并通过某种方式与 SS 网络的交易定序提议者（Proposer）进行通信，将想要的交易插入到交易顺序的正确位置。整个过程中速度和准确性至关重要，这给搜索者设计和实现 MEV 算法带来了巨大的挑战</p>
+<h2 id="2basedroll--ups">2. Based Roll -ups </h2>
+<p>Based Sequencing 是指将二层的交易顺序交给一层下个区块的提议者（Proposer for next block of layer 1）与一层的 searcher 共同确定的设计。一层的下个区块的 proposer（提前通过 committee 的选举已经确定了）将 rollup 的区块作为一层的下一个区块的一部分。在这种情况下，一层的下一个区块的提议者决定了交易的顺序和 rollup 的区块，并在下一个 epoch 中提议该块。同时，第 2 层区块的形成是由第 2 层的 PBS 体系完成的，其中的角色也可以是一层 PBS 中的角色担任。这样的设计不会增加 Layer 1 提议者的负载，但仍然可以获得 Layer 2 去中心化排序器的预期好处。</p>
+<p><strong>Base Rollup 的多个优点：</strong></p>
+<p><strong>1）更好的 Better Liveness 和抗审查性。</strong> 只有 Base roll-up 完全继承了 layer 1 的 Liveness 和 Censorship Resistance，因为它授予 Layer 1 提议者确定 Layer 2 交易顺序的权利。这种设计消除了 Layer 2 对外部信任模型的需要，使得 Layer 2 更少容易受到任何外部影响。</p>
+<p>相比之下，依赖于外部去中心化交易排序器的二层网络（Rollups）如果遇到外部排序器短失灵，那么他将容易收到有毒 MEV 的攻击。在一层 escape hatch 里面的交易必须等候一段时间才能保证结算。尽管外部 SS 的可靠性可能为 99% ，但活可靠性降低 1% 仍可在恶意的外部环境中被利用</p>
+<p><strong>2）和一层网络的验证器利益一致性/最大 MEV 提可能</strong> <strong>（一层 + 跨二层 MEV）。</strong></p>
+<p>Based Roll-ups 通过将二层交易排序的权利交给一层的验证者将 MEV 的获取机会返回给一层验证者，从而使得一层验证者和二层利益一直，并增加了一层的 social capital，增进一层安全性。如果所有 roll-up 都采用这种模型，Layer 1 搜索者可以搜索跨 Layer 2 + Layer 1 MEV，与仅覆盖跨 Layer 2 MEV 的共享排序器模型相比，可以获得更大的 MEV 利润。</p>
+<p><strong>3）更低的用户成本：</strong> 在实施 Base Roll-up 设计时，Roll-up 不需要向外部 SS 网络支付额外的费用。Layer 1 的提议者以及搜索者和构建者通过 MEV 获得补偿。理论上，在其他条件相同的情况下，Base Roll-ups 上的交易成本应该低于基于 SS 的模型，因为没有外部网络参与提取价值。</p>
+<p><strong>4）抗审查和符合监管要求。</strong> 基础汇总可以保持抗审查性，同时遵守法规。</p>
+<p>目前 based rollup 的主要缺点是速度：人们担心 based-rollup 的吞吐量性能。有些人认为 Based-Roll up 的排序工作需要等到一层上的区块最终确定为止。在这种情况下，Based Rollup 交易确认时间直接受限 L1 的区块时间，导致从用户角度来看交易完成非常慢。</p>
+<p>然而，有一种方法可以对 based rollup 的交易排序进行预先确认。通过重新抵押（restaking），一层的下一区块的提议者可以承诺将 Based Rollup 的区块包含在他们将来提议的一层区块中。这是可能的，因为一层下个区块的提议着会提前选出。如果下个区块的提议者没有按照他们承诺的那样提出区块，他们将通过重新抵押（restaking）计划而受到惩罚性削减 token。（贾斯汀·戴克， 2023 年夏天）</p>
+<p>有些人可能会认为说服 Layer 1 验证者参与 Base Roll-ups 具有挑战性。然而，由于所有 MEV 流给予第 1 层的验证者网络，并且有二层的 token 的适当激励，因此一层验证者的利益与 based rollup 一致。因此，通过重新质押让一层验证者加入应该相对容易。</p>
+<p>总而言之， Based Roll-ups 可以实现交易排序的预确认保证系统性能，并且在没有新信任模型加入的情况下完全继承了一层的可靠性和抗审查性。因此与具有外部信任模型的复杂 SS 网络相比，Based Roll-ups 是一个更好的将交易排序去中心化的解决方案。</p>
+<p>感谢 Daniel 提供他的看法，感谢我的同事 Greg 和 Yao  对内容的编辑和提炼。 </p>
+<p>让我们将所有内容放入下面的比较表中：</p>
+<p><img src="https://img.bibiqing.com/news/2023/1109/19_6iurh479vc.png" alt="Rollups（二层网络）去中心化交易排序器的选择之路：Shared sequencer network还是Based Rollup？"></p>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/62894/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">Polygon Village将向生态开发者发放1.1亿MATIC</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/62835/">
+                <span class="next-text nav-default">SBI Holdings将推出规模超6.6亿美元基金，投资Web3、AI和元宇宙等新兴企业</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1外部共享定序器网络shared-sequencer-network方案"> 1.外部共享定序器网络（Shared sequencer network）方案</a></li>
+    <li><a href="#2basedroll--ups">2. Based Roll -ups </a></li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

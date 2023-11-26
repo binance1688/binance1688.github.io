@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          Solidity新版本0.8.22 发布:文件级事件定义、unchecked 循环增量优化 - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="0.8.22版本的编译器包含了一系列的语言和编译器改进，例如文件级事件定义、unchecked 循环增量优化、支持导入 EVM 汇编 JSON 等等。" />
+<meta name="keywords" content="以太坊2.0, Solidity, 技術, ETH" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/62102/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="Solidity新版本0.8.22 发布:文件级事件定义、unchecked 循环增量优化" />
+<meta property="og:description" content="0.8.22版本的编译器包含了一系列的语言和编译器改进，例如文件级事件定义、unchecked 循环增量优化、支持导入 EVM 汇编 JSON 等等。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/62102/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-11-21T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-11-21T00:00:00+00:00" />
+
+<meta itemprop="name" content="Solidity新版本0.8.22 发布:文件级事件定义、unchecked 循环增量优化">
+<meta itemprop="description" content="0.8.22版本的编译器包含了一系列的语言和编译器改进，例如文件级事件定义、unchecked 循环增量优化、支持导入 EVM 汇编 JSON 等等。"><meta itemprop="datePublished" content="2023-11-21T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-11-21T00:00:00+00:00" />
+<meta itemprop="wordCount" content="2943">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Solidity新版本0.8.22 发布:文件级事件定义、unchecked 循环增量优化"/>
+<meta name="twitter:description" content="0.8.22版本的编译器包含了一系列的语言和编译器改进，例如文件级事件定义、unchecked 循环增量优化、支持导入 EVM 汇编 JSON 等等。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">Solidity新版本0.8.22 发布:文件级事件定义、unchecked 循环增量优化</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-11-21">
+      2023-11-21
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 2943 字 -
+        预计阅读 6 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E5%85%B6%E5%AE%83%E6%96%87%E7%AB%A0/"> 其它文章 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>编译：登链翻译计划；来源：soliditylang.org</p>
+<p>Solidity 编译器的最新版本 v0.8.22的发布。0.8.22版本的编译器包含了一系列的语言和编译器改进，例如文件级事件定义、<code>unchecked</code> 循环增量优化、支持导入 EVM 汇编 JSON 等等。</p>
+<h2 id="重要提示">重要提示</h2>
+<p>本次发布废弃了对低于 Constantinople(君士坦丁堡) 版本的 EVM 的支持，这些版本越来越难以维护。这些古老的版本在以太坊主网和测试网络上早已过时，我们怀疑它们对其他网络也不再相关。复杂的代码路径和解决方案会减慢针对新版本的功能开发和测试的速度，因此我们希望在未来的编译器版本中停止支持它们。如果你依赖这些 EVM 版本的支持，请与我们联系[6]。</p>
+<h2 id="新功能亮点">新功能亮点</h2>
+<h3 id="unchecked-循环增量">unchecked 循环增量</h3>
+<p>在增加循环计数器时使用 <code>unchecked</code> 算术运算是为了 gas 优化[7]的常见做法。让我们以以下循环和计数器 i 的示例来说明：</p>
+<pre><code>for (uint i = 0; i &lt; array.length; ++i) {    acc += array[i]; // i is not modified by the loop body}
+</code></pre>
+<p>在许多情况下（详见下文的精确条件），比较操作将确保 i 永远不会达到其类型的最大值，因此可以安全地假设在达到最大值之前循环将停止。在这种情况下，对计数器进行安全检查将是多余的，也是一种 gas 的浪费。这就会鼓励用户使用冗长的 <code>unchecked</code> 模式，将计数器增量包装在循环体内的<code>unchecked</code>算术块中，绕过检查：</p>
+<pre><code>for (uint i = 0; i &lt; array.length;) {    acc += array[i];    unchecked { i++; } // i gets incremented without overflow checks -- less gas used}
+</code></pre>
+<p>Solidity 0.8.22 引入了一种溢出检查优化，自动生成了对于循环计数器的 <code>unchecked</code> 算术增量。这个新的优化消除了在循环体中使用类似前面示例中的冗长 <code>unchecked</code> 增量模式的需要。</p>
+<p>相比之下，新的优化使用户能够在不牺牲gas效率的情况下返回到原始的、更易读的代码。</p>
+<p>新优化避免溢出检查的精确条件如下：</p>
+<ul>
+<li>
+<p>循环条件是形如 <code>i &lt; ...</code> 的比较，其中 i 是一个局部变量（从现在开始称为“循环计数器”）。</p>
+</li>
+<li>
+<p>此比较必须在与循环计数器相同的类型上执行，即右侧的类型必须可以隐式转换为循环计数器的类型，以使循环计数器在比较之前不会被隐式扩展。</p>
+</li>
+<li>
+<p>循环计数器必须是内置整数类型的局部变量。</p>
+</li>
+<li>
+<p>循环表达式必须是循环计数器的前缀或后缀递增，即 i++ 或 ++i。</p>
+</li>
+<li>
+<p>循环计数器不能在循环条件或循环体中被修改。</p>
+</li>
+</ul>
+<p>为了澄清第二个条件，考虑以下代码片段：</p>
+<pre><code>for (uint8 i = 0; i &lt; uint16(1000); ++i) {    // loop body}
+</code></pre>
+<p>在这种情况下， i 在比较之前被转换为 uint16，并且条件实际上永远不会为假，因此无法删除递增的溢出检查。</p>
+<p>另外，请注意， <code>&lt;</code> 是唯一会触发该优化的比较运算符。故意排除了运算符 <code>&lt;=</code> 和其他运算符。此外，该运算符必须是内置的 - 用户定义的 <code>&lt;</code> 不符合条件。</p>
+<p>该优化是直接的且总是有益的，因此即使使用通用设置 <code>settings.optimizer.enabled</code> 禁用了优化器的其余部分，它也会被启用。可以通过在标准 JSON 输入中将 <code>settings.optimizer.details.simpleCounterForLoopUncheckedIncrement</code> 设置为 <code>false</code> 来明确关闭它。无法使用命令行界面禁用它。</p>
+<h3 id="调整yul优化器以重新生成零字面量">调整Yul优化器以重新生成零字面量</h3>
+<p>新版本在 0.8.20 版本引入的 PUSH0 操作码的支持基础上进行了构建，通过将 Rematerialiser[8] 优化步骤扩展为始终重新生成零字面量而不是将其存储为变量引用，从而允许使用 PUSH0 而不是 DUP 来降低gas成本。为确保有效执行此操作，将 Rematerialiser 和 UnusedPruner[9] 步骤添加到了Yul优化器的默认清理序列中。</p>
+<h3 id="添加对导入-evm-汇编-json-的支持实验性">添加对导入 EVM 汇编 JSON 的支持（实验性）</h3>
+<p>这个新版本添加了对导入 EVM 汇编的实验性支持，为外部工具在字节码生成之前执行超级优化提供了可能性。此功能的主要目的是定义一种低级 EVM 汇编的序列化格式，使编译器生成的汇编可以被导出、修改和重新导入，从而恢复正常的编译过程。</p>
+<p><strong>重要提示</strong> ：这是一个实验性功能，目前不适用于生产环境。我们在此版本中提供此功能，以便你尝试并提供反馈。</p>
+<h3 id="允许在文件级别定义事件">允许在文件级别定义事件</h3>
+<p>Solidity 0.8.22 允许你在文件级别定义事件。现在，事件定义可以放在合约范围之外。这为代码组织提供了另一种选择，无需人为地将事件包装在库中。</p>
+<p>此外，此版本还修复了一个错误，该错误导致在为代码发出在外部合约或接口中定义的事件时生成 NatSpec 时出错。在上一个版本（0.8.21）中，Solidity编译器添加了对在当前合约未继承的合约和接口中定义的事件的限定访问的支持，但该错误阻止了该功能的完全使用。</p>
+<p>通过此错误修复和允许文件级别事件定义，Solidity的最新版本使用户能够编译以下示例而不会出现任何错误：</p>
+<pre><code>interface I {    event ForeignEvent();}contract C {    event ForeignEvent();}event E();contract D {    function f() public {        // Emitting a foreign event would trigger an internal error on 0.8.21        emit I.ForeignEvent();        emit C.ForeignEvent();        // Emitting a file-level event. New feature.        emit E();    }}
+</code></pre>
+<h2 id="完整的更改日志">完整的更改日志</h2>
+<h3 id="语言特性">语言特性</h3>
+<ul>
+<li>允许在文件级别定义事件。</li>
+</ul>
+<h3 id="编译器特性">编译器特性</h3>
+<ul>
+<li>
+<p>代码生成器：当计数变量不会溢出时，删除某些<code>for</code>循环的冗余溢出检查。</p>
+</li>
+<li>
+<p>命令行界面：添加<code>--no-import-callback</code>选项，防止编译器加载未在 CLI 或标准 JSON 输入中明确给出的源文件。</p>
+</li>
+<li>
+<p>命令行界面：添加实验性的<code>--import-asm-json</code>选项，可以导入以<code>--asm-json</code>使用的格式的 EVM 汇编。</p>
+</li>
+<li>
+<p>命令行界面：对于在编译 pipeline 之外产生的错误消息，使用适当的严重性和着色。</p>
+</li>
+<li>
+<p>EVM：弃用对“homestead”、“tangerineWhistle”、“spuriousDragon”和“byzantium” EVM 版本的支持。</p>
+</li>
+<li>
+<p>解析器(Parser)：删除实验性的错误恢复模式（<code>--error-recovery</code> / <code>settings.parserErrorRecovery</code>）。</p>
+</li>
+<li>
+<p>SMTChecker：支持用户定义的运算符。</p>
+</li>
+<li>
+<p>Yul 优化器：如果支持<code>PUSH0</code>，优先使用零字面量而不是将零值存储在变量中。</p>
+</li>
+<li>
+<p>Yul 优化器：在默认的清理序列的末尾运行<code>Rematerializer</code>和<code>UnusedPruner</code>步骤。</p>
+</li>
+</ul>
+<h3 id="bug-修复">Bug 修复</h3>
+<ul>
+<li>
+<p>代码生成器：修复通过 via-IR 代码生成器输出的结果依赖于导入回调中发现的文件的问题。在某些情况下，不同的 AST ID 分配会改变内部调度中函数的顺序，导致表面上不同但在语义上等效的字节码。</p>
+</li>
+<li>
+<p>NatSpec：修复在请求合约的用户文档或开发文档时出现内部错误的问题，该合约发出了在外部合约或接口中定义的事件。</p>
+</li>
+<li>
+<p>SMTChecker：修复编码错误，导致循环在完成后展开。</p>
+</li>
+<li>
+<p>SMTChecker：修复常量条件检查的不一致性，当 while 或 for 循环在条件检查之前展开时。</p>
+</li>
+<li>
+<p>Yul 优化器：修复在 CSE 期间受编译器生成的Yul变量名影响替换决策的问题，在某些情况下导致不同（但等效）的字节码。</p>
+</li>
+</ul>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/63559/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">SignalPlus宏观研报特别版：Ctrl-Altman-Delete</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/62114/">
+                <span class="next-text nav-default">Taproot Assets：或将开创比特币网络多资产新时代</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#重要提示">重要提示</a></li>
+    <li><a href="#新功能亮点">新功能亮点</a>
+      <ul>
+        <li><a href="#unchecked-循环增量">unchecked 循环增量</a></li>
+        <li><a href="#调整yul优化器以重新生成零字面量">调整Yul优化器以重新生成零字面量</a></li>
+        <li><a href="#添加对导入-evm-汇编-json-的支持实验性">添加对导入 EVM 汇编 JSON 的支持（实验性）</a></li>
+        <li><a href="#允许在文件级别定义事件">允许在文件级别定义事件</a></li>
+      </ul>
+    </li>
+    <li><a href="#完整的更改日志">完整的更改日志</a>
+      <ul>
+        <li><a href="#语言特性">语言特性</a></li>
+        <li><a href="#编译器特性">编译器特性</a></li>
+        <li><a href="#bug-修复">Bug 修复</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          比特币钱包找回指南 - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="看了这篇指南，你将了解助记词和钱包背后的基本原理。以及，如何找回你的比特币钱包。" />
+<meta name="keywords" content="BTC, 錢包" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/61848/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="比特币钱包找回指南" />
+<meta property="og:description" content="看了这篇指南，你将了解助记词和钱包背后的基本原理。以及，如何找回你的比特币钱包。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/61848/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-10-25T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-10-25T00:00:00+00:00" />
+
+<meta itemprop="name" content="比特币钱包找回指南">
+<meta itemprop="description" content="看了这篇指南，你将了解助记词和钱包背后的基本原理。以及，如何找回你的比特币钱包。"><meta itemprop="datePublished" content="2023-10-25T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-10-25T00:00:00+00:00" />
+<meta itemprop="wordCount" content="6046">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="比特币钱包找回指南"/>
+<meta name="twitter:description" content="看了这篇指南，你将了解助记词和钱包背后的基本原理。以及，如何找回你的比特币钱包。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">比特币钱包找回指南</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-10-25">
+      2023-10-25
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 6046 字 -
+        预计阅读 13 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E6%AF%94%E7%89%B9%E5%B8%81/"> 比特币 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>作者：Mi Zeng</p>
+<p>什么！找回比特币钱包竟然也需要一份指南？难道不是将助记词随便导入一个钱包软件，比特币就回来了吗？</p>
+<p>先别急。看了这篇指南，你将了解助记词和钱包背后的基本原理。以及，如何找回你的比特币钱包。</p>
+<h2 id="从助记词到地址发生了什么">从助记词到地址，发生了什么</h2>
+<h3 id="私钥公钥和地址">私钥、公钥和地址</h3>
+<p>首先，搞清楚私钥、公钥和地址之间的关系非常重要。</p>
+<p>私钥是一切的源头。本质上，它是一长串由 0 和 1 组成的 256 位随机数。有各种各样的方式帮助你生成这样一串随机数。当花费资产时，钱包需要用到私钥来签名，这是解锁比特币最关键的要素。”Not your key, not your coin.” 这句广为流传的名言，强调的便是私钥的重要性。</p>
+<p>公钥是由私钥通过椭圆曲线算法计算得到的。由私钥计算得出公钥的过程不可逆。</p>
+<p>公钥经过一系列单向的哈希运算和编码，就得到了我们使用的比特币地址。</p>
+<p>注意，这三者之间的推导关系是单向的，你可以由私钥计算出公钥，得出对应的地址，而无法由地址逆向算出私钥。哈希算法和非对称密码学为此提供了安全上的保障。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1025/17_ahfbpgkzsd.png" alt="比特币钱包找回指南"></p>
+<p>- 图源：精通比特币 -</p>
+<p>在早期的比特币钱包软件中，每当用户需要一个新地址时，钱包就会创建一个新的私钥并产生一个新的地址。用到的地址越多，对应的私钥也就越多。而糟糕的是，这些私钥彼此之间没有任何联系，这意味着每一个私钥都需要备份，给用户带来了极大的不便。在早期，用户需要定期备份一个叫作 “wallet.dat” 文件。一旦该备份文件丢失，资金将无法找回。</p>
+<p>那么，如何让不同私钥之间如何产生联系？助记词又是如何取代这一繁琐而危险的备份方式的？这一切，得从三个最重要的 BIP 说起。</p>
+<h3 id="bip39助记词">BIP39：助记词</h3>
+<p>这是最广为人知的一个 BIP 标准，它的出现大大简化了私钥备份的难度。私钥的形式对于普通人而言过于复杂，用户很难安全且准确无误地记录和输入那么一长串字符。而有了 BIP39，我们就可以将私钥转换为 12 或 24 个简单的单词，也可以更方便地在钱包之间导入导出。如果你对私钥具体是如何转换成助记词的感兴趣，可以看这篇文章。</p>
+<p>如今，几乎所有的比特币钱包都支持了助记词这一备份形式。然而，光靠助记词是不够的。如果私钥之间并没有关联，那就意味着每使用一个新地址，就需要备份一份新的助记词。这样的方式看上去并不比备份钱包文件优雅多少。那么，目前常用的这些钱包，是如何做到通过一个助记词管理一大堆钱包地址的呢？</p>
+<p>实际上，在助记词出现之前，一个 BIP 已经为此打下了基础。</p>
+<h3 id="bip32分层确定性钱包">BIP32：分层确定性钱包</h3>
+<p>BIP32 提供了一种方案：通过一个初始的主密钥 ，按照特定的算法（密钥派生函数）可以推导出成千上万的扩展密钥对（扩展公钥和扩展私钥）。“分层” 两个字，已经很好地概括了这一结构的特点。它就像一棵树一样，通过最初的主密钥派生出一堆子密钥，任意一个子密钥都可以使用这套算法继续往下派生自己的子密钥。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1025/17_3kafepneb5.png" alt="比特币钱包找回指南"></p>
+<p>- 分层确定性钱包图示 -</p>
+<p>如果你对这一密钥派生的技术过程感兴趣，可以看看这篇文章：BIP32 拓展密钥图解</p>
+<p>通过这种分层派生密钥的方式，我们可以拥有近乎无限的地址。尽管这些扩展密钥对之间并没有直接的关联，但它们都来自于同一个初始密钥。那么，如何建立这些扩展密钥和主密钥之间的联系？派生路径登场！</p>
+<p>派生路径长这样：<code>m/0'/0'/0/0/</code></p>
+<p>它清楚地表达了如何从最开始的主密钥计算出具体某一对密钥的全过程。在这一串字符中，“m” 代表着最初的主密钥，每一层子密钥由 “/” 分隔开。每一个 “/” 代表运行了一轮密钥派生算法，斜杠之间的数字就是这一轮密钥派生算法的参数，也可以表示密钥的索引号。例如，由主密钥派生出的第一个子密钥为 <code>m/0</code> ，由这个子密钥派生出的第一个子密钥为 <code>m/0/0</code> ，以次类推······ 其中任何一个数字的改变，都将得出不同的密钥和地址。派生路径就像是电脑里的文件路径，告诉你如何找到某个具体的地址。</p>
+<p>BIP 32 的出现给钱包的管理带来了极大的便利，通过一个私钥可以管理千万个地址。借此，用户可以摒弃之前繁琐的备份方式。无论通过这种方式产生过多少个密钥，都可以借助 “派生路径” 找回来。</p>
+<p>到这里，聪明的读者会发现：如果仅仅依靠助记词本身，是无法直接得到某一个具体的地址的。必须加上派生路径，才能推导出具体的比特币地址。但是，为什么在大多数情况下，我只是把助记词导入到钱包，曾经用过的那些地址就出来了？</p>
+<p>标准化的派生路径功不可没。</p>
+<h3 id="bip44为派生路径定义规范">BIP44：为派生路径定义规范</h3>
+<p>BIP44 为 “派生路径” 中的每一层都赋予了特定含义，它的形式如下：</p>
+<p><code>m / purpose' / coin_type' / account' / change / address_index</code></p>
+<ul>
+<li>
+<p><code>purpose</code>：代表该分层确定性钱包遵循的规范。对于比特币钱包而言，通过这一层的数字，就可以知道最终的比特币地址类型。</p>
+</li>
+<li>
+<p><code>coin_type</code>：代表币种的类型。 同一个助记词可以用于派生不同的加密货币钱包，0 代表比特币，1 代表测试网上的比特币，每种密码学货币都有其特定的编号。</p>
+</li>
+<li>
+<p><code>account</code>：账户的索引值，代表当前路径下的第 0 个账户、第 1 个账户、第 2 个账户 ······</p>
+</li>
+<li>
+<p><code>change</code>：定义该地址是收款地址还是找零地址。0 代表收款地址，1 代表找零地址。</p>
+</li>
+<li>
+<p><code>address_index</code>：地址的索引值，代表当前路径下的第 0 个地址、第 1 个地址、第 2 个地址 ······</p>
+</li>
+</ul>
+<p><img src="https://img.bibiqing.com/news/2023/1025/17_ika5u8setv.png" alt="比特币钱包找回指南"></p>
+<p>- BIP44 定义下的分层确定性钱包，图源：River -</p>
+<h4 id="动手一试">动手一试</h4>
+<p>在浏览器里打开这个网站：https://iancoleman.io/bip39/</p>
+<p>利用网站提供的功能随机生成一个助记词。</p>
+<p>尝试在 “Derivation Path” （派生路径）这一部分手动更改 “Account” 和 “External / Internal”（也就是上面提到的“Change”）的值。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1025/17_zhbgcna5e8.png" alt="比特币钱包找回指南"></p>
+<p>当你输入不同的数值时，可以看到随着派生路径（BIP32 Derivation Path）的变化，产生的钱包地址（Derived Addresses）也会截然不同。</p>
+<p>你也可以通过在 “Derivation Path” 这一部分切换不同的选项卡（例如 BIP49 / BIP84）来改变 “purpose” 的值，看看在不同的派生标准下，生成的地址有何区别。</p>
+<p>以下是比特币钱包中最常用的三种地址派生路径标准：</p>
+<p>BIP44：用于推导 P2PKH 地址的派生路径标准，即最传统的以 “1” 开头的比特币地址，派生路径为 <code>m/44'/0'/···</code></p>
+<p>BIP49：用于推导 P2WPKH-nested-in-P2SH 地址的派生路径标准，即以 “3” 开头的隔离见证地址，派生路径为 <code>m/49'/0'/···</code></p>
+<p>BIP84：用于推导 P2WPKH 地址的派生路径标准，即以 ”bc1q“ 开头的原生隔离见证地址，派生路径为 <code>m/84'/0'/···</code></p>
+<p>正是因为有了这些标准化的派生路径，钱包们才知道应该跟随哪条派生路径来生成地址。这就是为什么在大多数情况下，用户只需要导入助记词，选择地址类型，就能找回用过的钱包。</p>
+<p>助记词、分层确定性钱包和标准化派生路径的组合，使得备份和找回比特币资产变得前所有未有的方便。所以说：只备份好助记词，就够了吗？</p>
+<h2 id="助记词不是万能药">助记词不是万能药</h2>
+<p>即便已经有了上述一系列关于钱包的 BIP，当你真正需要找回钱包时，仅有助记词或许仍然是不够的。不同的钱包在开发时并没有一个绝对的标准，总是存在一些例外的情况，是单靠助记词无法挽救的：</p>
+<ul>
+<li>
+<p>部分钱包并没有实施 BIP 标准</p>
+</li>
+<li>
+<p>钱包实施了 BIP 标准，但与其它钱包不一致</p>
+</li>
+<li>
+<p>实施了一些较新的标准，但采用的钱包很少</p>
+</li>
+</ul>
+<p>这样的困境并不会因为你避免使用小众的钱包就完全消失。</p>
+<p>举个很简单的例子，如果你使用 Electrum 钱包创建了助记词，当你将这份助记词导入其它钱包中时，会面临 “助记词无效” 的尴尬局面。这是因为 Electrum 并没有采用行业通用的 BIP39 助记词标准，而是使用了自己独特的助记词系统。</p>
+<p>如果你是 Ledger 钱包和以太坊的用户，当你想更换硬件钱包时， Ledger 也会给你上一课。同样的助记词导入到其它钱包，会得到完全不一样的以太坊地址。这是因为 Ledger 使用了与其它钱包都不同的派生路径。如果想找回原来用过的地址，必须手动设置成和 Ledger 一样的路径。</p>
+<p>不同钱包采用不同标准的情况相当常见，经常有人在找回资金的路上犯了难。以致于出现了像 Wallets Recovery 这样的网站，专门指导用户如何在不同的钱包里找回自己的资金。如果你恰好遇到了找回钱包上的困难，也可以去那里碰碰运气。</p>
+<h2 id="钱包找回指南">钱包找回指南</h2>
+<p>回到一开始的问题：如何找回比特币钱包？换言之：当我们需要找回自己的钱包时，需要哪些东西？</p>
+<p>在了解完上文提供的基础知识后，这个问题的答案已经非常明确了：如果你的比特币钱包使用了标准化的派生路径（绝大多数钱包都提供了查看派生路径的功能），那么，记住你所使用的地址类型，做好助记词的备份就足够了。在找回钱包时，软件会根据你指定的地址类型自动匹配派生路径的标准，推导出正确的地址。</p>
+<p>如果你无法确定当前钱包使用的派生路径是否标准，那么请一定要备份好助记词和派生路径。有了二者的备份，你总是可以找回自己的资产。</p>
+<p>不过，对于那些喜欢尝鲜特色功能，或是对自我托管有着更多诉求的用户来说，助记词加派生路径还不是找回钱包所需的全部。</p>
+<h3 id="例外情况">例外情况</h3>
+<h4 id="passphrase-密语钱包">Passphrase （密语）钱包</h4>
+<p>对于普通用户来说，最容易出问题的一种情况是使用了密语钱包，而忘了备份密码短语。</p>
+<p>Passphrase，被称为第 25 个助记词。实际上，它可以是单词、字符、数字、空格，以及这些元素的组合。通过在原有助记词的基础上增加这样一段密码短语，用户就可以创建出一套新的钱包账户，与原来的钱包完全没有联系，实现一个隐秘的保险库。这样，即便助记词泄漏，资产也不会丢失。在很多安全教程里，密语钱包也是抵御 “五美金扳手攻击” 的最佳选择之一。</p>
+<p>如今，密语钱包的用户群体相当广泛，很多软硬件钱包都支持了这一功能。如果你选择使用密语钱包来提升安全性，最应当牢记的一点是：一定要做好密码短语的备份工作！ 它和助记词一样，是无法通过任何方式找回的。不同的密码短语对应着完全不同的隐藏钱包，哪怕只改变原密码短语中的一个字符，得到的钱包也会截然不同。</p>
+<p>一旦弄丢了密码短语，找回资产如同大海捞针。这比忘记了派生路径要严重得多。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1025/17_n0g6trjykl.png" alt="比特币钱包找回指南"></p>
+<p>- 图源：Trezor -</p>
+<h4 id="多签钱包">多签钱包</h4>
+<p>多签钱包将比特币自我托管的安全性提升到了前所未有的高度，在社区里应用相当广泛。但对于新手用户而言，使用多签的过程中也极易犯错。</p>
+<p>以最常见的 2-3 多签为例，对于绝大多数新手来说，一个常见的误区是：我只需要持有两把私钥，就可以拿回属于我的资产。</p>
+<p>这实际上是远远不够的。当你丢失了自己的钱包时，仅仅依靠两把私钥无法帮助你恢复资产。在私钥之外，你还需要备份所有参与创建多签钱包的扩展公钥。只有依靠这些信息，才可以在任意一款多签工具中恢复出原来的钱包，并利用手上满足数量要求的私钥来花费里面的资金。</p>
+<p>一个更优雅的备份方式是记录下你多签钱包的描述符。描述符是一段字符串，里面包含了找回钱包所需的全部信息，可以用它来代替扩展公钥的备份，简化备份操作。目前主流的比特币钱包软件都添加了对描述符的支持。</p>
+<p>另外，一些钱包最近也添加了对 BIP129（比特币安全多重签名设置，BSMS）的支持，它会在你创建多签钱包后给你一个 BSMS 文件。类似于描述符，这个文件里包含了关于恢复多签钱包所需的全部信息，在任何支持的钱包导入该文件，也可以恢复多签钱包。BSMS 的出现，就是为了在不同钱包之间提供一个标准化的多签设置流程。</p>
+<p>关于如何用好比特币多签钱包，这里有一份非常详细的指南可供实践。</p>
+<h4 id="bip85">BIP85</h4>
+<p>BIP85 是一种利用助记词来派生助记词的新颖方案，目前已有少数钱包支持。有了 BIP85，用户利用一套助记词加上索引号（index），即可派生出确定性的新助记词。只要索引号不变，派生出的助记词就不会发生改变。利用该功能创建出来的子助记词之间互无关联，也无法逆向推导出主助记词。BIP85 常用于简化助记词的管理：当遇到各种需要创建新助记词的场景时，BIP85 可以极大地简化助记词的备份工作。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1025/17_v2grc82cwp.png" alt="比特币钱包找回指南"></p>
+<p>- BIP85 助记词派生方案 -</p>
+<p>如果你使用了由 BIP85 派生的子助记词，记得备份好对应的索引号。和密码短语类似的是，索引号也是独一无二的。</p>
+<h4 id="非标准的助记词形式">非标准的助记词形式</h4>
+<p>少数钱包为用户提供了非标准助记词的选择，借以实现独特的功能。</p>
+<p>上文提到的 Electrum 是个很典型的案例。Electrum 有自己独特的助记词版本系统，它在助记词内融合了版本号（Version Number），版本号用于指导钱包如何通过助记词派生出私钥和地址。因此，在 Electrum 的助记词系统里，用户需要备份的只有助记词，助记词本身已经包含了关于如何派生地址的一切信息。然而，这一特定类型的助记词只能用于 Electrum 钱包，无法与其它钱包兼容。因此，当你决定使用 Eletctum 创建的钱包助记词时，请做好一直使用 Electrum 钱包或者未来迁移资产的打算。（注：Electrum 支持导入标准的 BIP39 助记词，但不提供长期支持该类助记词的保证。）</p>
+<p>另一种常见的非标准助记词形式就是 SLIP39（Shamir 密钥分割方案）。利用该方案，用户可以创建多份助记词分片，只需要持有指定数额的分片，即可恢复出钱包。以 3/5 的 Shamir 密钥分割方案为例：在创建钱包的时候会生成 5 份助记词分片，用户将这些分片分开保存。当需要恢复钱包时，需要凑齐其中的 3 份分片，才可以恢复出钱包。这一备份方案提供了更多的冗余，避免了助记词丢失/被盗的单点故障。如果你选择了这一备份方案，请记住：Shamir 密钥分割方案产生的助记词分片和标准的 BIP39 助记词无法互相转换。因此，当你需要恢复自己的助记词时，只能挑选支持该方案的钱包工具。而目前仅有少数几款软硬件钱包支持了 Shamir 备份。</p>
+<p>此外，五花八门的非标准方案还有很多，由于受众过少，本文不再详述。</p>
+<h2 id="总结">总结</h2>
+<p>对于任何一个持有比特币的人来说，都应该花点时间了解这些钱包相关的基础知识。已经有太多因为备份不当而导致资产丢失的惨痛案例了。</p>
+<p>如果你还是一名新手，请使用支持标准助记词和派生路径的钱包，这可以帮你避免绝大部分坑。如果你已经有了一定的经验积累，想尝试一些复杂的方案来获得更高的安全性。那么，搞清楚它们背后运作的机制非常重要，请熟悉你所使用的工具后再转入资产。享受这些进阶方案所提供的附加优点的同时，做好必要的备份工作，避免悲剧发生。</p>
+<p>感谢 @AurtrianAjian 对本文部分细节的指正。</p>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/61792/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">贝莱德的现货比特币ETF已从DTCC网站移除</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/61855/">
+                <span class="next-text nav-default">币安：加密货币提现出现技术问题</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#从助记词到地址发生了什么">从助记词到地址，发生了什么</a>
+      <ul>
+        <li><a href="#私钥公钥和地址">私钥、公钥和地址</a></li>
+        <li><a href="#bip39助记词">BIP39：助记词</a></li>
+        <li><a href="#bip32分层确定性钱包">BIP32：分层确定性钱包</a></li>
+        <li><a href="#bip44为派生路径定义规范">BIP44：为派生路径定义规范</a></li>
+      </ul>
+    </li>
+    <li><a href="#助记词不是万能药">助记词不是万能药</a></li>
+    <li><a href="#钱包找回指南">钱包找回指南</a>
+      <ul>
+        <li><a href="#例外情况">例外情况</a></li>
+      </ul>
+    </li>
+    <li><a href="#总结">总结</a></li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>

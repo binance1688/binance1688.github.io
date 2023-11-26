@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html
+  lang="zh-cn"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>
+          optimism sequencer背后的魔法：L2派生（derivation）原理 - 区块大全
+        </title>
+    
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="佚名" /><meta name="description" content="layer2的运行节点是可以从DA层（layer1）中获取数据，并且构建出完整的layer2区块数据的。本文讲解这个过程中是如何在codebase中实现的。" />
+<meta name="keywords" content="Optimism" />
+
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.120.4" />
+
+
+<link rel="canonical" href="/post/62183/" />
+
+
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.d8d87b982993a745e5e7b6a6cbf257be8c3e82aab5e485f0908ad7e6c3501ab2.css" integrity="sha256-2Nh7mCmTp0Xl57amy/JXvow&#43;gqq15IXwkIrX5sNQGrI=" media="screen" crossorigin="anonymous">
+
+
+
+
+
+
+
+<meta property="og:title" content="optimism sequencer背后的魔法：L2派生（derivation）原理" />
+<meta property="og:description" content="layer2的运行节点是可以从DA层（layer1）中获取数据，并且构建出完整的layer2区块数据的。本文讲解这个过程中是如何在codebase中实现的。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/62183/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-11-22T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-11-22T00:00:00+00:00" />
+
+<meta itemprop="name" content="optimism sequencer背后的魔法：L2派生（derivation）原理">
+<meta itemprop="description" content="layer2的运行节点是可以从DA层（layer1）中获取数据，并且构建出完整的layer2区块数据的。本文讲解这个过程中是如何在codebase中实现的。"><meta itemprop="datePublished" content="2023-11-22T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2023-11-22T00:00:00+00:00" />
+<meta itemprop="wordCount" content="5417">
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="optimism sequencer背后的魔法：L2派生（derivation）原理"/>
+<meta name="twitter:description" content="layer2的运行节点是可以从DA层（layer1）中获取数据，并且构建出完整的layer2区块数据的。本文讲解这个过程中是如何在codebase中实现的。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+  </head>
+  <body>
+    <div id="back-to-top"></div>
+
+    <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">区块大全</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+        
+      </li>
+    
+
+    
+  </ul>
+</nav>
+
+
+    
+      
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+    
+
+    
+
+    
+
+
+    <header id="header" class="header">
+      <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      区块大全
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/">主页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+
+    
+    
+
+    
+  </ul>
+</nav>
+
+    </header>
+
+    <div id="mobile-panel">
+      <main id="main" class="main bg-llight wallpaper">
+        <div class="content-wrapper">
+    <div id="content" class="content">
+      <article class="post">
+        
+        <header class="post-header">
+          <h1 class="post-title">optimism sequencer背后的魔法：L2派生（derivation）原理</h1>
+          
+
+          <div class="post-meta">
+  <div class="post-meta-author">
+    by
+      佚名
+    
+  </div>
+
+  <div class="post-meta-time">
+    <time datetime="2023-11-22">
+      2023-11-22
+    </time>
+  </div>
+
+  
+
+
+  <div class="post-meta__right">
+    <span class="post-meta-more">
+        约 5417 字 -
+        预计阅读 11 分钟
+      </span>
+
+    <div class="post-meta-category">
+        <a href="/categories/%E5%85%B6%E5%AE%83%E6%96%87%E7%AB%A0/"> 其它文章 </a>
+          
+      </div>
+
+
+    
+    
+
+
+    
+    
+  </div>
+</div>
+
+        </header>
+
+        
+        <div class="post-content">
+          <table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">币安网</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/binance?ref=githubio">注册链接</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/binance?ref=githubio">币安是全球领先的区块链生态系统，推出了一系列产品，其中包括最大的加密货币交易平台。我们的使命是在未来成为全球性加密货币基础架构供应商。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">欧易OKX</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/okx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/okx?ref=githubio">欧易是全球著名的数字资产交易平台之一，主要面向全球用户提供比特币、莱特币、以太币等数字资产的币币和衍生品交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">HTX火币</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/htx?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/htx?ref=githubio">火币全球专业站，是火币集团旗下服务于全球专业交易用户的创新数字资产国际站，致力于发现优质的创新数字资产投资机会。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<p>作者：joohhnnn</p>
+<h1 id="opstack是如何从layer1中派生出来layer2的">opstack是如何从Layer1中派生出来Layer2的</h1>
+<p>在阅读本文章之前，我强烈建议你先阅读一下来自<code>optimism/specs</code>中有关派生部分的介绍(source[2]) 如果你看完这篇文章，感到迷茫，这是正常的。但是还是请记住这份感觉，因为在看完我们这篇文章的分析之后，请你回过来头再看一遍，你就会发现这篇官方的文章真的很凝练，把所有要点和细节都精炼的阐述了一遍。</p>
+<p>接下来让我们进入文章正题。我们都知道layer2的运行节点是可以从DA层（layer1）中获取数据，并且构建出完整的layer2区块数据的。今天我们就来讲解一下这个过程中是如何在<code>codebase</code>中实现的。</p>
+<h2 id="你需要有的问题">你需要有的问题</h2>
+<p>如果现在让你设计这样一套系统，你会怎么设计呢？你会有哪些问题？在这里我列出来了一些问题，带着这些问题去思考会帮助你更好的理解整篇文章</p>
+<ul>
+<li>
+<p>当你启动一个新节点的时候，整个系统是如何运行的？</p>
+</li>
+<li>
+<p>你需要一个个去查询所有l1的区块数据吗？如何触发查询？</p>
+</li>
+<li>
+<p>当拿到l1区块的数据后，你需要哪些数据？</p>
+</li>
+<li>
+<p>派生过程中，区块的状态是怎么变化的？如何从<code>unsafe</code>变成<code>safe</code>再变成<code>finalized</code>？</p>
+</li>
+<li>
+<p>官方specs中晦涩的数据结构 <code>batch/channel/frame</code> 这些到底是干嘛的？（可以在上一章<code>03-how-batcher-works</code>章节中详细理解）</p>
+</li>
+</ul>
+<h2 id="什么是派生derivation">什么是派生（derivation）？</h2>
+<p>在理解<code>derivation</code>前，我们先来聊一聊optimism的基本rollup机制，这里我们简单以一笔l2上的transfer交易为例。</p>
+<p>当你在optimism网络上发出一笔转账交易，这笔交易会被&quot;转发&quot;给<code>sequencer</code>节点，由<code>sequencer</code>进行排序，然后进行区块的封装并进行区块的广播，这里可以理解为出块。我们把这个包含你交易的区块称为<code>区块A</code>。这时的<code>区块A</code>状态为<code>unsafe</code>。接下来等<code>sequencer</code>达到一定的时间间隔了（比如4分钟），会由<code>sequencer</code>中的<code>batcher</code>的模块把这四分钟内所有收集到的交易（包括你这笔转账交易）通过一笔交易发送到l1上，并由l1产出区块X。这时的区块A状态仍然为<code>unsafe</code>。当任何一个节点执行<code>derivation</code>部分的程序后，此节点从l1中获取区块X的数据，并对<code>本地l2的unsafe区块A</code>进行更新。这时的<code>区块A</code>状态为<code>safe</code>。在经过<code>l1两个epoch（64个区块）</code>后，由l2节点将区块A标记为<code>finalized</code>区块。</p>
+<p>而派生就是把角色带入到上述例子的l2节点当中，通过不断的并行执行<code>derivation</code>程序将获取的<code>unsafe</code>区块逐步变成<code>safe</code>区块，同时把已经是<code>safe</code>的区块逐步变成<code>finalized</code>状态的一个过程。</p>
+<h2 id="代码层深潜">代码层深潜</h2>
+<p>hoho 船长，让我们深潜?</p>
+<h3 id="获取batcher发送的batch-transactions的data">获取batcher发送的batch transactions的data</h3>
+<p>我们先来看看当我们知道一个新的l1的区块时，如何查看区块里面是否有<code>batch transactions</code>的数据 在这里我们先梳理一下所需要的模块，再针对这些模块进行查看</p>
+<ul>
+<li>
+<p>首先要确定下一个l1的区块块号是多少</p>
+</li>
+<li>
+<p>将下一个区块的数据解析出来</p>
+</li>
+</ul>
+<h3 id="确定下一个区块的块号">确定下一个区块的块号</h3>
+<p><code>op-node/rollup/derive/l1_traversal.go</code></p>
+<p>通过查询当前<code>origin.Number + 1</code>的块高来获取最新的l1块，如果此块不存在，即<code>error</code>和<code>ethereum.NotFound</code>匹配，那么就代表当前块高即为最新的区块，下一个区块还未在l1上产生。如果获取成功，将最新的区块号记录在<code>l1t.block</code>中</p>
+<p><img src="https://img.bibiqing.com/news/2023/1030/24_hksvl7hgdz.png" alt="QxVjIoo0slfzA1OlhypWRI2gnvQq6kIOu2Ihffyj.png" title="7126162"></p>
+<h3 id="将区块的data解析出来">将区块的data解析出来</h3>
+<p><code>op-node/rollup/derive/calldata_source.go</code></p>
+<p>首先先通过<code>InfoAndTxsByHash</code>将刚才获取的区块的所有<code>transactions</code>拿到，然后将<code>transactions</code>和我们的batcherAddr还有我们的config传入到<code>DataFromEVMTransactions</code>函数中， 为什么要传这些参数呢？因为我们在过滤这些交易的时候，需要保证<code>batcher</code>地址和接收地址的准确性（权威性）。在<code>DataFromEVMTransactions</code>接收到这些参数后，通过循环对每个交易进行地址的准确性过滤，找到正确的<code>batch transactions</code>。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1030/24_hfc40tjrqj.png" alt="ve60faxpCkzCjNpSAnkvvwqWPsVjLJuIAj12hXad.png" title="7126163"><img src="https://img.bibiqing.com/news/2023/1030/24_d8fbd4086t.png" alt="ZLCUbfFLRt4fyK657QW57gUIyMW5fKLnKnKoxaRw.png" title="7126164"></p>
+<h3 id="从data到safeattribute使unsafe的区块safe化">从data到safeAttribute,使unsafe的区块safe化</h3>
+<p>在这一部分，首先会将上一步我们解析出来的<code>data</code>解析成<code>frame</code>并添加到<code>FrameQueue</code>的<code>frames</code>数组里面。然后从<code>frames</code>数组中提取一个<code>frame</code>，并将<code>frame</code>初始化进一个<code>channel</code>并添加到<code>channelbank</code>当中，等待该<code>channel</code>中的<code>frames</code>添加完毕后，从<code>channel</code>中提取<code>batch</code>信息，把<code>batch</code>添加到<code>BatchQueue</code>中，将<code>BatchQueue</code>中的<code>batch</code>添加到<code>AttributesQueue</code>中，用来构造<code>safeAttributes</code>，并把<code>enginequeue</code>里面的<code>safeblcok</code>更新，最终通过<code>ForkchoiceUpdate</code>函数的调用来完成EL层<code>safeblock</code>的更新</p>
+<h4 id="data---frame">data -&gt; frame</h4>
+<p><code>op-node/rollup/derive/frame_queue.go</code></p>
+<p>此函数通过<code>NextData</code>函数获取上一步的data，然后将此data解析后添加到<code>FrameQueue</code>的<code>frames</code>数组里面，并返回在数组中第一个<code>frame</code>。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1030/24_3ssvud2bpo.png" alt="8i9gXCjdjshYc3xyK2JPrsNl15iGH1A1FN3HsyeT.png" title="7126165"></p>
+<h4 id="frame---channel">frame -&gt; channel</h4>
+<p><code>op-node/rollup/derive/channel_bank.go</code></p>
+<p><code>NextData</code>函数负责从当前<code>channel bank</code>中读出第一个<code>channel</code>中的<code>raw data</code>并返回，同时负责调用<code>NextFrame</code>获取<code>frame</code>并装载到<code>channel</code>中</p>
+<p><img src="https://img.bibiqing.com/news/2023/1030/24_i8sel1r3bm.png" alt="TVqmXy87I8YjcpKWA5mMhR2E9OmK5brRyX7ukjEv.png" title="7126166"></p>
+<h4 id="channel---batch">channel -&gt; batch</h4>
+<p><code>op-node/rollup/derive/channel_in_reader.go</code></p>
+<p><code>NextBatch</code>函数主要负责将刚才到<code>raw data</code> 解码成具有<code>batch</code>结构的数据并返回。其中<code>WriteChannel</code>函数的作用是提供一个函数并赋值给<code>nextBatchFn</code>，这个函数的目的是创建一个读取器，从读取器中解码<code>batch</code>结构的数据并返回。</p>
+<p><img src="https://img.bibiqing.com/news/2023/1030/24_oyenn754b2.png" alt="FiiYofLxv5ZDOCyeznGa80yegXTcT9rZ6nh73TbE.png" title="7126167"></p>
+<p>*<em>注意❗️在这里NextBatch函数产生的batch并没有被直接使用，而是先加入了batchQueue当中，再统一管理和使用，并且这里的NextBatch实际由 op-node/rollup/derive/batch_queue.go 目录下的func (bq <em>BatchQueue) NextBatch()函数调用</em></em></p>
+<h4 id="batch---safeattributes">batch -&gt; safeAttributes</h4>
+<p><strong>补充信息：</strong> 1.在layer2区块中，区块中的交易中的第一个永远都是一个<code>锚定交易</code>，可以简单理解为包含了一些l1的信息，如果这个layer2区块同时还是epoch中第一个区块的话，那么还会包含来自layer1的<code>deposit</code>交易（[epoch中第一个区块示例](<a href="https://optimistic.etherscan.io/txs?block=110721915">https://optimistic.etherscan.io/txs?block=110721915</a>]）。 2.这里的batch不能理解为batcher发送的batch交易。例如，我们在这里将batcher发送的batch交易命名为batchA，而在我们这里使用和讨论的命名为batchB，batchA和batchB的关系为包含关系，即batchA中可能包含非常巨量的交易，这些交易可以构造为batchB，batchBB，batchBBB等。batchB对应一个layer2中区块的交易，而batchA对应大量layer2中区块的交易。</p>
+<p><code>op-node/rollup/derive/attributes_queue.go</code></p>
+<ul>
+<li>
+<p><code>NextAttributes</code>函数传入当前l2的safe区块头后，将块头和我们上一步获取的batch传递到<code>createNextAttributes</code>函数中，构造<code>safeAttributes</code>。</p>
+</li>
+<li>
+<p><code>createNextAttributes</code>中我们要注意的是，<code>createNextAttributes</code>函数内部调用的<code>PreparePayloadAttributes</code>函数，<code>PreparePayloadAttributes</code>函数主要负责，锚定交易和<code>deposit</code>交易的。最后再把<code>batch</code>的交易和<code>PreparePayloadAttributes</code>函数返回的交易拼接起来后返回</p>
+</li>
+</ul>
+<p><code>createNextAttributes</code>函数在内部调用<code>PreparePayloadAttributes</code></p>
+<pre><code>    func (aq *AttributesQueue) NextAttributes(ctx context.Context, l2SafeHead eth.L2BlockRef) (*eth.PayloadAttributes, error) {        // Get a batch if we need it        if aq.batch == nil {            batch, err := aq.prev.NextBatch(ctx, l2SafeHead)            if err != nil {                return nil, err            }            aq.batch = batch        }        // Actually generate the next attributes        if attrs, err := aq.createNextAttributes(ctx, aq.batch, l2SafeHead); err != nil {            return nil, err        } else {            // Clear out the local state once we will succeed            aq.batch = nil            return attrs, nil        }    }
+
+    func (aq *AttributesQueue) createNextAttributes(ctx context.Context, batch *BatchData, l2SafeHead eth.L2BlockRef) (*eth.PayloadAttributes, error) {                ……        attrs, err := aq.builder.PreparePayloadAttributes(fetchCtx, l2SafeHead, batch.Epoch())        ……        return attrs, nil    }
+
+    func (aq *AttributesQueue) createNextAttributes(ctx context.Context, batch *BatchData, l2SafeHead eth.L2BlockRef) (*eth.PayloadAttributes, error) {        // sanity check parent hash        if batch.ParentHash != l2SafeHead.Hash {            return nil, NewResetError(fmt.Errorf(&quot;valid batch has bad parent hash %s, expected %s&quot;, batch.ParentHash, l2SafeHead.Hash))        }        // sanity check timestamp        if expected := l2SafeHead.Time + aq.config.BlockTime; expected != batch.Timestamp {            return nil, NewResetError(fmt.Errorf(&quot;valid batch has bad timestamp %d, expected %d&quot;, batch.Timestamp, expected))        }        fetchCtx, cancel := context.WithTimeout(ctx, 20*time.Second)        defer cancel()        attrs, err := aq.builder.PreparePayloadAttributes(fetchCtx, l2SafeHead, batch.Epoch())        if err != nil {            return nil, err        }        // we are verifying, not sequencing, we've got all transactions and do not pull from the tx-pool        // (that would make the block derivation non-deterministic)        attrs.NoTxPool = true        attrs.Transactions = append(attrs.Transactions, batch.Transactions...)        aq.log.Info(&quot;generated attributes in payload queue&quot;, &quot;txs&quot;, len(attrs.Transactions), &quot;timestamp&quot;, batch.Timestamp)        return attrs, nil    }
+</code></pre>
+<h4 id="safeattributes---safe-block">safeAttributes -&gt; safe block</h4>
+<p>在这一步，会先<code>engine queue</code>中的<code>safehead</code>设置为<code>safe</code>，但是这并不代表这个区块是<code>safe</code>的了，还必须通过<code>ForkchoiceUpdat</code>在EL中更新</p>
+<p><code>op-node/rollup/derive/engine_queue.go</code></p>
+<p><code>tryNextSafeAttributes</code>函数在内部判断是否当前<code>safehead</code>和<code>unsafehead</code>的关系，如果一切正常，则触发<code>consolidateNextSafeAttributes</code>函数来把<code>engine queue</code>中的<code>safeHead</code> 设置为我们上一步拿到的<code>safeAttributes</code>构造出来的<code>safe</code>区块，并将<code>needForkchoiceUpdate</code>设置为<code>true</code>，触发后续的<code>ForkchoiceUpdate</code>来把EL中的区块状态改成<code>safe</code>而真正将<code>unsafe</code>区块转化成<code>safe</code>区块。最后的<code>postProcessSafeL2</code>函数是将<code>safehead</code>加入到<code>finalizedL1</code>队列中，以供后续<code>finalied</code>使用。</p>
+<pre><code>    func (eq *EngineQueue) tryNextSafeAttributes(ctx context.Context) error {        ……        if eq.safeHead.Number &lt; eq.unsafeHead.Number {            return eq.consolidateNextSafeAttributes(ctx)        }         ……    }    func (eq *EngineQueue) consolidateNextSafeAttributes(ctx context.Context) error {        ……        payload, err := eq.engine.PayloadByNumber(ctx, eq.safeHead.Number+1)        ……        ref, err := PayloadToBlockRef(payload, &amp;eq.cfg.Genesis)        ……        eq.safeHead = ref        eq.needForkchoiceUpdate = true        eq.postProcessSafeL2()        ……        return nil    }
+</code></pre>
+<h3 id="将safe区块finalized化">将safe区块finalized化</h3>
+<p>safe区块并不是真的牢固安全的区块，他还需要进行进一步的最终化确定，即<code>finalized</code>化。当一个区块的状态转变为<code>safe</code>时，从此区块派生的来源<code>L1（batcher transaction）</code>开始计算，经过两个<code>L1 epoch（64个区块</code>后，此<code>safe</code>区块可以被更新成<code>finalzied</code>状态。</p>
+<p><code>op-node/rollup/derive/engine_queue.go</code></p>
+<p><code>tryFinalizePastL2Blocks</code>函数在内部对<code>finalized队列</code>中区块进行64个区块的校验，如果通过校验，调用<code>tryFinalizeL2</code>来完成<code>engine queue</code>当中<code>finalized</code>的设置和标记<code>needForkchoiceUpdate</code>的更新。</p>
+<pre><code>    func (eq *EngineQueue) tryFinalizePastL2Blocks(ctx context.Context) error {        ……        eq.log.Info(&quot;processing L1 finality information&quot;, &quot;l1_finalized&quot;, eq.finalizedL1, &quot;l1_origin&quot;, eq.origin, &quot;previous&quot;, eq.triedFinalizeAt) //const finalityDelay untyped int = 64        // Sanity check we are indeed on the finalizing chain, and not stuck on something else.        // We assume that the block-by-number query is consistent with the previously received finalized chain signal        ref, err := eq.l1Fetcher.L1BlockRefByNumber(ctx, eq.origin.Number)        if err != nil {            return NewTemporaryError(fmt.Errorf(&quot;failed to check if on finalizing L1 chain: %w&quot;, err))        }        if ref.Hash != eq.origin.Hash {            return NewResetError(fmt.Errorf(&quot;need to reset, we are on %s, not on the finalizing L1 chain %s (towards %s)&quot;, eq.origin, ref, eq.finalizedL1))        }        eq.tryFinalizeL2()        return nil    }
+
+    func (eq *EngineQueue) tryFinalizeL2() {        if eq.finalizedL1 == (eth.L1BlockRef{}) {            return // if no L1 information is finalized yet, then skip this        }        eq.triedFinalizeAt = eq.origin        // default to keep the same finalized block        finalizedL2 := eq.finalized        // go through the latest inclusion data, and find the last L2 block that was derived from a finalized L1 block        for _, fd := range eq.finalityData {            if fd.L2Block.Number &gt; finalizedL2.Number &amp;&amp; fd.L1Block.Number &lt;= eq.finalizedL1.Number {                finalizedL2 = fd.L2Block                eq.needForkchoiceUpdate = true            }        }        eq.finalized = finalizedL2        eq.metrics.RecordL2Ref(&quot;l2_finalized&quot;, finalizedL2)    }
+</code></pre>
+<h3 id="循环触发">循环触发</h3>
+<p>在<code>op-node/rollup/driver/state.go</code>中的<code>eventLoop</code>函数中负责触发整个循环过程中的执行入口。主要是间接执行了了<code>op-node/rollup/derive/engine_queue.go</code>中<code>Step</code>函数</p>
+<pre><code>func (eq *EngineQueue) Step(ctx context.Context) error { if eq.needForkchoiceUpdate {  return eq.tryUpdateEngine(ctx) } // Trying unsafe payload should be done before safe attributes // It allows the unsafe head can move forward while the long-range consolidation is in progress. if eq.unsafePayloads.Len() &gt; 0 {  if err := eq.tryNextUnsafePayload(ctx); err != io.EOF {   return err  }  // EOF error means we can't process the next unsafe payload. Then we should process next safe attributes. } if eq.isEngineSyncing() {  // Make pipeline first focus to sync unsafe blocks to engineSyncTarget  return EngineP2PSyncing } if eq.safeAttributes != nil {  return eq.tryNextSafeAttributes(ctx) } outOfData := false newOrigin := eq.prev.Origin() // Check if the L2 unsafe head origin is consistent with the new origin if err := eq.verifyNewL1Origin(ctx, newOrigin); err != nil {  return err } eq.origin = newOrigin eq.postProcessSafeL2() // make sure we track the last L2 safe head for every new L1 block // try to finalize the L2 blocks we have synced so far (no-op if L1 finality is behind) if err := eq.tryFinalizePastL2Blocks(ctx); err != nil {  return err } if next, err := eq.prev.NextAttributes(ctx, eq.safeHead); err == io.EOF {  outOfData = true } else if err != nil {  return err } else {  eq.safeAttributes = &amp;attributesWithParent{   attributes: next,   parent:     eq.safeHead,  }  eq.log.Debug(&quot;Adding next safe attributes&quot;, &quot;safe_head&quot;, eq.safeHead, &quot;next&quot;, next)  return NotEnoughData } if outOfData {  return io.EOF } else {  return nil }}
+</code></pre>
+<h2 id="总结">总结</h2>
+<p>整个<code>derivation</code>功能看似非常复杂，但是你如果将每个环节都拆解开的话，还是能够很好的掌握理解的，官方的那篇specs不好理解的原因在于，他的<code>batch</code>，<code>frame</code>，<code>channel</code>等概念很容易让人迷茫，因此，如果你在看完这篇文章后，仍然觉得还很迷惑，建议可以回过头去再看看我们的<code>03-how-batcher-works</code>。</p>
+<h3 id="参考资料">参考资料</h3>
+<p>[1]</p>
+<p>joohhnnn: <em><a href="https://learnblockchain.cn/people/4858">https://learnblockchain.cn/people/4858</a></em></p>
+<p>[2]</p>
+<p>source: <em><a href="https://github.com/ethereum-optimism/optimism/blob/develop/specs/derivation.md#deriving-payload-attributes">https://github.com/ethereum-optimism/optimism/blob/develop/specs/derivation.md#deriving-payload-attributes</a></em></p>
+<p>[3]</p>
+<p>第一章: <em><a href="https://learnblockchain.cn/article/6589">https://learnblockchain.cn/article/6589</a></em></p>
+<p>[4]</p>
+<p>第二章: <em><a href="https://learnblockchain.cn/article/6755">https://learnblockchain.cn/article/6755</a></em></p>
+<p>[5]</p>
+<p>第三章: <em><a href="https://learnblockchain.cn/article/6756">https://learnblockchain.cn/article/6756</a></em></p>
+<p>[6]</p>
+<p>第四章: <em><a href="https://learnblockchain.cn/article/6757">https://learnblockchain.cn/article/6757</a></em></p>
+<p>[7]</p>
+<p>第五章: <em><a href="https://learnblockchain.cn/article/6758">https://learnblockchain.cn/article/6758</a></em></p>
+<table>
+    <thead>
+        <tr>
+            <th style="text-align:left">推荐平台</th>
+            <th style="text-align:left">链接</th>
+            <th style="text-align:left">平台介绍</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Gate芝麻开门</span></td>
+            <td style="text-align:left"><span style="white-space:nowrap"><a
+                        href="https://www.okbtc.cn/gateio?ref=githubio">平台介绍</a></span></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/gateio?ref=githubio">Gate.io芝麻开门创立于2013年，是全球真实交易量TOP10的加密货币交易平台，向全球数千万用户提供安全可靠、真实透明的数字资产交易服务。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bitget</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bitget?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bitget?ref=githubio">Bitget的背后是一群区块链技术的早期接受者，也是区块链未来发展的信仰者，一直致力于提供安全、一站式的交易解决方案，帮助用户更聪明地交易。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">Bybit</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/bybit?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/bybit?ref=githubio">Bybit通过数字资产与传统金融的结合，引领数字资产的生态发展。提供一流的流动性，致力于打造业内最安全、公平、高效及人性化的交易服务平台。</a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align:left"><span style="white-space:nowrap">派网</span></td>
+            <td style="text-align:left"><a href="https://www.okbtc.cn/pionex?ref=githubio">注册链接</a></td>
+            <td style="text-align:left"><a
+                    href="https://www.okbtc.cn/pionex?ref=githubio">派网提供多样化的量化交易机器人，用户可依照自身交易需求和策略选择最适合的机器人。 同时派网也提供合约交易与合约网格机器人，给予更方便的合约交易体验。</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+        </div>
+
+        
+        
+
+
+
+        
+        
+
+
+        <footer class="post-footer">
+          
+
+
+          
+          <nav class="post-nav">
+            
+              <a class="prev" href="/post/63634/">
+                
+                <i class="iconfont">
+                  <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+                </i>
+                <span class="prev-text nav-default">OpenAI惊变72小时，微软赢麻了</span>
+                <span class="prev-text nav-mobile">上一篇</span>
+              </a>
+            
+              <a class="next" href="/post/63806/">
+                <span class="next-text nav-default">PeckShield：Heco Bridge资金损失约8660万美元</span>
+                <span class="prev-text nav-mobile">下一篇</span>
+                
+                <i class="iconfont">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+                </i>
+              </a>
+          </nav>
+        </footer>
+      </article>
+
+      
+      
+        
+      
+
+
+      
+      
+
+
+    </div>
+
+    
+    <nav class="toc" id="toc">
+    <div class="toc-title">文章目录</div>
+    <div class="toc-content custom-scrollbar">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#你需要有的问题">你需要有的问题</a></li>
+    <li><a href="#什么是派生derivation">什么是派生（derivation）？</a></li>
+    <li><a href="#代码层深潜">代码层深潜</a>
+      <ul>
+        <li><a href="#获取batcher发送的batch-transactions的data">获取batcher发送的batch transactions的data</a></li>
+        <li><a href="#确定下一个区块的块号">确定下一个区块的块号</a></li>
+        <li><a href="#将区块的data解析出来">将区块的data解析出来</a></li>
+        <li><a href="#从data到safeattribute使unsafe的区块safe化">从data到safeAttribute,使unsafe的区块safe化</a></li>
+        <li><a href="#将safe区块finalized化">将safe区块finalized化</a></li>
+        <li><a href="#循环触发">循环触发</a></li>
+      </ul>
+    </li>
+    <li><a href="#总结">总结</a>
+      <ul>
+        <li><a href="#参考资料">参考资料</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+  </nav>
+
+
+  </div>
+
+      </main>
+
+      <footer id="footer" class="footer">
+        <div class="icon-links">
+  
+
+<a href="https://www.okbtc.cn/binance?ref=githubio" class="iconfont">
+  <img src="/image/logo/binance.png" width="36px" height="36px" alt="binance">
+</a>
+
+<a href="https://www.okbtc.cn/okx?ref=githubio" class="iconfont">
+  <img src="/image/logo/okx.png" width="36px" height="36px" alt="okx">
+</a>
+
+<a href="https://www.okbtc.cn/htx?ref=githubio" class="iconfont">
+  <img src="/image/logo/htx.png" width="36px" height="36px" alt="htx">
+</a>
+
+<a href="https://www.okbtc.cn/gateio?ref=githubio" class="iconfont">
+  <img src="/image/logo/gateio.png" width="36px" height="36px" alt="gateio">
+</a>
+
+<a href="https://www.okbtc.cn/bitget?ref=githubio" class="iconfont">
+  <img src="/image/logo/bitget.png" width="36px" height="36px" alt="bitget">
+</a>
+
+<a href="https://www.okbtc.cn/bybit?ref=githubio" class="iconfont">
+  <img src="/image/logo/bybit.png" width="36px" height="36px" alt="bybit">
+</a>
+
+<a href="https://www.okbtc.cn/pionex?ref=githubio" class="iconfont">
+  <img src="/image/logo/pionex.png" width="36px" height="36px" alt="pionex">
+</a>
+
+
+
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - <a class="theme-link" href="https://github.com/xianmin/hugo-theme-jane">Jane</a>
+  </span>
+
+  <span class="copyright-year">
+    &copy;
+    2023
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        coin
+        
+      </span></span>
+
+  
+  
+
+  
+</div>
+
+      </footer>
+
+      <div class="button__back-to-top">
+        <a href="#back-to-top">
+          <i class="iconfont">
+            
+            <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+          </i>
+        </a>
+      </div>
+    </div>
+    
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.8b200667dc4d9618390c41639250b9c29e57ce80707352fa95af6cb67cf2371a.js" integrity="sha256-iyAGZ9xNlhg5DEFjklC5wp5XzoBwc1L6la9stnzyNxo=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  var remark_config = {
+    host: 'https:\/\/remark42.example.com',
+    site_id: 'remark',
+    components: [
+	    'embed',
+    ],
+  }
+  !function(e,n){for(var o=0;o<e.length;o++){var r=n.createElement("script"),c=".js",d=n.head||n.body;"noModule"in r?(r.type="module",c=".mjs"):r.async=!0,r.defer=!0,r.src=remark_config.host+"/web/"+e[o]+c,d.appendChild(r)}}(remark_config.components||["embed"],document);
+</script>
+
+
+
+
+
+
+
+  </body>
+</html>
